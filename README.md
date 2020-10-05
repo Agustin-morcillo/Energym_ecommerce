@@ -21,13 +21,13 @@ Lleva el gimnasio a donde quieras.
 
 **Target secundarios:**
 
-●   Personas que desean empezar a hacer ejercicio pero que no quieren ir a gimnasios ni estar ligados a una cuota mensual.
+- Personas que desean empezar a hacer ejercicio pero que no quieren ir a gimnasios ni estar ligados a una cuota mensual.
 
-●   Personas que se sienten más a gusto entrenando en privado.
+- Personas que se sienten más a gusto entrenando en privado.
 
-●     Personas que quieren reforzar su entrenamiento por fuera del gimnasio.
+- Personas que quieren reforzar su entrenamiento por fuera del gimnasio.
 
-●    Personas cuyo ejercicio se vio interrumpido por la llegada de la cuarentena.
+- Personas cuyo ejercicio se vio interrumpido por la llegada de la cuarentena.
 
 ## Sitio relacionados
 
