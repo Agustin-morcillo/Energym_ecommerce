@@ -4,7 +4,7 @@
 
 **Productos ofrecidos:** elementos para entrenar (mancuernas, pesas, elásticos, colchonetas, sogas, grips, barras, pelotas, etc).
 
-**Servicios:** rutinas de ejercicios para hacer con los productos, y clases de gimnasio online.
+**Servicios:** rutinas de ejercicios para hacer con los productos.
 
 
 ## Contexto
@@ -68,3 +68,8 @@
 **Damián Mugnolo:** Hola! Mi nombre es Damián Mugnolo, y tengo 33 años. Estudié Comunicación social con orientación en Periodismo en la USAL y soy Cocinero Profesional del IAG, pero solo cocino por placer. Me gusta mucho la información, leer, el cine e Internet. Soy una persona observadora, paciente y analítica. Como no podría ser de otra manera, soy hincha fanático de Racing. El método y la organización son mi filosofía de vida. 
 
 **Santiago Ruiz Moreno:** Buenas! Soy Santiago Ruiz Moreno pero todo el mundo me dice Perga, porque crecí en la ciudad de Pergamino. Tengo 31 años y terminé la carrera de Ingeniería Industrial en la UCA. Dentro de mis grandes pasiones están el fútbol, el tenis y la comedia musical. Me considero una persona muy curiosa, ambiciosa y autoexigente. Admiro a las personas creativas y prácticas… como yo jaja.
+
+## Tablero de trabajo
+
+**Trello:** https://trello.com/invite/b/iRzleofj/0fb0157893e0bcd226475d84072b8083/energym
+
