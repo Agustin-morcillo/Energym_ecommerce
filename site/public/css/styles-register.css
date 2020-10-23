@@ -1,0 +1,188 @@
+
+.registration-main-container{
+    margin-top: 80px;
+    height: 730px;
+    width: 100%;
+    background-image: url(../img/fit-fitness-woman-and-man-doing-fitness-exercises-outdoors-at-city.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.registration-form-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 630px;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 30px;
+    border: 1px solid gray;
+    height: 600px;
+}
+
+.registration-title-container{
+    width: 100%;
+    text-align: center;
+}
+
+.registration-title{
+    margin: 10px 0px;
+}
+
+.registration-description{
+    margin: 10px 0px;
+}
+
+.register-info-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+.register-input{
+    height: 35px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    margin-top: 5px;
+    width: 90%;
+}
+
+.required-field{
+    color: red;
+    font-size: 12px;
+    position: relative;
+    bottom: 5px;
+}
+
+.button-container{
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.register-button{
+    margin: 10px 0px;
+    height: 35px;
+    width: 50%;
+    border-radius: 20px;
+    border: none;
+    background-color: orange;
+    color: white;
+    font-size: 15px;
+}
+
+.facebook-button{
+    background-color: #3b5998;
+}
+
+.facebook-button:hover{
+    background-color:rgb(6, 31, 70);
+}
+
+
+.google-button{
+    background-color: gray;
+}
+
+.google-button:hover{
+    background-color: rgb(42, 45, 49);
+}
+
+.google-icon{
+    position: relative;
+    left:-10px;
+    padding: 3px;
+    font-size: 20px;
+}
+
+.facebook-icon{
+    position: relative;
+    left:-5px;
+    padding: 3px;
+    font-size: 20px;
+}
+
+.final-register-button:hover{
+    background-color: orangered
+}
+
+/* ---responsive--- */
+
+@media (min-width:2560px){
+    .registration-main-container{
+        margin-top: 150px;
+        height: 1200px;
+        align-items: center;
+    }
+
+    .registration-form-container{
+        width: 1300px;
+        height: 1000px;
+        margin: 0px;
+    }
+    
+    
+    .registration-title{
+        font-size: 30px;
+    }
+    
+    .registration-description{
+        font-size: 30px;
+    }
+
+    .register-label{
+        font-size: 30px;
+    }
+
+    .required-field{
+        font-size: 20px;
+    }
+
+    .register-button{
+        font-size: 30px;
+        height: 45px;
+    }
+
+    .facebook-icon, .google-icon{
+        font-size: 30px;
+    }
+
+    .register-input{
+        height: 50px;
+    }
+}
+
+@media (max-width:600px){
+
+    .registration-main-container{
+        height: 1080px;
+        background-size: 2000px;
+        background-repeat: no-repeat;
+        height: 1100px;
+    }
+    .registration-form-container{
+        width: 100%;
+        height: 950px;
+    }
+    .register-info-container{
+        width: 100%;
+    }
+    .register-button{
+        width: 100%;
+    }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles-cart.css">
+    <link rel="stylesheet" href="./css/header-footer-styles.css">
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <header>
+        <div class="first-line-container">
+            <div class="logo-container">
+                <a href="/"><img src="./img/energym-logo.png" alt="Logo Energym" class="energym-logo"></a>
+            </div>
+
+            <div class="search-bar-main-container">
+                    <form action="" class="form-c">
+                        <div class="search-bar-container">
+                            <input type="search" name="search-bar" id="search-bar" placeholder="Buscar productos..." class="search-bar-input">
+                            <label for="search-bar" class="search-icon-container"><i class="fas fa-search search-icon"></i></label>
+                        </div>
+                    </form>
+            </div>
+
+            <div class="menu-icon-container">
+                <label for="check-menu-input"><i class="fas fa-bars menu-icon"></i></label>
+            </div>
+
+          
+                <div class="main-nav-container">
+                    <nav>
+                        <ul class="main-nav-list">
+                            <li><a href="/" class="main-nav-item">Inicio</a></li>
+                            <li><a href="#" class="main-nav-item">Productos</a></li>
+                            <li><a href="#" class="main-nav-item">Rutinas</a></li>
+                            <li><a href="#" class="main-nav-item">Contacto</a></li>
+                            <li><a href="/login" class="main-nav-item-icon main-nav-item"><i class="fas fa-user register-icon"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+       
+        </div>
+    
+    </header>
+
+    
+    <div class="banner-title"> 
+        <div class="logo-carrito"> 
+             <i class="fas fa-shopping-cart"></i> 
+        </div>
+        <h1 class="title"> Carrito de Compras </h1> 
+    </div>
+    <main>
+        <section class="cart-section">  
+
+            <div class="cart-section-box">
+                <article class="product-box product-article1">
+                    <div class="product-image-container"> 
+                    <img src="./img/mancuernas.jpg" alt="Starter Kit" class="cart-product-img product1-img"> 
+                    <div class="lupas-container">
+                        <div class="magnify magnify-plus"><i class="fas fa-search-plus"></i></div> 
+                        <div class="magnify magnify-minus"><i class="fas fa-search-minus"></i></div>
+                    </div>
+                    </div>
+
+                    <div class="main-info">
+                    <h3 class="product-name cart-detail-info">Mancuernas</h3>
+                    <h3 class="product-prize cart-detail-info">$500.00</h3> 
+
+                    <div class="buttons-container">
+                        <form action="index.html" method="GET"          class="quantity-container">
+                            <input type="number" id="cantidad" name="cantidad" value= 1 class="quantity-button">
+                            <label for="cantidad" class="label-cantidad"> Cantidad </label>
+                        </form>
+
+                        <form action="/product" method="GET" class="edit-container">
+                            <button type="submit" class="edit-button general-button" id="editar"><i class="fas fa-edit edit-icon general-icon"></i> Editar </button>     
+                        </form>
+
+                        <form action="" method="GET" class="delete-container"> 
+                            <button type="submit" class="delete-button" id="delete"><i class="far fa-trash-alt"></i> Quitar del Carrito </button>  
+                        </form>
+                    </div>
+                    </div>
+                </article>    
+                <div class="product-divider"> 
+                </div>
+                <article class="product-box product-article2">
+                   <div class="product-image-container"> 
+                        <img src="./img/Colchonetas.jpg" alt="Starter Kit" class="cart-product-img product2-img"> 
+                        <div class="lupas-container">
+                           <div class="magnify magnify-plus"><i class="fas fa-search-plus"></i></div> 
+                           <div class="magnify magnify-minus"><i class="fas fa-search-minus"></i></div>
+                        </div>
+                   </div>          
+                   <div class="main-info">
+                      <h3 class="product-name">Colchonetas</h3>
+                      <h3 class="product-prize">$500.00</h3>    
+                      <div class="buttons-container">
+                         <form action="index.html" method="GET" class="quantity-container">
+                            <input type="number" id="cantidad" name="cantidad" value= 1 class="quantity-button">
+                            <label for="cantidad" class="label-cantidad"> Cantidad </label>
+                         </form>
+                         <form action="/product" method="GET" class="edit-container">
+                            <button type="submit" class="edit-button general-button" id="editar"><i class="fas fa-edit edit-icon general-icon"></i> Editar </button>     
+                         </form>
+                         <form action="" method="GET" class="delete-container"> 
+                            <button type="submit" class="delete-button" id="delete"><i class="far fa-trash-alt"></i> Quitar del Carrito </button>  
+                         </form>
+                      </div>        
+                   </div>
+                </article>    
+            </div>
+        </section>      
+        <section class="total-section">
+             <div class="totales-container">
+                 <h3 class="total-info">Subtotal:</h3>
+                 <h3 class="total-info">Descuento:</h3>
+                 <h2 class="total-info">TOTAL</h2>
+             </div>
+        </section>
+        <section class="buy-section">
+             <article class="buy-container">
+                 <form action="/" class="buy-container">
+                    <input type="submit" value="Comprar Ya!"  class="boton-comprar" id="">
+                </form>
+                 <p class="ver-mas">Ver más productos</p>
+             </article> 
+        </section>
+    </main>
+   
+    
+    <footer>
+        
+        <div class="footer-first-part">
+            <div class="footer-envio footer-container">
+                <article class="footer-article">
+                    <i class="fas fa-truck envio-icon footer-icon"></i>
+                    <h3 class="footer-service-title">Gastos de envío</h3>
+                    <p class="footer-detail">Gastos de envío gratis por compras superiores a $4000</p>
+                </article>
+            </div>
+
+            <div class="footer-devolucion footer-container">
+                <article class="footer-article">
+                    <i class="fas fa-sync-alt devolucion-icon footer-icon"></i>
+                    <h3 class="footer-service-title">Fácil devolución</h3>
+                    <p class="footer-detail">Hace tus devoluciones de forma sencilla y rápida.</p>
+                </article>
+            </div>
+        
+
+            <div class="footer-compra-segura footer-container">
+                <article class="footer-article">
+                    <i class="fas fa-user-shield compra-segura-icon footer-icon"></i>
+                    <h3 class="footer-service-title">Compra segura</h3>
+                    <p class="footer-detail">Tu compra esta asegurada</p>
+                </article>
+            </div>
+
+            <div class="footer-garantia footer-container">
+            <article class="footer-article">
+                <i class="far fa-calendar-check garantia-icon footer-icon"></i>
+                <h3 class="footer-service-title">Garantía</h3>
+                <p class="footer-detail">Todos los productos cuentan con garantia de 1 año</p>
+            </article>
+            </div>
+        </div>
+
+        <div class="footer-bottom-part">
+            
+            <div class="footer-logo-container">
+                <img src="./img/energym-logo.png" alt="" class="energym-logo-footer">
+            </div>
+
+            <div class="footer-menu-icon-container">
+                <label for="check-menu-input"><i class="fas fa-bars footer-menu-icon"></i></label>
+            </div>
+            
+            
+            <nav class="footer-nav">
+                <ul class="footer-list">
+                    <li><a href="/" class="footer-list-item" >Inicio</a></li>
+                    <li><a href="#" class="footer-list-item">Productos</a></li>
+                    <li><a href="#" class="footer-list-item">Rutinas</a></li>
+                    <li><a href="#" class="footer-list-item">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-icons-container">
+                <h3 class="social-cta">Síguenos en nuestras redes sociales</h3>
+                <i class="fab fa-facebook social-icon"></i>
+                <i class="fab fa-instagram social-icon"></i>
+                <i class="fab fa-twitter-square social-icon"></i>
+                <i class="fab fa-youtube social-icon"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,159 @@
+/* -----------------ESTILOS GENERALES----------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+body{
+    background-color: #f4f4f4;
+}
+
+/* -----------------DETALLE PRODUCTO----------------- */
+
+
+.main-container-product-detail{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    background-image: url(../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg);
+    background-size: cover;
+    height: 600px;
+}
+
+
+.product-detail-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 70%;
+    background-color: whitesmoke;
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin-bottom: 40px;
+}
+
+.section-title-container{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    background-color: black;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.section-main-title{
+    color: white;
+}
+.product-detail-image-container{
+    width: 50%;
+    margin:0px
+}
+
+.product-detail-image{
+    width: 100%;
+}
+
+.product-detail-description-container{
+    padding-left: 20px;
+    width: 50%;
+    margin:0px
+}
+
+.product-detail-all-info{
+    margin: 10px 0px 15px 5px;
+}
+
+.product-detail-name{
+  text-transform: uppercase;
+}
+
+.product-detail-price{
+    font-weight: bold;
+    font-size: 20px;
+    color: brown;
+  
+}
+
+.stock-icon{
+    color: green;
+    margin-right: 5px;
+}
+
+.product-number-cart-container{
+    border-bottom: 1px solid black;
+}
+
+.product-number-input{
+    width: 10%;
+    text-align: center;
+   
+}
+
+.product-specific-info{
+    font-weight: lighter;
+}
+
+.product-cart-input{
+background-color: orange;
+color:white;
+font-size: 15px;
+margin:10px 0px 10px 0px;
+border-radius: 10px;
+border:1px solid gray;
+font-weight: bold;
+cursor: pointer;
+width: 50%;
+}
+
+.product-cart-input:hover{
+    background-color: orangered;
+}
+
+.carrito-icon{
+    position: relative;
+    left: -8px;
+}
+
+@media (max-width:1000px){
+
+
+    .product-detail-container{
+        height: 920px;
+        flex-direction: column;
+    }
+
+    .main-container-product-detail{
+        height: 1000px;
+    }
+    .product-detail-image-container{
+        width: 100%;
+    }
+
+    .product-detail-description-container{
+        width: 100%;
+    }
+}
+
+@media (max-width:600px){
+    .product-detail-container{
+        width: 90%;
+        height: 850px;
+    }
+
+    .product-cart-input{
+        width: 70%;
+    }
+}
+
+@media (max-width:425px){
+    .product-detail-container{
+        height: 780px;
+    }
+}

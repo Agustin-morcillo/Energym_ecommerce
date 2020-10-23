@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energym - Home</title>
+    <link rel="stylesheet" href="./css/styles-homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/header-footer-styles.css">
+</head>
+<body>
+ 
+    <header>
+        <div class="first-line-container">
+            <div class="logo-container">
+                <a href="/"><img src="./img/energym-logo.png" alt="Logo Energym" class="energym-logo"></a>
+            </div>
+
+            <div class="search-bar-main-container">
+                    <form action="" class="form-c">
+                        <div class="search-bar-container">
+                            <input type="search" name="search-bar" id="search-bar" placeholder="Buscar productos..." class="search-bar-input">
+                            <label for="search-bar" class="search-icon-container"><i class="fas fa-search search-icon"></i></label>
+                        </div>
+                    </form>
+            </div>
+
+            <div class="menu-icon-container">
+                <label for="check-menu-input"><i class="fas fa-bars menu-icon"></i></label>
+            </div>
+
+          
+                <div class="main-nav-container">
+                    <nav>
+                        <ul class="main-nav-list">
+                            <li><a href="/" class="main-nav-item">Inicio</a></li>
+                            <li><a href="#" class="main-nav-item">Productos</a></li>
+                            <li><a href="#" class="main-nav-item">Rutinas</a></li>
+                            <li><a href="#" class="main-nav-item">Contacto</a></li>
+                            <li><a href="/login" class="main-nav-item-icon main-nav-item"><i class="fas fa-user register-icon"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+       
+        </div>
+    
+    </header>
+   
+
+    <div class="home-banner">
+        <section>
+            <div class="banner-container">
+                <img src="./img/banner-color.jpg" alt="Banner" class="banner-image">
+            </div>
+        </section>
+    </div>
+
+    <main>
+        <section class="mas-vendidos">
+            <h2 class="section-title">Los productos más vendidos</h2>
+            <p class="section-title-description">Estos son los productos más procurados últimamente</p>
+            <div class="articles-container">
+                <article class="article-mancuernas articles">
+                    <img src="./img/mancuernas.jpg" alt="mancuernas" class="mancuernas-image mas-vendidos-img">
+                    <h2 class="product-name">Mancuernas hexagonales</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <!-- <p class="product-price">$5000</p> -->
+                    <form action="/product" class="button-padre">
+                        <button type="submit" class="comprar-button">Comprar</button>
+                    </form>
+                </article>
+
+                <article class="article-mancuernas-tope articles">
+                    <img src="./img/mancuerna-tope.jpg" alt="mancuernas con topes" class="mancuernas-tope mas-vendidos-img">
+                    <h2 class="product-name">Mancuerna con topes</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <!-- <p class="product-price">$5000</p> -->
+                    <form action="/product" class="button-padre">
+                        <button type="submit" class="comprar-button">Comprar</button>
+                    </form>
+                </article>
+
+                <article class="article-barra-puerta articles">
+                    <img src="./img/barra-puerta.jpg" alt="barra para la puerta" class="barra-puerta mas-vendidos-img">
+                    <h2 class="product-name">Barra de dominadas</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <!-- <p class="product-price">$5000</p> -->
+                    <form action="/product" class="button-padre">
+                        <button type="submit" class="comprar-button">Comprar</button>
+                    </form>
+                </article>
+
+                <article class="article-banda-elastica articles">
+                    <img src="./img/banda-elastica.jpg" alt="Banda elástica con manijas" class="banda-elastica mas-vendidos-img">
+                    <h2 class="product-name">Banda elástica con manijas</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <!-- <p class="product-price">$5000</p> -->
+                    <form action="/product" class="button-padre">
+                        <button type="submit" class="comprar-button">Comprar</button>
+                    </form>
+                </article>
+
+                <article class="article-colchoneta articles">
+                    <img src="./img/colchoneta.jpg" alt="Colchoneta" class="colchoneta mas-vendidos-img">
+                    <h2 class="product-name">Colchoneta impermeable</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <!-- <p class="product-price">$5000</p> -->
+                    <form action="/product" class="button-padre">
+                        <button type="submit" class="comprar-button">Comprar</button>
+                    </form>
+                </article>
+
+                <article class="article-tobillera articles">
+                    <img src="./img/tobillera.jpg" alt="Tobillera con peso" class="tobillera mas-vendidos-img">
+                    <h2 class="product-name">Tobilleras con cierre</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <!-- <p class="product-price">$5000</p> -->
+                    <form action="/product" class="button-padre">
+                        <button type="submit" class="comprar-button">Comprar</button>
+                    </form>
+                </article>
+            </div>
+        </section>
+
+        <section class="rutinas">
+            <h2 class="section-title">Rutinas más populares</h2>
+            <p class="section-title-description">Estas son las rutinas más vistas por los usuarios</p>
+            <div class="rutinas-articles-container">
+                <article class="article-biceps rutina-articles">
+                    <img src="./img/biceps.jpg" alt="Biceps" class="biceps-image rutinas-img">
+                    <h2 class="product-name">Biceps</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <form action="" class="button-padre">
+                        <button type="submit" class="ver-mas-button">Ver más</button>
+                    </form>
+                </article>
+
+                <article class="article-abdominales rutina-articles">
+                    <img src="./img/abdominales.jpg" alt="abdominales" class="abdominales-image rutinas-img">
+                    <h2 class="product-name">Abdominales</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <form action="" class="button-padre">
+                        <button type="submit" class="ver-mas-button">Ver más</button>
+                    </form>
+                </article>
+
+                <article class="article-resistencia rutina-articles">
+                    <img src="./img/resistencia.jpg" alt="Resistencia" class="resistencia-image rutinas-img">
+                    <h2 class="product-name">Resistencia</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <form action="" class="button-padre">
+                        <button type="submit" class="ver-mas-button">Ver más</button>
+                    </form>
+                </article>
+
+                <article class="article-piernas rutina-articles">
+                    <img src="./img/piernas.jpg" alt="Piernas" class="piernas-image rutinas-img">
+                    <h2 class="product-name">Piernas</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <form action="" class="button-padre">
+                        <button type="submit" class="ver-mas-button">Ver más</button>
+                    </form>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        
+        <div class="footer-first-part">
+            <div class="footer-envio footer-container">
+                <article class="footer-article">
+                    <i class="fas fa-truck envio-icon footer-icon"></i>
+                    <h3 class="footer-service-title">Gastos de envío</h3>
+                    <p class="footer-detail">Gastos de envío gratis por compras superiores a $4000</p>
+                </article>
+            </div>
+
+            <div class="footer-devolucion footer-container">
+                <article class="footer-article">
+                    <i class="fas fa-sync-alt devolucion-icon footer-icon"></i>
+                    <h3 class="footer-service-title">Fácil devolución</h3>
+                    <p class="footer-detail">Hace tus devoluciones de forma sencilla y rápida.</p>
+                </article>
+            </div>
+        
+
+            <div class="footer-compra-segura footer-container">
+                <article class="footer-article">
+                    <i class="fas fa-user-shield compra-segura-icon footer-icon"></i>
+                    <h3 class="footer-service-title">Compra segura</h3>
+                    <p class="footer-detail">Tu compra esta asegurada</p>
+                </article>
+            </div>
+
+            <div class="footer-garantia footer-container">
+            <article class="footer-article">
+                <i class="far fa-calendar-check garantia-icon footer-icon"></i>
+                <h3 class="footer-service-title">Garantía</h3>
+                <p class="footer-detail">Todos los productos cuentan con garantia de 1 año</p>
+            </article>
+            </div>
+        </div>
+
+        <div class="footer-bottom-part">
+            
+            <div class="footer-logo-container">
+                <img src="./img/energym-logo.png" alt="" class="energym-logo-footer">
+            </div>
+
+            <div class="footer-menu-icon-container">
+                <label for="check-menu-input"><i class="fas fa-bars footer-menu-icon"></i></label>
+            </div>
+            
+            
+            <nav class="footer-nav">
+                <ul class="footer-list">
+                    <li><a href="/" class="footer-list-item" >Inicio</a></li>
+                    <li><a href="#" class="footer-list-item">Productos</a></li>
+                    <li><a href="#" class="footer-list-item">Rutinas</a></li>
+                    <li><a href="#" class="footer-list-item">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-icons-container">
+                <h3 class="social-cta">Síguenos en nuestras redes sociales</h3>
+                <i class="fab fa-facebook social-icon"></i>
+                <i class="fab fa-instagram social-icon"></i>
+                <i class="fab fa-twitter-square social-icon"></i>
+                <i class="fab fa-youtube social-icon"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

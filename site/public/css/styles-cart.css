@@ -1,0 +1,322 @@
+/* -----------------ESTILOS GENERALES----------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background-color: #f4f4f4;
+}
+
+
+/* ----------------- CARRITO ----------------- */
+
+/* --- Banner title --- */
+
+.banner-title {
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 85px 0px 10px 0px; 
+}
+
+.logo-carrito {
+    font-size: 25px;
+}
+
+.title {
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+/* --- Cart Section --- */
+
+.cart-section {
+    background-image: url('../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg');
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 700px;
+}
+
+
+.cart-section-box {
+    background-color: #f4f4f4;
+    width: 700px;
+    margin: 40px 0px;
+    border-radius: 10px;
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    height: 600px;
+}
+
+.product-box {
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 25px;
+}
+
+.product-divider {    
+    width: 50%;
+    height: 1px;
+    background-color: grey;
+    margin: auto;
+}
+
+
+/* Box de imagen */
+
+.product-image-container {
+    width: 50%;
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cart-product-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Columna de informacion */
+
+.main-info {
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 50%;
+    padding-left: 10px;
+}
+
+/* Nombre y precio */
+
+.product-name {
+    width: 100%;
+    height: 30px;
+    text-align: start;
+    margin-top: 10px;
+}
+
+.product-prize {
+    width: 100%;
+    height: 30px;
+    text-align: start;
+    margin-bottom: 35px;
+}
+
+/* Formularios */
+
+.buttons-container {
+    width: 100%;
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quantity-container {
+    align-self: flex-start;
+    width: 100%;
+    margin: 0px 0px 5px 5px;    
+}
+
+.quantity-button {  
+    width: 50px;
+}
+
+label {
+    font-size: 15px;
+}
+
+.edit-container {
+    align-items: flex-start;
+    width: 100%;
+    margin: 0px 0px 5px 0px;   
+    text-align: left;
+
+}
+
+.edit-button {
+    border: none;
+    background-color: whitesmoke;
+    font-size: 18px;
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: orangered;
+}
+
+.delete-container {
+    align-items: flex-start;
+    width: 100%;
+    margin: 0px 0px 15px 0px;    
+    text-align: left;
+}
+
+.delete-button {
+    border: none;
+    background-color: whitesmoke;
+    font-size: 18px;
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: orangered;
+}
+
+
+/* Contenedor lupas */
+
+.lupas-container {
+    width: 100%;
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 3px;
+}
+
+.magnify {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+/* --- Totals Section --- */
+
+.totales-container {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.total-info{
+    padding: 10px;
+}
+
+/* --- Buy Section --- */
+
+.buy-container {
+    height: 70px;
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.boton-comprar {
+    width: 25%;
+    height: 30px;
+    align-self: center;
+    color: white;
+    background-color: orange;
+    border-radius: 20px;
+    border: 1px;
+    font-size: 20px;
+}
+
+.boton-comprar:hover {
+    background-color: orangered;
+
+}
+
+.ver-mas {
+    font-size: 17px;
+    color: rgb(255, 89, 89);
+    align-self: center;
+    margin: 10px 0px;
+}
+
+.ver-mas:hover {
+    text-decoration: underline;
+}
+
+/* -----------------CART RESPONSIVE----------------- */
+
+@media (max-width: 830px) {
+    .product-box{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .cart-section{
+        height: 1400px;
+    }
+    .cart-section-box {
+        width: 90%;
+        height: 1300px;
+    }
+    
+
+    .product-image-container {
+        width: 100%;;
+    }
+
+    .cart-product-img {
+        height: 380px;
+    }
+
+    .cart-detail-info {
+        font-size: 22px;
+    }
+
+    .main-info {
+        align-items: flex-start;
+    }
+
+    
+}
+
+@media (max-width: 600px) {
+    .cart-section-box {
+        width: 100%;
+    }
+
+    .product-image-container {
+        width: 100%;
+
+    }
+
+    .boton-comprar{
+        width: 70%;
+    }
+}
+
+@media (max-width: 500px) {
+    .product-image-container {
+        width: 100%;
+
+    }
+}
+
+@media (max-width: 382px){
+    .delete-button{
+        width: 200px;
+        text-align: left;
+    }
+}
