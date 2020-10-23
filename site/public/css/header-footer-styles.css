@@ -432,7 +432,7 @@ header{
 }
 
 .energym-logo-footer{
-    width: 80%;
+    width: 60%;
     padding: 10px;
 }
 
@@ -509,6 +509,12 @@ header{
     }
 }
 
+@media (max-width:1024px){
+    .energym-logo-footer{
+        width: 250px;
+    }
+}
+
 
 @media (max-width:830px){
 
@@ -538,7 +544,7 @@ header{
 }
 
 .energym-logo-footer{
-    width: 100%;
+    width: 80%;
     padding-left: 10px;
 }
 
@@ -567,6 +573,9 @@ header{
 
     .footer-menu-icon{
         font-size: 20px;
+    }
+    .energym-logo-footer{
+        width: 155px;
     }
 }
 

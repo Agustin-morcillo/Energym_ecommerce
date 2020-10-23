@@ -63,7 +63,7 @@ body{
 .product-detail-description-container{
     padding-left: 20px;
     width: 50%;
-    margin:0px
+    margin:0px;
 }
 
 .product-detail-all-info{
@@ -126,7 +126,6 @@ width: 50%;
 
     .product-detail-container{
         height: 920px;
-        flex-direction: column;
     }
 
     .main-container-product-detail{
