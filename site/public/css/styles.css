@@ -1,0 +1,1400 @@
+/* ----------------------------------------ESTILOS GENERALES---------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+body{
+    background-color: #f4f4f4;
+}
+
+
+/* ----------------------------------------[HOMEPAGE]---------------------------------------- */
+
+
+/* -----------------BANNER----------------- */
+
+.banner-image{
+    width: 100%;
+    margin-top: 80px;
+}
+
+
+
+/* -----------------ARTICULOS HOMEPAGE----------------- */
+
+.articles{
+    width: 30%;
+    margin: 10px 0;
+    background-color:#eeeeee;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);;
+    border-radius: 20px;
+}
+
+/* -----------------MÁS VENDIDOS HOME----------------- */
+
+
+.section-title{
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.section-title-description{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.articles-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.mas-vendidos-img{
+    width: 100%;
+    display: block;
+}
+
+.product-names{
+    margin: 2px 0 4px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.product-description{
+    font-size: 10px;
+    text-align: center;
+}
+
+.button-padre{
+    text-align: center;
+}
+
+.comprar-button{
+    background-color: orange;
+    color:white;
+    width: 50%;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin:10px 0px 10px 0px;
+}
+
+.comprar-button:hover{
+    background-color: orangered;
+    cursor: pointer;
+}
+
+/* -----------------MÁS VENDIDOS HOME RESPONSIVE----------------- */
+
+@media (max-width:830px){
+    .articles{
+        width: 40%;
+        margin: 10px 10px 50px 10px;
+    }
+}
+
+@media (max-width:600px){
+    .articles{
+        width: 100%;
+        margin: 10px 10px 50px 10px;
+    }
+}
+
+
+/* -----------------RUTINAS----------------- */
+
+.rutinas{
+    margin:50px 0px;
+}
+
+
+
+.rutinas-img{
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.rutinas-articles-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.rutina-articles{
+    width: 25%;
+}
+
+.ver-mas-button{
+    background-color: orange;
+    color:white;
+    width: 50%;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin:10px 0px 10px 0px;
+}
+
+.ver-mas-button:hover{
+    background-color: orangered;
+    cursor: pointer;
+}
+
+
+/* -----------------RUTINAS RESPONSIVE----------------- */
+
+@media (max-width:830px){
+    .rutina-articles{
+        width: 50%;
+    }
+}
+
+@media (max-width:600px){
+    .rutina-articles{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+/* ----------------------------------------[LOGIN]---------------------------------------- */
+
+.login-main-container{
+    margin-top: 80px;
+    margin-bottom: 0px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background-image: url("/img/alexander-redl-d3bYmnZ0ank-unsplash.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.login-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 470px;
+    width: 400px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    background-color: white;
+    margin-top: 40px;
+}
+
+/* ------------LOGIN - TITULO-------------- */
+
+.login-title-container{
+    text-align: center;
+}
+
+.login-main-title{
+    margin: 10px 0px;
+    font-weight: 900;
+}
+
+
+/* ------------LOGIN - CONTENDOR DE INPUTS-------------- */
+.login-inputs-container{
+    display: flex;
+    justify-content: center;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.login-email-container{
+    width: 100%;
+}
+
+.general-containers{
+    text-align: center;
+    margin: 10px;
+    width: 100%;
+}
+
+
+.login-inputs-titles{
+    display: block;
+    width: 60%;
+    text-align: left;
+    position: relative;
+    left: 60px;
+    margin-bottom: 5px;
+}
+
+
+.all-login-inputs{
+    width: 80%;
+    border-radius: 20px;
+    height: 35px;
+    border: 1px solid grey;
+}
+
+.remember-me-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 5px;
+    width: 80%;
+    position: relative;
+    left: 20px;
+    font-weight: lighter;
+}
+
+.remember-login-input{
+    margin-left: 5px;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.login-button{
+    margin: 10px;
+    width: 80%;
+    border-radius: 20px;
+    height: 35px;
+    border: none;
+    background-color: orange;
+    color: white;
+    font-size: 18px;
+}
+
+.login-button:hover{
+    background-color:orangered;
+    cursor: pointer;
+}
+
+
+
+.register-account-container{
+    text-align: center;
+}
+
+.forgot-password{
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+.forgot-password:hover{
+    text-decoration:underline;
+}
+
+.no-account{
+    margin-top: 20px;
+    border-top: 1px solid gray;
+    padding-top: 20px;
+}
+
+.register-account{
+    text-decoration: none;
+}
+
+.register-account:hover{
+    text-decoration: underline;
+}
+
+.mandatory{
+    color: red;
+    font-size: 10px;
+    position: relative;
+    top:-3px;
+}
+
+
+/* ------------LOGIN-RESPONSIVE-------------- */
+
+@media (max-width:830px){
+    .login-main-container{
+        background-size: 1000px;
+    }
+}
+
+
+/* ----------------------------------------[REGISTER]---------------------------------------- */
+
+
+.registration-main-container{
+    margin-top: 80px;
+    height: 730px;
+    width: 100%;
+    background-image: url(../img/fit-fitness-woman-and-man-doing-fitness-exercises-outdoors-at-city.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.registration-form-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 630px;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 30px;
+    border: 1px solid gray;
+    height: 600px;
+}
+
+.registration-title-container{
+    width: 100%;
+    text-align: center;
+}
+
+.registration-title{
+    margin: 10px 0px;
+}
+
+.registration-description{
+    margin: 10px 0px;
+}
+
+.register-info-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+.register-input{
+    height: 35px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    margin-top: 5px;
+    width: 90%;
+}
+
+.required-field{
+    color: red;
+    font-size: 12px;
+    position: relative;
+    bottom: 5px;
+}
+
+.button-container{
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.register-button{
+    margin: 10px 0px;
+    height: 35px;
+    width: 50%;
+    border-radius: 20px;
+    border: none;
+    background-color: orange;
+    color: white;
+    font-size: 15px;
+}
+
+.facebook-button{
+    background-color: #3b5998;
+}
+
+.facebook-button:hover{
+    background-color:rgb(6, 31, 70);
+}
+
+
+.google-button{
+    background-color: gray;
+}
+
+.google-button:hover{
+    background-color: rgb(42, 45, 49);
+}
+
+.google-icon{
+    position: relative;
+    left:-10px;
+    padding: 3px;
+    font-size: 20px;
+}
+
+.facebook-icon{
+    position: relative;
+    left:-5px;
+    padding: 3px;
+    font-size: 20px;
+}
+
+.final-register-button:hover{
+    background-color: orangered
+}
+
+/* ---responsive--- */
+
+@media (min-width:2560px){
+    .registration-main-container{
+        margin-top: 150px;
+        height: 1200px;
+        align-items: center;
+    }
+
+    .registration-form-container{
+        width: 1300px;
+        height: 1000px;
+        margin: 0px;
+    }
+    
+    
+    .registration-title{
+        font-size: 30px;
+    }
+    
+    .registration-description{
+        font-size: 30px;
+    }
+
+    .register-label{
+        font-size: 30px;
+    }
+
+    .required-field{
+        font-size: 20px;
+    }
+
+    .register-button{
+        font-size: 30px;
+        height: 45px;
+    }
+
+    .facebook-icon, .google-icon{
+        font-size: 30px;
+    }
+
+    .register-input{
+        height: 50px;
+    }
+}
+
+@media (max-width:600px){
+
+    .registration-main-container{
+        height: 1080px;
+        background-size: 2000px;
+        background-repeat: no-repeat;
+        height: 1100px;
+    }
+    .registration-form-container{
+        width: 100%;
+        height: 950px;
+    }
+    .register-info-container{
+        width: 100%;
+    }
+    .register-button{
+        width: 100%;
+    }
+}
+
+/* ----------------------------------------[DETALLE PRODUCTO]---------------------------------------- */
+
+.main-container-product-detail{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    background-image: url(../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg);
+    background-size: cover;
+    height: 600px;
+}
+
+
+.product-detail-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 70%;
+    background-color: whitesmoke;
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin-bottom: 40px;
+}
+
+.section-title-container{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    background-color: black;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.section-main-title{
+    color: white;
+}
+.product-detail-image-container{
+    width: 50%;
+    margin:0px
+}
+
+.product-detail-image{
+    width: 100%;
+}
+
+.product-detail-description-container{
+    padding-left: 20px;
+    width: 50%;
+    margin:0px;
+}
+
+.product-detail-all-info{
+    margin: 10px 0px 15px 5px;
+}
+
+.product-detail-name{
+  text-transform: uppercase;
+}
+
+.product-detail-price{
+    font-weight: bold;
+    font-size: 20px;
+    color: brown;
+  
+}
+
+.stock-icon{
+    color: green;
+    margin-right: 5px;
+}
+
+.product-number-cart-container{
+    border-bottom: 1px solid black;
+}
+
+.product-number-input{
+    width: 10%;
+    text-align: center;
+   
+}
+
+.product-specific-info{
+    font-weight: lighter;
+}
+
+.product-cart-input{
+background-color: orange;
+color:white;
+font-size: 15px;
+margin:10px 0px 10px 0px;
+border-radius: 10px;
+border:1px solid gray;
+font-weight: bold;
+cursor: pointer;
+width: 50%;
+}
+
+.product-cart-input:hover{
+    background-color: orangered;
+}
+
+.carrito-icon{
+    position: relative;
+    left: -8px;
+}
+
+@media (max-width:1000px){
+
+
+    .product-detail-container{
+        height: 920px;
+    }
+
+    .main-container-product-detail{
+        height: 1000px;
+    }
+    .product-detail-image-container{
+        width: 100%;
+    }
+
+    .product-detail-description-container{
+        width: 100%;
+    }
+}
+
+@media (max-width:600px){
+    .product-detail-container{
+        width: 90%;
+        height: 850px;
+    }
+
+    .product-cart-input{
+        width: 70%;
+    }
+}
+
+@media (max-width:425px){
+    .product-detail-container{
+        height: 780px;
+    }
+}
+
+/* ----------------------------------------[CARRITO COMPRAS]---------------------------------------- */
+
+/* --- Banner title --- */
+
+.banner-title {
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 85px 0px 10px 0px; 
+}
+
+.logo-carrito {
+    font-size: 25px;
+}
+
+.title {
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+/* --- Cart Section --- */
+
+.cart-section {
+    background-image: url('../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg');
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 700px;
+}
+
+
+.cart-section-box {
+    background-color: #f4f4f4;
+    width: 700px;
+    margin: 40px 0px;
+    border-radius: 10px;
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    height: 600px;
+}
+
+.product-box {
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 25px;
+}
+
+.product-divider {    
+    width: 50%;
+    height: 1px;
+    background-color: grey;
+    margin: auto;
+}
+
+
+/* Box de imagen */
+
+.product-image-container {
+    width: 50%;
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cart-product-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Columna de informacion */
+
+.main-info {
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 50%;
+    padding-left: 10px;
+}
+
+/* Nombre y precio */
+
+.product-name {
+    width: 100%;
+    height: 30px;
+    text-align: start;
+    margin-top: 10px;
+}
+
+.product-prize {
+    width: 100%;
+    height: 30px;
+    text-align: start;
+    margin-bottom: 35px;
+}
+
+/* Formularios */
+
+.buttons-container {
+    width: 100%;
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quantity-container {
+    align-self: flex-start;
+    width: 100%;
+    margin: 0px 0px 5px 5px;    
+}
+
+.quantity-button {  
+    width: 50px;
+}
+
+label {
+    font-size: 15px;
+}
+
+.edit-container {
+    align-items: flex-start;
+    width: 100%;
+    margin: 0px 0px 5px 0px;   
+    text-align: left;
+
+}
+
+.edit-button {
+    border: none;
+    background-color: whitesmoke;
+    font-size: 18px;
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: orangered;
+}
+
+.delete-container {
+    align-items: flex-start;
+    width: 100%;
+    margin: 0px 0px 15px 0px;    
+    text-align: left;
+}
+
+.delete-button {
+    border: none;
+    background-color: whitesmoke;
+    font-size: 18px;
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: orangered;
+}
+
+
+/* Contenedor lupas */
+
+.lupas-container {
+    width: 100%;
+    /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 3px;
+}
+
+.magnify {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+/* --- Totals Section --- */
+
+.totales-container {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.total-info{
+    padding: 10px;
+}
+
+/* --- Buy Section --- */
+
+.buy-container {
+    height: 70px;
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.boton-comprar {
+    width: 25%;
+    height: 30px;
+    align-self: center;
+    color: white;
+    background-color: orange;
+    border-radius: 20px;
+    border: 1px;
+    font-size: 20px;
+}
+
+.boton-comprar:hover {
+    background-color: orangered;
+
+}
+
+.ver-mas {
+    font-size: 17px;
+    color: rgb(255, 89, 89);
+    align-self: center;
+    margin: 10px 0px;
+}
+
+.ver-mas:hover {
+    text-decoration: underline;
+}
+
+/* -----------------CART RESPONSIVE----------------- */
+
+@media (max-width: 830px) {
+    .product-box{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .cart-section{
+        height: 1400px;
+    }
+    .cart-section-box {
+        width: 90%;
+        height: 1300px;
+    }
+    
+
+    .product-image-container {
+        width: 100%;;
+    }
+
+    .cart-product-img {
+        height: 380px;
+    }
+
+    .cart-detail-info {
+        font-size: 22px;
+    }
+
+    .main-info {
+        align-items: flex-start;
+    }
+
+    
+}
+
+@media (max-width: 600px) {
+    .cart-section-box {
+        width: 100%;
+    }
+
+    .product-image-container {
+        width: 100%;
+
+    }
+
+    .boton-comprar{
+        width: 70%;
+    }
+}
+
+@media (max-width: 500px) {
+    .product-image-container {
+        width: 100%;
+
+    }
+}
+
+@media (max-width: 382px){
+    .delete-button{
+        width: 200px;
+        text-align: left;
+    }
+}
+
+/* ----------------------------------------[ADMIN PAGE]---------------------------------------- */
+
+.admin-menu-main-container{
+    margin-top: 80px;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg");
+    background-position: right;
+    
+}
+
+.admin-menu-container{
+    border: 1px solid gray;
+    width: 60%;
+    height: 650px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+
+.admin-section-welcome-container{
+    text-align: center;
+    color:white;
+    background-color: black;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.admin-section-welcome-title{
+    margin-bottom: 5px;
+}
+
+
+.admin-section-title-container{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.admin-section-title{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.admin-product-add-container{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+}
+
+.admin-add-button{
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    width: 25%;
+    height: 30px;
+}
+
+.admin-add-button:hover{
+    background-color: #00b347 
+}
+
+.add-icon{
+    padding-right: 7px;
+}
+
+.admin-product-card-container{
+    display: flex;
+    margin: 5px auto 0px auto;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 90%;
+    background-color: #f4f4f4;
+}
+
+.product-image-and-name-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+
+.admin-product-img{
+    height: 50px;
+    border-radius: 10px;
+}
+
+.admin-product-name-container{
+    width: 100%;
+}
+
+
+.admin-product-name{
+    font-weight: 500;
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+.edit-delete-buttons-container{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 15px;
+}
+
+
+
+.admin-edit-button{
+    background-color: orange;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    width: 100px;
+    margin-right: 15px;
+    height: 25px;
+}
+
+.admin-edit-button:hover{
+    background-color: #da823f
+}
+
+
+.admin-edit-icon{
+    padding-right: 7px;
+}
+
+.admin-delete-button{
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    width: 100px;
+    height: 25px;
+}
+
+.admin-delete-button:hover{
+    background-color:black
+}
+
+.admin-delete-icon{
+    padding-right: 7px;
+}
+
+@media (max-width:950px){
+    .admin-menu-container{
+        width: 90%;
+    }
+}
+
+@media (max-width:640px){
+    .admin-menu-container{
+        width: 100%;
+    }
+
+    .admin-add-button{
+        width: 35%;
+    }
+}
+
+@media (max-width:500px){
+
+    .admin-menu-main-container{
+        height: 1000px;
+    }
+    .admin-menu-container{
+        height: 900px;
+    }
+    .admin-product-card-container{
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .admin-section-welcome-title{
+        font-size: 18px;
+    }
+
+    .admin-section-welcome-description{
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+
+    .edit-delete-buttons-container{
+        justify-content: flex-start;
+        margin: 10px 5px;
+    }
+    .product-image-and-name-container{
+        width:100%;
+    }
+    .admin-add-button{
+        width: 50%;
+    }
+    .admin-edit-button{
+        width:125px;
+    }
+
+    .admin-delete-button{
+        width:125px;
+    }
+
+}
+
+
+/* ------------------------------------ADMIN ADD/EDIT PRODUCT PAGE------------------------------------ */
+
+.add-edit-product-card-main-container{
+    margin-top: 50px;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg");
+    background-size: cover;
+} 
+ 
+
+
+.add-edit-product-card-container{
+    height: 900px;
+    width: 50%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid gray;
+    display: flex;
+    flex-wrap: wrap;   
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.add-edit-product-type-title-container{
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border: 0.1px solid black;
+    padding: 5px
+}
+
+.add-edit-product-type-title{
+    margin-bottom: 5px;
+}
+
+.add-edit-product-card-form-container{
+    width:100%;
+    margin: 0px 40px;
+    margin-top: 30px;
+}
+
+.add-edit-product-input{
+    width: 100%;
+    border-radius: 10px;
+    height: 40px;
+    border: 1px solid gray;
+    margin-bottom: 25px;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+.add-edit-product-input-textarea{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    resize:none;
+    padding: 10px;
+    background-color: #f4f4f4
+}
+
+.add-edit-product-image-label{
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.add-edit-product-image-input{
+    margin-bottom: 25px;
+}
+
+.form-add-edit-product-button-container{
+    text-align: center;
+}
+
+
+.product-add-icon, .product-add-cancel-icon{
+    padding-right: 7px;
+}
+
+
+.add-edit-product-create-product-button{
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    width: 200px;
+    margin-right: 15px;
+    height: 30px;
+}
+
+.add-edit-product-create-product-button:hover{
+    background-color: #00b347 
+}
+
+.add-edit-product-cancel-product-button{
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    width: 200px;
+    margin-right: 15px;
+    height: 30px;
+}
+
+.add-edit-product-cancel-product-button:hover{
+    background-color:black
+}
+
+@media (max-width:1024px){
+    .add-edit-product-card-container{
+        width: 80%;
+    }
+}
+
+@media (max-width:600px){
+
+    .add-edit-product-card-main-container{
+        height: 1000px;
+    }
+    .add-edit-product-card-container{
+        width: 100%;
+        height: 950px;
+    }
+    .add-edit-product-card-form-container{
+        margin: 0px 20px;
+        margin-top: 30px;
+    }
+
+    .add-edit-product-create-product-button{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .add-edit-product-cancel-product-button{
+        width: 100%;
+    }
+
+}
+
+
+/* ------------------------------------ADMIN ADD/EDIT PRODUCT RUTINE DETAILS------------------------------------ */
+
+.add-edit-product-rutine-card-main-container{
+    margin-top: 50px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg");
+    background-size: cover;
+} 
+
+.add-edit-product-rutine-card-container{
+    height: 700px;
+    width: 50%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid gray;
+    display: flex;
+    flex-wrap: wrap;   
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.add-edit-product-rutine-card-form-container{
+    width:100%;
+    margin: 0px 40px;
+    margin-top: 30px;
+}
+
+@media (max-width:1024px){
+    .add-edit-product-rutine-card-container{
+        width: 80%;
+    }
+}
+
+@media (max-width:600px){
+
+    .add-edit-product-rutine-card-main-container{
+        height:900px;
+    }
+    .add-edit-product-rutine-card-container{
+        width: 100%;
+        height: 750px;
+    }
+    .add-edit-product-rutine-card-form-container{
+        margin: 0px 20px;
+        margin-top: 30px;
+    }
+
+    .add-edit-product-create-product-button{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .add-edit-product-cancel-product-button{
+        width: 100%;
+    }
+
+}

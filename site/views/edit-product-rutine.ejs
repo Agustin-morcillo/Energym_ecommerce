@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %> 
+<body>
+    <%- include("./partials/header") %> 
+
+    <main>
+        <section>
+            <article>
+                <div class="add-edit-product-rutine-card-main-container">
+                    <div class="add-edit-product-rutine-card-container">
+                        <div class="add-edit-product-type-title-container">
+                            <h2 class="add-edit-product-type-title">Editar Rutina</h2>
+                            <p class="add-edit-product-type-description">Modifica los campos para editar la rutina</p>
+                        </div>
+                        <div class="add-edit-product-rutine-card-form-container">
+                            <form action="/products/admin">
+                                <input type="text" name="" id="add-edit-product-name" class="add-edit-product-input" placeholder="Nombre de la rutina" value="Abdominales" >
+                        
+                                <input type="number" name="" id="add-edit-product-price" class="add-edit-product-input" placeholder="Precio" value="1000">
+                    
+                                <textarea name="" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea" placeholder="Descripción">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti non aperiam ea nisi aspernatur quod veniam quibusdam, atque eum cupiditate reprehenderit doloribus magnam earum, dolor maiores nostrum! Quaerat, molestias nesciunt?</textarea>
+                                
+                                <input type="text" name="" id="add-edit-product-brand" class="add-edit-product-input" placeholder="Duración" value="8 semanas">           
+                                
+                                <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen de la rutina</label>
+                                <input type="file" class="add-edit-product-image-input">
+        
+                                <div class="form-add-edit-product-button-container">
+                                    <button type="submit" class="add-edit-product-create-product-button"><i class="fas fa-check-circle product-add-icon"></i>Guardar cambios</button>
+                                    <button type="reset" class="add-edit-product-cancel-product-button"><i class="fas fa-times product-add-cancel-icon"></i>Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </article>
+        </section>
+    </main>
+
+    <%- include("./partials/footer") %> 
+</body>
+</html>

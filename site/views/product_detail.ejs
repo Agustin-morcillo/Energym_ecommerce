@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("./partials/head") %> 
+<body>
+    <%- include("./partials/header") %> 
+
+    <main>
+        <section>
+            <article class="main-container-product-detail">
+                <div class="product-detail-container">
+                    <div class="section-title-container">
+                        <h1 class="section-main-title">Detalle del producto</h1>
+                    </div>
+                    <div class="product-detail-image-container">
+                        <img src="/img/colchoneta.jpg" alt="colchoneta" class="product-detail-image">
+                    </div>
+                    <div class="product-detail-description-container" style="margin:0px">
+                        <h3 class="product-detail-name product-detail-all-info">Colchoneta impermeable</h3>
+                        <p class="product-detail-price product-detail-all-info">Precio: $2,000.00</p>
+                        <p class="product-detail-status product-detail-all-info"><i class="fas fa-check stock-icon"></i>En stock</p>
+                        <form action="/products/cart" class="product-number-cart-container product-detail-all-info">
+                            <input type="number" value="1" class="product-number-input">
+                            <button type="submit" class="product-cart-input"><i class="fas fa-shopping-cart carrito-icon"></i>Agregar al carrito</button>
+                        </form>
+                        <h3 class="product-description product-detail-all-info">Descripción del producto</h3>
+                        <p class="product-description-text product-detail-all-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio.</p>
+                        <h4 class="product-brand product-detail-all-info">Marca: <span class="product-specific-info">Mir.</span></h4>
+                        <h4 class="product-weight product-detail-all-info">Peso total: <span class="product-specific-info">1Kg.</span></h4>
+                        <h4 class="product-material product-detail-all-info">Material: <span class="product-specific-info">superior bagun,  inferior friselina, relleno de espuma de polietileno.</span></h4>
+                        <h4 class="product-spects product-detail-all-info">Medidas: <span class="product-specific-info">100 cm x 40 cm.</span></h4>
+                        <h4 class="product-spects product-detail-all-info">Espesor: <span class="product-specific-info">3cm.</span></h4>
+                    </div>
+
+                </div>
+            </article>
+        </section>
+    </main>
+
+
+    <%- include("./partials/footer") %> 
+</body>
+</html>
