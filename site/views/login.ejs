@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %> 
+<body>
+    <%- include("./partials/header") %> 
+ 
+    <main>
+        <section class="login-main-container">
+            <article class="login-container">
+                <div class="login-title-container">
+                    <h2 class="login-main-title">Iniciar sesión</h2>
+                </div>
+
+                <div class="login-inputs-container">
+                    <form action="/" method="GET" class="form-container">
+                        
+                        <div class="login-email-container general-containers">
+                            <label for="email-login" class="login-inputs-titles">Correo Electrónico<span class="mandatory">*</span></label>
+                            <input type="email" name="email-login" id="email-login" class="email-login-input all-login-inputs" required>
+                        </div>
+                        
+                        <div class="login-password-container general-containers">
+                            <label for="password" class="login-inputs-titles">Contraseña<span class="mandatory">*</span></label>
+                            <input type="password" name="password" id="password" class="password-login-input all-login-inputs">
+                         </div>
+                        
+                         <div class="remember-me-container">
+                            <label for="remember-me">Recordarme</label>
+                            <input type="checkbox" id="remember-me" class="remember-login-input">
+                        </div>
+
+                        <div class="buttons-container general-containers">
+                            <button type="submit" class="login-button general-button">Ingresar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="register-account-container">
+                    <h4><a href="#" class="forgot-password">Olvide mi contraseña</a></h4>
+                    <h4 class="no-account">¿No tenés cuenta?<a href="/users/register" class="register-account"> Registrate</a></h4>
+                </div>
+
+            </article>
+        </section>
+    </main>
+       
+
+    <%- include("./partials/footer") %> 
+</body>
+</html>

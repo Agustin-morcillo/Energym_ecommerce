@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %> 
+<body>
+    <%- include("./partials/header") %> 
+
+    <main>
+        <section>
+            <article>
+                <div class="add-edit-product-card-main-container">
+                    <div class="add-edit-product-card-container">
+                        <div class="add-edit-product-type-title-container">
+                            <h2 class="add-edit-product-type-title">Editar producto</h2>
+                            <p class="add-edit-product-type-description">Modifica los campos para editar el producto</p>
+                        </div>
+                        <div class="add-edit-product-card-form-container">
+                            <form action="/products/admin">
+                                <input type="text" name="" id="add-edit-product-name" class="add-edit-product-input" placeholder="Nombre del producto" value="Colchoneta impermeable">
+                        
+                                <input type="number" name="" id="add-edit-product-price" class="add-edit-product-input" placeholder="Precio" value="2000">
+                    
+                                <textarea name="" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea" placeholder="Descripción">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate.</textarea>
+                                
+                                <input type="text" name="" id="add-edit-product-brand" class="add-edit-product-input" placeholder="Marca" value="Mir">           
+                                
+                                <input type="text" name="" id="add-product-weight" class="add-edit-product-input" placeholder="Peso total" value="1Kg">
+
+                                <input type="text" name="" id="add-edit-product-material" class="add-edit-product-input" placeholder="Material" value="superor bagun, inferior friselina,relleno de espuma de polietileno">
+                                
+                                <input type="text" name="" id="add-edit-product-spects" class="add-edit-product-input" placeholder="Medidas" value="100 cm x 40 cm">
+                                
+                                <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen del producto</label>
+                                <input type="file" class="add-edit-product-image-input">
+        
+                                <div class="form-add-edit-product-button-container">
+                                    <button type="submit" class="add-edit-product-create-product-button"><i class="fas fa-check-circle product-add-icon"></i>Guardar cambios</button>
+                                    <button type="reset" class="add-edit-product-cancel-product-button"><i class="fas fa-times product-add-cancel-icon"></i>Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </article>
+        </section>
+    </main>
+
+    <%- include("./partials/footer") %> 
+</body>
+</html>
