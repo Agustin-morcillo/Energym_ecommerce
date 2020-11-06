@@ -13,6 +13,44 @@ body{
     background-color: #f4f4f4;
 }
 
+.inputs-fields{
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+.buttons-style{
+    border-radius: 20px;
+    border: none;
+}
+
+.sections-welcome-titles-container{
+    text-align: center;
+    color:white;
+    background-color: black;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    position: relative;
+    bottom: 1px;
+    width: 100%;
+}
+.sections-welcome-titles{
+    text-align: center;
+    color:white;
+    background-color: black;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    position: relative;
+    bottom: 1px;
+}
+
+.sections-welcome-description{
+    font-size: 16px;
+}
+
 
 /* ----------------------------------------[HOMEPAGE]---------------------------------------- */
 
@@ -88,8 +126,6 @@ body{
     color:white;
     width: 50%;
     font-size: 15px;
-    border-radius: 10px;
-    border: 1px solid gray;
     margin:10px 0px 10px 0px;
 }
 
@@ -145,8 +181,6 @@ body{
     color:white;
     width: 50%;
     font-size: 15px;
-    border-radius: 10px;
-    border: 1px solid gray;
     margin:10px 0px 10px 0px;
 }
 
@@ -180,6 +214,7 @@ body{
     height: 600px;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-image: url("/img/alexander-redl-d3bYmnZ0ank-unsplash.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -196,18 +231,6 @@ body{
     border: 1px solid gray;
     border-radius: 15px;
     background-color: white;
-    margin-top: 40px;
-}
-
-/* ------------LOGIN - TITULO-------------- */
-
-.login-title-container{
-    text-align: center;
-}
-
-.login-main-title{
-    margin: 10px 0px;
-    font-weight: 900;
 }
 
 
@@ -248,9 +271,7 @@ body{
 
 .all-login-inputs{
     width: 80%;
-    border-radius: 20px;
     height: 35px;
-    border: 1px solid grey;
 }
 
 .remember-me-container{
@@ -277,13 +298,11 @@ body{
 
 .login-button{
     margin: 10px;
-    width: 80%;
-    border-radius: 20px;
+    width: 70%;
     height: 35px;
-    border: none;
     background-color: orange;
     color: white;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .login-button:hover{
@@ -348,6 +367,7 @@ body{
     background-size: cover;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .registration-form-container{
@@ -357,7 +377,6 @@ body{
     width: 630px;
     background-color: white;
     border-radius: 15px;
-    margin-top: 30px;
     border: 1px solid gray;
     height: 600px;
 }
@@ -396,8 +415,6 @@ body{
 
 .register-input{
     height: 35px;
-    border-radius: 15px;
-    border: 1px solid gray;
     margin-top: 5px;
     width: 90%;
 }
@@ -420,8 +437,6 @@ body{
     margin: 10px 0px;
     height: 35px;
     width: 50%;
-    border-radius: 20px;
-    border: none;
     background-color: orange;
     color: white;
     font-size: 15px;
@@ -580,6 +595,10 @@ body{
     margin:0px;
 }
 
+.product-detail-description{
+    font-size: 20px;
+}
+
 .product-detail-all-info{
     margin: 10px 0px 15px 5px;
 }
@@ -619,8 +638,6 @@ background-color: orange;
 color:white;
 font-size: 15px;
 margin:10px 0px 10px 0px;
-border-radius: 10px;
-border:1px solid gray;
 font-weight: bold;
 cursor: pointer;
 width: 50%;
@@ -809,12 +826,11 @@ label {
 }
 
 .edit-button {
-    border: none;
-    background-color: whitesmoke;
-    font-size: 18px;
+    font-size: 16px;
     background-color: orange;
-    border-radius: 10px;
     color: white;
+    width: 70%;
+    margin: 5px 0px;
 }
 
 .edit-button:hover {
@@ -829,16 +845,14 @@ label {
 }
 
 .delete-button {
-    border: none;
-    background-color: whitesmoke;
-    font-size: 18px;
-    background-color: orange;
-    border-radius: 10px;
+    font-size: 16px;
+    background-color: red;
     color: white;
+    width: 70%;
 }
 
 .delete-button:hover {
-    background-color: orangered;
+    background-color: black;
 }
 
 
@@ -963,6 +977,10 @@ label {
     .boton-comprar{
         width: 70%;
     }
+
+    .edit-button{
+        width: 100%;
+    }
 }
 
 @media (max-width: 500px) {
@@ -1003,15 +1021,6 @@ label {
 }
 
 
-.admin-section-welcome-container{
-    text-align: center;
-    color:white;
-    background-color: black;
-    border-radius: 10px;
-    border: 1px solid black;
-    padding: 5px;
-}
-
 .admin-section-welcome-title{
     margin-bottom: 5px;
 }
@@ -1037,8 +1046,6 @@ label {
 .admin-add-button{
     background-color: green;
     color: white;
-    border-radius: 10px;
-    border: none;
     width: 25%;
     height: 30px;
 }
@@ -1099,8 +1106,6 @@ label {
 .admin-edit-button{
     background-color: orange;
     color: white;
-    border-radius: 10px;
-    border: none;
     width: 100px;
     margin-right: 15px;
     height: 25px;
@@ -1118,8 +1123,6 @@ label {
 .admin-delete-button{
     background-color: red;
     color: white;
-    border-radius: 10px;
-    border: none;
     width: 100px;
     height: 25px;
 }
@@ -1165,12 +1168,6 @@ label {
         font-size: 18px;
     }
 
-    .admin-section-welcome-description{
-        font-size: 16px;
-        margin-top: 10px;
-    }
-
-
     .edit-delete-buttons-container{
         justify-content: flex-start;
         margin: 10px 5px;
@@ -1196,7 +1193,7 @@ label {
 
 .add-edit-product-card-main-container{
     margin-top: 50px;
-    height: 1000px;
+    height: 1100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1224,7 +1221,8 @@ label {
     background-color: black;
     color: white;
     border-radius: 10px;
-    border: 0.1px solid black;
+    border: 0.1px solid black
+    margin: 0px;
     padding: 5px
 }
 
@@ -1240,11 +1238,8 @@ label {
 
 .add-edit-product-input{
     width: 100%;
-    border-radius: 10px;
     height: 40px;
-    border: 1px solid gray;
     margin-bottom: 25px;
-    padding: 10px;
     background-color: #f4f4f4;
 }
 
@@ -1281,8 +1276,6 @@ label {
 .add-edit-product-create-product-button{
     background-color: green;
     color: white;
-    border-radius: 10px;
-    border: none;
     width: 200px;
     margin-right: 15px;
     height: 30px;
@@ -1295,8 +1288,6 @@ label {
 .add-edit-product-cancel-product-button{
     background-color: red;
     color: white;
-    border-radius: 10px;
-    border: none;
     width: 200px;
     margin-right: 15px;
     height: 30px;
@@ -1342,7 +1333,7 @@ label {
 
 .add-edit-product-rutine-card-main-container{
     margin-top: 50px;
-    height: 800px;
+    height: 900px;
     display: flex;
     justify-content: center;
     align-items: center;
