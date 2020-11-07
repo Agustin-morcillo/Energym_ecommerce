@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %> 
+</head>
+<body>
+    <%- include("./partials/header") %> 
+
+    <main>
+        <section>
+            <article>
+                <div class="contact-section-main-container">
+                    <div class="contact-section-container">
+                        <div class="sections-welcome-titles-container contact-welcome-container">
+                            <h2 class="sections-welcome-titles">Contactanos</h2>
+                            <p class="sections-welcome-description">Envianos tu consulta</p>
+                        </div>
+
+                        <div class="contact-extra-container">
+                            <h3 class="contact-extra-info"><i class="fas fa-envelope contact-icon"></i>email@consultas.com</h3>
+
+                            <h3 class="contact-extra-info"><i class="fas fa-phone contact-icon"></i>(011) 1574393901</h3>
+
+                            <h3 class="contact-extra-info"><i class="fas fa-map-marker-alt contact-icon"></i>Av.Cabildo 1842, CABA.</h3>
+                        </div>
+
+                        <div class="contact-form-container">
+                            <form action="/" method="POST">
+                                <input type="email" class="inputs-fields contact-inputs" name="" id="" placeholder="Correo electrónico">
+
+                                <input type="text" class="inputs-fields contact-inputs" name="" id="" placeholder="Asunto">
+
+                                <textarea name="" id="" cols="30" rows="10" placeholder="Texto" class="contact-textarea textarea-styles"></textarea>
+
+                                <div class="contact-button-container">
+                                    <button type="submit" class="buttons-style contact-button-send">Enviar</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+            </article>
+        </section>
+    
+    </main>
+
+
+    <%- include("./partials/footer") %> 
+    
+</body>
+</html>
