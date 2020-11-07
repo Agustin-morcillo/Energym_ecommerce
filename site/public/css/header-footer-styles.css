@@ -1,19 +1,3 @@
-/* -----------------ESTILOS GENERALES----------------- */
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
-
-*{
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
-    
-}
-
-body{
-    background-color: #f4f4f4;
-}
-
-
 /* -----------------BARRA DE NAVEGACION----------------- */
 
 header{
@@ -82,8 +66,8 @@ header{
     padding: 0px;
     width: 100%;
     position: absolute;
-    left: -4px;
-    bottom: 0px;
+    left: 1px;
+    bottom: 2px;
 }
 
 .menu-icon-container{
@@ -221,14 +205,14 @@ header{
         list-style-type: none;
     }
     
-    .register-icon{
+    .register-icon,.cart-icon{
         color:white;
         font-size: 30px;
     }
 }
 
 
-@media (max-width:830px){
+@media (max-width:1000px){
 
     .main-nav-container{
         display: none;

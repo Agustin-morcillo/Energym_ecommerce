@@ -5,9 +5,6 @@ const productController = {
     productCart: (req,res)=>{
         res.render("product_cart")
     },
-    productAdmin: (req,res)=>{
-        res.render("product_admin")
-    },
     productCreation: (req,res)=>{
         res.render("create-product")
     },

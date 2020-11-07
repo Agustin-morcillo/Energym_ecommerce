@@ -5,6 +5,9 @@ const mainController ={
     contactPage: (req,res)=>{
         res.render("contact")
     },
+    adminPage: (req,res)=>{
+        res.render("admin")
+    },
 }
 
 module.exports = mainController;
