@@ -222,7 +222,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/img/login-background.jpg");
+    background-image: url(/images/login-background.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
 
@@ -370,7 +370,7 @@ body{
     margin-top: 80px;
     height: 730px;
     width: 100%;
-    background-image: url(/img/register-background.jpg);
+    background-image: url(/images/register-background.jpg);
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -556,7 +556,7 @@ body{
     margin-top: 80px;
     display: flex;
     justify-content: center;
-    background-image: url(../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg);
+    background-image: url(../images/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg);
     background-size: cover;
     height: 600px;
 }
@@ -720,7 +720,7 @@ width: 50%;
 /* --- Cart Section --- */
 
 .cart-section {
-    background-image: url('/img/section-background.jpeg');
+    background-image: url(/images/section-background.jpeg);
     /* Flexbox */
     display: flex;
     flex-wrap: wrap;
@@ -1012,7 +1012,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/img/section-background.jpeg");
+    background-image: url(/images/section-background.jpeg);
     background-position: right;
     
 }
@@ -1204,7 +1204,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/img/section-background.jpeg");
+    background-image: url(/images/section-background.jpeg);
     background-size: cover;
 } 
  
@@ -1340,7 +1340,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/img/section-background.jpeg");
+    background-image: url(/images/section-background.jpeg);
     background-size: cover;
 } 
 
@@ -1400,7 +1400,7 @@ label {
 .contact-section-main-container{
     margin-top: 80px;
     height: 680px;
-    background-image: url(../img/contact-background.jpg);
+    background-image: url(../images/contact-background.jpg);
     display: flex;
     justify-content: center;
     align-items: center;
