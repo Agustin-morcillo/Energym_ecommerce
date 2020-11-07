@@ -20,6 +20,13 @@ body{
     background-color: #f4f4f4;
 }
 
+.textarea-styles{
+    border-radius: 10px;
+    resize:none;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
 .buttons-style{
     border-radius: 20px;
     border: none;
@@ -215,7 +222,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/img/alexander-redl-d3bYmnZ0ank-unsplash.jpg");
+    background-image: url("/img/login-background.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
 
@@ -363,7 +370,7 @@ body{
     margin-top: 80px;
     height: 730px;
     width: 100%;
-    background-image: url(../img/fit-fitness-woman-and-man-doing-fitness-exercises-outdoors-at-city.jpg);
+    background-image: url(/img/register-background.jpg);
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -713,7 +720,7 @@ width: 50%;
 /* --- Cart Section --- */
 
 .cart-section {
-    background-image: url('../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg');
+    background-image: url('/img/section-background.jpeg');
     /* Flexbox */
     display: flex;
     flex-wrap: wrap;
@@ -1005,7 +1012,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg");
+    background-image: url("/img/section-background.jpeg");
     background-position: right;
     
 }
@@ -1197,7 +1204,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg");
+    background-image: url("/img/section-background.jpeg");
     background-size: cover;
 } 
  
@@ -1221,9 +1228,9 @@ label {
     background-color: black;
     color: white;
     border-radius: 10px;
-    border: 0.1px solid black
+    border: 0.1px solid black;
     margin: 0px;
-    padding: 5px
+    padding: 5px;
 }
 
 .add-edit-product-type-title{
@@ -1245,11 +1252,7 @@ label {
 
 .add-edit-product-input-textarea{
     width: 100%;
-    border-radius: 10px;
     margin-bottom: 25px;
-    resize:none;
-    padding: 10px;
-    background-color: #f4f4f4
 }
 
 .add-edit-product-image-label{
@@ -1337,7 +1340,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../img/pases-de-tarifa-plana-para-el-al-gimnasio.jpeg");
+    background-image: url("/img/section-background.jpeg");
     background-size: cover;
 } 
 
@@ -1389,3 +1392,118 @@ label {
     }
 
 }
+
+
+
+/* ------------------------------------CONTACT------------------------------------ */
+
+.contact-section-main-container{
+    margin-top: 80px;
+    height: 750px;
+    background-image: url(../img/contact-background.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-section-container{
+    width: 50%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid gray;
+    height: 550px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-welcome-container{
+    height: 80px;
+}
+
+.contact-form-container{
+    margin-top: 30px;
+    text-align: left;
+    width: 60%;
+}
+
+.contact-inputs{
+    width: 90%;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.contact-textarea{
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+
+.contact-icon{
+    padding-right: 10px;
+}
+
+.contact-button-send{
+    width: 40%;
+    height: 35px;
+    background-color: green;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    bottom: 10px;
+}
+
+.contact-extra-container{
+    width: 40%;
+    margin-top: 30px;
+    padding-left: 40px;
+}
+
+.contact-extra-info{
+    font-weight: lighter;
+    margin-bottom: 30px;
+}
+
+@media (max-width:1444px){
+    .contact-section-container{
+        width: 70%
+    }
+}
+
+@media (max-width:1000px){
+    .contact-section-main-container{
+        height: 870px;
+    }
+    .contact-section-container{
+        height: 750px;
+        width: 80%;
+    }
+
+    .contact-inputs{
+        width:100%
+    }
+
+    .contact-textarea{
+        width:100%
+    }
+    .contact-form-container{
+        width:100%;
+        position: relative;
+        bottom: 200px;
+        padding: 0px 25px;
+    }
+    .contact-extra-container{
+        width: 90%;
+        position: relative;
+        top: 450px;
+    }
+}
+
+@media (max-width:600px){
+    .contact-section-container{
+        width: 100%;
+    }
+    .contact-button-send{
+        width: 60%;
+    }
+}
+
