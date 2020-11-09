@@ -3,7 +3,7 @@ const productController = {
         res.render("product_detail")
     },
     productCart: (req,res)=>{
-        res.render("product_cart")
+        res.render("product_cart.ejs")
     },
     productCreation: (req,res)=>{
         res.render("create-product")

@@ -3,44 +3,80 @@
     <%- include("./partials/head") %> 
 <body>
     <%- include("./partials/header") %> 
+    
+        <main>
+            <section>
+                <article>
+                    <div class="add-edit-product-rutine-card-main-container">
+                        <div class="add-edit-product-rutine-card-container">
+                            <div class="sections-welcome-titles-container">
+                                <h2 class="sections-welcome-titles">Editar Rutina</h2>
+                                <p class="sections-welcome-description">Modifica los campos para editar la rutina</p>
+                            </div>
+                            <div class="add-edit-product-rutine-card-form-container">
+                                <form action="/admin">
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="add-edit-product-name" class="admin-labels">Nombre de la rutina</label>
+                                        </div> 
+                                        <input type="text" name="" id="add-edit-product-name" class="add-edit-product-input inputs-fields" value="Abdominales" >
+                                         
+                                    </div>
 
-    <main>
-        <section>
-            <article>
-                <div class="add-edit-product-rutine-card-main-container">
-                    <div class="add-edit-product-rutine-card-container">
-                        <div class="sections-welcome-titles-container">
-                            <h2 class="sections-welcome-titles">Editar Rutina</h2>
-                            <p class="sections-welcome-description">Modifica los campos para editar la rutina</p>
-                        </div>
-                        <div class="add-edit-product-rutine-card-form-container">
-                            <form action="/admin">
-                                <input type="text" name="" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Nombre de la rutina" value="Abdominales" >
-                        
-                                <input type="number" name="" id="add-edit-product-price" class="add-edit-product-input inputs-fields" placeholder="Precio" value="1000">
-                    
-                                <textarea name="" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Descripción">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti non aperiam ea nisi aspernatur quod veniam quibusdam, atque eum cupiditate reprehenderit doloribus magnam earum, dolor maiores nostrum! Quaerat, molestias nesciunt?</textarea>
-                                
-                                <input type="text" name="" id="add-edit-product-brand" class="add-edit-product-input inputs-fields" placeholder="Duración" value="8 semanas">           
-                                
-                                <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen de la rutina</label>
-                                <input type="file" class="add-edit-product-image-input">
-        
-                                <div class="form-add-edit-product-button-container">
-                                    <button type="submit" class="add-edit-product-create-product-button buttons-style"><i class="fas fa-check-circle product-add-icon"></i>Guardar cambios</button>
-                                    <button type="reset" class="add-edit-product-cancel-product-button buttons-style"><i class="fas fa-times product-add-cancel-icon"></i>Cancelar</button>
-                                </div>
-                            </form>
-                        </div>
 
+                                   
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="add-edit-product-price" class="admin-labels">Precio</label>
+                                        </div>
+                                        <input type="number" name="" id="add-edit-product-price" class="add-edit-product-input inputs-fields" value="2000">
+                                    </div>
+                                    
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="add-edit-product-price" class="admin-labels">Descripción</label>
+                                        </div>
+                                        <textarea name="" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi reiciendis voluptas assumenda recusandae est accusantium iusto officiis.</textarea>
+                                    </div>
+
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-option-container">
+                                            <label for="" class="admin-labels">Categoría:</label>
+                                            <select name="" id="" class="admin-select-category">
+                                                <option value="Rutinas">Rutinas</option>
+                                            </select>
+                                     </div>
+                                    </div>
+                                    
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-option-container">
+                                            <label for="" class="admin-labels">¿Agregar en más vendidos?</label>
+                                            <input type="radio" name="mas-vistas" value="Sí" class="admin-radio-input"> Sí
+                                            <input type="radio" name="mas-vistas" value="No" class="admin-radio-input" checked> No
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-option-container">
+                                            <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen de la rutina</label>
+                                            <input type="file" class="add-edit-product-image-input">
+                                        </div>
+                                    </div>
+            
+                                    <div class="form-add-edit-product-button-container">
+                                        <button type="submit" class="add-edit-product-create-product-button buttons-style"><i class="fas fa-check save-changes-icon"></i>Guardar cambios</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
 
 
-            </article>
-        </section>
-    </main>
+                </article>
+            </section>
+        </main>
 
-    <%- include("./partials/footer") %> 
+        <%- include("./partials/footer") %> 
 </body>
 </html>

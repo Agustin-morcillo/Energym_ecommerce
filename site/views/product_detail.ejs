@@ -1,41 +1,128 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <%- include("./partials/head") %> 
 <body>
     <%- include("./partials/header") %> 
 
     <main>
         <section>
-            <article class="main-container-product-detail">
-                <div class="product-detail-container">
-                    <div class="section-title-container">
-                        <h1 class="section-main-title">Detalle del producto</h1>
-                    </div>
-                    <div class="product-detail-image-container">
-                        <img src="/images/product-colchoneta.jpg" alt="colchoneta" class="product-detail-image">
-                    </div>
-                    <div class="product-detail-description-container" style="margin:0px">
-                        <h3 class="product-detail-name product-detail-all-info">Colchoneta impermeable</h3>
-                        <p class="product-detail-price product-detail-all-info">Precio: $2,000.00</p>
-                        <p class="product-detail-status product-detail-all-info"><i class="fas fa-check stock-icon"></i>En stock</p>
-                        <form action="/products/cart" class="product-number-cart-container product-detail-all-info">
-                            <input type="number" value="1" class="product-number-input">
-                            <button type="submit" class="product-cart-input buttons-style"><i class="fas fa-shopping-cart carrito-icon"></i>Agregar al carrito</button>
-                        </form>
-                        <h3 class="product-detail-description product-detail-all-info">Descripción del producto</h3>
-                        <p class="product-description-text product-detail-all-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio.</p>
-                        <h4 class="product-brand product-detail-all-info">Marca: <span class="product-specific-info">Mir.</span></h4>
-                        <h4 class="product-weight product-detail-all-info">Peso total: <span class="product-specific-info">1Kg.</span></h4>
-                        <h4 class="product-material product-detail-all-info">Material: <span class="product-specific-info">superior bagun,  inferior friselina, relleno de espuma de polietileno.</span></h4>
-                        <h4 class="product-spects product-detail-all-info">Medidas: <span class="product-specific-info">100 cm x 40 cm.</span></h4>
-                    </div>
+            <article>
+                <div class="product-detail-main-container">
+                    <div class="product-detail-container">
+                        <div class="sections-welcome-titles-container">
+                            <h2 class="sections-welcome-titles product-detail-welcome-title">Detalle del producto: Colchoneta Flex</h2>
+                        </div>
+                
+                        <div class="product-detail-img-container">
+                             <img src="/images/products/product-colchoneta.jpg" alt="" class="product-detail-img">
+                        </div>
 
+                        <div class="product-name-and-price-container">
+                           
+                            <div class="product-name-container">
+                                <h1 class="product-detail-name">Colchoneta Flex</h1>
+                            </div>
+
+                            <div class="product-detail-description-container">
+                                <h2 class="product-detail-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi reiciendis voluptas assumenda recusandae est accusantium iusto officiis.</h2>
+                            </div>
+                            
+                            <div class="product-price-container">
+                                <h2 class="product-detail-price">Precio: <span>$2000</span></h2>
+                            </div>
+                            
+                            <div class="product-extra-info-container">
+                                <h3 class="product-extra-info"><i class="far fa-credit-card product-detail-icon"></i>Pagá en cuotas sin interes</h2>
+                                <h3 class="product-extra-info"><i class="fas fa-truck envio-icon product-detail-icon"></i>Envio gratis apartir de $4000</h2>     
+                            </div>
+
+                            <div class="product-detail-form-container">
+                                <form action="/products/cart">
+                                    <div class="product-amount-container">
+                                        <label for="product-detail-amount" class="product-detail-amount-label">Cantidad:</label>
+                                        <input type="number" id="product-detail-amount" class="product-detail-amount-field inputs-fields">
+                                    </div>
+                                    <button type="submit" class="buttons-style product-detail-button"><i class="fas fa-shopping-cart sumar-carrito"></i>Sumar al carrito</button>
+                                </form>
+                            </div>
+
+                        </div>
+                        
+                    </div>
                 </div>
             </article>
         </section>
+       
+    
     </main>
 
 
-    <%- include("./partials/footer") %> 
+    <footer>
+        
+        <div class="footer-first-part">
+            <div class="footer-envio footer-container">
+                <article class="footer-article">
+                    <i class="fas fa-truck envio-icon footer-icon"></i>
+                    <h3 class="footer-service-title">Gastos de envío</h3>
+                    <p class="footer-detail">Gastos de envío gratis por compras superiores a $4000</p>
+                </article>
+            </div>
+
+            <div class="footer-devolucion footer-container">
+                <article class="footer-article">
+                    <i class="fas fa-sync-alt devolucion-icon footer-icon"></i>
+                    <h3 class="footer-service-title">Fácil devolución</h3>
+                    <p class="footer-detail">Hace tus devoluciones de forma sencilla y rápida.</p>
+                </article>
+            </div>
+        
+
+            <div class="footer-compra-segura footer-container">
+                <article class="footer-article">
+                    <i class="fas fa-user-shield compra-segura-icon footer-icon"></i>
+                    <h3 class="footer-service-title">Compra segura</h3>
+                    <p class="footer-detail">Tu compra esta asegurada</p>
+                </article>
+            </div>
+
+            <div class="footer-garantia footer-container">
+            <article class="footer-article">
+                <i class="far fa-calendar-check garantia-icon footer-icon"></i>
+                <h3 class="footer-service-title">Garantía</h3>
+                <p class="footer-detail">Todos los productos cuentan con garantia de 1 año</p>
+            </article>
+            </div>
+        </div>
+
+        <div class="footer-bottom-part">
+            
+            <div class="footer-logo-container">
+                <img src="./images/energym-logo.png" alt="" class="energym-logo-footer">
+            </div>
+
+            <div class="footer-menu-icon-container">
+                <label for="check-menu-input"><i class="fas fa-bars footer-menu-icon"></i></label>
+            </div>
+            
+            
+            <nav class="footer-nav">
+                <ul class="footer-list">
+                    <li><a href="/" class="footer-list-item" >Inicio</a></li>
+                    <li><a href="#" class="footer-list-item">Productos</a></li>
+                    <li><a href="#" class="footer-list-item">Rutinas</a></li>
+                    <li><a href="#" class="footer-list-item">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-icons-container">
+                <h3 class="social-cta">Síguenos en nuestras redes sociales</h3>
+                <i class="fab fa-facebook social-icon"></i>
+                <i class="fab fa-instagram social-icon"></i>
+                <i class="fab fa-twitter-square social-icon"></i>
+                <i class="fab fa-youtube social-icon"></i>
+            </div>
+        </div>
+    </footer>
+    
 </body>
 </html>
