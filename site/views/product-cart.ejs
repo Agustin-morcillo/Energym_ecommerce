@@ -4,17 +4,14 @@
 <body>
     <%- include("./partials/header") %> 
 
-    <div class="banner-title"> 
-        <div class="logo-carrito"> 
-             <i class="fas fa-shopping-cart"></i> 
-        </div>
-        <h1 class="title"> Carrito de Compras </h1> 
-    </div>
     <main>
         <section class="cart-section">  
 
             <div class="cart-section-box">
-                <article class="product-box product-article1">
+                <div class="sections-welcome-titles-container">
+                    <h2 class="sections-welcome-titles product-detail-welcome-title"><i class="fas fa-shopping-cart product-cart-icon"></i>Carrito de compras</h2>
+                </div>
+                <article class="product-box product-article">
                     <div class="product-image-container"> 
                         <img src="/images/products/product-mancuernas.jpg" alt="" class="cart-product-img product1-img"> 
                         <div class="lupas-container">
@@ -41,16 +38,16 @@
                         </div>
                     </div>
                 </article>    
-                <div class="product-divider"></div>
-                <article class="product-box product-article2">
+                
+                <article class="product-box product-article">
                    <div class="product-image-container"> 
                         <img src="/images/products/product-colchoneta.jpg" alt="Starter Kit" class="cart-product-img product2-img"> 
                         <div class="lupas-container">
                         </div>
                    </div>          
                    <div class="main-info">
-                      <h3 class="product-name">Colchoneta Flex</h3>
-                      <h3 class="product-prize">$2000.00</h3>    
+                      <h3 class="product-name cart-detail-info">Colchoneta Flex</h3>
+                      <h3 class="product-prize cart-detail-info">$2000.00</h3>    
                       <div class="buttons-container">
                          <form action="index.html" method="GET" class="quantity-container">
                             <input type="number" id="cantidad" name="cantidad" value= 1 class="quantity-button">
@@ -70,18 +67,16 @@
         
         <section class="total-section">
              <div class="totales-container">
-                 <h3 class="total-info">Subtotal:</h3>
-                 <h3 class="total-info">Descuento:</h3>
-                 <h2 class="total-info">TOTAL</h2>
+                 <h2 class="total-info">Total: $2500.00</h2>
              </div>
         </section>
         
         <section class="buy-section">
              <article class="buy-container">
                  <form action="/" class="buy-container">
-                    <input type="submit" value="Comprar Ya!"  class="boton-comprar" id="">
+                    <input type="submit" value="¡ Comprar Ya !"  class="boton-comprar buttons-style" id="">
                 </form>
-                 <p class="ver-mas">Ver más productos</p>
+                 <a href="/" class="ver-mas">Ver más productos</a>
              </article> 
         </section>
     </main>
