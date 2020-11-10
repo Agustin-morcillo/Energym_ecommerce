@@ -36,7 +36,7 @@ body{
     text-align: center;
     color:white;
     background-color: black;
-    border-radius: 10px;
+   /*  border-radius: 10px; */
     border: 1px solid black;
     padding: 5px;
     position: relative;
@@ -218,7 +218,6 @@ body{
 .login-main-container{
     margin-top: 80px;
     margin-bottom: 0px;
-    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -233,7 +232,7 @@ body{
     flex-wrap: wrap;
     justify-content: flex-start;
     flex-direction: column;
-    height: 470px;
+    margin: 80px 0px;
     width: 400px;
     border: 1px solid gray;
     border-radius: 15px;
@@ -333,7 +332,7 @@ body{
 }
 
 .no-account{
-    margin-top: 20px;
+    margin: 20px 0px;
     border-top: 1px solid gray;
     padding-top: 20px;
 }
@@ -368,7 +367,7 @@ body{
 
 .registration-main-container{
     margin-top: 80px;
-    height: 730px;
+    /* height: 730px; */
     width: 100%;
     background-image: url(/images/main/register-background.jpg);
     background-size: cover;
@@ -385,7 +384,7 @@ body{
     background-color: white;
     border-radius: 15px;
     border: 1px solid gray;
-    height: 600px;
+    margin: 80px 0px;
 }
 
 .registration-title-container{
@@ -540,7 +539,6 @@ body{
     }
     .registration-form-container{
         width: 100%;
-        height: 950px;
     }
     .register-info-container{
         width: 100%;
@@ -554,21 +552,20 @@ body{
 
 .product-detail-main-container{
     margin-top: 80px;
-    height: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/contact-background.jpg)
+    background-image: url(/images/main/contact-background.jpg)
 }
 
 .product-detail-container{
-    height: 570px;
     border-radius: 10px;
     background-color: white;
     width: 70%;
     display: flex;
     flex-wrap: wrap;
     border: 1px solid gray;
+    margin: 80px 0px;
 
 }
 
@@ -580,7 +577,7 @@ body{
 }
 
 .product-detail-img{
-        width: 100%;
+    width: 100%;
 }
 
 
@@ -606,8 +603,9 @@ body{
     margin-top: 5px;
 }
 
-.product-detail-add-info{
-    font-weight: lighter;
+.product-detail-information{
+    font-weight: 600;
+    padding-top: 10px;
 }
 
 .product-price-container{
@@ -635,7 +633,7 @@ body{
 }
 
 .product-detail-form-container{
-    text-align: center;
+    text-align: left;
 }
 
 .product-detail-amount-label{
@@ -652,14 +650,15 @@ body{
 
 .product-amount-container{
     text-align: left;
+    margin-top: 10px;
 }
 
 .product-detail-button{
-    height: 50px;
-    width:70%;
+    height: 40px;
+    width:50%;
     background-color: orange;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 20px;
 }
 
@@ -687,21 +686,13 @@ body{
 
 @media (max-width:1080px){
 
-    .product-detail-main-container{
-        height: 1200px;
-    }
-
-    .product-detail-container{
-        height: 1100px;
-    }
     .product-detail-img-container{
         width: 100%;
     }
 
     .product-detail-img{
         width: 80%;
-}
-
+    }
 
     .product-name-and-price-container{
         width: 100%;
@@ -726,6 +717,23 @@ body{
     .product-extra-info{
         font-size: 22px;
     }
+
+    .product-detail-button{
+        width: 40%;
+    }
+    .product-name-and-price-container{
+        text-align: center;
+    }
+    .product-amount-container{
+        text-align: center;
+    }
+    .product-detail-form-container{
+        text-align: center;
+    }
+
+    .product-detail-information-container{
+        margin-top: 10px;
+    }
 }
 
 @media (max-width:600px){
@@ -734,38 +742,30 @@ body{
         font-size: 25px;
     }
 
-    
-
-    .product-detail-main-container{
-        height: 1300px;
-    }
-
-    .product-detail-container{
-        height: 1200px;
-    }
-
     .product-detail-container{
         width: 100%;
     }
-    .product-name-and-price-container{
-        text-align: center;
-    }
-    .product-amount-container{
-        text-align: center;
+    .product-detail-button{
+        width: 60%;
     }
 }
 
 @media (max-width:400px){
-    .product-detail-main-container{
-        height: 1300px;
-    }
-
-    .product-detail-container{
-        height: 1200px;
-    }
-
     .product-detail-button{
         width: 90%;
+    }
+}
+
+/* ----------------------------------------[DETALLE PRODUCTO/RUTINA]---------------------------------------- */
+
+.rutine-detail-img-container{
+    position: relative;
+    bottom: 1px;
+}
+
+@media (max-width:1080px){
+    .rutine-detail-img-container{
+        margin-top: 40px;
     }
 }
 
@@ -1082,7 +1082,7 @@ label {
 
 .admin-menu-main-container{
     margin-top: 80px;
-    height: 750px;
+    /* height: 750px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1094,11 +1094,10 @@ label {
 .admin-menu-container{
     border: 1px solid gray;
     width: 60%;
-    height: 650px;
+    /* height: 650px; */
     border-radius: 10px;
     background-color: white;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin: 80px 0px;
 }
 
 
@@ -1147,6 +1146,7 @@ label {
     border-radius: 10px;
     width: 90%;
     background-color: #f4f4f4;
+    margin-bottom: 10px;
 }
 
 .product-image-and-name-container{
@@ -1234,12 +1234,6 @@ label {
 
 @media (max-width:500px){
 
-    .admin-menu-main-container{
-        height: 1000px;
-    }
-    .admin-menu-container{
-        height: 900px;
-    }
     .admin-product-card-container{
         flex-wrap: wrap;
         align-items: center;
@@ -1273,8 +1267,7 @@ label {
 /* ------------------------------------ADMIN ADD/EDIT PRODUCT-RUTINE PAGE------------------------------------ */
 
 .add-edit-product-rutine-card-main-container{
-    margin-top: 50px;
-    height: 1050px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1283,7 +1276,6 @@ label {
 } 
 
 .add-edit-product-rutine-card-container{
-    height: 850px;
     width: 50%;
     background-color: white;
     border-radius: 10px;
@@ -1292,6 +1284,7 @@ label {
     flex-wrap: wrap;   
     justify-content: center;
     align-items: flex-start;
+    margin: 80px 0px;
 }
 
 .add-edit-product-rutine-card-form-container{
@@ -1366,6 +1359,7 @@ label {
     color: white;
     width: 400px;
     height: 40px;
+    margin-bottom: 20px;
 }
 
 .add-edit-product-create-product-button:hover{
@@ -1383,22 +1377,20 @@ label {
 
 @media (max-width:600px){
 
-    .add-edit-product-rutine-card-main-container{
-        height:1100px;
-    }
     .add-edit-product-rutine-card-container{
         width: 100%;
-        height: 950px;
+        height: 900px;
     }
     .add-edit-product-rutine-card-form-container{
         margin: 0px 20px;
-        position: relative;
-        bottom: 10px;
     }
 
     .add-edit-product-create-product-button{
         width: 100%;
         margin-bottom: 20px;
+    }
+    .add-edit-product-create-product-button{
+        margin-bottom: 10px;
     }
 
 }
@@ -1408,7 +1400,6 @@ label {
 
 .contact-section-main-container{
     margin-top: 80px;
-    height: 680px;
     background-image: url(/images/main/contact-background.jpg);
     display: flex;
     justify-content: center;
@@ -1420,7 +1411,7 @@ label {
     background-color: white;
     border-radius: 10px;
     border: 1px solid gray;
-    height: 550px;
+    margin: 80px 0px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -1479,11 +1470,8 @@ label {
 }
 
 @media (max-width:1000px){
-    .contact-section-main-container{
-        height: 870px;
-    }
+   
     .contact-section-container{
-        height: 750px;
         width: 80%;
     }
 

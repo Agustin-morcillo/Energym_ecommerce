@@ -1,11 +1,11 @@
 const productController = {
     productDetail: (req,res)=>{
-        res.render("product_detail")
+        res.render("product-detail")
     },
     productCart: (req,res)=>{
-        res.render("product_cart.ejs")
+        res.render("product-cart")
     },
-    productCreation: (req,res)=>{
+    productCreate: (req,res)=>{
         res.render("create-product")
     },
     productEdit: (req,res)=>{
