@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("./partials/head") %> 
-<body>
-    <%- include("./partials/header") %> 
+    <body>
+        <%- include("./partials/header") %> 
     
         <main>
             <section>
@@ -15,44 +15,49 @@
                             </div>
                             <div class="add-edit-product-rutine-card-form-container">
                                 <form action="/admin">
+                                    
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-name" class="admin-labels">Nombre de la rutina</label>
                                         </div> 
-                                        <input type="text" name="" id="add-edit-product-name" class="add-edit-product-input inputs-fields" value="Abdominales" >
-                                         
+                                        <input type="text" name="" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Abdominales" value="Abdominales" >
                                     </div>
-
-
                                    
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-price" class="admin-labels">Precio</label>
                                         </div>
-                                        <input type="number" name="" id="add-edit-product-price" class="add-edit-product-input inputs-fields" value="2000">
+                                        <input type="number" name="" id="add-edit-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000" value="2000">
                                     </div>
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-price" class="admin-labels">Descripción</label>
+                                            <label for="add-edit-product-description" class="admin-labels">Descripción</label>
                                         </div>
-                                        <textarea name="" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi reiciendis voluptas assumenda recusandae est accusantium iusto officiis.</textarea>
+                                        <textarea name="" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi ">Marca tus abdominales con esta rutina práctica que incluye más de 20 ejercicios. Dividida en distintos módulos, la rutina permite trabajar todos los abdominales en tan solo 30 minutos.</textarea>
+                                    </div>
+
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="add-edit-product-duration" class="admin-labels">Duración</label>
+                                        </div> 
+                                        <input type="text" name="" id="add-edit-product-duration" class="add-edit-product-input inputs-fields" placeholder="Ej: 8 semanas" value="8 semanas">
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
                                             <label for="" class="admin-labels">Categoría:</label>
                                             <select name="" id="" class="admin-select-category">
-                                                <option value="Rutinas">Rutinas</option>
+                                                <option value="rutinas">Rutinas</option>
                                             </select>
-                                     </div>
+                                        </div>
                                     </div>
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
                                             <label for="" class="admin-labels">¿Agregar en más vendidos?</label>
-                                            <input type="radio" name="mas-vistas" value="Sí" class="admin-radio-input"> Sí
-                                            <input type="radio" name="mas-vistas" value="No" class="admin-radio-input" checked> No
+                                            <input type="radio" name="mas-vistas" value="si" class="admin-radio-input"> Sí
+                                            <input type="radio" name="mas-vistas" value="no" class="admin-radio-input" checked> No
                                         </div>
                                     </div>
                                     
@@ -72,11 +77,11 @@
                         </div>
                     </div>
 
-
                 </article>
             </section>
         </main>
 
+
         <%- include("./partials/footer") %> 
-</body>
+    </body>
 </html>

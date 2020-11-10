@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("./partials/head") %> 
-<body>
-    <%- include("./partials/header") %> 
-
+    <body>
+        <%- include("./partials/header") %> 
+    
         <main>
             <section>
                 <article>
@@ -20,37 +20,61 @@
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-name" class="admin-labels">Nombre del producto</label>
                                         </div> 
-                                        <input type="text" name="" id="add-edit-product-name" class="add-edit-product-input inputs-fields" value="Colchoneta Flex" >
+                                        <input type="text" name="" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" value="Colchoneta Flex">
                                     </div>
                                    
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-price" class="admin-labels">Precio</label>
                                         </div>
-                                        <input type="number" name="" id="add-edit-product-price" class="add-edit-product-input inputs-fields" value="2000">
+                                        <input type="number" name="" id="add-edit-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000" value="2000">
                                     </div>
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-price" class="admin-labels">Descripción</label>
+                                            <label for="add-edit-product-description" class="admin-labels">Descripción</label>
                                         </div>
-                                        <textarea name="" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi reiciendis voluptas assumenda recusandae est accusantium iusto officiis.</textarea>
+                                        <textarea name="" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi">Colchoneta flexible de gran resistencia, ideal para hacer cualquier tipo de ejercicio físico como: abdominales, espinales, puente, entre otros. Su superficie tramada evita que la colchoneta se deslice a la hora de hacer los ejercicios.</textarea>
                                     </div>
+
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="add-edit-product-weight" class="admin-labels">Peso Total</label>
+                                        </div> 
+                                        <input type="text" name="" id="add-edit-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" value="1Kg">
+                                    </div>
+
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="add-edit-product-size" class="admin-labels">Medidas</label>
+                                        </div> 
+                                        <input type="text" name="" id="add-edit-product-size" class="add-edit-product-input inputs-fields" placeholder="Ej: 50 x 100 cm" value="50 x 100 cm">
+                                    </div>
+
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="add-edit-product-material" class="admin-labels">Material</label>
+                                        </div> 
+                                        <input type="text" name="" id="add-edit-product-material" class="add-edit-product-input inputs-fields" placeholder="Ej: Goma" value="Goma" >
+                                    </div>
+                                   
+                                   
+                                   
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
                                             <label for="" class="admin-labels">Categoría:</label>
                                             <select name="" id="" class="admin-select-category">
-                                                <option value="Productos">Productos</option>
+                                                <option value="productos">Productos</option>
                                             </select>
-                                        </div>
+                                         </div>
                                     </div>
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
                                             <label for="" class="admin-labels">¿Agregar en más vendidos?</label>
-                                            <input type="radio" name="mas-vistas" value="Sí" class="admin-radio-input"> Sí
-                                            <input type="radio" name="mas-vistas" value="No" class="admin-radio-input" checked> No
+                                            <input type="radio" name="mas-vistas" value="si" class="admin-radio-input"> Sí
+                                            <input type="radio" name="mas-vistas" value="no" class="admin-radio-input" checked> No
                                         </div>
                                     </div>
                                     
@@ -69,11 +93,12 @@
 
                         </div>
                     </div>
-                    
+
                 </article>
             </section>
         </main>
 
+
         <%- include("./partials/footer") %> 
-</body>
+    </body>
 </html>
