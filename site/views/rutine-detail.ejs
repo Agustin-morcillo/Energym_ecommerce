@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %> 
+<body>
+    <%- include("./partials/header") %>
+        
+        <main>
+            <section>
+                <article>
+                    <div class="product-detail-main-container">
+                        <div class="product-detail-container">
+                            <div class="sections-welcome-titles-container">
+                                <h2 class="sections-welcome-titles product-detail-welcome-title">Detalle de la rutina: Abdominales</h2>
+                            </div>
+                    
+                            <div class="product-detail-img-container rutine-detail-img-container">
+                                 <img src="/images/rutines/rutine-abs.jpg" alt="" class="product-detail-img">
+                            </div>
+    
+                            <div class="product-name-and-price-container">
+                               
+                                <div class="product-name-container">
+                                    <h1 class="product-detail-name">Abodominales</h1>
+                                </div>
+    
+                                <div class="product-detail-description-container">
+                                    <h2 class="product-detail-description">Marca tus abdomilales con esta rutina practica que incluye mas de 20 ejercicios. Acompaña los ejercicios con la guia de alimentacion que inlcuimos </h2>
+                                </div>
+    
+                                <div class="product-detail-information-container">
+                                    <h3 class="product-detail-information">Duración: <span class="product-detail-information-detail">8 semanas</span></h3>
+                                </div>
+                                
+                                <div class="product-price-container">
+                                    <h2 class="product-detail-price">Precio: <span>$2000</span></h2>
+                                </div>
+
+                                <div class="product-detail-form-container">
+                                    <form action="/products/cart">
+                                        <button type="submit" class="buttons-style product-detail-button"><i class="fas fa-shopping-cart sumar-carrito"></i>Sumar al carrito</button>
+                                    </form>
+                                </div>
+                                
+                                <div class="product-extra-info-container">
+                                    <h3 class="product-extra-info"><i class="far fa-credit-card product-detail-icon"></i>Pagá en cuotas sin interes</h2>
+                                    <h3 class="product-extra-info"><i class="fas fa-truck envio-icon product-detail-icon"></i>Envio gratis apartir de $4000</h2>     
+                                </div>
+    
+                            </div>
+                            
+                        </div>
+                    </div>
+                </article>
+            </section>
+           
+        
+        </main>
+
+        <%- include("./partials/footer") %> 
+</body>
+</html>

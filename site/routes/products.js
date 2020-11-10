@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/detail", productController.productDetail)
 router.get("/cart", productController.productCart)
-router.get("/create", productController.productCreation)
+router.get("/create", productController.productCreate)
 router.get("/edit", productController.productEdit)
 
 
