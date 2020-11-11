@@ -1,12 +1,12 @@
 const mainController ={
     homepage: (req,res)=>{
-        res.render("index")
+        res.render("main/index")
     },
     contactPage: (req,res)=>{
-        res.render("contact")
+        res.render("main/contact")
     },
     adminPage: (req,res)=>{
-        res.render("admin")
+        res.render("main/admin")
     },
 }
 
