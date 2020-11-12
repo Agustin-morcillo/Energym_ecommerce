@@ -3,7 +3,7 @@ const usersController={
         res.render("users/login")
     },
     register: (req,res)=>{
-        res.render("register")
+        res.render("users/register")
     }
 }
 

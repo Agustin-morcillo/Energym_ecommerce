@@ -1,15 +1,15 @@
 const productController = {
     productDetail: (req,res)=>{
-        res.render("product-detail")
+        res.render("products/product-detail")
     },
     productCart: (req,res)=>{
-        res.render("product-cart")
+        res.render("products/product-cart")
     },
     productCreate: (req,res)=>{
-        res.render("create-product")
+        res.render("products/create-product")
     },
     productEdit: (req,res)=>{
-        res.render("edit-product")
+        res.render("products/edit-product")
     }
 }
 
