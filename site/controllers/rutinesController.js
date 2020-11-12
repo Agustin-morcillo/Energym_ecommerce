@@ -1,12 +1,12 @@
 const rutinesController = {
     rutineCreation: (req,res)=>{
-        res.render("create-rutine")
+        res.render("rutines/create-rutine")
     },
     rutineEdit: (req,res)=>{
-        res.render("edit-rutine")
+        res.render("rutines/edit-rutine")
     },
     rutineDetail: (req,res)=>{
-        res.render("rutine-detail")
+        res.render("rutines/rutine-detail")
     },
 }
 

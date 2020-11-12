@@ -1,9 +1,9 @@
 # Retrospectiva
 
-**Cosas que hicimos bien:** terminamos el sprint en tiempo y forma, nos pudimos poner de acuerdo fácilmente en la elección de la temática del sitio, todos pudimos aportar de igual manera nuestras ideas, hubo buena onda entre todos los miembros del equipo, nos pudimos reunir varias veces para trabajar en el proyecto.
+**Cosas que hicimos bien:** nos juntamos más veces que el sprint anterior, abordamos todas las problematicas en equipo, terminamos de entender el funcionamiento de git, hubo una mejor distribución del trabajo, pudimos identificar errores y encontrarles la solución adecuada.
 
-**Cosas que hicimos mal:** no aprovechar al 100% los encuentros, haber abarcado muchas categorías de productos y servicios, algunos wireframes no se adaptaban muy bien a la idea de negocio.
+**Cosas que hicimos mal:** tuvimos complicaciones a la hora de separar las vistas en carpetas.
 
-**Cosas que deberíamos empezar a hacer:** aumentar la productividad de los encuentros, dividir un poco mejor las tareas, darle más importancia al Trello.
+**Cosas que deberíamos empezar a hacer:** optimizar la división de tareas entre los miembros del equipo.
 
-**Cosas que deberíamos dejar de hacer:** dejar de pensar que hay tiempo de sobra para hacer las cosas, dejar de creer que todo va a funcionar por sí solo, dejar de tenerle miedo a los errores.
+**Cosas que deberíamos dejar de hacer:** evitar que las preocupaciones a la hora de realizar el código influyan en su correcta ejecución.
