@@ -1,11 +1,17 @@
+const fs = require('fs');
+const path = require('path');
+
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+
 const rutinesController = {
-    rutineCreation: (req,res)=>{
+    create: (req,res)=>{
         res.render("rutines/create-rutine")
     },
-    rutineEdit: (req,res)=>{
+    edit: (req,res)=>{
         res.render("rutines/edit-rutine")
     },
-    rutineDetail: (req,res)=>{
+    detail: (req,res)=>{
         res.render("rutines/rutine-detail")
     },
 }

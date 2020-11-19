@@ -1,3 +1,9 @@
+const fs = require('fs');
+const path = require('path');
+const bcrypt = require("bcryptjs")
+
+
+
 const usersController={
     login: (req,res)=>{
         res.render("users/login")
