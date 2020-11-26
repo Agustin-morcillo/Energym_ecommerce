@@ -47,8 +47,23 @@ const productController = {
     create: (req,res)=>{
         res.render("products/create-product")
     },
-    store: (req,res)=>{
-        //guardar producto nuevo
+    store: (req,res, next)=>{
+        const products = getAllProducts();
+        const newProduct = {
+            id: generateNewId(),
+            name: req.body.name,
+            price: req.body.price,
+            introduction: req.body.introduction,
+            description: req.body.description,
+            weight: req.body.weight,
+            size: req.body.size,
+            material: req.body.material,
+            category: req.body.category,
+            homepage: req.body.homepage,
+            image: req.files[0].filename
+        }
+        writeProducts(newProduct);
+        res.redirect('/');
     },
     edit: (req,res)=>{
         res.render("products/edit-product")
@@ -56,8 +71,14 @@ const productController = {
     update: (req,res)=>{
         //guardar cambio de producto
     },
-    delete: (req,res)=>{
-        //eliminar producto
+    destroy: (req,res)=>{
+        const id = req.params.id;
+        const products = getAllProducts();
+        const productToDelete = products.find((product)=>{return product.id==id});
+        const productPlace = products.indexOf(productToDelete)
+        products.splice(productPlace, 1)
+        writeProducts(products);
+        res.redirect("/")
     },
     
 }

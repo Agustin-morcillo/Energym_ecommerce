@@ -14,8 +14,7 @@
                                 <p class="sections-welcome-description">Completa los campos para crear un nuevo producto</p>
                             </div>
                             <div class="add-edit-product-rutine-card-form-container">
-                                <form action="/admin">
-                                    
+                                <form action="/products/create" method="POST" enctype="multipart/form-data"> 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-name" class="admin-labels">Nombre del producto</label>
@@ -86,7 +85,7 @@
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
                                             <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen del producto</label>
-                                            <input type="file" class="add-edit-product-image-input">
+                                            <input type="file" name="image" class="add-edit-product-image-input">
                                         </div>
                                     </div>
             

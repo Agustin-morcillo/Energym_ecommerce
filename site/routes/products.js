@@ -13,6 +13,7 @@ const storage = multer.diskStorage({
     }
 })
 
+
 const upload = multer({ storage: storage })
 
 /* Detalle producto */
@@ -26,10 +27,12 @@ router.get("/", productController.productPage)
 
 /* Crear producto */
 router.get("/create", productController.create)
+router.post("/create", upload.any(), productController.store)
 
 /* editar producto */
 router.get("/edit", productController.edit)
 
 /* Eliminar producto */
+router.delete("/delete/:id", productController.destroy)
 
 module.exports=router;
