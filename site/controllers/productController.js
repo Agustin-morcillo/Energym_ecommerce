@@ -31,10 +31,18 @@ function generateNewId(){
 
 const productController = {
     detail: (req,res)=>{
-        res.render("products/product-detail")
+        const id = req.params.id;
+        const products = getAllProducts();
+        const product = products.find((product)=>product.id == id);
+
+        res.render("products/product-detail",{product: product})
     },
     cart: (req,res)=>{
         res.render("products/product-cart")
+    },
+    productPage: (req,res)=>{
+        const products = getAllProducts();
+        res.render("products/products", {products: products})
     },
     create: (req,res)=>{
         res.render("products/create-product")

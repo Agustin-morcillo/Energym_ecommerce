@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %> 
+<body>
+    <%- include("../partials/header") %>
+
+    <main>
+        <section>
+            <div class="product-page-main-container">
+                <div class="product-page-container">
+                    <div class="sections-welcome-titles-container">
+                        <h2 class="sections-welcome-titles">Todos los productos</h2>
+                        <p class="sections-welcome-description">Listado de todos los productos del sitio</p>
+                    </div>
+                
+                    <div class="product-page-articles-main-container">
+                        <% for(product of products){ %> 
+                            <article class="product-page-article-container">
+                            
+                                    <div class="product-page-img-container">
+                                        <img src="images/products/<%=product.image%>" alt="" class="product-page-img">
+                                    </div>
+
+                                    <div class="product-page-product-name product-page-div">
+                                        <h2 class="product-page-name"><%=product.name%></h2>
+                                    </div>
+
+                                    <div class="product-page-product-introduction product-page-div">
+                                        <p class="product-page-introduction"><%=product.introduction%></p>
+                                    </div>
+
+                                    <div class="product-page-product-price product-page-div">
+                                        <p class="product-page-price">$<%=product.price%>.00</p>
+                                    </div>
+
+                                    <div class="product-page-form-container product-page-div">
+                                        <form action="products/detail/<%=product.id%>" method="GET">
+                                            <button type="submit" class="buttons-style product-page-button">Comprar</button>
+                                        </form>
+                                    </div>
+                            
+                            </article>
+                        <% } %> 
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <%- include("../partials/footer") %> 
+    
+</body>
+</html>
