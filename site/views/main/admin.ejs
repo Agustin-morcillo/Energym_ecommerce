@@ -27,51 +27,29 @@
                                         </form>
                                     </div>
                             </div>
-                                
-                                <article>
-                                    <div class="admin-product-card-container">
-                                        <div class="product-image-and-name-container">
-                                            <div class="admin-products-image-container">
-                                                    <img src="images/products/product-mancuernas.jpg" alt="" class="admin-product-img">
-                                            </div>
-                                            <div class="admin-product-name-container">
-                                                    <h2 class="admin-product-name">Mancuernas</h2>
-                                            </div>
-                                        </div>
-                                        <div class="edit-delete-buttons-container">
-                                            <form action="/products/edit">
-                                                <button type="submit" class="admin-edit-button buttons-style"><i class="fas fa-edit admin-edit-icon"></i>Editar</button>
-                                            </form>
-                                            <form action="">
-                                                <button type="submit" class="admin-delete-button buttons-style"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                
-                                </article>
 
+                            <% for(let product of products){ %>    
                                 <article>
                                     <div class="admin-product-card-container">
                                         <div class="product-image-and-name-container">
                                             <div class="admin-products-image-container">
-                                                    <img src="images/products/product-colchoneta.jpg" alt="" class="admin-product-img">
+                                                    <img src="images/products/<%= product.image %>" alt="<%= product.name %>" class="admin-product-img">
                                             </div>
                                             <div class="admin-product-name-container">
-                                                    <h2 class="admin-product-name">Colchoneta Flex</h2>
+                                                    <h2 class="admin-product-name"> <%= product.name %> </h2>
                                             </div>
                                         </div>
                                         <div class="edit-delete-buttons-container">
                                             <form action="/products/edit">
                                                 <button type="submit" class="admin-edit-button buttons-style"><i class="fas fa-edit admin-edit-icon"></i>Editar</button>
                                             </form>
-                                            <form action="">
+                                            <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
                                                 <button type="submit" class="admin-delete-button buttons-style"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
                                             </form>
                                         </div>
                                     </div>
-                                
                                 </article>
-                    
+                            <% } %>
                         </div>
                     </div>
                 </section>
