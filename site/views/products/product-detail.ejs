@@ -10,31 +10,31 @@
                 <div class="product-detail-main-container">
                     <div class="product-detail-container">
                         <div class="sections-welcome-titles-container">
-                            <h2 class="sections-welcome-titles product-detail-welcome-title">Detalle del producto: Colchoneta Flex</h2>
+                            <h2 class="sections-welcome-titles product-detail-welcome-title">Detalle del producto: <%=product.name%></h2>
                         </div>
                 
                         <div class="product-detail-img-container">
-                             <img src="/images/products/product-colchoneta.jpg" alt="" class="product-detail-img">
+                             <img src="/images/products/<%=product.image%>" alt="" class="product-detail-img">
                         </div>
 
                         <div class="product-name-and-price-container">
                            
                             <div class="product-name-container">
-                                <h1 class="product-detail-name">Colchoneta Flex</h1>
+                                <h1 class="product-detail-name"><%=product.name%></h1>
                             </div>
 
                             <div class="product-detail-description-container">
-                                <h2 class="product-detail-description">Colchoneta flexible de gran resistencia, ideal para hacer cualquier tipo de ejercicio físico como: abdominales, espinales, puente, entre otros. Su superficie tramada evita que la colchoneta se deslice a la hora de hacer los ejercicios.</h2>
+                                <h2 class="product-detail-description"><%=product.description%></h2>
                             </div>
 
                             <div class="product-detail-information-container">
-                                <h3 class="product-detail-information">Peso total: <span class="product-detail-information-detail">1Kg</span></h3>
-                                <h3 class="product-detail-information">Medidas: <span class="product-detail-information-detail">50 x 100 cm</span></h3>
-                                <h3 class="product-detail-information">Material: <span class="product-detail-information-detail">Goma</span></h3>
+                                <h3 class="product-detail-information">Peso total: <span class="product-detail-information-detail"><%=product.weight%></span></h3>
+                                <h3 class="product-detail-information">Medidas: <span class="product-detail-information-detail"><%=product.size%></span></h3>
+                                <h3 class="product-detail-information">Material: <span class="product-detail-information-detail"><%=product.material%></span></h3>
                             </div>
                             
                             <div class="product-price-container">
-                                <h2 class="product-detail-price">Precio: <span>$2000</span></h2>
+                                <h2 class="product-detail-price">Precio: <span>$<%=product.price%></span></h2>
                             </div>
 
                             <div class="product-detail-form-container">

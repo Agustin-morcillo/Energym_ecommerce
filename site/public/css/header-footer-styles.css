@@ -281,6 +281,12 @@ header{
     }
 }
 
+@media (max-width:350px){
+    .logo-container{
+        width: 600px;
+    }
+}
+
 
 
 /* -----------------FOOTER----------------- */
@@ -533,7 +539,6 @@ header{
 }
 
 
-
 .social-icons-container{
     width: 40%;
     position: relative;
@@ -564,3 +569,10 @@ header{
 }
 
 }
+
+@media (max-width:350px){
+    .energym-logo-footer{
+        width: 140px;
+    }
+}
+

@@ -212,6 +212,136 @@ body{
     }
 }
 
+/* ----------------------------------------[PRODUCTS PAGE]---------------------------------------- */
+
+.product-page-main-container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/images/main/contact-background.jpg)
+}
+
+.product-page-container{
+    width: 90%;
+    margin: 80px 0px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #eeeeee;
+}
+
+.product-page-articles-main-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-page-article-container{
+    display: flex;
+    width: 21%;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 20px;
+    margin: 25px;
+}
+
+.product-page-img-container{
+    width: 100%;
+    margin-top: 5px;
+}
+
+.product-page-img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.product-page-form-container{
+    width: 100%;
+}
+
+.product-page-div{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.product-page-button{
+    width: 80%;
+    margin-bottom: 20px;
+    background-color: orange;
+    height: 30px;
+    color: white;
+    font-size: 17px;
+}
+
+.product-page-button:hover{
+    background-color: orangered;
+}
+
+.product-page-price{
+    font-size: 25px;
+    color: green;
+    font-weight: bolder;
+}
+
+.product-page-introduction{
+    padding: 0px 10px;
+}
+
+.product-page-name{
+    font-size: 19px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+@media(max-width:1390px){
+    .product-page-article-container{
+        width: 28%;
+    }
+}
+
+@media(max-width:1044px){
+    .product-page-article-container{
+        width: 40%;
+    }
+}
+
+@media(max-width:800px){
+
+    .product-page-container{
+        width: 100%;
+    }
+    .product-page-article-container{
+        width: 80%;
+    }
+
+    .product-page-name{
+        font-size: 25px;
+    }
+
+    .product-page-price{
+        font-size: 40px;
+        margin: 5px 0px;
+    }
+
+    .product-page-button{
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+@media(max-width:500px){
+    .product-page-article-container{
+        width: 100%;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+}
+
+
 
 /* ----------------------------------------[LOGIN]---------------------------------------- */
 
