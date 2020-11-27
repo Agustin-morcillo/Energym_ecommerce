@@ -20,6 +20,15 @@ function writeProducts(arrayToTransform){
     fs.writeFileSync(productsFilePath, productsJson);
 }
 
+function deleteProduct (productToDeleteId){
+    const products = getAllProducts();
+    const productToDelete = products.find((product)=>{return product.id==productToDeleteId});
+    const productPlace = products.indexOf(productToDelete)
+    products.splice(productPlace, 1)
+    const productsJson = JSON.stringify(products,null," ")
+    fs.writeFileSync(productsFilePath, productsJson);   
+}
+
 function generateNewId(){
     const products = getAllProducts();
     if(products == ""){
@@ -63,7 +72,7 @@ const productController = {
             image: req.files[0].filename
         }
         writeProducts(newProduct);
-        res.redirect('/');
+        res.redirect('/admin');
     },
     edit: (req,res)=>{
         res.render("products/edit-product")
@@ -73,12 +82,8 @@ const productController = {
     },
     destroy: (req,res)=>{
         const id = req.params.id;
-        const products = getAllProducts();
-        const productToDelete = products.find((product)=>{return product.id==id});
-        const productPlace = products.indexOf(productToDelete)
-        products.splice(productPlace, 1)
-        writeProducts(products);
-        res.redirect("/")
+        deleteProduct(id)
+        res.redirect("/admin")
     },
     
 }
