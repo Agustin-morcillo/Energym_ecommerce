@@ -43,7 +43,7 @@
                                             <form action="/products/edit">
                                                 <button type="submit" class="admin-edit-button buttons-style"><i class="fas fa-edit admin-edit-icon"></i>Editar</button>
                                             </form>
-                                            <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+                                            <form action="/products/delete/<%=product.id%>?_method=DELETE" method="POST">
                                                 <button type="submit" class="admin-delete-button buttons-style"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
                                             </form>
                                         </div>
