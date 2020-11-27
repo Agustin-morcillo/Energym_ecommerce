@@ -14,7 +14,7 @@
  },
  {
    "id": 2,
-   "name": "colchoneta Flex",
+   "name": "Colchoneta Flex",
    "price": 2000,
    "introduction": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
    "description": "Colchoneta flexible de gran resistencia, ideal para hacer cualquier tipo de ejercicio físico como: abdominales, espinales, puente, entre otros. Su superficie tramada evita que la colchoneta se deslice a la hora de hacer los ejercicios.",
