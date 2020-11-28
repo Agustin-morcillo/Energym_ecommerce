@@ -20,49 +20,49 @@
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-name" class="admin-labels">Nombre del producto</label>
                                         </div> 
-                                        <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" value="Colchoneta Flex">
+                                        <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" value="<%= productToEdit.name %>">
                                     </div>
                                    
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-price" class="admin-labels">Precio</label>
                                         </div>
-                                        <input type="number" name="price" id="add-edit-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000" value="2000">
+                                        <input type="number" name="price" id="add-edit-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000" value="<%= productToEdit.price %>">
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-short-description" class="admin-labels">Breve descripción</label>
                                         </div> 
-                                        <input type="text" name="introduction" id="add-edit-product-short-description" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit" value="Lorem ipsum dolor sit amet consectetur adipisicing elit">
+                                        <input type="text" name="introduction" id="add-edit-product-short-description" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit" value="<%= productToEdit.introduction %>">
                                     </div>
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-description" class="admin-labels">Descripción completa</label>
                                         </div>
-                                        <textarea name="description" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi">Colchoneta flexible de gran resistencia, ideal para hacer cualquier tipo de ejercicio físico como: abdominales, espinales, puente, entre otros. Su superficie tramada evita que la colchoneta se deslice a la hora de hacer los ejercicios.</textarea>
+                                        <textarea name="description" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi"><%= productToEdit.description %></textarea>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-weight" class="admin-labels">Peso Total</label>
                                         </div> 
-                                        <input type="text" name="weight" id="add-edit-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" value="1Kg">
+                                        <input type="text" name="weight" id="add-edit-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" value="<%= productToEdit.weight %>">
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-size" class="admin-labels">Medidas</label>
                                         </div> 
-                                        <input type="text" name="size" id="add-edit-product-size" class="add-edit-product-input inputs-fields" placeholder="Ej: 50 x 100 cm" value="50 x 100 cm">
+                                        <input type="text" name="size" id="add-edit-product-size" class="add-edit-product-input inputs-fields" placeholder="Ej: 50 x 100 cm" value="<%= productToEdit.size %>">
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-material" class="admin-labels">Material</label>
                                         </div> 
-                                        <input type="text" name="material" id="add-edit-product-material" class="add-edit-product-input inputs-fields" placeholder="Ej: Goma" value="Goma" >
+                                        <input type="text" name="material" id="add-edit-product-material" class="add-edit-product-input inputs-fields" placeholder="Ej: Goma" value="<%= productToEdit.material %>" >
                                     </div>
                                    
 

@@ -15,7 +15,9 @@ function getAllProducts(){
 // ***** controller ***** 
 const mainController ={
     homepage: (req,res)=>{
-        res.render("main/index")
+        const products=getAllProducts();
+        const losMasVendidos=products.filter((product)=>product.homepage==="si");
+        res.render("main/index", {losMasVendidos:losMasVendidos})
     },
     contactPage: (req,res)=>{
         res.render("main/contact")

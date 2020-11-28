@@ -17,59 +17,18 @@
             <h2 class="section-title">Los productos más vendidos</h2>
             <p class="section-title-description">Estos son los productos más procurados últimamente</p>
             <div class="articles-container">
-                <article class="articles">
-                    <img src="images/products/product-mancuernas.jpg" alt="" class="mas-vendidos-img">
-                    <h2 class="product-names">Mancuernas hexagonales</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/products/detail" class="button-padre">
-                        <button type="submit" class="comprar-button buttons-style">Comprar</button>
-                    </form>
-                </article>
 
+                <% for(let product of losMasVendidos) { %>
                 <article class="articles">
-                    <img src="images/products/product-mancuerna-tope.jpg" alt="" class="mas-vendidos-img">
-                    <h2 class="product-names">Mancuerna con topes</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/products/detail" class="button-padre">
+                    <img src="images/products/<%= product.image %>" alt="" class="mas-vendidos-img">
+                    <h2 class="product-names"><%= product.name %></h2>
+                    <p class="product-introduction"><%= product.introduction %></p>
+                    <form action="/products/detail/<%= product.id %>" class="button-padre">
                         <button type="submit" class="comprar-button buttons-style">Comprar</button>
                     </form>
                 </article>
+                <% } %>
 
-                <article class="articles">
-                    <img src="images/products/product-barra.jpg" alt="" class="mas-vendidos-img">
-                    <h2 class="product-names">Barra de dominadas</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/products/detail" class="button-padre">
-                        <button type="submit" class="comprar-button buttons-style">Comprar</button>
-                    </form>
-                </article>
-
-                <article class="articles">
-                    <img src="images/products/product-banda.jpg" alt="" class="mas-vendidos-img">
-                    <h2 class="product-names">Banda elástica con manijas</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/products/detail" class="button-padre">
-                        <button type="submit" class="comprar-button buttons-style">Comprar</button>
-                    </form>
-                </article>
-
-                <article class="articles">
-                    <img src="images/products/product-colchoneta.jpg" alt="" class="mas-vendidos-img">
-                    <h2 class="product-names">Colchoneta flex</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/products/detail" class="button-padre">
-                        <button type="submit" class="comprar-button buttons-style">Comprar</button>
-                    </form>
-                </article>
-
-                <article class="articles">
-                    <img src="images/products/product-tobillera.jpg" alt="" class="mas-vendidos-img">
-                    <h2 class="product-names">Tobilleras con cierre</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/products/detail" class="button-padre">
-                        <button type="submit" class="comprar-button buttons-style">Comprar</button>
-                    </form>
-                </article>
             </div>
         </section>
 

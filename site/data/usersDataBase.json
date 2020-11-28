@@ -1,0 +1,30 @@
+[
+ {
+  "id": 0,
+  "name": "Santiago",
+  "lastName": "Ruiz Moreno",
+  "mail": "santagoruizmoreno@gmail.com",
+  "password": "123123"
+ },
+ {
+  "id": 1,
+  "name": "Agustín",
+  "lastName": "Morcillo",
+  "mail": "elmorci@gmail.com",
+  "password": "123123"
+ },
+ {
+  "id": 2,
+  "name": "Damian",
+  "lastName": "Mugnolo",
+  "mail": "lacade@racing.com",
+  "password": "tirapiedras"
+ },
+ {
+  "id": 3,
+  "name": "Gonzalo",
+  "lastName": "Zeballos",
+  "mail": "gzeballos@dhouse.com",
+  "password": "123123"
+ }
+]

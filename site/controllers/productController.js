@@ -75,7 +75,10 @@ const productController = {
         res.redirect('/admin');
     },
     edit: (req,res)=>{
-        res.render("products/edit-product")
+        const id= req.params.id;
+        const products=getAllProducts();
+        const productToEdit = products.find((product)=>product.id===id);
+        res.render("products/edit-product", {productToEdit:productToEdit})
     },
     update: (req,res)=>{
         //guardar cambio de producto
