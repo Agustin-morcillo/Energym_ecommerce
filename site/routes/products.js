@@ -29,8 +29,8 @@ router.get("/create", productController.create)
 router.post("/create", upload.any(), productController.store)
 
 /* editar producto */
-router.get("/edit-product/:id", productController.edit)
-/*router.put("/edit/:id", productController.editProduct)*/
+router.get("/edit/:id", productController.edit)
+router.put("/edit/:id", productController.editProduct)
 
 /* Eliminar producto */
 router.delete("/delete/:id", productController.destroy)

@@ -14,14 +14,14 @@
                                 <p class="sections-welcome-description">Modifica los campos para editar el producto</p>
                             </div>
                             <div class="add-edit-product-rutine-card-form-container">
-                                <form action="/admin">
+                                <form method="post" action="/products/edit/<%= productToEdit.id %>?_method=PUT">
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-name" class="admin-labels">Nombre del producto</label>
                                         </div> 
-                                        <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" value="<%= productToEdit.name %>">
-                                    </div>
+                                       <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" value="<%= productToEdit.name %>">
+                                    </div> 
                                    
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">

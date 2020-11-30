@@ -20,6 +20,21 @@ function writeProducts(arrayToTransform){
     fs.writeFileSync(productsFilePath, productsJson);
 }
 
+function editProduct (productToEdit){
+    const products = getAllProducts();
+    const productPlace = products.indexOf(products.find((product)=>{return product.id==productToEdit.id}))
+    products[productPlace].name=productToEdit.name;
+    products[productPlace].price=productToEdit.price;
+    products[productPlace].introduction=productToEdit.introduction;
+    products[productPlace].description=productToEdit.description;
+    products[productPlace].weight=productToEdit.weight;
+    products[productPlace].size=productToEdit.size;
+    products[productPlace].material=productToEdit.material;
+    products[productPlace].category=productToEdit.category;
+    const productsJson = JSON.stringify(products,null," ")
+    fs.writeFileSync(productsFilePath, productsJson);   
+}
+
 function deleteProduct (productToDeleteId){
     const products = getAllProducts();
     const productToDelete = products.find((product)=>{return product.id==productToDeleteId});
@@ -77,8 +92,12 @@ const productController = {
     edit: (req,res)=>{
         const id= req.params.id;
         const products=getAllProducts();
-        const productToEdit = products.find((product)=>product.id===id);
+        const productToEdit = products.find((product)=>product.id==id);
         res.render("products/edit-product", {productToEdit:productToEdit})
+    },
+    editProduct: (req,res)=>{
+        editProduct(req.params)
+        res.redirect("/admin")
     },
     update: (req,res)=>{
         //guardar cambio de producto
