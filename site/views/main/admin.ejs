@@ -40,7 +40,7 @@
                                             </div>
                                         </div>
                                         <div class="edit-delete-buttons-container">
-                                            <form method="post" action="/products/edit-product/<%= product.id %>">
+                                            <form method="get" action="/products/edit/<%= product.id %>">
                                                 <button type="submit" class="admin-edit-button buttons-style"><i class="fas fa-edit admin-edit-icon"></i>Editar</button>
                                             </form>
                                             <form method="post" action="/products/delete/<%=product.id%>?_method=DELETE">
