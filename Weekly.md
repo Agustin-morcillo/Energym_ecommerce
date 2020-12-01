@@ -1,27 +1,34 @@
 # Weekly Standups
 
-# Week 1
+# Week 1 & 2
 
 **Tareas completadas:**
 
-- Instalación de Express-generator [Todo el equipo]
+- Crear base de productos [Agustín]
 
-- Implementación del motor de vistas [Todo el equipo]
+- Renderizar productos en la vista de productos [Agustín]
 
-- Ruteos generales [Todo el equipo]
+- Hacer dinamica la vista de detalle de producto [Agustín]
 
-- Implementación de los partials [Todo el equipo]
+- Crear base de usuarios [Santiago]
 
- - Creación de la vista de edición de producto [Agustín]
+- Crear funciolidad de editar producto [Santiago]
 
-- Ajustes de estructura y ruteo del CSS [Todo el equipo]
+- Renderizar productos en la vista principal [Santiago]
+
+- Renderizar productos en la vista de admin [Damián]
+
+- Crear funciolidad de crear producto [Damián]
+
+- Crear funciolidad de eliminar producto [Damián]
+
 ---
 
 **Impedimentos:**
 
-- Teníamos muchos archivos CSS (uno para cada sección) y a la hora de parcializar el head no era escalable.
+- Tuvimos varias dificultades con el Multer
 
-- Problemas con el ruteo del CSS cuando parcializamos el Head
+- Tuvimos algunos problemas con las funciones de editar y eliminar productos.
 ---
 
 
@@ -29,29 +36,8 @@
 
 **Soluciones:**
 
-● Pudimos deducir que la solución al problema de tener muchos archivos CSS era unificar todos en uno y asegurarnos de que no se pisen las clases. [Todo el equipo]
+● Pudimos encontrar la solución a los problemas ocacionados por el multer.
+● Pudimos deducir la lógica de ciertas funciones.
 
 ---
  
-
-
-# Week 2
-
-**Tareas completadas:**
-
-- Separación de las vistas generales en carpetas y ruteo de las mismas [Agustín]
-
-- Separación de las vistas de productos y usuarios en carpetas y ruteo de las mismas [Damián]
-
-- Separación de las vistas de rutinas en carpetas y ruteo de las mismas [Santiago]
- ---
-
-
-**Impedimentos:**
-
-- Inconvenientes con el ruteo de las vistas en el controlador cuando las separábamos en carpetas. 
-
----
-**Soluciones:**
-
-- Solución vista en clase
