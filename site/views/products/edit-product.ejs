@@ -14,7 +14,7 @@
                                 <p class="sections-welcome-description">Modifica los campos para editar el producto</p>
                             </div>
                             <div class="add-edit-product-rutine-card-form-container">
-                                <form method="post" action="/products/edit/<%= productToEdit.id %>?_method=PUT">
+                                <form method="post" action="/products/edit/<%= productToEdit.id %>?_method=PUT" enctype="multipart/form-data">
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
@@ -78,15 +78,20 @@
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
                                             <label for="" class="admin-labels">¿Agregar en la Home?</label>
-                                            <input type="radio" name="homepage" value="si" class="admin-radio-input"> Sí
+                                            <% if(productToEdit.homepage == "si") { %> 
+                                            <input type="radio" name="homepage" value="si" class="admin-radio-input" checked> Sí
                                             <input type="radio" name="homepage" value="no" class="admin-radio-input"> No
+                                            <% } else { %>
+                                            <input type="radio" name="homepage" value="si" class="admin-radio-input"> Sí
+                                            <input type="radio" name="homepage" value="no" class="admin-radio-input" checked> No
+                                            <% } %>
                                         </div>
                                     </div>
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
                                             <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen del producto</label>
-                                            <input type="file" class="add-edit-product-image-input">
+                                            <input type="file" class="add-edit-product-image-input" name="image">
                                         </div>
                                     </div>
             
