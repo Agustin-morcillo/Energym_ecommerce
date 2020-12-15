@@ -19,7 +19,8 @@ const usersController={
             name: req.body.name,
             lastName: req.body.lastName,
             mail: req.body.mail,
-            password: bcrypt.hashSync(req.body.password,10)
+            password: bcrypt.hashSync(req.body.password,10),
+            avatar: req.files[0].filename
         };
        allFunctions.writeusers(newUser);
         

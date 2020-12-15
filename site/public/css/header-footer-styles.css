@@ -58,6 +58,7 @@ header{
     width: 10%;
     height: 40px;
     position: relative;
+    background-color: none;
 }
 
 .search-icon{

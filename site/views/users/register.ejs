@@ -14,7 +14,12 @@
                             <p class="sections-welcome-description">Completa los datos o registrate con Google o Facebook</p>
                         </div>
 
-                        <form action="/users/register" class="form" method="POST">
+                        <div class="validation-errors-container">
+                            <!-- ERRORES DE VALIDACION AQUI, RESPETAR LA CLASE DEL P
+                               <p class="validation-error">- Ejemplo: Email invalido</p> -->
+                           </div>
+
+                        <form action="/users/register" class="form" method="POST" enctype="multipart/form-data">
                             <div class="username-container register-info-container">
                                 <label for="name-field" class="register-label">Nombre<span class="required-field">*</span></label>
                                 <input name="name" type="text" id="name-field" class="register-input inputs-fields" required>
@@ -45,12 +50,28 @@
                                 <input name= 'repassword' type="password" id="repeat-password-field" class="register-input inputs-fields" required>
                             </div>
 
+                            <div class="register-info-container">
+                                <label for="image" class="register-label avatar-label">Avatar<span class="required-field">*</span></label>
+							    <input type="file" id="image" name="avatar" class="register-avatar-input" required>
+                            </div>
+
                             <div class="button-container register-info-container">
                                 <button type="submit" class="register-button final-register-button buttons-style" >Finalizar registro</button>
-                                <button type="submit" class="register-button google-button buttons-style"><i class="fab fa-google google-icon"></i>Registrarse con Google</button>
-                                <button type="submit" class="register-button facebook-button buttons-style"><i class="fab fa-facebook facebook-icon"></i>Registrarse con Facebook</button>
                             </div>
                         </form> 
+
+                        <form action="/" method="GET" class="facebook-google-form">
+                            <div class="button-container button-info-container">
+                                <button type="submit" class="register-button google-button buttons-style"><i class="fab fa-google google-icon"></i>Registrarse con Google</button>
+                            </div>
+                        </form>
+
+
+                        <form action="/" method="GET" class="facebook-google-form">
+                            <div class="button-container button-info-container">
+                                <button type="submit" class="register-button facebook-button buttons-style"><i class="fab fa-facebook facebook-icon"></i>Registrarse con Facebook</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </article>
