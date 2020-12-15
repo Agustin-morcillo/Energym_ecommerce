@@ -58,6 +58,18 @@ body{
     font-size: 16px;
 }
 
+.validation-errors-container{
+    padding: 10px 0px 0px 40px;
+    width: 100%;
+}
+
+.validation-error{
+    color: red;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 5px 0px;
+}
+
 
 /* ----------------------------------------[HOMEPAGE]---------------------------------------- */
 
@@ -539,19 +551,27 @@ body{
     text-align: left;
 }
 
-
 .form{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
 
-
-
 .register-input{
     height: 35px;
     margin-top: 5px;
     width: 90%;
+}
+
+.avatar-label{
+    position: relative;
+    left:155px
+}
+
+.register-avatar-input{
+    position: relative;
+    top: 10px;
+    left: 170px;
 }
 
 .required-field{
@@ -579,6 +599,7 @@ body{
 
 .facebook-button{
     background-color: #3b5998;
+    width: 47%;
 }
 
 .facebook-button:hover{
@@ -588,6 +609,7 @@ body{
 
 .google-button{
     background-color: gray;
+    width: 47%;
 }
 
 .google-button:hover{
@@ -611,6 +633,26 @@ body{
 .final-register-button:hover{
     background-color: orangered
 }
+
+.facebook-google-form{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.button-info-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    position: relative;
+    bottom: 22px;
+}
+
+
+
 
 /* ---responsive--- */
 
@@ -672,8 +714,18 @@ body{
     .register-info-container{
         width: 100%;
     }
-    .register-button{
+    .register-button,.facebook-button{
         width: 100%;
+    }
+    .facebook-google-form{
+        margin: 0px 20px;
+    }
+
+    .register-avatar-input{
+        left:10px
+    }
+    .avatar-label{
+        left: 10px;
     }
 }
 
