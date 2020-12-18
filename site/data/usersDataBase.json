@@ -38,5 +38,35 @@
   "mail": "Joaco@joaco.com",
   "password": "$2a$10$FDTiIsf0g/iSsyf7t4AvK.yPIY3xtYGti6A6SjjTIpOtF2sqzfXU.",
   "avatar": "1608063847114-ws_Nature_wood_road_1600x1200.jpg"
+ },
+ {
+  "id": 5,
+  "name": "Damian",
+  "lastName": "Mugnolo",
+  "password": "$2a$10$UyE6TkTDg2vMiaoJEZIKYuOzTexiX8yr7b29wb7p8Bght5CTzDlTC",
+  "avatar": "1608316700701-foto miniatura astropolitica 1.png"
+ },
+ {
+  "id": 6,
+  "name": "Pedro",
+  "lastName": "Sanchez",
+  "password": "$2a$10$xomFHwhzq.ZQC.215iOyA.m76dWfMf53QrDWMvrv8ZozGmMRbur1.",
+  "avatar": "1608318878052-foto miniatura astropolitica 6.png"
+ },
+ {
+  "id": 7,
+  "name": "carlos",
+  "lastName": "sanchez",
+  "mail": "carlos@sanchez.com",
+  "password": "$2a$10$NG9sC7IkjtADii4NMt/nFe0Xbl8p0aiu43MRMraJf3MwB72fgrLXq",
+  "avatar": "1608318973274-foto miniatura astropolitica 3.png"
+ },
+ {
+  "id": 8,
+  "name": "Juan",
+  "lastName": "Perez",
+  "mail": "juanchi@perez",
+  "password": "$2a$10$pxalmMYPWyB6sHHVVz2HYeXIRYPl/uIV.nEzb3vhvm.W6GREamd/K",
+  "avatar": "1608321152298-Fotos brief robertito 16.jpeg"
  }
 ]

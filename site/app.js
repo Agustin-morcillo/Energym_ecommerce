@@ -4,6 +4,9 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
+const logCookie = require('./middlewares/logCookie');
+const localSession = require('./middlewares/localSession');
 const methodOverride = require('method-override')
 const app = express();
 
@@ -15,6 +18,7 @@ const productRouter=require("./routes/products");
 const rutineRouter=require("./routes/rutines");
 
 /* CONFIGURACIONES */
+app.use(session({secret: 'energym session', resave: false, saveUninitialized: true}))
 app.use(methodOverride('_method'))
 app.use(logger('dev'));
 app.use(express.json());
@@ -23,20 +27,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* RUTAS */
-app.use("/", mainRouter)
-app.use("/users", usersRouter)
-app.use("/products", productRouter)
-app.use("/rutines", rutineRouter)
-
-
-
-
+app.use("/", mainRouter);
+app.use("/users", usersRouter);
+app.use("/products", productRouter);
+app.use("/rutines", rutineRouter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
+//middleware auth session cookie
+app.use(logCookie);
+app.use(localSession);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
