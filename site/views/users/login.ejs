@@ -12,15 +12,19 @@
                 </div>
 
                 <div class="validation-errors-container">
-                    <p class="validation-error">- Ejemplo: Email invalido</p>
-                    <p class="validation-error">- Ejemplo: Email invalido</p>
-                    <p class="validation-error">- Ejemplo: Email invalido</p>
-                    <p class="validation-error">- Ejemplo: Email invalido</p>
-                    <p class="validation-error">- Ejemplo: Email invalido</p>
+                    <% if(typeof errors != 'undefined') { %>
+                        <ul>
+                            <% for(var i = 0; i<errors.length; i++) { %>
+                                <li>
+                                    <p class="validation-error"> <%= errors[i].msg %> </p>                          
+                                </li>  
+                            <% } %>
+                        </ul>
+                    <% } %>
                 </div>
 
                 <div class="login-inputs-container">
-                    <form action="/" method="GET" class="form-container">
+                    <form action="/users/login" method="POST" class="form-container">
                         
                         <div class="login-email-container general-containers">
                             <label for="email-login" class="login-inputs-titles">Correo Electrónico<span class="mandatory">*</span></label>
@@ -34,7 +38,7 @@
                         
                          <div class="remember-me-container">
                             <label for="remember">Recordarme</label>
-                            <input type="checkbox" id="remember" class="remember-login-input">
+                            <input type="checkbox" name="remember" id="remember" class="remember-login-input">
                         </div>
 
                         <div class="buttons-container general-containers">
