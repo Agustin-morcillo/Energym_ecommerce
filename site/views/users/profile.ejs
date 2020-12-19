@@ -1,12 +1,59 @@
 <!DOCTYPE html>
-  <head>
-    <title>profile</title>
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
+<html lang="en">
+    <%- include("../partials/head") %> 
+<body>
+    <%- include("../partials/header") %> 
 
-  <body>
-      <h1> Esta es la vista del profile! </h1>
-  </body>
+    <main>
+        <section>
+            <article>
+                <div class="profile-main-container">
+                    <div class="profile-container">
+                        <div class="sections-welcome-titles-container">
+                            <h2 class="sections-welcome-titles">¡Bienvenido a tu perfil <%=userLog.name%>!</h2>
+                            <p class="sections-welcome-description">Estos son los datos configurados en tu cuenta</p>
+                        </div>
+
+                        <div class="profile-avatar-container">
+                            <img src="/images/users/<%=userLog.avatar%>" alt="" class="profile-page-avatar">
+                            <p class="profile-avatar-text profile-labels">Avatar</p>
+                        </div>
+
+                        <div class="profile-information-container">
+                            <form action="">
+                            <div class="profile-information">
+                                <label for="name" class="profile-labels">Nombre:</label>
+                                <input type="text" name="name" id="" value="<%=userLog.name%>" class="inputs-fields profile-inputs" readonly>
+                            </div>
+
+                            <div class="profile-information">
+                                <label for="lastName" class="profile-labels">Apellido:</label>
+                                <input type="text" name="lastName" id="" value="<%=userLog.lastName%>" class="inputs-fields profile-inputs" readonly>
+                            </div>
+                          
+
+                            <div class="profile-information">
+                                <label for="email" class="profile-labels">Correo:</label>
+                                <input type="text" name="email" id="" value="<%=userLog.email%>" class="inputs-fields profile-inputs" readonly>
+                            </div>
+
+                            </form>
+
+                            <form action="/users/logout">
+                                <button class="buttons-style profile-logout-button"><i class="fas fa-sign-out-alt profile-icons"></i>Salir de la cuenta</button>
+                            </form>
+
+                            <form action="/users/profile/edit">
+                                <button class="buttons-style profile-edit-button"><i class="fas fa-edit profile-icons"></i>Editar perfil</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <%- include("../partials/footer") %> 
+    
+</body>
 </html>

@@ -24,12 +24,12 @@
                         </div>
 
                         <div class="contact-form-container">
-                            <form action="/" method="GET">
-                                <input type="email" class="inputs-fields contact-inputs" name="email" id="" placeholder="Correo electrónico">
+                            <form action="/contact" method="POST">
+                                <input type="email" class="inputs-fields contact-inputs" name="email" id="" placeholder="Correo electrónico" required>
 
-                                <input type="text" class="inputs-fields contact-inputs" name="subject" id="" placeholder="Asunto">
+                                <input type="text" class="inputs-fields contact-inputs" name="subject" id="" placeholder="Asunto" required>
 
-                                <textarea name="email-information" id="" cols="30" rows="10" placeholder="Texto" class="contact-textarea textarea-styles"></textarea>
+                                <textarea name="emailBody" id="" cols="30" rows="10" placeholder="Texto" class="contact-textarea textarea-styles" required></textarea>
 
                                 <div class="contact-button-container">
                                     <button type="submit" class="buttons-style contact-button-send">Enviar</button>

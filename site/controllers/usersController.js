@@ -14,22 +14,20 @@ const usersController={
         const users = allFunctions.getAllusers();
         const email = req.body.email;
         const password = req.body.password;
-        console.log(errors)
+       
         if(!errors.isEmpty()){
             return res.render('users/login', {errors: errors.errors})
         }
-        console.log('pase por aca')
-
-        const userToLogin = users.find(user=>user.mail == email)
+        
+        const userToLogin = users.find(user=>user.email == email)
         req.session.userLogged = userToLogin
-        console.log(req.session.userLogged)
 
         if (req.body.remember){
-            res.cookie('userLogged', userToLogin, { maxAge: 1000 * 60 * 15 })
+            res.cookie('userLogged', userToLogin.id, { maxAge: 1000 * 60 * 60 * 365 })
         }
-        console.log(req.cookies.userLogged)    
-        return res.redirect('/users/profile');
-        //ir al profile con un mensaje de exito
+            
+        return res.redirect('/');
+        
     },
     register: (req,res)=>{
         res.render("users/register")
@@ -39,21 +37,45 @@ const usersController={
             id: allFunctions.generateNewIdUsers(),
             name: req.body.name,
             lastName: req.body.lastName,
-            mail: req.body.email,
+            email: req.body.email,
             password: bcrypt.hashSync(req.body.password,10),
-            avatar: req.files[0].filename
+            avatar: req.files[0] ? req.files[0].filename : "default_avatar.jpg"
+             
         };
        allFunctions.writeusers(newUser);
         
         res.redirect("/users/login")
     },
     logout: (req, res)=>{
+        res.clearCookie('userLogged')
         req.session.destroy();
-        res.cookie('userLogged', null, { maxAge: -1 });
+        
         res.redirect('/');
     },
     profile: (req, res)=>{
         res.render('./users/profile')
+    },
+    editProfile: (req,res)=>{
+        res.render('./users/profile-edit')
+    },
+    editedProfile: (req,res)=>{
+        const users = allFunctions.getAllusers();
+        
+        const id = req.params.id;
+
+        const editedUser = users.map((user)=>{
+            if(user.id == id){
+                user.name = req.body.name,
+                user.lastName = req.body.lastName,
+                user.email = req.body.email,
+                user.avatar = req.files[0] ? req.files[0].filename : user.avatar;
+            }
+            return user
+        })
+
+        allFunctions.writeEditedUser(editedUser)
+
+        res.redirect("/users/profile")
     }
 }
 

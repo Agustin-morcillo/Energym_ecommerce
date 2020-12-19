@@ -26,6 +26,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//middleware auth session cookie
+app.use(logCookie);
+app.use(localSession);
+
+
 /* RUTAS */
 app.use("/", mainRouter);
 app.use("/users", usersRouter);
@@ -36,9 +41,7 @@ app.use("/rutines", rutineRouter);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//middleware auth session cookie
-app.use(logCookie);
-app.use(localSession);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

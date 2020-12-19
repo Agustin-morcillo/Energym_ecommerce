@@ -4,8 +4,8 @@ const { get } = require('../routes/products');
 const allFunctions = require("../helpers/allFunctions")
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 
+const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 
 const productController = {
     detail: (req,res)=>{
@@ -27,6 +27,7 @@ const productController = {
     },
     store: (req,res, next)=>{
         const products = allFunctions.getAllProducts();
+        
         const newProduct = {
             id: allFunctions.generateNewId(),
             name: req.body.name,
@@ -41,16 +42,21 @@ const productController = {
             image: req.files[0].filename
         }
         allFunctions.writeProducts(newProduct);
+        
         res.redirect('/admin');
     },
     edit: (req,res)=>{
         const id= req.params.id;
+        
         const products=allFunctions.getAllProducts();
+        
         const productToEdit = products.find((product)=>product.id==id);
+       
         res.render("products/edit-product", {productToEdit:productToEdit})
     },
     editProduct: (req,res)=>{
         const products = allFunctions.getAllProducts();
+        
         const id = req.params.id;
 
         const editedProduct = products.map((product)=>{
@@ -69,9 +75,7 @@ const productController = {
             return product
         })
 
-        const productsJson = JSON.stringify(editedProduct,null," ")
-        fs.writeFileSync(productsFilePath, productsJson);  
-
+        allFunctions.writeEditedProduct(editedProduct)
 
         res.redirect("/admin")
         
@@ -79,9 +83,9 @@ const productController = {
     destroy: (req,res)=>{
         const id = req.params.id;
         allFunctions.deleteProduct(id)
+        
         res.redirect("/admin")
     },
-    
 }
 
 module.exports=productController;
