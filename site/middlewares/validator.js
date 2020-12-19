@@ -11,7 +11,7 @@ const validator = {
             .custom((value, { req }) => {
                 const password = req.body.password;
                 const users = allFunctions.getAllusers();
-                const userExist = users.find(user=>value == user.mail)
+                const userExist = users.find(user=>value == user.email)
                 if(userExist && bcrypt.compareSync(password, userExist.password)){
                     return true;
                 }

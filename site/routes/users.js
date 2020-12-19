@@ -17,12 +17,24 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-/* GET users listing. */
+//Login
 router.get("/login", guest, usersController.login);
 router.post("/login", guest, validator.login, usersController.processLogin);
+
+//Registro
 router.get("/register", guest, usersController.register);
 router.post("/register", guest, upload.any(),usersController.createUser);
-router.get('/logout', auth, usersController.logout);
+
+//Perfil
 router.get('/profile', auth, usersController.profile);
+
+//Editar perfil
+router.get("/profile/edit",auth,usersController.editProfile)
+router.put("/profile/edit/:id",auth,upload.any(),usersController.editedProfile)
+
+//Logout
+router.get('/logout', auth, usersController.logout);
+
+
 
 module.exports = router;

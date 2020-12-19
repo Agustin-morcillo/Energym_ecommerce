@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %> 
+<body>
+    <%- include("../partials/header") %> 
+
+    <main>
+        <section>
+            <article>
+                <div class="profile-main-container">
+                    <div class="profile-container">
+                        <div class="sections-welcome-titles-container">
+                            <h2 class="sections-welcome-titles">Editar perfil</h2>
+                            <p class="sections-welcome-description">Modifica los campos para editar tu perfil</p>
+                        </div>
+
+                        <div class="profile-avatar-container">
+                            <img src="/images/users/<%=userLog.avatar%>" alt="" class="profile-page-avatar">
+                            <p class="profile-avatar-text">Avatar</p>
+                        </div>
+
+                        <div class="profile-information-container">
+                            <form action="/users/profile/edit/<%=userLog.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                <div class="profile-information">
+                                    <label for="name" class="profile-labels">Nombre:</label>
+                                    <input type="text" name="name" id="" value="<%=userLog.name%>" class="inputs-fields profile-inputs" required>
+                                </div>
+
+                                <div class="profile-information">
+                                    <label for="lastName" class="profile-labels">Apellido:</label>
+                                    <input type="text" name="lastName" id="" value="<%=userLog.lastName%>" class="inputs-fields profile-inputs" required>
+                                </div>
+                            
+
+                                <div class="profile-information">
+                                    <label for="email" class="profile-labels">Correo:</label>
+                                    <input type="email" name="email" id="" value="<%=userLog.email%>" class="inputs-fields profile-inputs" required>
+                                </div>
+
+                                <div class="profile-information">
+                                    <label for="image" class="profile-labels">Avatar</label>
+                                    <input type="file" id="image" name="avatar" class="profile-inputs">
+                                </div>
+
+                                <button type="submit" class="buttons-style profile-edit-button profile-save-edit-button"><i class="fas fa-check save-changes-icon"></i>Guardar cambios</button>
+                                <div class="profile-message-container">
+                                    <p class="profile-message">* Debes reingresar para aplicar los cambios.</p>
+                                </div>
+                            </form>
+
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <%- include("../partials/footer") %> 
+    
+</body>
+</html>

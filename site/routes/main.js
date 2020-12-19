@@ -2,23 +2,18 @@
 var express = require('express');
 var router = express.Router();
 const mainController = require('../controllers/mainController');
-const multer = require('multer');
+const auth = require('../middlewares/auth');
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, __dirname + '/../../public/images/products/')
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname)
-    }
-})
 
-const upload = multer({ storage: storage });
+//Homepage
+router.get('/', mainController.homepage);
 
-//***** redireccion a controller ***** 
-router.get('/', upload.any(), mainController.homepage);
+//ContactPage
 router.get('/contact', mainController.contactPage);
-router.get('/admin', mainController.adminPage);
+router.post('/contact', mainController.storageContactInfo);
+
+//AdminPage
+router.get('/admin', auth,mainController.adminPage);
 
 //***** export ***** 
 module.exports = router;
