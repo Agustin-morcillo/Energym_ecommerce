@@ -13,11 +13,17 @@
                             <h2 class="sections-welcome-titles">Datos de la cuenta</h2>
                             <p class="sections-welcome-description">Completa los datos o registrate con Google o Facebook</p>
                         </div>
-
                         <div class="validation-errors-container">
-                            <!-- ERRORES DE VALIDACION AQUI, RESPETAR LA CLASE DEL P
-                               <p class="validation-error">- Ejemplo: Email invalido</p> -->
-                           </div>
+                            <% if(typeof errors != 'undefined') { %>
+                                <ul>
+                                    <% for(var i = 0; i<errors.length; i++) { %>
+                                        <li>
+                                            <p class="validation-error"> <%= errors[i].msg %> </p>                          
+                                        </li>  
+                                    <% } %>
+                                </ul>
+                            <% } %>
+                        </div>
 
                         <form action="/users/register" class="form" method="POST" enctype="multipart/form-data">
                             <div class="username-container register-info-container">

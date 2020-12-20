@@ -5,6 +5,7 @@ const multer = require('multer');
 const validator = require('../middlewares/validator');
 const auth = require('../middlewares/auth');
 const guest = require('../middlewares/guest');
+let {check, validationesult, body} = require ('express-validator');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -23,7 +24,28 @@ router.post("/login", guest, validator.login, usersController.processLogin);
 
 //Registro
 router.get("/register", guest, usersController.register);
-router.post("/register", guest, upload.any(),usersController.createUser);
+router.post("/register", guest, [
+    check('name').isLength({min:1}).withMessage('Debe completar el campo: Nombre'),
+    check('lastName').isLength({min:1}).withMessage('Debe completar el campo: Apellido'),
+    body('email')
+    .isLength({min:1})
+    .withMessage('Debe completar el campo: Email')
+    .bail()
+    .isEmail()
+    .withMessage('El email ingresado no es válido')
+    .bail()
+    .custom((value, {req})=> {
+        const allUsers = readJson();
+        const searchUser = allUsers.find((user) => (value == user.email))
+
+        return !searchUser;
+    })
+    .withMessage('El usuario ya existe'),
+    body('retypeEmail'),
+    check('password').isLength({min:5}).withMessage('La contraseña debe tener al menos 5 caracteres'),
+    check('retype'),
+    check('avatar'),
+], upload.any(),usersController.createUser);
 
 //Perfil
 router.get('/profile', auth, usersController.profile);
