@@ -6,6 +6,7 @@ const validator = require('../middlewares/validator');
 const auth = require('../middlewares/auth');
 const guest = require('../middlewares/guest');
 let {check, validationesult, body} = require ('express-validator');
+const allFunctions = require("../helpers/allFunctions");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -25,26 +26,32 @@ router.post("/login", guest, validator.login, usersController.processLogin);
 //Registro
 router.get("/register", guest, usersController.register);
 router.post("/register", guest, [
-    check('name').isLength({min:1}).withMessage('Debe completar el campo: Nombre'),
-    check('lastName').isLength({min:1}).withMessage('Debe completar el campo: Apellido'),
+    check('name').notEmpty().withMessage('Debe completar el campo: Nombre'),
+    check('lastName').notEmpty().withMessage('Debe completar el campo: Apellido'),
     body('email')
-    .isLength({min:1})
+    .notEmpty()
     .withMessage('Debe completar el campo: Email')
     .bail()
     .isEmail()
     .withMessage('El email ingresado no es válido')
     .bail()
     .custom((value, {req})=> {
-        const allUsers = readJson();
+        const allUsers = allFunctions.getContactInfo();
         const searchUser = allUsers.find((user) => (value == user.email))
 
         return !searchUser;
     })
     .withMessage('El usuario ya existe'),
-    body('retypeEmail'),
+    body('retypeEmail').custom((value, {req})=> {
+        return(value == req.body.email);
+    })
+    .withMessage('Los email no coinciden'),
     check('password').isLength({min:5}).withMessage('La contraseña debe tener al menos 5 caracteres'),
-    check('retype'),
-    check('avatar'),
+    body('retype').custom((value, {req})=> {
+        return(value == req.body.password);
+    })
+    .withMessage('Las contraseñas no coinciden'),
+    //check('avatar'),
 ], upload.any(),usersController.createUser);
 
 //Perfil

@@ -1,4 +1,4 @@
-let {check, validationesult, body, validationResult} = require ('express-validator');
+let {check, validationResult, body} = require ('express-validator');
 const fs = require('fs');
 const path = require('path');
 const allFunctions = require("../helpers/allFunctions");
@@ -33,7 +33,7 @@ const usersController={
         res.render("users/register")
     },
     createUser: (req,res)=>{
-        const errors= validationResult(req);
+        const errors = validationResult(req);
         if(errors.isEmpty())
             {
                 const newUser = {
