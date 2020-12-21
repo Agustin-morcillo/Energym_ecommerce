@@ -25,7 +25,7 @@ router.post("/login", guest, validator.login, usersController.processLogin);
 
 //Registro
 router.get("/register", guest, usersController.register);
-router.post("/register", guest, [
+router.post("/register", guest, upload.any(), [
     check('name').notEmpty().withMessage('Debe completar el campo: Nombre'),
     check('lastName').notEmpty().withMessage('Debe completar el campo: Apellido'),
     body('email')
@@ -52,7 +52,7 @@ router.post("/register", guest, [
     })
     .withMessage('Las contraseñas no coinciden'),
     //check('avatar'),
-], upload.any(),usersController.createUser);
+],usersController.createUser);
 
 //Perfil
 router.get('/profile', auth, usersController.profile);

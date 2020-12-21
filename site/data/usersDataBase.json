@@ -1,74 +1,42 @@
 [
- {
-  "id": 0,
-  "name": "Gonzalo",
-  "lastName": "Zeballos",
-  "email": "gonza@gonza.com",
-  "password": "$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2",
-  "avatar": "default_avatar.jpg"
- },
- {
-  "id": 1,
-  "name": "Joaquin",
-  "lastName": "Di Toma",
-  "email": "joaco@joaco.com",
-  "password": "$2a$10$31BxZNeOkaIbWv8R.GpaROEJzYVfouyOw7U0av.L2lFhycqTkqk8K",
-  "avatar": "1608404004062-1608063707830-1366_2000.jpeg"
- },
- {
-  "id": 2,
-  "name": "Agustin",
-  "lastName": "Morcillo",
-  "email": "agustin@agustin.com",
-  "password": "$2a$10$.fbyfEHUPeuXG/BnPCrjNuABrsYAjnfZnaO185rofe1k9tou34A7S",
-  "avatar": "1608404035569-1608063773535-9202af0d723d0b09d5d434eea53f92dd.jpg"
- },
- {
-  "id": 3,
-  "name": "Damian",
-  "lastName": "Mugnolo",
-  "email": "damian@damian.com",
-  "password": "$2a$10$38wkjk8jJ3DCxRyvaYGgi.djwmWd3zVBWso26weWI0tF/gVw.UBOW",
-  "avatar": "1608404063362-1608063802795-13615.jpg"
- },
- {
-  "id": 4,
-  "name": "Santiago",
-  "lastName": "Ruiz",
-  "email": "santiago@santiago.com",
-  "password": "$2a$10$BSZS4tlZGlmNfHT6KG6PjOtHTklOcZAbC0Yg4FScQmCDC62ZdPEHG",
-  "avatar": "1608404090712-1608063826020-a34557edb440b87588943994469f9aea.jpg"
- },
- {
-  "id": 5,
-  "name": "Santiago",
-  "lastName": "Ruiz Moreno",
-  "email": "santiagoruizmoreno@gmail.com",
-  "password": "$2a$10$zAZ7Z79W.GV0zwHOGZd9P.pF/kffQveO2UaPP2tyC8ilnFyOowSLS",
-  "avatar": "1608495512594-20150305_151218.jpg"
- },
- {
-  "id": 6,
-  "name": "",
-  "lastName": "",
-  "email": "",
-  "password": "$2a$10$SyvesOXS0i6R5WIYjBrfju2Zaw.cWWDzOlfZ9GD/RLabwlbvXr/Y6",
-  "avatar": "default_avatar.jpg"
- },
- {
-  "id": 7,
-  "name": "",
-  "lastName": "",
-  "email": "",
-  "password": "$2a$10$qFv6oUYLLHuXyHD8n7qbfulPYOUFk22enrr4pjeHOvTP2Yobk7gB2",
-  "avatar": "default_avatar.jpg"
- },
- {
-  "id": 8,
-  "name": "",
-  "lastName": "",
-  "email": "",
-  "password": "$2a$10$wgvISMAlaZ/Y90QJge1qcO5g/2sSO8TD68Fp.2.Jg0Ym8Md3/ndWG",
-  "avatar": "default_avatar.jpg"
- }
-]
+    {
+     "id": 0,
+     "name": "Gonzalo",
+     "lastName": "Zeballos",
+     "email": "gonza@gonza.com",
+     "password": "$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2",
+     "avatar": "default_avatar.jpg"
+    },
+    {
+     "id": 1,
+     "name": "Joaquin",
+     "lastName": "Di Toma",
+     "email": "joaco@joaco.com",
+     "password": "$2a$10$31BxZNeOkaIbWv8R.GpaROEJzYVfouyOw7U0av.L2lFhycqTkqk8K",
+     "avatar": "1608404004062-1608063707830-1366_2000.jpeg"
+    },
+    {
+     "id": 2,
+     "name": "Agustin",
+     "lastName": "Morcillo",
+     "email": "agustin@agustin.com",
+     "password": "$2a$10$.fbyfEHUPeuXG/BnPCrjNuABrsYAjnfZnaO185rofe1k9tou34A7S",
+     "avatar": "1608404035569-1608063773535-9202af0d723d0b09d5d434eea53f92dd.jpg"
+    },
+    {
+     "id": 3,
+     "name": "Damian",
+     "lastName": "Mugnolo",
+     "email": "damian@damian.com",
+     "password": "$2a$10$38wkjk8jJ3DCxRyvaYGgi.djwmWd3zVBWso26weWI0tF/gVw.UBOW",
+     "avatar": "1608404063362-1608063802795-13615.jpg"
+    },
+    {
+     "id": 4,
+     "name": "Santiago",
+     "lastName": "Ruiz",
+     "email": "santiago@santiago.com",
+     "password": "$2a$10$BSZS4tlZGlmNfHT6KG6PjOtHTklOcZAbC0Yg4FScQmCDC62ZdPEHG",
+     "avatar": "1608404090712-1608063826020-a34557edb440b87588943994469f9aea.jpg"
+    }
+   ]
