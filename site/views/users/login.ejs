@@ -14,9 +14,9 @@
                 <div class="validation-errors-container">
                     <% if(typeof errors != 'undefined') { %>
                         <ul>
-                            <% for(var i = 0; i<errors.length; i++) { %>
+                            <% for(error of errors) { %>
                                 <li>
-                                    <p class="validation-error"> <%= errors[i].msg %> </p>                          
+                                    <p class="validation-error"> <%= error.msg %> </p>                          
                                 </li>  
                             <% } %>
                         </ul>
