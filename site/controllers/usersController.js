@@ -47,7 +47,6 @@ const usersController={
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password,10),
             avatar: req.files[0] ? req.files[0].filename : "default_avatar.jpg"
-            
         };
         allFunctions.writeusers(newUser);
 

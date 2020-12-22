@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const usersController= require("../controllers/usersController")
 const multer = require('multer');
+const path = require("path");
 const validator = require('../middlewares/validator');
 const auth = require('../middlewares/auth');
 const guest = require('../middlewares/guest');
@@ -14,10 +15,20 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname)
-    }
+    } 
 })
 
-const upload = multer({ storage: storage })
+const upload = multer({
+    storage: storage,  
+    fileFilter: (req, file, cb) => {
+        const acceptedExtensions = ['.jpg', '.png', '.jpeg'];
+        const isAccepted = acceptedExtensions.includes(path.extname(file.originalname));
+        if (!isAccepted){
+            req.files = [...req.files, file];
+        }
+        cb(null, isAccepted);
+    }
+})
 
 //Login
 router.get("/login", guest, usersController.login);
