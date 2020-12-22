@@ -25,34 +25,7 @@ router.post("/login", guest, validator.login, usersController.processLogin);
 
 //Registro
 router.get("/register", guest, usersController.register);
-router.post("/register", guest, [
-    check('name').notEmpty().withMessage('Debe completar el campo: Nombre'),
-    check('lastName').notEmpty().withMessage('Debe completar el campo: Apellido'),
-    body('email')
-    .notEmpty()
-    .withMessage('Debe completar el campo: Email')
-    .bail()
-    .isEmail()
-    .withMessage('El email ingresado no es válido')
-    .bail()
-    .custom((value, {req})=> {
-        const allUsers = allFunctions.getContactInfo();
-        const searchUser = allUsers.find((user) => (value == user.email))
-
-        return !searchUser;
-    })
-    .withMessage('El usuario ya existe'),
-    body('retypeEmail').custom((value, {req})=> {
-        return(value == req.body.email);
-    })
-    .withMessage('Los email no coinciden'),
-    check('password').isLength({min:5}).withMessage('La contraseña debe tener al menos 5 caracteres'),
-    body('retype').custom((value, {req})=> {
-        return(value == req.body.password);
-    })
-    .withMessage('Las contraseñas no coinciden'),
-    //check('avatar'),
-], upload.any(),usersController.createUser);
+router.post("/register", guest, upload.any(), validator.register, usersController.createUser);
 
 //Perfil
 router.get('/profile', auth, usersController.profile);

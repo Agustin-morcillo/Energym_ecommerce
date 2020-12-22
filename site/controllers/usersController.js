@@ -34,24 +34,25 @@ const usersController={
     },
     createUser: (req,res)=>{
         const errors = validationResult(req);
-        if(errors.isEmpty())
+        if(!errors.isEmpty())
             {
-                const newUser = {
-                    id: allFunctions.generateNewIdUsers(),
-                    name: req.body.name,
-                    lastName: req.body.lastName,
-                    email: req.body.email,
-                    password: bcrypt.hashSync(req.body.password,10),
-                    avatar: req.files[0] ? req.files[0].filename : "default_avatar.jpg"
-                    
-                };
-                allFunctions.writeusers(newUser);
-        
-                res.redirect("/users/login");
-
-            } else {
-                res.render("users/register", {errors: errors.errors});
+                return res.render("users/register", {errors: errors.errors});
+               
             }
+
+        const newUser = {
+            id: allFunctions.generateNewIdUsers(),
+            name: req.body.name,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password,10),
+            avatar: req.files[0] ? req.files[0].filename : "default_avatar.jpg"
+            
+        };
+        allFunctions.writeusers(newUser);
+
+        res.redirect("/users/login");
+        
        
     },
     logout: (req, res)=>{
