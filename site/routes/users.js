@@ -25,7 +25,9 @@ router.post("/login", guest, validator.login, usersController.processLogin);
 
 //Registro
 router.get("/register", guest, usersController.register);
+
 router.post("/register", guest, upload.any(), validator.register, usersController.createUser);
+
 
 //Perfil
 router.get('/profile', auth, usersController.profile);

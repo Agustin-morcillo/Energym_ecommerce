@@ -1,43 +1,37 @@
 # Weekly Standups
 
-# Week 1 & 2
+# Week 1
 
 **Tareas completadas:**
 
-- Crear base de productos [Agustín]
+- Validaciones custom de login de email y password [damian]
 
-- Renderizar productos en la vista de productos [Agustín]
+- Middleware de session y cookie de aplicacion [damian]
 
-- Hacer dinamica la vista de detalle de producto [Agustín]
+- Middleware de acceso: guest y auth [damian]
 
-- Crear base de usuarios [Santiago]
+- Vista de usuario [agus]
 
-- Crear funciolidad de editar producto [Santiago]
+- Implementar el registro de usuarios [santi]
 
-- Renderizar productos en la vista principal [Santiago]
-
-- Renderizar productos en la vista de admin [Damián]
-
-- Crear funciolidad de crear producto [Damián]
-
-- Crear funciolidad de eliminar producto [Damián]
+- Validaciones de registro [santi]
 
 ---
 
 **Impedimentos:**
 
-- Tuvimos varias dificultades con el Multer
+- Inconvenientes con cookie y session por requerir en el entry point los middleware de session y cookie luego de las rutas. 
 
-- Tuvimos algunos problemas con las funciones de editar y eliminar productos.
+- Problemas con las validaciones por llamarlas antes que el upload.any en el archivo de rutas. 
+
+- Inconvenientes con la cookie por guardar en la cookie toda la informacion del usuario en lugar de un dato unico como el id. 
+
 ---
-
-
-
 
 **Soluciones:**
 
-● Pudimos encontrar la solución a los problemas ocacionados por el multer.
-● Pudimos deducir la lógica de ciertas funciones.
+● Descubrimos rapidamente que el orden del requerimiento de los elementos en distintos lugares como el entry point o en los middleware de las rutas alteran la funcionalidad del sitio. Con esta solucion resolvimos los primeros dos problemas.  
 
+● Repasando la teoria solucionamos el tercer problema.  
 ---
  
