@@ -6,7 +6,6 @@ const path = require("path");
 const validator = require('../middlewares/validator');
 const auth = require('../middlewares/auth');
 const guest = require('../middlewares/guest');
-let {check, validationesult, body} = require ('express-validator');
 const allFunctions = require("../helpers/allFunctions");
 
 const storage = multer.diskStorage({
