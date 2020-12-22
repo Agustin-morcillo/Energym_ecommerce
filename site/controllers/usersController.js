@@ -3,7 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const allFunctions = require("../helpers/allFunctions");
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
+const deleteFailureFile = path.join(__dirname, '../public/images/users/');
 const bcrypt = require("bcryptjs");
+const { Console } = require('console');
 
 const usersController={
     login: (req,res)=>{
@@ -34,10 +36,9 @@ const usersController={
     },
     createUser: (req,res)=>{
         const errors = validationResult(req);
-        if(!errors.isEmpty())
-            {
-                return res.render("users/register", {errors: errors.errors});
-               
+        if(!errors.isEmpty()){
+                res.render("users/register", {errors: errors.errors});
+                return req.files[0] ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
             }
 
         const newUser = {
