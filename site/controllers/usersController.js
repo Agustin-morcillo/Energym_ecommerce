@@ -37,8 +37,9 @@ const usersController={
     createUser: (req,res)=>{
         const errors = validationResult(req);
         if(!errors.isEmpty()){
+                console.log(req.files[0])
                 res.render("users/register", {errors: errors.errors});
-                return req.files[0] ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
+                return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
             }
 
         const newUser = {
