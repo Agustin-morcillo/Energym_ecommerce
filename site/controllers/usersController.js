@@ -1,15 +1,14 @@
-let {check, validationResult, body} = require ('express-validator');
+let {validationResult} = require ('express-validator');
 const fs = require('fs');
 const path = require('path');
 const allFunctions = require("../helpers/allFunctions");
-const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const deleteFailureFile = path.join(__dirname, '../public/images/users/');
 const bcrypt = require("bcryptjs");
-const { Console } = require('console');
+
 
 const usersController={
     login: (req,res)=>{
-        res.render("./users/login")
+        return res.render("./users/login")
     },
     processLogin: (req, res)=>{
         const errors = validationResult(req);
@@ -32,12 +31,11 @@ const usersController={
         
     },
     register: (req,res)=>{
-        res.render("users/register")
+        return res.render("users/register")
     },
     createUser: (req,res)=>{
         const errors = validationResult(req);
         if(!errors.isEmpty()){
-                console.log(req.files[0])
                 res.render("users/register", {errors: errors.errors});
                 return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
             }
@@ -52,7 +50,7 @@ const usersController={
         };
         allFunctions.writeusers(newUser);
 
-        res.redirect("/users/login");
+       return res.redirect("/users/login");
         
        
     },
@@ -60,13 +58,13 @@ const usersController={
         res.clearCookie('userLogged')
         req.session.destroy();
         
-        res.redirect('/');
+        return res.redirect('/');
     },
     profile: (req, res)=>{
-        res.render('./users/profile')
+        return res.render('./users/profile')
     },
     editProfile: (req,res)=>{
-        res.render('./users/profile-edit')
+        return res.render('./users/profile-edit')
     },
     editedProfile: (req,res)=>{
         const users = allFunctions.getAllusers();
@@ -85,7 +83,7 @@ const usersController={
 
         allFunctions.writeEditedUser(editedUser)
 
-        res.redirect("/users/profile")
+        return res.redirect("/users/profile")
     }
 }
 

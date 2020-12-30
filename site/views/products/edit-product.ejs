@@ -14,55 +14,73 @@
                                 <p class="sections-welcome-description">Modifica los campos para editar el producto</p>
                             </div>
                             <div class="add-edit-product-rutine-card-form-container">
-                                <form method="post" action="/products/edit/<%= productToEdit.id %>?_method=PUT" enctype="multipart/form-data">
+                                <form method="post" action="/products/edit/<%=productToEdit.id%>?_method=PUT" enctype="multipart/form-data">
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-name" class="admin-labels">Nombre del producto</label>
+                                            <label for="edit-product-name" class="admin-labels">Nombre del producto<span class="required-field">*</span></label>
                                         </div> 
-                                       <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" value="<%= productToEdit.name %>">
+                                       <input type="text" name="name" id="edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" value="<%= productToEdit.name %>">
+                                       <p class="validation-error-product">
+                                        <%= typeof errors == "undefined" ? "" : typeof errors.name != "undefined" ? errors.name.msg : "" %>
+                                       </p>
                                     </div> 
                                    
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-price" class="admin-labels">Precio</label>
+                                            <label for="edit-product-price" class="admin-labels">Precio<span class="required-field">*</span></label>
                                         </div>
-                                        <input type="number" name="price" id="add-edit-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000" value="<%= productToEdit.price %>">
+                                        <input type="number" name="price" id="edit-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000" value="<%= productToEdit.price %>">
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.price != "undefined" ? errors.price.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-short-description" class="admin-labels">Breve descripción</label>
+                                            <label for="edit-product-introduction" class="admin-labels">Breve descripción</label>
                                         </div> 
-                                        <input type="text" name="introduction" id="add-edit-product-short-description" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit" value="<%= productToEdit.introduction %>">
+                                        <input type="text" name="introduction" id="edit-product-introduction" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit" value="<%= productToEdit.introduction %>">
                                     </div>
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-description" class="admin-labels">Descripción completa</label>
+                                            <label for="edit-product-description" class="admin-labels">Descripción completa<span class="required-field">*</span></label>
                                         </div>
-                                        <textarea name="description" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi"><%= productToEdit.description %></textarea>
+                                        <textarea name="description" id="edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi"><%= productToEdit.description %></textarea>
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.description != "undefined" ? errors.description.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-weight" class="admin-labels">Peso Total</label>
+                                            <label for="edit-product-weight" class="admin-labels">Peso Total<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="weight" id="add-edit-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" value="<%= productToEdit.weight %>">
+                                        <input type="text" name="weight" id="edit-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" value="<%= productToEdit.weight %>">
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.weight != "undefined" ? errors.weight.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-size" class="admin-labels">Medidas</label>
+                                            <label for="edit-product-size" class="admin-labels">Medidas<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="size" id="add-edit-product-size" class="add-edit-product-input inputs-fields" placeholder="Ej: 50 x 100 cm" value="<%= productToEdit.size %>">
+                                        <input type="text" name="size" id="edit-product-size" class="add-edit-product-input inputs-fields" placeholder="Ej: 50 x 100 cm" value="<%= productToEdit.size %>">
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.size != "undefined" ? errors.size.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-material" class="admin-labels">Material</label>
+                                            <label for="edit-product-material" class="admin-labels">Material<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="material" id="add-edit-product-material" class="add-edit-product-input inputs-fields" placeholder="Ej: Goma" value="<%= productToEdit.material %>" >
+                                        <input type="text" name="material" id="edit-product-material" class="add-edit-product-input inputs-fields" placeholder="Ej: Goma" value="<%= productToEdit.material %>" >
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.material != "undefined" ? errors.material.msg : "" %>
+                                        </p>
                                     </div>
                                    
 
@@ -90,8 +108,8 @@
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
-                                            <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen del producto</label>
-                                            <input type="file" class="add-edit-product-image-input" name="image" accept="image/jpg, image/png, image/jpeg">
+                                            <label for="create-product-image" class="add-edit-product-image-label">Imagen del producto</label>
+                                            <input type="file" id="create-product-image" class="add-edit-product-image-input" name="image" accept="image/jpg, image/png, image/jpeg">
                                         </div>
                                     </div>
             

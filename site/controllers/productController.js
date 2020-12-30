@@ -1,11 +1,8 @@
+let {validationResult} = require ('express-validator');
 const fs = require('fs');
 const path = require('path');
-const { get } = require('../routes/products');
+const deleteFailureFile = path.join(__dirname, '../public/images/products/');
 const allFunctions = require("../helpers/allFunctions")
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 
 const productController = {
     detail: (req,res)=>{
@@ -13,19 +10,26 @@ const productController = {
         const products = allFunctions.getAllProducts();
         const product = products.find((product)=>product.id == id);
 
-        res.render("products/product-detail",{product: product})
+        return res.render("products/product-detail",{product: product})
     },
     cart: (req,res)=>{
-        res.render("products/product-cart")
+        return res.render("products/product-cart")
     },
     productPage: (req,res)=>{
         const products = allFunctions.getAllProducts();
-        res.render("products/products", {products: products})
+        return res.render("products/products", {products: products})
     },
     create: (req,res)=>{
-        res.render("products/create-product")
+        return res.render("products/create-product")
     },
     store: (req,res, next)=>{
+        const errors = validationResult(req);
+        
+        if(!errors.isEmpty()){
+                res.render("products/create-product", {errors: errors.mapped()});
+                return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
+            }
+
         const products = allFunctions.getAllProducts();
         
         const newProduct = {
@@ -43,18 +47,29 @@ const productController = {
         }
         allFunctions.writeProducts(newProduct);
         
-        res.redirect('/admin');
+       return res.redirect('/admin');
     },
     edit: (req,res)=>{
+        
         const id= req.params.id;
         
         const products=allFunctions.getAllProducts();
         
         const productToEdit = products.find((product)=>product.id==id);
        
-        res.render("products/edit-product", {productToEdit:productToEdit})
+        return res.render("products/edit-product", {productToEdit:productToEdit})
     },
     editProduct: (req,res)=>{
+        const errors = validationResult(req);
+        
+        if(!errors.isEmpty()){
+            const id= req.params.id;
+            const products=allFunctions.getAllProducts();
+            const productToEdit = products.find((product)=>product.id==id);
+            
+            res.render("products/edit-product", {errors: errors.mapped(), productToEdit:productToEdit});
+            return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
+            }
         const products = allFunctions.getAllProducts();
         
         const id = req.params.id;
@@ -77,14 +92,14 @@ const productController = {
 
         allFunctions.writeEditedProduct(editedProduct)
 
-        res.redirect("/admin")
+        return res.redirect("/admin")
         
     },
     destroy: (req,res)=>{
         const id = req.params.id;
         allFunctions.deleteProduct(id)
         
-        res.redirect("/admin")
+        return res.redirect("/admin")
     },
 }
 

@@ -9,7 +9,7 @@ const validator = {
     login: [
         body('email')
             .notEmpty()
-            .withMessage("Debes completar el campo: Email")
+            .withMessage("Debes completar el campo: Email.")
             .bail()
             .custom((value, { req }) => {
                 const password = req.body.password;
@@ -20,26 +20,26 @@ const validator = {
                 }
                 return false;
             })
-            .withMessage('Email o contraseña inválidos')
+            .withMessage('Email o contraseña inválidos.')
     ],
     register: [
         body('name')
             .notEmpty()
-            .withMessage('Debe completar el campo: Nombre'),
+            .withMessage('Debes completar el campo: Nombre.'),
         body('lastName')
             .notEmpty()
-            .withMessage('Debe completar el campo: Apellido'),
+            .withMessage('Debes completar el campo: Apellido.'),
         body('email')
             .notEmpty()
-            .withMessage('Debe completar el campo: Email')
+            .withMessage('Debes completar el campo: Email.')
             .bail()
             .isEmail()
-            .withMessage('El email ingresado no es válido')
+            .withMessage('El email ingresado no es válido.')
             .bail()
             .custom((value, {req})=> {
                 return(value == req.body.retypeEmail);
             })
-            .withMessage ('Los emails no coinciden')
+            .withMessage ('Los emails no coinciden.')
             .bail()
             .custom((value)=> {
                 const allUsers = allFunctions.getAllusers();
@@ -47,18 +47,18 @@ const validator = {
         
                 return !searchUser;
             })
-            .withMessage('El email ingresado se encuentra en uso'),
+            .withMessage('El email ingresado se encuentra en uso.'),
         body ('password')
             .notEmpty()
-            .withMessage('Debe completar el campo: Contraseña')
+            .withMessage('Debes completar el campo: Contraseña.')
             .bail()
             .custom ((value, {req})=> {
                 return(value == req.body.retype);
             })
-            .withMessage ('Las contraseñas no coinciden')
+            .withMessage ('Las contraseñas no coinciden.')
             .bail()
             .isLength ({min:5})
-            .withMessage ('La contraseña debe tener al menos 5 caracteres'),
+            .withMessage ('La contraseña debe tener al menos 5 caracteres.'),
         body('avatar')
             .custom ((value , {req}) => {
                 if(req.files[0])
@@ -69,7 +69,90 @@ const validator = {
                 }
                 return true;
             })
-            .withMessage ("Formato de imagen Inválido. Formatos válidos: '.jpg', '.png', '.jpeg'"),
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'"),
+    ],
+    createProduct: [
+        body("name")
+            .notEmpty()
+            .withMessage("Debes completar este campo.")
+            .bail()
+            .isLength({min:5})
+            .withMessage("El nombre debe tener al menos 5 caracteres."),
+        body("price")
+            .notEmpty()
+            .withMessage("Debes completar este campo.")
+            .bail()
+            .isInt()
+            .withMessage("Debes ingresar un valor numérico."),
+        body("description")
+            .notEmpty()
+            .withMessage("Debes completar este campo.")
+            .bail()
+            .isLength({min:20})
+            .withMessage("La descripción debe tener al menos 20 caracteres"),
+        body("weight")
+            .notEmpty()
+            .withMessage("Debes completar este campo."),
+        body("size")
+            .notEmpty()
+            .withMessage("Debes completar este campo."),
+        body("material")
+            .notEmpty()
+            .withMessage("Debes completar este campo."),
+        body("image")
+            .custom ((value , {req}) => {
+                if(req.files[0])
+                {
+                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const productImage = path.extname (req.files[0].originalname)
+                    return (imageFormats.includes(productImage));
+                }
+                return true;
+            })
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'")
+            .bail()
+            .custom((valueImg, { req }) => req.files[0])
+            .withMessage('Debes cargar una imagen.')
+    ],
+    editProduct: [
+        body("name")
+            .notEmpty()
+            .withMessage("No has completado este campo (valor original restaurado).")
+            .bail()
+            .isLength({min:5})
+            .withMessage("El nuevo nombre debe tener al menos 5 caracteres (valor original restaurado)."),
+        body("price")
+            .notEmpty()
+            .withMessage("No has completado este campo (valor original restaurado).")
+            .bail()
+            .isInt()
+            .withMessage("Debes ingresar un valor numérico (valor original restaurado)."),
+        body("description")
+            .notEmpty()
+            .withMessage("No has completado este campo (valor original restaurado).")
+            .bail()
+            .isLength({min:20})
+            .withMessage("La nueva descripción debe tener al menos 20 caracteres (valor original restaurado)."),
+        body("weight")
+            .notEmpty()
+            .withMessage("No has completado este campo (valor original restaurado)."),
+        body("size")
+            .notEmpty()
+            .withMessage("No has completado este campo (valor original restaurado)."),
+        body("material")
+            .notEmpty()
+            .withMessage("No has completado este campo (valor original restaurado)."),
+        body("image")
+            .custom ((value , {req}) => {
+                if(req.files[0])
+                {
+                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const productImage = path.extname (req.files[0].originalname)
+                    return (imageFormats.includes(productImage));
+                }
+                return true;
+            })
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'")
     ]
 }
 

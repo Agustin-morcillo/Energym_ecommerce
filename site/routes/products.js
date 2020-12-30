@@ -1,30 +1,9 @@
 const express = require('express');
 const productController = require('../controllers/productController');
 const router = express.Router();
-const path = require("path");
-const multer = require('multer');
 const auth = require('../middlewares/auth');
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, __dirname + '/../public/images/products/')
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname)
-    }
-})
-
-const upload = multer({
-    storage: storage,  
-    fileFilter: (req, file, cb) => {
-        const acceptedExtensions = ['.jpg', '.png', '.jpeg'];
-        const isAccepted = acceptedExtensions.includes(path.extname(file.originalname));
-        if (!isAccepted){
-            req.files = [...req.files, file];
-        }
-        cb(null, isAccepted);
-    }
-})
+const validator = require('../middlewares/validator');
+const productsMulter = require("../middlewares/multer/products")
 
 /* Detalle producto */
 router.get("/detail/:id", productController.detail)
@@ -36,12 +15,12 @@ router.get("/cart", auth,productController.cart)
 router.get("/", productController.productPage)
 
 /* Crear producto */
-router.get("/create", auth,productController.create)
-router.post("/create", auth,upload.any(), productController.store)
+router.get("/create",auth,productController.create)
+router.post("/create", auth,productsMulter.any(), validator.createProduct,productController.store)
 
 /* editar producto */
 router.get("/edit/:id", auth,productController.edit)
-router.put("/edit/:id", auth,upload.any() ,productController.editProduct)
+router.put("/edit/:id", auth,productsMulter.any(),validator.editProduct,productController.editProduct)
 
 /* Eliminar producto */
 router.delete("/delete/:id",auth ,productController.destroy)

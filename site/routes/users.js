@@ -1,34 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const usersController= require("../controllers/usersController")
-const multer = require('multer');
-const path = require("path");
 const validator = require('../middlewares/validator');
-let { validationResult } = require ('express-validator');
 const auth = require('../middlewares/auth');
 const guest = require('../middlewares/guest');
-const allFunctions = require("../helpers/allFunctions");
+const usersMulter = require("../middlewares/multer/users")
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, __dirname + '/../public/images/users/')
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname)
-    } 
-})
-
-const upload = multer({
-    storage: storage,  
-    fileFilter: (req, file, cb) => {
-        const acceptedExtensions = ['.jpg', '.png', '.jpeg'];
-        const isAccepted = acceptedExtensions.includes(path.extname(file.originalname));
-        if(!isAccepted){
-            req.files = [...req.files, file];
-        }
-        cb(null, isAccepted);
-    }
-})
 
 //Login
 router.get("/login", guest, usersController.login);
@@ -36,8 +13,7 @@ router.post("/login", guest, validator.login, usersController.processLogin);
 
 //Registro
 router.get("/register", guest, usersController.register);
-
-router.post("/register", guest, upload.any(), validator.register, usersController.createUser);
+router.post("/register", guest, usersMulter.any(), validator.register, usersController.createUser);
 
 
 //Perfil
@@ -45,11 +21,10 @@ router.get('/profile', auth, usersController.profile);
 
 //Editar perfil
 router.get("/profile/edit",auth,usersController.editProfile)
-router.put("/profile/edit/:id",auth,upload.any(),usersController.editedProfile)
+router.put("/profile/edit/:id",auth,usersMulter.any(),usersController.editedProfile)
 
 //Logout
 router.get('/logout', auth, usersController.logout);
-
 
 
 module.exports = router;

@@ -14,61 +14,81 @@
                                 <p class="sections-welcome-description">Completa los campos para crear un nuevo producto</p>
                             </div>
                             <div class="add-edit-product-rutine-card-form-container">
+                                
                                 <form action="/products/create" method="POST" enctype="multipart/form-data"> 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-name" class="admin-labels">Nombre del producto</label>
+                                            <label for="create-product-name" class="admin-labels">Nombre del producto<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" >
+                                        <input type="text" name="name" id="create-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" >
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.name != "undefined" ? errors.name.msg : "" %>
+                                        </p>
                                     </div>
                                    
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-price" class="admin-labels">Precio</label>
+                                            <label for="create-product-price" class="admin-labels">Precio<span class="required-field">*</span></label>
                                         </div>
-                                        <input type="number" name="price" id="add-edit-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000">
+                                        <input type="number" name="price" id="create-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000">
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.price != "undefined" ? errors.price.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-short-description" class="admin-labels">Breve descripción</label>
+                                            <label for="create-product-introduction" class="admin-labels">Breve descripción</label>
                                         </div> 
-                                        <input type="text" name="introduction" id="add-edit-product-short-description" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit" >
+                                        <input type="text" name="introduction" id="create-product-introduction" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit" >
                                     </div>
+
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-description" class="admin-labels">Descripción completa</label>
+                                            <label for="create-product-description" class="admin-labels">Descripción completa<span class="required-field">*</span></label>
                                         </div>
-                                        <textarea name="description" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi "></textarea>
+                                        <textarea name="description" id="create-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi "></textarea>
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.description != "undefined" ? errors.description.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-weight" class="admin-labels">Peso Total</label>
+                                            <label for="create-product-weight" class="admin-labels">Peso Total<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="weight" id="add-edit-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" >
+                                        <input type="text" name="weight" id="create-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" >
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.weight != "undefined" ? errors.weight.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-size" class="admin-labels">Medidas</label>
+                                            <label for="create-product-size" class="admin-labels">Medidas<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="size" id="add-edit-product-size" class="add-edit-product-input inputs-fields" placeholder="Ej: 100 x 50 cm" >
+                                        <input type="text" name="size" id="create-product-size" class="add-edit-product-input inputs-fields" placeholder="Ej: 100 x 50 cm" >
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.size != "undefined" ? errors.size.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-material" class="admin-labels">Material</label>
+                                            <label for="create-product-material" class="admin-labels">Material<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="material" id="add-edit-product-material" class="add-edit-product-input inputs-fields" placeholder="Ej: Goma" >
+                                        <input type="text" name="material" id="create-product-material" class="add-edit-product-input inputs-fields" placeholder="Ej: Goma" >
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.material != "undefined" ? errors.material.msg : "" %>
+                                        </p>
                                     </div>
                                    
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
-                                            <label for="" class="admin-labels">Categoría:</label>
-                                            <select name="category" id="" class="admin-select-category">
+                                            <label for="create-product-category" class="admin-labels">Categoría:</label>
+                                            <select name="category" id="create-product-category" class="admin-select-category">
                                                 <option value="products">Productos</option>
                                             </select>
                                          </div>
@@ -84,9 +104,12 @@
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
-                                            <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen del producto</label>
-                                            <input type="file" name="image" class="add-edit-product-image-input" accept="image/jpg, image/png, image/jpeg" required>
+                                            <label for="create-product-image" class="add-edit-product-image-label">Imagen del producto<span class="required-field">*</span></label>
+                                            <input type="file" name="image" id="create-product-image" class="add-edit-product-image-input" accept="image/jpg, image/png, image/jpeg">
                                         </div>
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.image != "undefined" ? errors.image.msg : "" %>
+                                        </p>
                                     </div>
             
                                     <div class="form-add-edit-product-button-container">
