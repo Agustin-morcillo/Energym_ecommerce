@@ -30,7 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(logCookie);
 app.use(localSession);
 
-
 /* RUTAS */
 app.use("/", mainRouter);
 app.use("/users", usersRouter);

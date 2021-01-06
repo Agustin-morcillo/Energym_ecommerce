@@ -58,7 +58,7 @@
                                         <div class="admin-label-container">
                                             <label for="create-product-weight" class="admin-labels">Peso Total<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="weight" id="create-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" >
+                                        <input type="number" name="weight" id="create-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" >
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.weight != "undefined" ? errors.weight.msg : "" %>
                                         </p>

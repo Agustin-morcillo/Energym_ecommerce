@@ -92,6 +92,9 @@ const validator = {
             .withMessage("La descripción debe tener al menos 20 caracteres"),
         body("weight")
             .notEmpty()
+            .withMessage("Debes completar este campo.")
+            .bail()
+            .isInt()
             .withMessage("Debes completar este campo."),
         body("size")
             .notEmpty()
