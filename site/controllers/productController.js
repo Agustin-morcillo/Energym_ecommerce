@@ -43,7 +43,7 @@ const productController = {
                 price: req.body.price,
                 introduction: req.body.introduction,
                 description: req.body.description,
-                weight_KG: req.body.weight,
+                weightKg: req.body.weight,
                 size: req.body.size,
                 material: req.body.material,
                 category: req.body.category,
@@ -58,8 +58,7 @@ const productController = {
     edit: async (req,res)=>{
         try {
             const id = req.params.id;
-            const products = await db.Product.findAll();
-            const productToEdit = products.find((product)=>product.id==id);   
+            const productToEdit = await db.Product.findByPk(req.params.id)  
             return res.render("products/edit-product", {productToEdit:productToEdit});
         } catch (errors) {
             return res.send(errors);
@@ -70,30 +69,31 @@ const productController = {
             const errors = validationResult(req);
 
             if(!errors.isEmpty()){
-                const id = req.params.id;
-                const products = await db.Product.findAll();
-                const productToEdit = products.find((product)=>product.id==id);
-                
-                res.render("products/edit-product", {errors: errors.mapped(), productToEdit:productToEdit});
+                const productToEdit = await db.Product.findByPk(req.params.id)  
+                res.render("products/edit-product", {errors: errors.mapped(), productToEdit});
                 return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
                 }
 
-            const products = await db.Product.findAll();
-            const id = req.params.id;
-
-            await db.Product.update({
+            const productToEdit = await db.Product.findByPk(req.params.id)     
+            let product = await db.Product.update({
                 name: req.body.name,
                 price: req.body.price,
                 introduction: req.body.introduction,
                 description: req.body.description,
-                weight_KG: req.body.weight,
+                weightKg: req.body.weight,
                 size: req.body.size,
                 material: req.body.material,
                 category: req.body.category,
                 homepage: req.body.homepage,
-                image: req.files[0] ? req.files[0].filename : product.image
-            }, { where: { id: 1 }});
+                image: req.files[0] ? req.files[0].filename : productToEdit.image
+            }, 
+            { 
+                where: { 
+                    id: req.params.id 
+                }});
+            
             return res.redirect("/admin")
+            
         } catch (errors) {
             return res.send(errors);
         } 

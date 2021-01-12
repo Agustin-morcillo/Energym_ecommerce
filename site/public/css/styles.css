@@ -1664,6 +1664,7 @@ header{
     width: 90%;
     background-color: #f4f4f4;
     margin-bottom: 10px;
+    
 }
 
 .product-image-and-name-container{
@@ -1680,7 +1681,7 @@ header{
 
 
 .admin-product-img{
-    height: 50px;
+    height: 63px;
     border-radius: 10px;
     width: 70px;
 }
@@ -1704,6 +1705,7 @@ header{
     justify-content: flex-end;
     align-items: center;
     margin-right: 15px;
+    border: 2px solid red;
 }
 
 
