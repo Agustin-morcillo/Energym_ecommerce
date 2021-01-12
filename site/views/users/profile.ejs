@@ -10,15 +10,22 @@
                 <div class="profile-main-container">
                     <div class="profile-container">
                         <div class="sections-welcome-titles-container">
-                            <h2 class="sections-welcome-titles">¡Bienvenido a tu perfil <%=userLog.name%>!</h2>
+                            <h2 class="sections-welcome-titles">¡Bienvenido a tu perfil <%if(userLog.id == 3) {%> de Administrador, <%=userLog.name%><%} else {%><%=userLog.name%><%}%>!</h2>
                             <p class="sections-welcome-description">Estos son los datos configurados en tu cuenta</p>
                         </div>
-
-                        <div class="profile-avatar-container">
-                            <img src="/images/users/<%=userLog.avatar%>" alt="" class="profile-page-avatar">
-                            <p class="profile-avatar-text profile-labels">Avatar</p>
-                        </div>
-
+                        <div class="profile-left-side">
+                            <div class="profile-avatar-container">
+                                <img src="/images/users/<%=userLog.avatar%>" alt="" class="profile-page-avatar">
+                                <p class="profile-avatar-text profile-labels">Avatar</p>
+                            </div>
+                            <%if(userLog.id == 3) { %>
+                            <div class="admin-button-container">
+                                <form action="/admin">
+                                    <button class="buttons-style admin-edit-button"><i class="fas fa-edit profile-icons"></i>Ir a la página de administrador</button>
+                                </form>
+                            </div>
+                            <% } %>
+                        </div>    
                         <div class="profile-information-container">
                             <form action="">
                             <div class="profile-information">

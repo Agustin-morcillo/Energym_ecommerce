@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const deleteFailureFile = path.join(__dirname, '../public/images/products/');
 const allFunctions = require("../helpers/allFunctions");
-let db = require("../database/models");
+const db = require("../database/models");
 
 const productController = {
     detail: async (req,res)=>{
@@ -12,18 +12,18 @@ const productController = {
             return res.render("products/product-detail",{product: detalleProducto})
 
         } catch (errors) {
-            return res.send("Ha ocurrido un error en el pedido a la base de datos: ", errors);
+            return res.send(errors);
         }
     },
     cart: (req,res)=>{
         return res.render("products/product-cart")
     },
     productPage: async (req,res)=>{
-        try{
+        try {
             const products = await db.Product.findAll();
             return res.render("products/products", {products: products})
         } catch (errors) {
-            return res.send("Ha ocurrido un error en el pedido a la base de datos: ", errors);
+            return res.send(errors);
         }
     },
     create: (req,res)=>{
@@ -52,7 +52,7 @@ const productController = {
             });        
             return res.redirect('/admin');
         } catch (errors) {
-            return res.send("Ha ocurrido un error en el pedido a la base de datos: ", errors);
+            return res.send(errors);
         } 
     },
     edit: async (req,res)=>{
@@ -62,7 +62,7 @@ const productController = {
             const productToEdit = products.find((product)=>product.id==id);   
             return res.render("products/edit-product", {productToEdit:productToEdit});
         } catch (errors) {
-            return res.send("Ha ocurrido un error en el pedido a la base de datos: ", errors);
+            return res.send(errors);
         } 
     },
     editProduct: async (req,res)=>{
@@ -81,7 +81,7 @@ const productController = {
             const products = await db.Product.findAll();
             const id = req.params.id;
 
-            const editedProduct = await db.Product.update({
+            await db.Product.update({
                 name: req.body.name,
                 price: req.body.price,
                 introduction: req.body.introduction,
@@ -95,7 +95,7 @@ const productController = {
             }, { where: { id: 1 }});
             return res.redirect("/admin")
         } catch (errors) {
-            return res.send("Ha ocurrido un error en el pedido a la base de datos: ", errors);
+            return res.send(errors);
         } 
     },
     destroy: async (req,res)=>{
@@ -106,7 +106,7 @@ const productController = {
             })        
             return res.redirect("/admin");
         } catch (errors) {
-            return res.send("Ha ocurrido un error en el pedido a la base de datos: ", errors);
+            return res.send(errors);
         }
     }
 }
