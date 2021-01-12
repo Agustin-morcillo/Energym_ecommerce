@@ -14,41 +14,60 @@
                                 <p class="sections-welcome-description">Completa los campos para crear una nueva rutina</p>
                             </div>
                             <div class="add-edit-product-rutine-card-form-container">
-                                <form action="/admin">
+                                <p class="validation-error-product-title">
+                                    <%= typeof errors == "undefined" ? "" : "Hay algún error en los campos" %>
+                                </p>
+                                
+                                <form method="POST" action="/rutines/create"  enctype="multipart/form-data">
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-name" class="admin-labels">Nombre de la rutina</label>
+                                            <label for="add-edit-product-name" class="admin-labels">Nombre de la rutina<span class="required-field">*</span></label>
                                         </div> 
                                         <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Abdominales" >
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.name != "undefined" ? errors.name.msg : "" %>
+                                        </p>
                                     </div>
                                    
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-price" class="admin-labels">Precio</label>
+                                            <label for="add-edit-product-price" class="admin-labels">Precio<span class="required-field">*</span></label>
                                         </div>
                                         <input type="number" name="price" id="add-edit-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000">
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.price != "undefined" ? errors.price.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-short-description" class="admin-labels">Breve descripción</label>
+                                            <label for="add-edit-product-short-description" class="admin-labels">Breve descripción (max 78 caract)<span class="required-field">*</span></label>
                                         </div> 
                                         <input type="text" name="introduction" id="add-edit-product-short-description" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit" >
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.introduction != "undefined" ? errors.introduction.msg : "" %>
+                                        </p>
                                     </div>
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-description" class="admin-labels">Descripción completa</label>
+                                            <label for="add-edit-product-description" class="admin-labels">Descripción completa<span class="required-field">*</span></label>
                                         </div>
                                         <textarea name="description" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi "></textarea>
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.description != "undefined" ? errors.description.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="add-edit-product-duration" class="admin-labels">Duración</label>
+                                            <label for="add-edit-product-duration" class="admin-labels">Duración (en semanas)<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="duration" id="add-edit-product-duration" class="add-edit-product-input inputs-fields" placeholder="Ej: 8 semanas" >
+                                        <input type="number" name="duration" id="add-edit-product-duration" class="add-edit-product-input inputs-fields" placeholder="Ej: 8" >
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.duration != "undefined" ? errors.duration.msg : "" %>
+                                        </p>
                                     </div>
 
                                     <div class="admin-inputs-containers">
@@ -70,9 +89,12 @@
                                     
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-option-container">
-                                            <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen de la rutina</label>
-                                            <input type="file" class="add-edit-product-image-input">
+                                            <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen de la rutina<span class="required-field">*</span></label>
+                                            <input type="file" class="add-edit-product-image-input" name="image" accept="image/jpg, image/png, image/jpeg">
                                         </div>
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.image != "undefined" ? errors.image.msg : "" %>
+                                        </p>
                                     </div>
             
                                     <div class="form-add-edit-product-button-container">

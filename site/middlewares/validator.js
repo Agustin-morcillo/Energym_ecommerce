@@ -84,18 +84,20 @@ const validator = {
             .bail()
             .isInt()
             .withMessage("Debes ingresar un valor numérico."),
+        body("introduction")
+            .notEmpty()
+            .withMessage("No has completado este campo.")
+            .isLength({max:78})
+            .withMessage("Este campo solo admite 78 caracteres como máximo."),
         body("description")
             .notEmpty()
-            .withMessage("Debes completar este campo.")
-            .bail()
-            .isLength({min:20})
-            .withMessage("La descripción debe tener al menos 20 caracteres"),
+            .withMessage("Debes completar este campo."),
         body("weight")
             .notEmpty()
             .withMessage("Debes completar este campo.")
             .bail()
             .isInt()
-            .withMessage("Debes completar este campo."),
+            .withMessage("Debes ingresar un valor numérico."),
         body("size")
             .notEmpty()
             .withMessage("Debes completar este campo."),
@@ -120,32 +122,118 @@ const validator = {
     editProduct: [
         body("name")
             .notEmpty()
-            .withMessage("No has completado este campo (valor original restaurado).")
+            .withMessage("Debes completar este campo (valor original restaurado).")
             .bail()
             .isLength({min:5})
             .withMessage("El nuevo nombre debe tener al menos 5 caracteres (valor original restaurado)."),
         body("price")
             .notEmpty()
-            .withMessage("No has completado este campo (valor original restaurado).")
+            .withMessage("Debes completar este campo (valor original restaurado).")
             .bail()
             .isInt()
             .withMessage("Debes ingresar un valor numérico (valor original restaurado)."),
+        body("introduction")
+            .notEmpty()
+            .withMessage("Debes completar este campo (valor original restaurado).")
+            .isLength({max:78})
+            .withMessage("Este campo solo admite 78 caracteres como máximo (valor original restaurado)."),
         body("description")
             .notEmpty()
-            .withMessage("No has completado este campo (valor original restaurado).")
-            .bail()
-            .isLength({min:20})
-            .withMessage("La nueva descripción debe tener al menos 20 caracteres (valor original restaurado)."),
+            .withMessage("Debes completar este campo (valor original restaurado)."),
         body("weight")
             .notEmpty()
-            .withMessage("No has completado este campo (valor original restaurado)."),
+            .withMessage("Debes completar este campo (valor original restaurado).")
+            .bail()
+            .isInt()
+            .withMessage("Debes ingregar un valor numérico"),
         body("size")
             .notEmpty()
-            .withMessage("No has completado este campo (valor original restaurado)."),
+            .withMessage("Debes completar este campo (valor original restaurado)."),
         body("material")
             .notEmpty()
-            .withMessage("No has completado este campo (valor original restaurado)."),
+            .withMessage("Debes completar este campo (valor original restaurado)."),
         body("image")
+            .custom ((value , {req}) => {
+                if(req.files[0])
+                {
+                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const productImage = path.extname (req.files[0].originalname)
+                    return (imageFormats.includes(productImage));
+                }
+                return true;
+            })
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'")
+    ],
+    createRutine: [
+        body("name")
+            .notEmpty()
+            .withMessage("Debes completar este campo.")
+            .bail()
+            .isLength({min:5})
+            .withMessage("El nombre debe tener al menos 5 caracteres."),
+        body("price")
+            .notEmpty()
+            .withMessage("Debes completar este campo.")
+            .bail()
+            .isInt()
+            .withMessage("Debes ingresar un valor numérico."),
+        body("introduction")
+            .notEmpty()
+            .withMessage("Debes completar este campo.")
+            .isLength({max:78})
+            .withMessage("Este campo solo admite 78 caracteres como máximo."),
+        body("description")
+            .notEmpty()
+            .withMessage("Debes completar este campo."),
+        body("duration")
+            .notEmpty()
+            .withMessage("Debes completar este campo.")
+            .bail()
+            .isInt()
+            .withMessage("Debes ingresar un valor numérico."),
+        body("image")
+            .custom ((value , {req}) => {
+                if(req.files[0])
+                {
+                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const productImage = path.extname (req.files[0].originalname)
+                    return (imageFormats.includes(productImage));
+                }
+                return true;
+            })
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'")
+            .bail()
+            .custom((valueImg, { req }) => req.files[0])
+            .withMessage('Debes cargar una imagen.')
+    ],
+    editRutine: [
+        body("name")
+            .notEmpty()
+            .withMessage("Debes completar este campo (valor original restaurado).")
+            .bail()
+            .isLength({min:5})
+            .withMessage("El nuevo nombre debe tener al menos 5 caracteres (valor original restaurado)."),
+        body("price")
+            .notEmpty()
+            .withMessage("Debes completar este campo (valor original restaurado).")
+            .bail()
+            .isInt()
+            .withMessage("Debes ingresar un valor numérico (valor original restaurado)."),
+        body("introduction")
+            .notEmpty()
+            .withMessage("Debes completar este campo (valor original restaurado).")
+            .isLength({max:78})
+            .withMessage("Este campo solo admite 78 caracteres como máximo (valor original restaurado)."),
+        body("description")
+            .notEmpty()
+            .withMessage("Debes completar este campo (valor original restaurado)."),
+        body("duration")
+            .notEmpty()
+            .withMessage("Debes completar este campo (valor original restaurado).")
+            .bail()
+            .isInt()
+            .withMessage("Debes ingresar un valor numérico (valor original restaurado)."),
+            body("image")
             .custom ((value , {req}) => {
                 if(req.files[0])
                 {

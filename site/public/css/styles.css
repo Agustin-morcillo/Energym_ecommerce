@@ -70,6 +70,15 @@ body{
     margin: 5px 0px;
 }
 
+.validation-error-product-title{
+    color: red;
+    font-size: 15px;
+    font-weight: 700;
+    position: relative;
+    bottom: 18px;
+    text-align: center;
+}
+
 .validation-error-product{
     color: red;
     font-size: 10px;
@@ -654,7 +663,8 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/images/main/contact-background.jpg)
+    background-image: url(/images/main/contact-background.jpg);
+    background-attachment: fixed;
 }
 
 .product-page-container{
@@ -681,16 +691,17 @@ header{
     background-color: white;
     border-radius: 20px;
     margin: 25px;
+    min-height: 480px;
 }
 
 .product-page-img-container{
     width: 100%;
-    margin-top: 5px;
 }
 
 .product-page-img{
-    width: 100%;
     border-radius: 20px;
+    width: 100%;
+    height: 250px;
 }
 
 .product-page-form-container{
@@ -704,7 +715,7 @@ header{
 
 .product-page-button{
     width: 80%;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     background-color: orange;
     height: 30px;
     color: white;
@@ -740,10 +751,16 @@ header{
 @media(max-width:1044px){
     .product-page-article-container{
         width: 40%;
+        border: 2px solid red;
+        margin: 25px 38px 25px 38px
     }
 }
 
-@media(max-width:800px){
+@media(max-width:848px){
+
+    .product-page-articles-main-container{
+        justify-content: center;
+    }
 
     .product-page-container{
         width: 100%;
@@ -787,8 +804,7 @@ header{
     align-items: center;
     background-image: url(/images/main/login-background.jpg);
     background-size: 100%;
-    background-repeat: no-repeat;
-
+    background-attachment: fixed;
 }
 
 .login-container{
@@ -933,6 +949,7 @@ header{
     margin-top: 80px;
     width: 100%;
     background-image: url(/images/main/register-background.jpg);
+    background-attachment: fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -1097,7 +1114,8 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/images/main/contact-background.jpg)
+    background-image: url(/images/main/contact-background.jpg);
+    background-attachment: fixed;
 }
 
 .product-detail-container{
@@ -1115,11 +1133,16 @@ header{
     width: 50%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin: 0px;
 }
 
 .product-detail-img{
     width: 100%;
+    height: 610px;
+}
+
+.rutine-detail-img{
+    height: 490px;
 }
 
 
@@ -1161,7 +1184,7 @@ header{
 }
 
 .product-extra-info-container{
-    margin-top: 30px;
+    margin: 30px 0px 0px;
 }
 
 .product-extra-info{
@@ -1234,6 +1257,7 @@ header{
 
     .product-detail-img{
         width: 80%;
+        height: 400px
     }
 
     .product-name-and-price-container{
@@ -1283,6 +1307,10 @@ header{
     .product-detail-welcome-title{
         font-size: 25px;
     }
+    
+    .product-detail-img{
+        width: 100%;
+    }
 
     .product-detail-container{
         width: 100%;
@@ -1290,6 +1318,8 @@ header{
     .product-detail-button{
         width: 60%;
     }
+
+
 }
 
 @media (max-width:400px){
@@ -1315,6 +1345,7 @@ header{
 
 .cart-section {
     background-image: url(/images/main/section-background.jpeg);
+    background-attachment: fixed;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -1575,7 +1606,7 @@ header{
     align-items: center;
     background-image: url(/images/main/section-background.jpeg);
     background-position: right;
-    
+    background-attachment: fixed;
 }
 
 .admin-menu-container{
@@ -1641,10 +1672,17 @@ header{
     align-items: center;
 }
 
+.admin-products-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .admin-product-img{
     height: 50px;
     border-radius: 10px;
+    width: 70px;
 }
 
 .admin-product-name-container{
@@ -1754,6 +1792,7 @@ header{
     align-items: center;
     background-image: url(/images/main/section-background.jpeg);
     background-size: cover;
+    background-attachment: fixed;
 } 
 
 .add-edit-product-rutine-card-container{
@@ -1885,6 +1924,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-attachment: fixed;
 }
 
 .contact-section-container{

@@ -69,50 +69,29 @@
                                         </form>
                                     </div>
                             </div>
-                                
+                            
+                            <% for(let rutine of rutines){ %>  
                                 <article>
                                     <div class="admin-product-card-container">
                                         <div class="product-image-and-name-container">
                                             <div class="admin-products-image-container">
-                                                    <img src="images/rutines/rutine-abs.jpg" alt="" class="admin-product-img">
+                                                    <img src="images/rutines/<%=rutine.image%>" alt="" class="admin-product-img">
                                             </div>
                                             <div class="admin-product-name-container">
-                                                    <h2 class="admin-product-name">Abdominales</h2>
+                                                    <h2 class="admin-product-name"><%=rutine.name%></h2>
                                             </div>
                                         </div>
                                         <div class="edit-delete-buttons-container">
-                                            <form action="/rutines/edit">
+                                            <form action="/rutines/edit/<%=rutine.id%>">
                                                 <button type="submit" class="admin-edit-button buttons-style"><i class="fas fa-edit admin-edit-icon"></i>Editar</button>
                                             </form>
-                                            <form action="">
+                                            <form method="post" action="/rutines/delete/<%=rutine.id%>?_method=DELETE">
                                                 <button type="submit" class="admin-delete-button buttons-style"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
                                             </form>
                                         </div>
-                                    </div>
-                                
+                                    </div>     
                                 </article>
-
-                                <article>
-                                    <div class="admin-product-card-container">
-                                        <div class="product-image-and-name-container">
-                                            <div class="admin-products-image-container">
-                                                    <img src="images/rutines/rutine-piernas.jpg" alt="" class="admin-product-img">
-                                            </div>
-                                            <div class="admin-product-name-container">
-                                                    <h2 class="admin-product-name">Piernas</h2>
-                                            </div>
-                                        </div>
-                                        <div class="edit-delete-buttons-container">
-                                            <form action="/rutines/edit">
-                                                <button type="submit" class="admin-edit-button buttons-style"><i class="fas fa-edit admin-edit-icon"></i>Editar</button>
-                                            </form>
-                                            <form action="">
-                                                <button type="submit" class="admin-delete-button buttons-style"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                
-                                </article>
+                            <% } %>
                     
                         </div>
                     </div>
