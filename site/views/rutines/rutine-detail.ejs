@@ -10,29 +10,29 @@
                     <div class="product-detail-main-container">
                         <div class="product-detail-container">
                             <div class="sections-welcome-titles-container">
-                                <h2 class="sections-welcome-titles product-detail-welcome-title">Detalle de la rutina: Abdominales</h2>
+                                <h2 class="sections-welcome-titles product-detail-welcome-title">Detalle de la rutina: <%=rutine.name%></h2>
                             </div>
                     
                             <div class="product-detail-img-container rutine-detail-img-container">
-                                 <img src="/images/rutines/rutine-abs.jpg" alt="" class="product-detail-img">
+                                 <img src="/images/rutines/<%=rutine.image%>" alt="" class="product-detail-img rutine-detail-img">
                             </div>
     
                             <div class="product-name-and-price-container">
                                
                                 <div class="product-name-container">
-                                    <h1 class="product-detail-name">Abdominales</h1>
+                                    <h1 class="product-detail-name"><%=rutine.name%></h1>
                                 </div>
     
                                 <div class="product-detail-description-container">
-                                    <h2 class="product-detail-description">Marca tus abdominales con esta rutina práctica que incluye más de 20 ejercicios. Dividida en distintos módulos, la rutina permite trabajar todos los abdominales en tan solo 30 minutos.</h2>
+                                    <h2 class="product-detail-description"><%=rutine.description%>.</h2>
                                 </div>
     
                                 <div class="product-detail-information-container">
-                                    <h3 class="product-detail-information">Duración: <span class="product-detail-information-detail">8 semanas</span></h3>
+                                    <h3 class="product-detail-information">Duración: <span class="product-detail-information-detail"><%=rutine.duration_weeks%> semanas.</span></h3>
                                 </div>
                                 
                                 <div class="product-price-container">
-                                    <h2 class="product-detail-price">Precio: <span>$2000</span></h2>
+                                    <h2 class="product-detail-price">Precio: $<span><%=rutine.price%>.00</span></h2>
                                 </div>
 
                                 <div class="product-detail-form-container">

@@ -13,7 +13,7 @@ router.get('/contact', mainController.contactPage);
 router.post('/contact', mainController.storageContactInfo);
 
 //AdminPage
-router.get('/admin', auth,mainController.adminPage);
+router.get('/admin',mainController.adminPage);
 
 //***** export ***** 
 module.exports = router;
