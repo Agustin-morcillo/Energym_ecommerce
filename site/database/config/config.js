@@ -1,9 +1,9 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "energym",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql",
     "define":{
       "underscored": true

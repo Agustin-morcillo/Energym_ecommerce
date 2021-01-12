@@ -37,7 +37,6 @@ const productController = {
                     res.render("products/create-product", {errors: errors.mapped()});
                     return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
                 }
-            
             await db.Product.create({
                 name: req.body.name,
                 price: req.body.price,
@@ -49,7 +48,7 @@ const productController = {
                 category: req.body.category,
                 homepage: req.body.homepage,
                 image: req.files[0].filename
-            });        
+            });    
             return res.redirect('/admin');
         } catch (errors) {
             return res.send(errors);
