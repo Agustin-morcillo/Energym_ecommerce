@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes)=> {
             allowNull: false,
             type: dataTypes.TEXT
         },
-        weight: {
+        weight_KG: {
             allowNull: false,
             type: dataTypes.INTEGER
         },
@@ -47,13 +47,13 @@ module.exports = (sequelize, dataTypes)=> {
             allowNull: false,
             type: dataTypes.STRING
         },
-        createdAt: {
+        created_at: {
             type: dataTypes.DATE
         },
-        updatedAt: {
+        updated_at: {
             type: dataTypes.DATE
         },
-        deletedAt: {
+        deleted_at: {
             type: dataTypes.DATE
         }
     };
@@ -63,5 +63,8 @@ module.exports = (sequelize, dataTypes)=> {
     };
 
     const Product = sequelize.define(alias, cols, config);
+
     return Product;
+
+
 }
