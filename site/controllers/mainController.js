@@ -10,15 +10,19 @@ const allFunctions = require("../helpers/allFunctions")
 const mainController ={
     homepage: async (req,res)=>{
         let pageTitle = "Energym - Home"
-        const products=allFunctions.getAllProducts()
-        const losMasVendidos=products.filter((product)=>product.homepage==="si");
+
+        let productsHome = await db.Product.findAll({
+            where:{
+                homepage:1
+            }
+        })
 
         let rutinasHome = await db.Rutine.findAll({
             where:{
                 homepage:1
             }
         })
-        res.render("main/index", {losMasVendidos:losMasVendidos,rutinasHome,pageTitle})
+        res.render("main/index", {productsHome,rutinasHome,pageTitle})
     },
     contactPage: (req,res)=>{
         let pageTitle = "Energym - Contacto"

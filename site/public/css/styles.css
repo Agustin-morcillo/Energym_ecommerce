@@ -751,7 +751,6 @@ header{
 @media(max-width:1044px){
     .product-page-article-container{
         width: 40%;
-        border: 2px solid red;
         margin: 25px 38px 25px 38px
     }
 }
@@ -1705,7 +1704,6 @@ header{
     justify-content: flex-end;
     align-items: center;
     margin-right: 15px;
-    border: 2px solid red;
 }
 
 
