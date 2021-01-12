@@ -36,41 +36,16 @@
             <h2 class="section-title">Rutinas más populares</h2>
             <p class="section-title-description">Estas son las rutinas más vistas por los usuarios</p>
             <div class="rutinas-articles-container">
-                <article class="rutina-articles">
-                    <img src="images/rutines/rutine-biceps.jpg" alt="" class="rutinas-img">
-                    <h2 class="product-names">Biceps</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/rutines/detail" class="button-padre">
-                        <button type="submit" class="ver-mas-button buttons-style">Ver más</button>
-                    </form>
-                </article>
-
-                <article class="rutina-articles">
-                    <img src="images/rutines/rutine-abs.jpg" alt="" class="rutinas-img">
-                    <h2 class="product-names">Abdominales</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/rutines/detail" class="button-padre">
-                        <button type="submit" class="ver-mas-button buttons-style">Ver más</button>
-                    </form>
-                </article>
-
-                <article class="rutina-articles">
-                    <img src="images/rutines/rutine-resistencia.jpg" alt="" class="rutinas-img">
-                    <h2 class="product-names">Resistencia</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/rutines/detail" class="button-padre">
-                        <button type="submit" class="ver-mas-button buttons-style">Ver más</button>
-                    </form>
-                </article>
-
-                <article class="rutina-articles">
-                    <img src="images/rutines/rutine-piernas.jpg" alt="" class="rutinas-img">
-                    <h2 class="product-names">Piernas</h2>
-                    <p class="product-introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <form action="/rutines/detail" class="button-padre">
-                        <button type="submit" class="ver-mas-button buttons-style">Ver más</button>
-                    </form>
-                </article>
+                <% for(let rutine of rutinasHome) { %>
+                    <article class="rutina-articles">
+                        <img src="images/rutines/<%= rutine.image %>" alt="" class="rutinas-img">
+                        <h2 class="product-names"><%= rutine.name %></h2>
+                        <p class="product-introduction"><%= rutine.introduction %></p>
+                        <form action="/rutines/detail/<%= rutine.id %>" class="button-padre">
+                            <button type="submit" class="ver-mas-button buttons-style">Ver más</button>
+                        </form>
+                    </article>
+                <% } %>
             </div>
         </section>
     </main>

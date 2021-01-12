@@ -14,7 +14,10 @@
                                 <p class="sections-welcome-description">Completa los campos para crear un nuevo producto</p>
                             </div>
                             <div class="add-edit-product-rutine-card-form-container">
-                                
+                                <p class="validation-error-product-title">
+                                    <%= typeof errors == "undefined" ? "" : "Hay algún error en los campos" %>
+                                </p>
+
                                 <form action="/products/create" method="POST" enctype="multipart/form-data"> 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
@@ -38,9 +41,12 @@
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="create-product-introduction" class="admin-labels">Breve descripción</label>
+                                            <label for="create-product-introduction" class="admin-labels">Breve descripción (max 78 caract)<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="introduction" id="create-product-introduction" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit" >
+                                        <input type="text" name="introduction" id="create-product-introduction" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit">
+                                        <p class="validation-error-product">
+                                            <%= typeof errors == "undefined" ? "" : typeof errors.introduction != "undefined" ? errors.introduction.msg : "" %>
+                                        </p>
                                     </div>
 
                                     
@@ -56,9 +62,9 @@
 
                                     <div class="admin-inputs-containers">
                                         <div class="admin-label-container">
-                                            <label for="create-product-weight" class="admin-labels">Peso Total<span class="required-field">*</span></label>
+                                            <label for="create-product-weight" class="admin-labels">Peso Total (en KG)<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="number" name="weight" id="create-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1Kg" >
+                                        <input type="number" name="weight" id="create-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1" >
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.weight != "undefined" ? errors.weight.msg : "" %>
                                         </p>
