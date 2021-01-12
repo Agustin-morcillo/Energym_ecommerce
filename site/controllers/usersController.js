@@ -61,6 +61,7 @@ const usersController={
         return res.redirect('/');
     },
     profile: (req, res)=>{
+
         return res.render('./users/profile')
     },
     editProfile: (req,res)=>{
