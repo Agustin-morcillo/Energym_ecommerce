@@ -2046,6 +2046,25 @@ header{
     justify-content: center;
 }
 
+.profile.left.side{
+    width: 40%;  
+}
+
+.admin-edit-button{
+    width: 100%;
+    height: 30px;
+    position: center;
+    left: 55px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    background-color: black;
+    color: white
+}
+
+.admin-edit-button:hover{
+    background-color: gray
+}
+
 .profile-avatar-container{
     width: 40%;
 }
@@ -2054,7 +2073,7 @@ header{
     width:250px;
     height:250px;
     border-radius:150px;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .profile-avatar-text{
