@@ -1,9 +1,8 @@
 # Retrospectiva
+**Cosas que hicimos bien:** organizacion y distribucion de las tareas; el equipo se mantuvo unido a pesar de complicaciones en el cumplimiento de los plazos de las tareas. Cada uno pudo aportar desde su fuerte en las tareas colectivas.
 
-**Cosas que hicimos bien:** hubo una mejor distribución del trabajo, pudimos identificar errores y encontrarles la solución adecuada.
+**Cosas que hicimos mal:** falta de cumplimiento de los plazos de entrega convenidos por complicaciones externas. Subestimamos la potenciales complicaciones en el desarrollo del BREAD con sequelize. 
 
-**Cosas que hicimos mal:** tuvimos complicaciones a la hora de realizar ciertas funcionalidades.
+**Cosas que deberíamos empezar a hacer:** Ser mas firmes con los plazos de entrega. No dejar tareas para el final tan cerca de la fecha de entrega. Deberiamos debuggear mas en grupo. 
 
-**Cosas que deberíamos empezar a hacer:** Deberiamos debuggear mas en grupo. 
-
-**Cosas que deberíamos dejar de hacer:** evitar que las preocupaciones a la hora de realizar el código influyan en su correcta ejecución.
+**Cosas que deberíamos dejar de hacer:** Confiarnos con las fechas de entrega. Subestimar las tareas que conlleban codigo y debug. 

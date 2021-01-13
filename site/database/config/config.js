@@ -3,7 +3,7 @@ module.exports = {
     "username": "root",
     "password": "root",
     "database": "energym",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql",
     "define":{
       "underscored": true
