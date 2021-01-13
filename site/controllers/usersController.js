@@ -8,7 +8,8 @@ const bcrypt = require("bcryptjs");
 
 const usersController={
     login: (req,res)=>{
-        return res.render("./users/login")
+        let pageTitle = "Energym - Login";
+        return res.render("./users/login", {pageTitle})
     },
     processLogin: (req, res)=>{
         const errors = validationResult(req);
@@ -17,7 +18,8 @@ const usersController={
         const password = req.body.password;
        
         if(!errors.isEmpty()){
-            return res.render('users/login', {errors: errors.errors})
+            let pageTitle = "Energym - Login";
+            return res.render('users/login', {errors: errors.errors, pageTitle})
         }
         
         const userToLogin = users.find(user=>user.email == email)
@@ -31,12 +33,14 @@ const usersController={
         
     },
     register: (req,res)=>{
-        return res.render("users/register")
+        let pageTitle = "Energym - Registro";
+        return res.render("users/register", {pageTitle})
     },
     createUser: (req,res)=>{
         const errors = validationResult(req);
         if(!errors.isEmpty()){
-                res.render("users/register", {errors: errors.errors});
+                let pageTitle = "Energym - Registro";
+                res.render("users/register", {errors: errors.errors, pageTitle});
                 return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
             }
 
@@ -61,11 +65,12 @@ const usersController={
         return res.redirect('/');
     },
     profile: (req, res)=>{
-
-        return res.render('./users/profile')
+        let pageTitle = "Energym - Perfil";
+        return res.render('./users/profile', {pageTitle})
     },
     editProfile: (req,res)=>{
-        return res.render('./users/profile-edit')
+        let pageTitle = "Energym - Editar Perfil";
+        return res.render('./users/profile-edit', {pageTitle})
     },
     editedProfile: (req,res)=>{
         const users = allFunctions.getAllusers();

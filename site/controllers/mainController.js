@@ -42,10 +42,11 @@ const mainController ={
         res.redirect('/');
     },
     adminPage: async (req,res)=>{
+        let pageTitle = "Energym - Admin";
         const products = await db.Product.findAll()
 
         let rutines = await db.Rutine.findAll()
-        res.render("main/admin", {products: products,rutines})
+        res.render("main/admin", {products: products,rutines, pageTitle})
     }
 }
 

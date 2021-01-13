@@ -4,34 +4,50 @@
 
 **Tareas completadas:**
 
-- Validaciones custom de login de email y password [damian]
-
-- Middleware de session y cookie de aplicacion [damian]
-
-- Middleware de acceso: guest y auth [damian]
-
-- Vista de usuario [agus]
-
-- Implementar el registro de usuarios [santi]
-
-- Validaciones de registro [santi]
+- Creacion de diagrama [grupo]
+- Creacion de script de estructura [grupo]
+- Creacion de script de data [grupo]
+- Instalacion de sequelize [grupo]
 
 ---
 
 **Impedimentos:**
 
-- Inconvenientes con cookie y session por requerir en el entry point los middleware de session y cookie luego de las rutas. 
-
-- Problemas con las validaciones por llamarlas antes que el upload.any en el archivo de rutas. 
-
-- Inconvenientes con la cookie por guardar en la cookie toda la informacion del usuario en lugar de un dato unico como el id. 
+- Problemas en el manejo del workbench 
+- Problemas de configuracion con sequelize 
 
 ---
 
 **Soluciones:**
 
-● Descubrimos rapidamente que el orden del requerimiento de los elementos en distintos lugares como el entry point o en los middleware de las rutas alteran la funcionalidad del sitio. Con esta solucion resolvimos los primeros dos problemas.  
+● Supimos encontrar las soluciones en cuanto a los diferentes tipos de datos en la configuracion del script de estructura
 
-● Repasando la teoria solucionamos el tercer problema.  
 ---
- 
+
+# Week 2
+
+**Tareas completadas:**
+
+- Modelos y CRUD de productos con sequelize [damian]
+- Modelos y CRUD de rutinas con sequelize [agus]
+- Modelos y CRUD de usuarios con sequelize [santi]
+
+---
+
+**Impedimentos:**
+
+- Problemas en la configuracion y conexion con la base de datos
+- Problemas con los inputs de los formularios que no coincidian con formatos validos
+- Conflicto en el uso de promesas con async y await 
+- Complicaciones en la validacion de usuarios utilizando sql 
+
+---
+
+**Soluciones:**
+
+● Pudimos compartir los errores en grupo y encontrar soluciones
+● Repaso del material teorico para resolver problemas de configuracion 
+● Colaboracion con y de otros equipos en la busqueda de soluciones
+● Pudimos empezar a leer codigo ajeno, interpretarlo e internalizar la logica para la solucion de problemas en nuestro codigo
+
+--

@@ -7,27 +7,31 @@ const db = require("../database/models");
 
 const productController = {
     detail: async (req,res)=>{
+        let pageTitle = "Energym - Product Detail";
         try{
             const detalleProducto = await db.Product.findByPk(req.params.id);
-            return res.render("products/product-detail",{product: detalleProducto})
+            return res.render("products/product-detail",{product: detalleProducto, pageTitle})
 
         } catch (errors) {
             return res.send(errors);
         }
     },
     cart: (req,res)=>{
-        return res.render("products/product-cart")
+        let pageTitle = "Energym - Carrito";
+        return res.render("products/product-cart", {pageTitle})
     },
     productPage: async (req,res)=>{
+        let pageTitle = "Energym - Productos";
         try {
             const products = await db.Product.findAll();
-            return res.render("products/products", {products: products})
+            return res.render("products/products", {products: products, pageTitle})
         } catch (errors) {
             return res.send(errors);
         }
     },
     create: (req,res)=>{
-        return res.render("products/create-product")
+        let pageTitle = "Energym - Crear Producto";
+        return res.render("products/create-product", {pageTitle})
     },
     store: async (req,res, next)=>{
         try {
@@ -55,10 +59,11 @@ const productController = {
         } 
     },
     edit: async (req,res)=>{
+        let pageTitle = "Energym - Editar Producto";
         try {
             const id = req.params.id;
             const productToEdit = await db.Product.findByPk(req.params.id)  
-            return res.render("products/edit-product", {productToEdit:productToEdit});
+            return res.render("products/edit-product", {productToEdit:productToEdit, pageTitle});
         } catch (errors) {
             return res.send(errors);
         } 
@@ -68,8 +73,9 @@ const productController = {
             const errors = validationResult(req);
 
             if(!errors.isEmpty()){
+                let pageTitle = "Energym - Editar Producto";
                 const productToEdit = await db.Product.findByPk(req.params.id)  
-                res.render("products/edit-product", {errors: errors.mapped(), productToEdit});
+                res.render("products/edit-product", {errors: errors.mapped(), productToEdit, pageTitle});
                 return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
                 }
 
