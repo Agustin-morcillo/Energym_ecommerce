@@ -7,7 +7,7 @@ const db = require("../database/models");
 
 const productController = {
     detail: async (req,res)=>{
-        let pageTitle = "Energym - Product Detail";
+        let pageTitle = "Energym - Detalle de producto";
         try{
             const detalleProducto = await db.Product.findByPk(req.params.id);
             return res.render("products/product-detail",{product: detalleProducto, pageTitle})
@@ -34,11 +34,13 @@ const productController = {
         return res.render("products/create-product", {pageTitle})
     },
     store: async (req,res, next)=>{
+        let pageTitle = "Energym - Crear Producto";
         try {
             const errors = validationResult(req);
         
             if(!errors.isEmpty()){
-                    res.render("products/create-product", {errors: errors.mapped()});
+                    let pageTitle = "Energym - Crear Producto";
+                    res.render("products/create-product", {errors: errors.mapped(), pageTitle});
                     return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
                 }
             await db.Product.create({

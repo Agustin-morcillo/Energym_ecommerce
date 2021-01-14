@@ -29,6 +29,7 @@ const mainController ={
         res.render("main/contact",{pageTitle})
     },
     storageContactInfo: (req,res)=>{
+        let pageTitle = "Energym - Contacto";
         const contactInfo = allFunctions.getContactInfo();
         
         const newContactInfo = {

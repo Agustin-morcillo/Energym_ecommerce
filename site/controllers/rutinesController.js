@@ -12,20 +12,21 @@ const rutinesController = {
         return res.render("rutines/rutines",{rutines,pageTitle})
     },
     rutineDetail: async (req,res)=>{
-        let pageTitle = "Energym - Detalle de producto"
+        let pageTitle = "Energym - Detalle de rutina"
         let id = req.params.id
         let rutine = await db.Rutine.findByPk(id);
         return res.render("rutines/rutine-detail",{rutine,pageTitle})
     },
     createView: (req,res)=>{
         let pageTitle = "Energym - Crear Rutina"
-       return res.render("rutines/create-rutine",{pageTitle})
+        return res.render("rutines/create-rutine",{pageTitle})
     },
     storeRutine: async (req,res)=>{
         const errors = validationResult(req);
 
         if(!errors.isEmpty()){
-            res.render("rutines/create-rutine", {errors: errors.mapped()});
+            let pageTitle = "Energym - Crear Rutina"
+            res.render("rutines/create-rutine", {errors: errors.mapped(), pageTitle});
             return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
         }
 
@@ -51,8 +52,9 @@ const rutinesController = {
         const errors = validationResult(req);
 
         if(!errors.isEmpty()){
+            let pageTitle = "Energym - Editar Rutina";
             let rutineToEdit = await db.Rutine.findByPk(req.params.id)
-            res.render("rutines/edit-rutine", {errors: errors.mapped(),rutineToEdit});
+            res.render("rutines/edit-rutine", {errors: errors.mapped(),rutineToEdit, pageTitle});
             return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
         }
 
