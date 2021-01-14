@@ -13,14 +13,14 @@ router.get("/",rutinesController.rutinePage)
 router.get("/detail/:id", rutinesController.rutineDetail)
 
 /* Crear rutina */
-router.get("/create", rutinesController.createView)
-router.post("/create", rutinesMulter.any(), validator.createRutine ,rutinesController.storeRutine)
+router.get("/create", auth, rutinesController.createView)
+router.post("/create", auth, rutinesMulter.any(), validator.createRutine ,rutinesController.storeRutine)
 
 /* Editar rutina */
-router.get("/edit/:id", rutinesController.editView)
-router.put("/edit/:id", rutinesMulter.any(), validator.editRutine ,rutinesController.editRutine)
+router.get("/edit/:id", auth, rutinesController.editView)
+router.put("/edit/:id", auth, rutinesMulter.any(), validator.editRutine ,rutinesController.editRutine)
 
 /* Eliminar rutina */
-router.delete("/delete/:id", rutinesController.deleteRutine)
+router.delete("/delete/:id", auth, rutinesController.deleteRutine)
 
 module.exports=router;
