@@ -15,14 +15,14 @@ router.get("/cart",productController.cart)
 router.get("/", productController.productPage)
 
 /* Crear producto */
-router.get("/create",productController.create)
-router.post("/create",productsMulter.any(), validator.createProduct,productController.store)
+router.get("/create", auth, productController.create)
+router.post("/create", auth, productsMulter.any(), validator.createProduct,productController.store)
 
 /* editar producto */
-router.get("/edit/:id",productController.edit)
-router.put("/edit/:id",productsMulter.any(),validator.editProduct,productController.editProduct)
+router.get("/edit/:id", auth, productController.edit)
+router.put("/edit/:id", auth, productsMulter.any(),validator.editProduct,productController.editProduct)
 
 /* Eliminar producto */
-router.delete("/delete/:id" ,productController.destroy)
+router.delete("/delete/:id" , auth, productController.destroy)
 
 module.exports=router;

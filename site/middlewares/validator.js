@@ -3,7 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const allFunctions = require("../helpers/allFunctions");
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
+const db = require("../database/models");
 
 const validator = {
     login: [
@@ -11,14 +12,13 @@ const validator = {
             .notEmpty()
             .withMessage("Debes completar el campo: Email.")
             .bail()
-            .custom((value, { req }) => {
-                const password = req.body.password;
-                const users = allFunctions.getAllusers();
-                const userExist = users.find(user=>value == user.email)
-                if(userExist && bcrypt.compareSync(password, userExist.password)){
+            .custom(async function(value, { req })  {
+                
+                const userExist = await db.User.findOne({where:{email:value}});
+                if(userExist && bcrypt.compareSync(req.body.password, userExist.password)){
                     return true;
                 }
-                return false;
+                return Promise.reject();
             })
             .withMessage('Email o contraseña inválidos.')
     ],
@@ -41,11 +41,15 @@ const validator = {
             })
             .withMessage ('Los emails no coinciden.')
             .bail()
-            .custom((value)=> {
-                const allUsers = allFunctions.getAllusers();
-                const searchUser = allUsers.find((user) => (value == user.email))
-        
-                return !searchUser;
+            .custom(async function(value) {
+                
+                const userExist = await db.User.findOne({where:{email:value}});
+                
+                if(userExist){
+                    return Promise.reject();
+                }
+                return true;        
+                
             })
             .withMessage('El email ingresado se encuentra en uso.'),
         body ('password')

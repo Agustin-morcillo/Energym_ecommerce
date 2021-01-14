@@ -4,6 +4,7 @@ const path = require('path');
 const allFunctions = require("../helpers/allFunctions");
 const deleteFailureFile = path.join(__dirname, '../public/images/users/');
 const bcrypt = require("bcryptjs");
+const db = require('../database/models')
 
 
 const usersController={
@@ -11,18 +12,15 @@ const usersController={
         let pageTitle = "Energym - Login";
         return res.render("./users/login", {pageTitle})
     },
-    processLogin: (req, res)=>{
+    processLogin: async (req, res)=>{
         const errors = validationResult(req);
-        const users = allFunctions.getAllusers();
-        const email = req.body.email;
-        const password = req.body.password;
-       
+                       
         if(!errors.isEmpty()){
             let pageTitle = "Energym - Login";
             return res.render('users/login', {errors: errors.errors, pageTitle})
         }
         
-        const userToLogin = users.find(user=>user.email == email)
+        const userToLogin = await db.User.findOne({where:{email:req.body.email}})
         req.session.userLogged = userToLogin
 
         if (req.body.remember){
@@ -36,24 +34,23 @@ const usersController={
         let pageTitle = "Energym - Registro";
         return res.render("users/register", {pageTitle})
     },
-    createUser: (req,res)=>{
+    createUser: async (req,res)=>{
         const errors = validationResult(req);
         if(!errors.isEmpty()){
                 let pageTitle = "Energym - Registro";
                 res.render("users/register", {errors: errors.errors, pageTitle});
                 return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
             }
-
-        const newUser = {
-            id: allFunctions.generateNewIdUsers(),
+        
+            const newUser = {
             name: req.body.name,
-            lastName: req.body.lastName,
+            lastname: req.body.lastName,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password,10),
             avatar: req.files[0] ? req.files[0].filename : "default_avatar.jpg"
-        };
-        allFunctions.writeusers(newUser);
+            };
 
+       await db.User.create(newUser)
        return res.redirect("/users/login");
         
        
@@ -72,24 +69,19 @@ const usersController={
         let pageTitle = "Energym - Editar Perfil";
         return res.render('./users/profile-edit', {pageTitle})
     },
-    editedProfile: (req,res)=>{
-        const users = allFunctions.getAllusers();
+    editedProfile: async (req,res)=>{
         
-        const id = req.params.id;
+        const userToEdit = await db.User.findOne({where:{id:req.params.id}});
+        
+        const newData = {
+            name: req.body.name,
+            lastname: req.body.lastName,
+            email: req.body.email,
+            avatar: req.files[0] ? req.files[0].filename : userToEdit.avatar
+        };
+        await db.User.update(newData, {where:{id:req.params.id}});
 
-        const editedUser = users.map((user)=>{
-            if(user.id == id){
-                user.name = req.body.name,
-                user.lastName = req.body.lastName,
-                user.email = req.body.email,
-                user.avatar = req.files[0] ? req.files[0].filename : user.avatar;
-            }
-            return user
-        })
-
-        allFunctions.writeEditedUser(editedUser)
-
-        return res.redirect("/users/profile")
+        return res.redirect("/users/profile");
     }
 }
 
