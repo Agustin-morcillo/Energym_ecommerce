@@ -13,32 +13,30 @@
                             <h2 class="sections-welcome-titles">Datos de la cuenta</h2>
                             <p class="sections-welcome-description">Completa los datos o registrate con Google o Facebook</p>
                         </div>
-                        <div class="validation-errors-container">
-                            <% if(typeof errors != 'undefined') { %>
-                                <ul>
-                                    <% for(error of errors) { %>
-                                        <li>
-                                            <p class="validation-error"> <%= error.msg %> </p>                          
-                                        </li>  
-                                    <% } %>
-                                </ul>
-                            <% } %>
-                        </div>
 
                         <form action="/users/register" class="form" method="POST" enctype="multipart/form-data">
                             <div class="register-info-container">
                                 <label for="name-register" class="register-label">Nombre<span class="required-field">*</span></label>
                                 <input name="name" type="text" id="name-register" class="register-input inputs-fields">
+                                <p class="validation-error-register">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.name != "undefined" ? errors.name.msg : "" %>
+                                </p>
                             </div>
 
                             <div class="register-info-container">
                                 <label for="lastname-register" class="register-label">Apellido<span class="required-field">*</span></label>
                                 <input name= "lastName" type="text" id="lastname-register" class="register-input inputs-fields">
+                                <p class="validation-error-register">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.lastName != "undefined" ? errors.lastName.msg : "" %>
+                                </p>
                             </div>
 
                             <div class="register-info-container">
                                 <label for="email-register" class="register-label">Email<span class="required-field">*</span></label>
                                 <input name= 'email' type="text" id="email-register" class="register-input inputs-fields">
+                                <p class="validation-error-register">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.email != "undefined" ? errors.email.msg : "" %>
+                                </p>
                             </div>
 
                             <div class="register-info-container">
@@ -49,6 +47,9 @@
                             <div class="register-info-container">
                                 <label for="password-register" class="register-label">Contraseña<span class="required-field">*</span></label>
                                 <input name= 'password' type="password" id="password-register" class="register-input inputs-fields">
+                                <p class="validation-error-register">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.password != "undefined" ? errors.password.msg : "" %>
+                                </p>
                             </div>
 
                             <div class="register-info-container">
@@ -58,10 +59,15 @@
 
                             <div class="register-info-container">
                                 <label for="avatar-register" class="register-label avatar-label">Avatar</label>
-							    <input type="file" id="avatar-register" name="avatar" class="register-avatar-input" accept="image/jpg, image/png, image/jpeg">
+                                <input type="file" id="avatar-register" name="avatar" class="register-avatar-input" accept="image/jpg, image/png, image/jpeg">
+                            </div>
+                            <div class="register-img">
+                                <p class="validation-error-register">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.avatar != "undefined" ? errors.avatar.msg : "" %>
+                                </p>
                             </div>
 
-                            <div class="button-container register-info-container">
+                            <div class="button-container register-info-container position-class">
                                 <button type="submit" class="register-button final-register-button buttons-style" >Finalizar registro</button>
                             </div>
                         </form> 

@@ -38,7 +38,7 @@ const usersController={
         const errors = validationResult(req);
         if(!errors.isEmpty()){
                 let pageTitle = "Energym - Registro";
-                res.render("users/register", {errors: errors.errors, pageTitle});
+                res.render("users/register", {errors: errors.mapped(), pageTitle});
                 return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
             }
         

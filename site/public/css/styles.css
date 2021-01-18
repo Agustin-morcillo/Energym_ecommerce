@@ -87,6 +87,15 @@ body{
     bottom: 18px;
 }
 
+.validation-error-register{
+    color: red;
+    font-size: 11px;
+    font-weight: 700;
+    padding-top: 10px;
+    text-align: center;
+}
+
+
 /* ----------------------------------------[HEADER]---------------------------------------- */
 
 header{
@@ -970,10 +979,10 @@ header{
     width: 50%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    justify-content: center;
+    padding: 15px;
     align-items: center;
     text-align: left;
+    height: 105px;
 }
 
 .form{
@@ -991,6 +1000,14 @@ header{
 .avatar-label{
     position: relative;
     left:155px
+}
+
+.register-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 40px;
 }
 
 .register-avatar-input{
@@ -1063,7 +1080,10 @@ header{
     width: 100%;
     margin: 0px;
     padding: 0px;
+    position: relative;
+    bottom: 50px;
 }
+
 
 .button-info-container{
     width: 100%;
@@ -1076,6 +1096,10 @@ header{
     bottom: 22px;
 }
 
+.position-class{
+    position: relative;
+    bottom: 35px;
+}
 
 /* ---responsive--- */
 
