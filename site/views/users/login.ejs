@@ -29,11 +29,17 @@
                         <div class="login-email-container general-containers">
                             <label for="email-login" class="login-inputs-titles">Correo Electrónico<span class="mandatory">*</span></label>
                             <input type="text" name="email" id="email-login" class="inputs-fields all-login-inputs">
+                            <p class="validation-error-register">
+
+                            </p>
                         </div>
                         
                         <div class="login-password-container general-containers">
                             <label for="password-login" class="login-inputs-titles">Contraseña<span class="mandatory">*</span></label>
                             <input type="password" name="password" id="password-login" class="inputs-fields all-login-inputs">
+                            <p class="validation-error-register">
+
+                            </p>
                          </div>
                         
                          <div class="remember-me-container">
@@ -57,5 +63,6 @@
        
 
     <%- include("../partials/footer") %> 
+    <script src="/javascript/login.js"></script>
 </body>
 </html>
