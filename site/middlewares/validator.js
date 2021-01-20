@@ -4,7 +4,7 @@ const path = require("path");
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const allFunctions = require("../helpers/allFunctions");
 const bcrypt = require("bcryptjs");
-const db = require("../database/models");
+const { User } = require("../database/models");
 
 const validator = {
     login: [
@@ -12,13 +12,13 @@ const validator = {
             .notEmpty()
             .withMessage("Debes completar el campo: Email.")
             .bail()
-            .custom(async function(value, { req })  {
-                
-                const userExist = await db.User.findOne({where:{email:value}});
-                if(userExist && bcrypt.compareSync(req.body.password, userExist.password)){
-                    return true;
-                }
-                return Promise.reject();
+            .custom(function(value, { req })  {
+                User.findOne({where:{email:value}})
+                    .then(user => {
+                        if(!user || !bcrypt.compareSync(req.body.password, user.password)){
+                            return Promise.reject();
+                        } 
+                    })    
             })
             .withMessage('Email o contraseña inválidos.')
     ],
@@ -41,15 +41,13 @@ const validator = {
             })
             .withMessage ('Los emails no coinciden.')
             .bail()
-            .custom(async function(value) {
-                
-                const userExist = await db.User.findOne({where:{email:value}});
-                
-                if(userExist){
-                    return Promise.reject();
-                }
-                return true;        
-                
+            .custom(function(value) {
+                User.findOne({where:{email:value}})
+                    .then(user => {
+                        if(user){
+                            return Promise.reject();
+                        }
+                    })
             })
             .withMessage('El email ingresado se encuentra en uso.'),
         body ('password')
@@ -67,13 +65,13 @@ const validator = {
             .custom ((value , {req}) => {
                 if(req.files[0])
                 {
-                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const imageFormats = ['.jpg', '.png', '.jpeg', '.gif'];
                     const userImage = path.extname (req.files[0].originalname)
                     return (imageFormats.includes(userImage));
                 }
                 return true;
             })
-            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'"),
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'")
     ],
     createProduct: [
         body("name")
