@@ -49,17 +49,14 @@ const validator = {
             })
             .withMessage ('Los emails no coinciden.')
             .bail()
-            .custom(async function(value) {
-                
-                const userExist = await db.User.findOne({where:{email:value}});
-                
-                if(userExist){
-                    return Promise.reject();
-                }
-                return true;        
-                
-            })
-            .withMessage('El email ingresado se encuentra en uso.'),
+            .custom(function(value) {
+                return User.findOne({where:{email:value}})
+                    .then(user => {
+                        if(user){
+                            return Promise.reject('El email ingresado se encuentra en uso.');
+                        } 
+                    })
+            }),
         body ('password')
             .notEmpty()
             .withMessage('Debes completar el campo: Contraseña.')
