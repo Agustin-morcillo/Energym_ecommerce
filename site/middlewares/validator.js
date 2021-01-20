@@ -4,7 +4,7 @@ const path = require("path");
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const allFunctions = require("../helpers/allFunctions");
 const bcrypt = require("bcryptjs");
-const db = require("../database/models");
+const { User } = require("../database/models");
 
 const validator = {
     login: [
@@ -12,29 +12,37 @@ const validator = {
             .notEmpty()
             .withMessage("Debes completar el campo: Email.")
             .bail()
-            .custom(async function(value, { req })  {
-                
-                const userExist = await db.User.findOne({where:{email:value}});
-                if(userExist && bcrypt.compareSync(req.body.password, userExist.password)){
-                    return true;
-                }
-                return Promise.reject();
+            .isEmail()
+            .withMessage('El email no tiene un formato válido')
+            .bail()
+            .custom(function(value, { req })  {
+                return User.findOne({where:{email:value}})
+                .then(user => {
+                    if(!user || !bcrypt.compareSync(req.body.password, user.password)){                 
+                        return Promise.reject('Email y/o contraseña invalido');
+                    }
+                })
             })
-            .withMessage('Email o contraseña inválidos.')
     ],
     register: [
         body('name')
             .notEmpty()
-            .withMessage('Debes completar el campo: Nombre.'),
+            .withMessage('Debes completar el campo: Nombre.')
+            .bail()
+            .isLength({ min: 2 })
+            .withMessage('El nombre debe tener al menos 2 caracteres'),
         body('lastName')
             .notEmpty()
-            .withMessage('Debes completar el campo: Apellido.'),
+            .withMessage('Debes completar el campo: Apellido.')
+            .bail()
+            .isLength({ min: 2 })
+            .withMessage('El apellido debe tener al menos 2 caracteres'),
         body('email')
             .notEmpty()
             .withMessage('Debes completar el campo: Email.')
             .bail()
             .isEmail()
-            .withMessage('El email ingresado no es válido.')
+            .withMessage('El email no tiene un formato válido')
             .bail()
             .custom((value, {req})=> {
                 return(value == req.body.retypeEmail);
@@ -56,6 +64,9 @@ const validator = {
             .notEmpty()
             .withMessage('Debes completar el campo: Contraseña.')
             .bail()
+            .isLength({ min: 8 })
+            .withMessage('La contraseña debe tener al menos 8 caracteres')
+            .bail()
             .custom ((value, {req})=> {
                 return(value == req.body.retype);
             })
@@ -67,13 +78,13 @@ const validator = {
             .custom ((value , {req}) => {
                 if(req.files[0])
                 {
-                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const imageFormats = ['.jpg', '.png', '.jpeg', '.gif'];
                     const userImage = path.extname (req.files[0].originalname)
                     return (imageFormats.includes(userImage));
                 }
                 return true;
             })
-            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'"),
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'"),
     ],
     createProduct: [
         body("name")
@@ -91,11 +102,15 @@ const validator = {
         body("introduction")
             .notEmpty()
             .withMessage("No has completado este campo.")
+            .bail()
             .isLength({max:78})
             .withMessage("Este campo solo admite 78 caracteres como máximo."),
         body("description")
             .notEmpty()
-            .withMessage("Debes completar este campo."),
+            .withMessage("Debes completar este campo.")
+            .bail()
+            .isLength({ min:20 })
+            .withMessage("La descripción debe tener al menos 20 caracteres"),
         body("weight")
             .notEmpty()
             .withMessage("Debes completar este campo.")
@@ -112,13 +127,13 @@ const validator = {
             .custom ((value , {req}) => {
                 if(req.files[0])
                 {
-                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const imageFormats = ['.jpg', '.png', '.jpeg', '.gif'];
                     const productImage = path.extname (req.files[0].originalname)
                     return (imageFormats.includes(productImage));
                 }
                 return true;
             })
-            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'")
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'")
             .bail()
             .custom((valueImg, { req }) => req.files[0])
             .withMessage('Debes cargar una imagen.')
@@ -143,7 +158,10 @@ const validator = {
             .withMessage("Este campo solo admite 78 caracteres como máximo (valor original restaurado)."),
         body("description")
             .notEmpty()
-            .withMessage("Debes completar este campo (valor original restaurado)."),
+            .withMessage("Debes completar este campo (valor original restaurado).")
+            .bail()
+            .isLength({ min:20 })
+            .withMessage("La descripción debe tener al menos 20 caracteres"),
         body("weight")
             .notEmpty()
             .withMessage("Debes completar este campo (valor original restaurado).")
@@ -160,13 +178,13 @@ const validator = {
             .custom ((value , {req}) => {
                 if(req.files[0])
                 {
-                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const imageFormats = ['.jpg', '.png', '.jpeg', '.gif'];
                     const productImage = path.extname (req.files[0].originalname)
                     return (imageFormats.includes(productImage));
                 }
                 return true;
             })
-            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'")
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'")
     ],
     createRutine: [
         body("name")

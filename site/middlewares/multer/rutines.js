@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage,  
     fileFilter: (req, file, cb) => {
-        const acceptedExtensions = ['.jpg', '.png', '.jpeg'];
+        const acceptedExtensions = ['.jpg', '.png', '.jpeg', '.gif'];
         const isAccepted = acceptedExtensions.includes(path.extname(file.originalname));
         if (!isAccepted){
             req.files = [...req.files, file];
