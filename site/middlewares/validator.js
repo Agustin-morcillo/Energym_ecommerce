@@ -6,6 +6,12 @@ const allFunctions = require("../helpers/allFunctions");
 const bcrypt = require("bcryptjs");
 const { User } = require("../database/models");
 
+const expresiones = {
+    name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
+    password: /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/, //minimo 8, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico
+}
+
+
 const validator = {
     login: [
         body('email')
@@ -30,13 +36,29 @@ const validator = {
             .withMessage('Debes completar el campo: Nombre.')
             .bail()
             .isLength({ min: 2 })
-            .withMessage('El nombre debe tener al menos 2 caracteres'),
+            .withMessage('El nombre debe tener al menos 2 caracteres.')
+            .bail()
+            .custom((value)=>{
+                if(!expresiones.name.test(value)){
+                    return false
+                }
+                return true
+            })
+            .withMessage("El nombre solo puede contener letras."),
         body('lastName')
             .notEmpty()
             .withMessage('Debes completar el campo: Apellido.')
             .bail()
             .isLength({ min: 2 })
-            .withMessage('El apellido debe tener al menos 2 caracteres'),
+            .withMessage('El apellido debe tener al menos 2 caracteres')
+            .bail()
+            .custom((value)=>{
+                if(!expresiones.name.test(value)){
+                    return false
+                }
+                return true
+            })
+            .withMessage("El apellido solo puede contener letras"),
         body('email')
             .notEmpty()
             .withMessage('Debes completar el campo: Email.')
@@ -62,15 +84,20 @@ const validator = {
             .withMessage('Debes completar el campo: Contraseña.')
             .bail()
             .isLength({ min: 8 })
-            .withMessage('La contraseña debe tener al menos 8 caracteres')
+            .withMessage('La contraseña debe tener al menos 8 caracteres.')
+            .bail()
+            .custom((value)=>{
+                if(!expresiones.password.test(value)){
+                    return false
+                }
+                return true
+            })
+            .withMessage("Debe tener al menos una: mayúscula, minúscula, número y carácter especial.")
             .bail()
             .custom ((value, {req})=> {
                 return(value == req.body.retype);
             })
-            .withMessage ('Las contraseñas no coinciden.')
-            .bail()
-            .isLength ({min:5})
-            .withMessage ('La contraseña debe tener al menos 5 caracteres.'),
+            .withMessage ('Las contraseñas no coinciden.'),
         body('avatar')
             .custom ((value , {req}) => {
                 if(req.files[0])
