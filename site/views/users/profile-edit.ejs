@@ -10,47 +10,53 @@
                 <div class="profile-main-container">
                     <div class="profile-container">
                         <div class="sections-welcome-titles-container">
-                            <h2 class="sections-welcome-titles">Editar perfil</h2>
-                            <p class="sections-welcome-description">Modifica los campos para editar tu perfil</p>
+                            <h2 class="sections-welcome-titles">¡Bienvenido a tu perfil <%if(userLog.id == 0) {%> de Administrador, <%=userLog.name%><%} else {%><%=userLog.name%><%}%>!</h2>
+                            <p class="sections-welcome-description">Estos son los datos configurados en tu cuenta</p>
                         </div>
-
-                        <div class="profile-avatar-container">
-                            <img src="/images/users/<%=userLog.avatar%>" alt="" class="profile-page-avatar">
-                            <p class="profile-avatar-text profile-labels">Avatar</p>
-                        </div>
-
+                        <div class="profile-left-side">
+                            <div class="profile-avatar-container">
+                                <img src="/images/users/<%=userLog.avatar%>" alt="" class="profile-page-avatar">
+                                <p class="profile-avatar-text profile-labels">Avatar</p>
+                            </div>
+                        </div>    
                         <div class="profile-information-container">
                             <form action="/users/profile/edit/<%=userLog.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-                                <div class="profile-information">
-                                    <label for="name" class="profile-labels">Nombre:</label>
-                                    <input type="text" name="name" id="" value="<%=userLog.name%>" class="inputs-fields profile-inputs" required>
-                                </div>
+                            <div class="profile-information profile-name">
+                                <label for="name" class="profile-labels">Nombre:</label>
+                                <input type="text" name="name" id="" value="<%=userLog.name%>" class="inputs-fields profile-inputs" >
+                                <p class="front-error-inactive front-profile-error-style">El nombre debe tener al menos 2 caracteres (solo letras)</p>
+                                <small class="front-blank-error-inactive front-profile-error-style">El campo no puede estar vacío</small>
+                                <p class="validation-error-profile">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.name != "undefined" ? errors.name.msg : "" %>
+                                </p>
+                            </div>
 
-                                <div class="profile-information">
-                                    <label for="lastName" class="profile-labels">Apellido:</label>
-                                    <input type="text" name="lastName" id="" value="<%=userLog.lastname%>" class="inputs-fields profile-inputs" required>
-                                </div>
-                            
+                            <div class="profile-information profile-lastName">
+                                <label for="lastName" class="profile-labels">Apellido:</label>
+                                <input type="text" name="lastName" id="" value="<%=userLog.lastname%>" class="inputs-fields profile-inputs" >
+                                <p class="front-error-inactive front-profile-error-style">El apellido debe tener al menos 2 caracteres (solo letras)</p>
+                                <small class="front-blank-error-inactive front-profile-error-style">El campo no puede estar vacío</small>
+                                <p class="validation-error-profile">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.lastName != "undefined" ? errors.lastName.msg : "" %>
+                                </p>
+                            </div>
+                        
 
-                                <div class="profile-information">
-                                    <label for="email" class="profile-labels">Correo:</label>
-                                    <input type="email" name="email" id="" value="<%=userLog.email%>" class="inputs-fields profile-inputs" required>
-                                </div>
+                            <div class="profile-information">
+                                <label for="image" class="profile-labels">Avatar</label>
+                                <input type="file" id="image" name="avatar" class="profile-inputs" accept="image/jpg, image/png, image/jpeg, image/gif">
+                                <p class="validation-error-profile">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.avatar != "undefined" ? errors.avatar.msg : "" %>
+                                </p>
+                            </div>
 
-                                <div class="profile-information">
-                                    <label for="image" class="profile-labels">Avatar</label>
-                                    <input type="file" id="image" name="avatar" class="profile-inputs">
-                                </div>
-
-                                <button type="submit" class="buttons-style profile-edit-button profile-save-edit-button"><i class="fas fa-check save-changes-icon"></i>Guardar cambios</button>
+                            <button type="submit" class="buttons-style profile-edit-button profile-save-edit-button"><i class="fas fa-check save-changes-icon"></i>Guardar cambios</button>
                                 <div class="profile-message-container">
                                     <p class="profile-message">* Debes reingresar para aplicar los cambios.</p>
                                 </div>
                             </form>
 
-                            
                         </div>
-                        
                     </div>
                 </div>
             </article>
@@ -58,6 +64,6 @@
     </main>
 
     <%- include("../partials/footer") %> 
-    
+    <script src="/javascript/validatorProfile.js"></script>
 </body>
 </html>

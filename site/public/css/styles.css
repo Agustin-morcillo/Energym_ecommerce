@@ -9,6 +9,7 @@
     
 }
 
+
 body{
     background-color: #f4f4f4;
 }
@@ -18,6 +19,14 @@ body{
     border: 1px solid gray;
     padding: 10px;
     background-color: #f4f4f4;
+    transition: .3s ease all;
+}
+
+
+.inputs-fields:focus{
+    border: 3px solid #0075ff;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163,163,163,0.4)
 }
 
 .textarea-styles{
@@ -26,6 +35,13 @@ body{
     background-color: #f4f4f4;
     padding: 10px;
 }
+
+.textarea-styles:focus{
+    border: 3px solid #0075ff;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163,163,163,0.4)
+}
+
 
 .buttons-style{
     border-radius: 20px;
@@ -58,6 +74,8 @@ body{
     font-size: 16px;
 }
 
+/* -----------------------ESTILOS VALIDACIONES DESDE EL BACK END--------------------------------------------- */
+
 .validation-errors-container{
     padding: 10px 0px 0px 10px;
     width: 100%;
@@ -89,11 +107,19 @@ body{
 
 .validation-error-register{
     color: red;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
-    padding-top: 10px;
+    padding-top: 5px;
     text-align: center;
 }
+
+.validation-error-profile{
+    color: red;
+    font-size: 9px;
+    font-weight: 700;
+    padding-top: 5px;
+}
+
 
 
 /* ----------------------------------------[HEADER]---------------------------------------- */
@@ -811,8 +837,8 @@ header{
     justify-content: center;
     align-items: center;
     background-image: url(/images/main/login-background.jpg);
-    background-size: 100%;
-    background-attachment: fixed;
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 
 .login-container{
@@ -842,16 +868,17 @@ header{
     align-items: center;
 }
 
-.login-email-container{
-    width: 100%;
-}
 
 .general-containers{
     text-align: center;
-    margin: 10px;
+    margin: 13px;
     width: 100%;
+    height: 70px;
 }
 
+.login-email{
+    margin-top: 30px;
+}
 
 .login-inputs-titles{
     display: block;
@@ -872,7 +899,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 5px;
+    margin-top: 12px;
     width: 80%;
     position: relative;
     left: 20px;
@@ -943,9 +970,15 @@ header{
 
 /* ------------LOGIN-RESPONSIVE-------------- */
 
-@media (max-width:830px){
-    .login-main-container{
-        background-size: 1000px;
+@media (max-width:700px){
+    .login-container{
+        width: 90%;
+    }
+}
+
+@media(max-width:400px){
+    .login-container{
+        width: 100%;
     }
 }
 
@@ -2111,8 +2144,11 @@ header{
 
 
 .profile-information{
-    width: 60%;
+    width: 90%;
     margin: 20px auto;
+    height: 80px;
+    position: relative;
+    left: 20px;
 }
 
 
@@ -2122,7 +2158,7 @@ header{
 
 .profile-inputs{
     margin-top: 5px;
-    width: 200px;
+    width: 240px;
 }
 
 .profile-edit-button{
@@ -2190,7 +2226,7 @@ header{
     }
 
     .profile-information-container{
-        width: 100%;
+        width: 80%;
         margin: 5px 20px;
     }
 
@@ -2204,7 +2240,7 @@ header{
     }
 
     .profile-inputs{
-        width: 100%;
+        width: 90%;
     }
 
     .profile-edit-button,.profile-logout-button{
@@ -2218,6 +2254,10 @@ header{
     .profile-container{
         width: 90%;
     }
+
+    .profile-information-container{
+        width: 100%;
+    }
 }
 
 
@@ -2229,4 +2269,50 @@ header{
 .profile-save-edit-button:hover{
     background-color: #00b347 
 }
+
+/* --------------ESTILOS DE VALIDACIONES DEL FRONT END-------------------------------- */
+
+/* Generales */
+
+small{
+    display: block;
+}
+
+.wrong-label{
+    color: red;
+}
+
+.wrong-input, .wrong-input:focus{
+    border: 2px solid red;
+}
+
+
+.front-error-active,.front-blank-error-active{
+    display: block;
+    text-align: center;
+}
+
+.front-error-inactive,.front-blank-error-inactive{
+    display: none;
+}
+
+/* login - register */
+.front-login-register-error-style{
+    color: red;
+    font-size: 10px;
+    font-weight: 700;
+    padding-top: 5px;
+}
+
+/* Profile */
+.front-profile-error-style{
+    color: red;
+    font-size: 10px;
+    font-weight: 700;
+    padding-top: 5px;
+    text-align: left;
+}
+
+
+
 
