@@ -17,7 +17,7 @@ const usersController={
                        
         if(!errors.isEmpty()){
             let pageTitle = "Energym - Login";
-            return res.render('users/login', {errors: errors.errors, pageTitle})
+            return res.render('users/login', {errors: errors.mapped(), pageTitle})
         }
         
         const userToLogin = await db.User.findOne({where:{email:req.body.email}})
@@ -70,6 +70,12 @@ const usersController={
         return res.render('./users/profile-edit', {pageTitle})
     },
     editedProfile: async (req,res)=>{
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+                let pageTitle = "Energym - Editar Perfil";
+                res.render("users/profile-edit", {errors: errors.mapped(), pageTitle});
+                return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
+            }
         
         const userToEdit = await db.User.findOne({where:{id:req.params.id}});
         

@@ -11,32 +11,29 @@
                     <h2 class="sections-welcome-titles">Iniciar sesión</h2>
                 </div>
 
-                <div class="validation-errors-container">
-                    <% if(typeof errors != 'undefined') { %>
-                        <ul>
-                            <% for(error of errors) { %>
-                                <li>
-                                    <p class="validation-error"> <%= error.msg %> </p>                          
-                                </li>  
-                            <% } %>
-                        </ul>
-                    <% } %>
-                </div>
+               
 
                 <div class="login-inputs-container">
                     <form action="/users/login" method="POST" class="form-container">
                         
-                        <div class="general-containers login-email-container">
+                        <div class="general-containers login-email">
                             <label for="email-login" class="login-inputs-titles">Correo Electrónico<span class="mandatory">*</span></label>
                             <input type="text" name="email" id="email-login" class="inputs-fields all-login-inputs">
-                            <p class="front-error-inactive front-login-error-style">El email debe estar en un formato valido</p>
-                            <small class="front-blank-error-inactive front-login-error-style">Este campo no puede quedar vacío</small>
+                            <p class="front-error-inactive front-login-register-error-style">El email debe estar en un formato valido</p>
+                            <small class="front-blank-error-inactive front-login-register-error-style">Este campo no puede quedar vacío</small>
+                            <p class="validation-error-register">
+                                <%= typeof errors == "undefined" ? "" : typeof errors.email != "undefined" ? errors.email.msg : "" %>
+                            </p>
                         </div>
                         
-                        <div class="general-containers login-password-container">
+                        <div class="general-containers login-password">
                             <label for="password-login" class="login-inputs-titles">Contraseña<span class="mandatory">*</span></label>
                             <input type="password" name="password" id="password-login" class="inputs-fields all-login-inputs">
-                            <small class="front-blank-error-inactive front-login-error-style">Este campo no puede quedar vacío</small>
+                            <p></p>
+                            <small class="front-blank-error-inactive front-login-register-error-style">Este campo no puede quedar vacío</small>
+                            <p class="validation-error-register">
+                                <%= typeof errors == "undefined" ? "" : typeof errors.password != "undefined" ? errors.password.msg : "" %>
+                            </p>
                          </div>
                         
                          <div class="remember-me-container">
@@ -60,6 +57,6 @@
        
 
     <%- include("../partials/footer") %> 
-    <script src="/javascript/login.js"></script>
+    <script src="/javascript/validatorLogin.js"></script>
 </body>
 </html>

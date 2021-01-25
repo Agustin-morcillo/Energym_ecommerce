@@ -21,7 +21,7 @@ router.get('/profile', auth, usersController.profile);
 
 //Editar perfil
 router.get("/profile/edit",auth,usersController.editProfile)
-router.put("/profile/edit/:id",auth,usersMulter.any(),usersController.editedProfile)
+router.put("/profile/edit/:id",auth,usersMulter.any(),validator.profileEdit,usersController.editedProfile)
 
 //Logout
 router.get('/logout', auth, usersController.logout);

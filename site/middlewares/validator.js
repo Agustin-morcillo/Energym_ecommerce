@@ -28,7 +28,10 @@ const validator = {
                         return Promise.reject('Email y/o contraseña invalido');
                     }
                 })
-            })
+            }),
+        body("password")
+            .notEmpty()
+            .withMessage("Debes completar el campo: Contraseña.")
     ],
     register: [
         body('name')
@@ -36,7 +39,7 @@ const validator = {
             .withMessage('Debes completar el campo: Nombre.')
             .bail()
             .isLength({ min: 2 })
-            .withMessage('El nombre debe tener al menos 2 caracteres.')
+            .withMessage('El nombre debe tener al menos 2 caracteres (solo letras).')
             .bail()
             .custom((value)=>{
                 if(!expresiones.name.test(value)){
@@ -50,7 +53,7 @@ const validator = {
             .withMessage('Debes completar el campo: Apellido.')
             .bail()
             .isLength({ min: 2 })
-            .withMessage('El apellido debe tener al menos 2 caracteres')
+            .withMessage('El apellido debe tener al menos 2 caracteres (solo letras).')
             .bail()
             .custom((value)=>{
                 if(!expresiones.name.test(value)){
@@ -64,7 +67,7 @@ const validator = {
             .withMessage('Debes completar el campo: Email.')
             .bail()
             .isEmail()
-            .withMessage('El email no tiene un formato válido')
+            .withMessage('El email ingresado no tiene un formato válido.')
             .bail()
             .custom((value, {req})=> {
                 return(value == req.body.retypeEmail);
@@ -79,12 +82,15 @@ const validator = {
                         } 
                     })
             }),
+        body("retypeEmail")
+            .notEmpty()
+            .withMessage("Debes repetir el email."),
         body ('password')
             .notEmpty()
             .withMessage('Debes completar el campo: Contraseña.')
             .bail()
             .isLength({ min: 8 })
-            .withMessage('La contraseña debe tener al menos 8 caracteres.')
+            .withMessage('La contraseña debe tener al menos 8 caracteres (mayúscula, minúscula, número y carácter especial)')
             .bail()
             .custom((value)=>{
                 if(!expresiones.password.test(value)){
@@ -92,12 +98,15 @@ const validator = {
                 }
                 return true
             })
-            .withMessage("Debe tener al menos una: mayúscula, minúscula, número y carácter especial.")
+            .withMessage("La contraseña debe tener al menos una: mayúscula, minúscula, número y carácter especial.")
             .bail()
             .custom ((value, {req})=> {
                 return(value == req.body.retype);
             })
             .withMessage ('Las contraseñas no coinciden.'),
+        body("retype")
+            .notEmpty()
+            .withMessage("Debes repetir la contraseña."),
         body('avatar')
             .custom ((value , {req}) => {
                 if(req.files[0])
@@ -241,13 +250,13 @@ const validator = {
             .custom ((value , {req}) => {
                 if(req.files[0])
                 {
-                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const imageFormats = ['.jpg', '.png', '.jpeg', '.gif'];
                     const productImage = path.extname (req.files[0].originalname)
                     return (imageFormats.includes(productImage));
                 }
                 return true;
             })
-            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'")
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'")
             .bail()
             .custom((valueImg, { req }) => req.files[0])
             .withMessage('Debes cargar una imagen.')
@@ -283,13 +292,54 @@ const validator = {
             .custom ((value , {req}) => {
                 if(req.files[0])
                 {
-                    const imageFormats = ['.jpg', '.png', '.jpeg'];
+                    const imageFormats = ['.jpg', '.png', '.jpeg', '.gif'];
                     const productImage = path.extname (req.files[0].originalname)
                     return (imageFormats.includes(productImage));
                 }
                 return true;
             })
-            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg'")
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'")
+    ],
+    profileEdit:[
+        body("name")
+            .notEmpty()
+            .withMessage("El nombre no puede estar vacío.")
+            .bail()
+            .isLength({min:2})
+            .withMessage('El nombre debe tener al menos 2 caracteres (solo letras).')
+            .bail()
+            .custom((value)=>{
+                if(!expresiones.name.test(value)){
+                    return false
+                }
+                return true
+            })
+            .withMessage("El nombre solo puede contener letras."),
+        body("lastName")
+            .notEmpty()
+            .withMessage("El apellido no puede estar vacío.")
+            .bail()
+            .isLength({min:2})
+            .withMessage('El apellido debe tener al menos 2 caracteres (solo letras).')
+            .bail()
+            .custom((value)=>{
+                if(!expresiones.name.test(value)){
+                    return false
+                }
+                return true
+            })
+            .withMessage("El apellido solo puede contener letras."),
+        body("avatar")
+            .custom ((value , {req}) => {
+                if(req.files[0])
+                {
+                    const imageFormats = ['.jpg', '.png', '.jpeg', '.gif'];
+                    const productImage = path.extname (req.files[0].originalname)
+                    return (imageFormats.includes(productImage));
+                }
+                return true;
+            })
+            .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'")
     ]
 }
 

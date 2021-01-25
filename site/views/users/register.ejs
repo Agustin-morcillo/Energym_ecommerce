@@ -18,8 +18,8 @@
                             <div class="register-info-container register-name">
                                 <label for="name-register" class="register-label">Nombre<span class="required-field">*</span></label>
                                 <input name="name" type="text" id="name-register" class="register-input inputs-fields">
-                                <p class="front-error-inactive front-login-error-style">El nombre debe tener al menos 2 caracteres (solo letras)</p>
-                                <small class="front-blank-error-inactive front-login-error-style">El campo no puede estar vacío</small>
+                                <p class="front-error-inactive front-login-register-error-style">El nombre debe tener al menos 2 caracteres (solo letras)</p>
+                                <small class="front-blank-error-inactive front-login-register-error-style">El campo no puede estar vacío</small>
                                 <p class="validation-error-register">
                                     <%= typeof errors == "undefined" ? "" : typeof errors.name != "undefined" ? errors.name.msg : "" %>
                                 </p>
@@ -28,8 +28,8 @@
                             <div class="register-info-container register-lastName">
                                 <label for="lastname-register" class="register-label">Apellido<span class="required-field">*</span></label>
                                 <input name= "lastName" type="text" id="lastname-register" class="register-input inputs-fields">
-                                <p class="front-error-inactive front-login-error-style">El apellido debe tener al menos 2 caracteres (solo letras)</p>
-                                <small class="front-blank-error-inactive front-login-error-style">El campo no puede estar vacío</small>
+                                <p class="front-error-inactive front-login-register-error-style">El apellido debe tener al menos 2 caracteres (solo letras)</p>
+                                <small class="front-blank-error-inactive front-login-register-error-style">El campo no puede estar vacío</small>
                                 <p class="validation-error-register">
                                     <%= typeof errors == "undefined" ? "" : typeof errors.lastName != "undefined" ? errors.lastName.msg : "" %>
                                 </p>
@@ -39,8 +39,8 @@
                             <div class="register-info-container register-email">
                                 <label for="email-register" class="register-label">Email<span class="required-field">*</span></label>
                                 <input name= 'email' type="text" id="email-register" class="register-input inputs-fields">
-                                <p class="front-error-inactive front-login-error-style">El email debe estar en un formato válido</p>
-                                <small class="front-blank-error-inactive front-login-error-style">El campo no puede estar vacío</small>
+                                <p class="front-error-inactive front-login-register-error-style">El email debe estar en un formato válido</p>
+                                <small class="front-blank-error-inactive front-login-register-error-style">El campo no puede estar vacío</small>
                                 <p class="validation-error-register">
                                     <%= typeof errors == "undefined" ? "" : typeof errors.email != "undefined" ? errors.email.msg : "" %>
                                 </p>
@@ -49,15 +49,18 @@
                             <div class="register-info-container register-retypeEmail">
                                 <label for="retype-email-register" class="register-label">Repita su email<span class="required-field">*</span></label>
                                 <input name= 'retypeEmail' type="text" id="retype-email-register" class="register-input inputs-fields">
-                                <p class="front-error-inactive front-login-error-style">Los emails no coinciden</p>
-                                <small class="front-blank-error-inactive front-login-error-style">El campo no puede estar vacío</small>
+                                <p class="front-error-inactive front-login-register-error-style">Los emails no coinciden</p>
+                                <small class="front-blank-error-inactive front-login-register-error-style">El campo no puede estar vacío</small>
+                                <p class="validation-error-register">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.retypeEmail != "undefined" ? errors.retypeEmail.msg : "" %>
+                                </p>
                             </div>
                             
                             <div class="register-info-container register-password">
                                 <label for="password-register" class="register-label">Contraseña<span class="required-field">*</span></label>
                                 <input name= 'password' type="password" id="password-register" class="register-input inputs-fields">
-                                <p class="front-error-inactive front-login-error-style">La contraseña debe tener al menos 8 caracteres (mayúscula,minúscula,número,carácter especial)</p>
-                                <small class="front-blank-error-inactive front-login-error-style">El campo no puede estar vacío</small>
+                                <p class="front-error-inactive front-login-register-error-style">La contraseña debe tener al menos 8 caracteres (mayúscula, minúscula, número y carácter especial)</p>
+                                <small class="front-blank-error-inactive front-login-register-error-style">El campo no puede estar vacío</small>
                                 <p class="validation-error-register">
                                     <%= typeof errors == "undefined" ? "" : typeof errors.password != "undefined" ? errors.password.msg : "" %>
                                 </p>
@@ -66,16 +69,19 @@
                             <div class="register-info-container register-retype">
                                 <label for="repassword-register" class="register-label">Repita su contraseña<span class="required-field">*</span></label>
                                 <input name= 'retype' type="password" id="repassword-register" class="register-input inputs-fields">
-                                <p class="front-error-inactive front-login-error-style">Las contraseñas no coinciden</p>
-                                <small class="front-blank-error-inactive front-login-error-style">El campo no puede estar vacío</small>
+                                <p class="front-error-inactive front-login-register-error-style">Las contraseñas no coinciden</p>
+                                <small class="front-blank-error-inactive front-login-register-error-style">El campo no puede estar vacío</small>
+                                <p class="validation-error-register">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.retype != "undefined" ? errors.retype.msg : "" %>
+                                </p>
                             </div>
 
                             <div class="register-info-container">
                                 <label for="avatar-register" class="register-label avatar-label">Avatar</label>
-                                <input type="file" id="avatar-register" name="avatar" class="register-avatar-input" accept="image/jpg, image/png, image/jpeg">
+                                <input type="file" id="avatar-register" name="avatar" class="register-avatar-input" accept="image/jpg, image/png, image/jpeg, image/gif">
                             </div>
                             <div class="register-img">
-                                <p class="front-error-inactive front-login-error-style">Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'</p>
+                                <p class="front-error-inactive front-login-register-error-style">Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'</p>
                                 <p class="validation-error-register">
                                     <%= typeof errors == "undefined" ? "" : typeof errors.avatar != "undefined" ? errors.avatar.msg : "" %>
                                 </p>
@@ -105,6 +111,6 @@
     </main>
 
     <%- include("../partials/footer") %> 
-    <script src="/javascript/register.js"></script>
+    <script src="/javascript/validatorRegister.js"></script>
 </body>
 </html>
