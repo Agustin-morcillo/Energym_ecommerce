@@ -6,9 +6,6 @@
 - "front-blank-error-inactive" -- oculta el mensaje de campo en blanco.
 - "front-blank-error-active" -- activa el mensaje de campo en blanco. */
 
-fetch("http://localhost:3000/api/users")
-    .then(resp => resp.json())
-    .then(users =>console.log(users))
 
 /* Funcion que cambia las clases */
 let classController = (expresion,input)=>{
@@ -67,6 +64,33 @@ let blankInput = (input)=>{
     } 
 }
 
+
+
+let checkAvailable = ()=>{
+    fetch("http://localhost:3000/api/users")
+        .then(resp => resp.json())
+        .then(users => {
+            let email = document.querySelector("#email-register")
+            for(let user of users.data){
+                console.log(user.email)
+                if(email.value == user.email){
+                    document.querySelector(".email-available").classList.remove("front-error-inactive")
+                    document.querySelector(".email-available").classList.add("front-error-active")
+                    document.querySelector(".register-email input").classList.add("wrong-input")
+                    document.querySelector(".register-email label").classList.add("wrong-label")
+                    estados.email = false
+                } else {
+                    document.querySelector(".email-available").classList.add("front-error-inactive")
+                    document.querySelector(".email-available").classList.remove("front-error-active")
+                    document.querySelector(".register-email input").classList.remove("wrong-input")
+                    document.querySelector(".register-email label").classList.remove("wrong-label")
+                    estados.email = true
+                }
+            }
+         })
+}
+
+
 /* Expresiones regulares */
 const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
@@ -107,6 +131,7 @@ let validarCampos = (e)=>{
             classController(expresiones.email,e.target)
             reTypeInput(email,reemail)
             blankInput(e.target)
+            checkAvailable();
         break;
         case "retypeEmail":
             reTypeInput(email,reemail)
