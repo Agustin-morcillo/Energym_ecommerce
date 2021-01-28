@@ -20,11 +20,13 @@
                                 
                                 <form method="POST" action="/rutines/create"  enctype="multipart/form-data">
                                     
-                                    <div class="admin-inputs-containers">
-                                        <div class="admin-label-container">
+                                    <div class="admin-inputs-containers create-rutine-error-name">
+                                        <div class="admin-label-container create-rutine-error-name">
                                             <label for="add-edit-product-name" class="admin-labels">Nombre de la rutina<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Abdominales" >
+                                        <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: Abdominales" >
+                                        <p class="front-error-inactive front-create-rutine-error-style">El nombre debe tener al menos 5 caracteres (solo letras)</p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.name != "undefined" ? errors.name.msg : "" %>
                                         </p>
@@ -50,11 +52,12 @@
                                         </p>
                                     </div>
                                     
-                                    <div class="admin-inputs-containers">
+                                    <div class="admin-inputs-containers create-rutine-error-description">
                                         <div class="admin-label-container">
                                             <label for="add-edit-product-description" class="admin-labels">Descripción completa<span class="required-field">*</span></label>
                                         </div>
-                                        <textarea name="description" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi "></textarea>
+                                        <textarea name="description" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles input-validator" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi "></textarea>
+                                        <p class="front-error-inactive front-create-rutine-error-style">La descripción debe tener al menos 20 caracteres</p>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.description != "undefined" ? errors.description.msg : "" %>
                                         </p>
@@ -87,11 +90,12 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="admin-inputs-containers">
-                                        <div class="admin-label-option-container">
+                                    <div class="admin-inputs-containers create-rutine-error-image">
+                                        <div class="admin-label-option-container create-rutine-error-image">
                                             <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen de la rutina<span class="required-field">*</span></label>
-                                            <input type="file" class="add-edit-product-image-input" name="image" accept="image/jpg, image/png, image/jpeg, image/gif">
+                                            <input type="file" id="add-edit-product-image" class="add-edit-product-image-input" name="image">
                                         </div>
+                                        <p class="front-error-inactive front-create-rutine-error-style">Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'</p>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.image != "undefined" ? errors.image.msg : "" %>
                                         </p>
@@ -109,8 +113,7 @@
                 </article>
             </section>
         </main>
-
-
         <%- include("../partials/footer") %> 
+        <script src="/javascript/validatorRutines.js"></script>
     </body>
 </html>
