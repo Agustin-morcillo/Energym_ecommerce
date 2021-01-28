@@ -6,6 +6,10 @@
 - "front-blank-error-inactive" -- oculta el mensaje de campo en blanco.
 - "front-blank-error-active" -- activa el mensaje de campo en blanco. */
 
+fetch("http://localhost:3000/api/users")
+    .then(resp => resp.json())
+    .then(users =>console.log(users))
+
 /* Funcion que cambia las clases */
 let classController = (expresion,input)=>{
     if(expresion.test(input.value)){
