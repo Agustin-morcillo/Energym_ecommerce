@@ -16,6 +16,7 @@ const mainRouter=require("./routes/main")
 const usersRouter=require("./routes/users");
 const productRouter=require("./routes/products");
 const rutineRouter=require("./routes/rutines");
+const apiUsersRouter = require("./routes/api/users/users")
 
 /* CONFIGURACIONES */
 app.use(session({secret: 'energym session', resave: false, saveUninitialized: true}))
@@ -35,6 +36,7 @@ app.use("/", mainRouter);
 app.use("/users", usersRouter);
 app.use("/products", productRouter);
 app.use("/rutines", rutineRouter);
+app.use("/api/users", apiUsersRouter)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

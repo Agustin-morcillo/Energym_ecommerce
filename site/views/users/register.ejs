@@ -40,6 +40,7 @@
                                 <label for="email-register" class="register-label">Email<span class="required-field">*</span></label>
                                 <input name= 'email' type="text" id="email-register" class="register-input inputs-fields">
                                 <p class="front-error-inactive front-login-register-error-style">El email debe estar en un formato válido</p>
+                                <p class="front-error-inactive front-login-register-error-style email-available">El email ya se encuentra en uso</p>
                                 <small class="front-blank-error-inactive front-login-register-error-style">El campo no puede estar vacío</small>
                                 <p class="validation-error-register">
                                     <%= typeof errors == "undefined" ? "" : typeof errors.email != "undefined" ? errors.email.msg : "" %>
