@@ -39,7 +39,7 @@ let reTypeInput = (input,retypeInput)=>{
         document.querySelector(`.register-${retypeInput.name} label`).classList.add("wrong-label")
         document.querySelector(`.register-${retypeInput.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.register-${retypeInput.name} small`).classList.add("front-blank-error-inactive")
-        estados[input.name] = false
+        estados[retypeInput.name] = false
     } else{
         document.querySelector(`.register-${retypeInput.name} p`).classList.remove("front-error-active")
         document.querySelector(`.register-${retypeInput.name} p`).classList.add("front-error-inactive")
@@ -47,7 +47,7 @@ let reTypeInput = (input,retypeInput)=>{
         document.querySelector(`.register-${retypeInput.name} label`).classList.remove("wrong-label")
         document.querySelector(`.register-${retypeInput.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.register-${retypeInput.name} small`).classList.add("front-blank-error-inactive")
-        estados[input.name] = true
+        estados[retypeInput.name] = true
     }
 }
 
@@ -65,27 +65,27 @@ let blankInput = (input)=>{
 }
 
 
-
 let checkAvailable = ()=>{
     fetch("http://localhost:3000/api/users")
         .then(resp => resp.json())
         .then(users => {
             let email = document.querySelector("#email-register")
+            let usuarios = []
             for(let user of users.data){
-                console.log(user.email)
-                if(email.value == user.email){
-                    document.querySelector(".email-available").classList.remove("front-error-inactive")
-                    document.querySelector(".email-available").classList.add("front-error-active")
-                    document.querySelector(".register-email input").classList.add("wrong-input")
-                    document.querySelector(".register-email label").classList.add("wrong-label")
-                    estados.email = false
-                } else {
-                    document.querySelector(".email-available").classList.add("front-error-inactive")
+                usuarios.push(user.email)
+            }
+            if(usuarios.includes(email.value)){
+                document.querySelector(".email-available").classList.remove("front-error-inactive")
+                document.querySelector(".email-available").classList.add("front-error-active")
+                document.querySelector(".register-email input").classList.add("wrong-input")
+                document.querySelector(".register-email label").classList.add("wrong-label")
+                estados.email= false
+            } else{
+                document.querySelector(".email-available").classList.add("front-error-inactive")
                     document.querySelector(".email-available").classList.remove("front-error-active")
                     document.querySelector(".register-email input").classList.remove("wrong-input")
                     document.querySelector(".register-email label").classList.remove("wrong-label")
-                    estados.email = true
-                }
+                    estados.email= true
             }
          })
 }
@@ -112,9 +112,12 @@ let estados ={
     name: false,
     lastName: false,
     email: false,
+    retypeEmail: false,
     password: false,
+    retype: false,
     avatar: true
 }
+
 
 /* Identificando y validando los inputs */
 let validarCampos = (e)=>{
@@ -178,7 +181,7 @@ form.addEventListener("submit",(e)=>{
     })
 
     /* Validacion estado de los inputs */
-    if(!estados.name||!estados.lastName||!estados.email||!estados.password||!estados.avatar){
+    if(!estados.name||!estados.lastName||!estados.email||!estados.retypeEmail||!estados.retype||!estados.password||!estados.avatar){
         e.preventDefault()
     }
 })
