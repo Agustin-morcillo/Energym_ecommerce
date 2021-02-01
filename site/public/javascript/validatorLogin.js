@@ -6,6 +6,10 @@
 - "front-blank-error-inactive" -- oculta el mensaje de campo en blanco.
 - "front-blank-error-active" -- activa el mensaje de campo en blanco. */
 
+/* Requiriendo los elementos del DOM */
+let form = document.querySelector("form")
+let inputs = document.querySelectorAll(".all-login-inputs")
+
 /* Funcion que cambia las clases */
 let classController = (expresion,input)=>{
     if(expresion.test(input.value)){
@@ -15,7 +19,7 @@ let classController = (expresion,input)=>{
         document.querySelector(`.login-${input.name} label`).classList.remove("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-inactive")
-        estados[input.name] = true
+        estado[input.name] = true
     } else{
         document.querySelector(`.login-${input.name} p`).classList.add("front-error-active")
         document.querySelector(`.login-${input.name} p`).classList.remove("front-error-inactive")
@@ -23,7 +27,7 @@ let classController = (expresion,input)=>{
         document.querySelector(`.login-${input.name} label`).classList.add("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-inactive")
-        estados[input.name] = false
+        estado[input.name] = false
     }
 }
 
@@ -37,7 +41,7 @@ let blankInput = (input)=>{
         document.querySelector(`.login-${input.name} label`).classList.add("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-inactive")
-        estados[input.name] = false
+        estado[input.name] = false
     } 
 }
 
@@ -48,13 +52,8 @@ const expresiones = {
 }
 
 
-/* Requiriendo los elementos del DOM */
-let form = document.querySelector("form")
-let inputs = document.querySelectorAll(".all-login-inputs")
-
-
 /* Estado de los inputs */
-let estados={
+let estado={
     email:false,
     password:false
 }
@@ -87,7 +86,7 @@ form.addEventListener("submit",(e)=>{
     })
 
     /* Validacion estado de los inputs */
-    if(!estados.email||!estados.password){
+    if(!estado.email||!estado.password){
         e.preventDefault()
     }
 })
