@@ -7,6 +7,15 @@
 - "front-blank-error-active" -- activa el mensaje de campo en blanco. */
 
 
+/* Requiriendo los elementos del DOM */
+let form = document.querySelector("form")
+let inputs = document.querySelectorAll(".register-input")
+let password = document.querySelector("#password-register")
+let repassword = document.querySelector("#repassword-register")
+let email = document.querySelector("#email-register")
+let reemail = document.querySelector("#retype-email-register")
+let avatar = document.querySelector("#avatar-register")
+
 /* Funcion que cambia las clases */
 let classController = (expresion,input)=>{
     if(expresion.test(input.value)){
@@ -17,7 +26,7 @@ let classController = (expresion,input)=>{
             document.querySelector(`.register-${input.name} small`).classList.remove("front-blank-error-active")
             document.querySelector(`.register-${input.name} small`).classList.add("front-blank-error-inactive")
             
-            estados[input.name] = true
+            estado[input.name] = true
     } else{
             document.querySelector(`.register-${input.name} p`).classList.add("front-error-active")
             document.querySelector(`.register-${input.name} p`).classList.remove("front-error-inactive")
@@ -26,7 +35,7 @@ let classController = (expresion,input)=>{
             document.querySelector(`.register-${input.name} small`).classList.remove("front-blank-error-active")
             document.querySelector(`.register-${input.name} small`).classList.add("front-blank-error-inactive")
        
-            estados[input.name] = false
+            estado[input.name] = false
     }
 }
 
@@ -39,7 +48,7 @@ let reTypeInput = (input,retypeInput)=>{
         document.querySelector(`.register-${retypeInput.name} label`).classList.add("wrong-label")
         document.querySelector(`.register-${retypeInput.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.register-${retypeInput.name} small`).classList.add("front-blank-error-inactive")
-        estados[retypeInput.name] = false
+        estado[retypeInput.name] = false
     } else{
         document.querySelector(`.register-${retypeInput.name} p`).classList.remove("front-error-active")
         document.querySelector(`.register-${retypeInput.name} p`).classList.add("front-error-inactive")
@@ -47,7 +56,7 @@ let reTypeInput = (input,retypeInput)=>{
         document.querySelector(`.register-${retypeInput.name} label`).classList.remove("wrong-label")
         document.querySelector(`.register-${retypeInput.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.register-${retypeInput.name} small`).classList.add("front-blank-error-inactive")
-        estados[retypeInput.name] = true
+        estado[retypeInput.name] = true
     }
 }
 
@@ -60,36 +69,36 @@ let blankInput = (input)=>{
         document.querySelector(`.register-${input.name} label`).classList.add("wrong-label")
         document.querySelector(`.register-${input.name} small`).classList.add("front-blank-error-active")
         document.querySelector(`.register-${input.name} small`).classList.remove("front-blank-error-inactive")
-        estados[input.name] = false
+        estado[input.name] = false
     } 
 }
 
+/* Usuarios de la base de datos */
+let usuarios = []
+fetch("http://localhost:3000/api/users")
+    .then(resp => resp.json())
+    .then(users => {
+        for(let user of users.data){
+            usuarios.push(user.email)
+        }
+    })
 
-let checkAvailable = ()=>{
-    fetch("http://localhost:3000/api/users")
-        .then(resp => resp.json())
-        .then(users => {
-            let email = document.querySelector("#email-register")
-            let usuarios = []
-            for(let user of users.data){
-                usuarios.push(user.email)
-            }
-            if(usuarios.includes(email.value)){
-                document.querySelector(".email-available").classList.remove("front-error-inactive")
-                document.querySelector(".email-available").classList.add("front-error-active")
-                document.querySelector(".register-email input").classList.add("wrong-input")
-                document.querySelector(".register-email label").classList.add("wrong-label")
-                estados.email= false
-            } else{
-                document.querySelector(".email-available").classList.add("front-error-inactive")
-                    document.querySelector(".email-available").classList.remove("front-error-active")
-                    document.querySelector(".register-email input").classList.remove("wrong-input")
-                    document.querySelector(".register-email label").classList.remove("wrong-label")
-                    estados.email= true
-            }
-         })
+/* Ver si existe el email */
+let checkAvailable = (dbUsers,emailInput)=>{
+    if(dbUsers.includes(emailInput.value)){
+        document.querySelector(".email-available").classList.remove("front-error-inactive")
+        document.querySelector(".email-available").classList.add("front-error-active")
+        document.querySelector(".register-email input").classList.add("wrong-input")
+        document.querySelector(".register-email label").classList.add("wrong-label")
+        estado.email= false
+    } else{
+        document.querySelector(".email-available").classList.add("front-error-inactive")
+        document.querySelector(".email-available").classList.remove("front-error-active")
+        document.querySelector(".register-email input").classList.remove("wrong-input")
+        document.querySelector(".register-email label").classList.remove("wrong-label")
+        estado.email= true
+    }
 }
-
 
 /* Expresiones regulares */
 const expresiones = {
@@ -99,16 +108,9 @@ const expresiones = {
     avatar: /(.jpg|.jpeg|.png|.gif)$/i //que sea de esos formatos.
 }
 
-/* Requiriendo los elementos del DOM */
-let form = document.querySelector("form")
-let inputs = document.querySelectorAll(".register-input")
-let password = document.querySelector("#password-register")
-let repassword = document.querySelector("#repassword-register")
-let email = document.querySelector("#email-register")
-let reemail = document.querySelector("#retype-email-register")
 
 /* Estado de los inputs */
-let estados ={
+let estado ={
     name: false,
     lastName: false,
     email: false,
@@ -132,9 +134,8 @@ let validarCampos = (e)=>{
         break;
         case "email":
             classController(expresiones.email,e.target)
-            reTypeInput(email,reemail)
             blankInput(e.target)
-            checkAvailable();
+            checkAvailable(usuarios,email);
         break;
         case "retypeEmail":
             reTypeInput(email,reemail)
@@ -142,12 +143,11 @@ let validarCampos = (e)=>{
         break;
         case "password":
             classController(expresiones.password,e.target)
-            reTypeInput(password,repassword)
             blankInput(e.target)
         break;
         case "retype":
-            reTypeInput(password,repassword)
             blankInput(e.target)
+            reTypeInput(password,repassword)
         break;
 
     }
@@ -162,16 +162,15 @@ inputs.forEach((input)=>{
 form.addEventListener("submit",(e)=>{
     
     /* Validacion del avatar */
-    let avatar = document.querySelector("#avatar-register")
     if(avatar.value){
         if(expresiones.avatar.exec(avatar.value)){
             document.querySelector(`.register-img p`).classList.remove("front-error-active")
             document.querySelector(`.register-img p`).classList.add("front-error-inactive")
-            estados.avatar = true
+            estado.avatar = true
         } else{
             document.querySelector(`.register-img p`).classList.add("front-error-active")
             document.querySelector(`.register-img p`).classList.remove("front-error-inactive")
-            estados.avatar = false
+            estado.avatar = false
         }
     }
 
@@ -181,10 +180,7 @@ form.addEventListener("submit",(e)=>{
     })
 
     /* Validacion estado de los inputs */
-    if(!estados.name||!estados.lastName||!estados.email||!estados.retypeEmail||!estados.retype||!estados.password||!estados.avatar){
+    if(!estado.name||!estado.lastName||!estado.email||!estado.retypeEmail||!estado.retype||!estado.password||!estado.avatar){
         e.preventDefault()
     }
 })
-
-
-
