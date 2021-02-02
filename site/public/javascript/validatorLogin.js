@@ -6,10 +6,21 @@
 - "front-blank-error-inactive" -- oculta el mensaje de campo en blanco.
 - "front-blank-error-active" -- activa el mensaje de campo en blanco. */
 
-=======
 /* Requiriendo los elementos del DOM */
 let form = document.querySelector("form")
 let inputs = document.querySelectorAll(".all-login-inputs")
+
+/* Expresiones */
+const expresiones = {
+	password: /^.{1,}$/, 
+	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+}
+
+/* Estado de los inputs */
+let estado = {
+    email:false,
+    password:false
+}
 
 /* Funcion que cambia las clases */
 let classController = (expresion,input)=>{
@@ -20,7 +31,6 @@ let classController = (expresion,input)=>{
         document.querySelector(`.login-${input.name} label`).classList.remove("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-inactive")
-=======
         estado[input.name] = true
     } else{
         document.querySelector(`.login-${input.name} p`).classList.add("front-error-active")
@@ -47,59 +57,29 @@ let blankInput = (input)=>{
 }
 
 /* Funcion que chequea si el usuario existe en la base de datos */
+
+//Funcion validadora de userExist
 async function userExist(input){
-    let apiUsers = await fetch("http://localhost:3000/api/users");
+    let apiUsers = await fetch("http://localhost:3000/api/users/");
     let usersResult = await apiUsers.json();
-    for (let user of usersResult.data){
-        console.log(user.password)
-        if(input.value != user.email){
+    for(const user of usersResult.data){
+        console.log(user.email)
+        if(user.email != input.value){
             console.log("usuario no esta registrado")
             document.querySelector(`.login-${input.name} input`).classList.add("wrong-input")
             document.querySelector(`.login-${input.name} label`).classList.add("wrong-label")
             document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-inactive")
             document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-active")
-            estados[input.name] = false
+            estado[input.name] = false
             return;
         }
         document.querySelector(`.login-${input.name} input`).classList.remove("wrong-input")
         document.querySelector(`.login-${input.name} label`).classList.remove("wrong-label")
         document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-inactive")
         document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-active")            
-        estados[input.name] = true
+        estado[input.name] = true
         return;
     }
-}
-
-async function passwordExist(input){
-    let apiUsers = await fetch("http://localhost:3000/api/users");
-    let usersResult = await apiUsers.json();
-    console.log(input.value)
-    for (let user of usersResult.data){
-        console.log(user.password)
-        if(!bcrypt.compareSync(input.value, user.password)){
-            console.log("Las contrasenias no coinciden")
-            estados[input.name] = false
-            return;    
-        }
-        estados[input.name] = true
-        return;    
-    }   
-}
-
-
-    
-  
-/* Expresiones */
-const expresiones = {
-	password: /^.{1,}$/, 
-	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-}
-
-
-/* Estado de los inputs */
-let estado={
-    email:false,
-    password:false
 }
 
 /* Identificando y validando los inputs */
@@ -115,7 +95,6 @@ let validarCampos = (e)=>{
         case "password":
             classController(expresiones.password,e.target)
             blankInput(e.target)
-            passwordExist(e.target)
         break;
     }
 }

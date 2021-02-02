@@ -1,4 +1,5 @@
 const {User} = require("../../../database/models")
+const bcrypt = require("bcryptjs")
 
 const apiUsersController={
     list: async (req,res)=>{
@@ -9,12 +10,11 @@ const apiUsersController={
                     status:"Success",
                     totalUsers: users.length
                 },
-                data:users
+                data:users,
             }
-            
             return res.json(respuesta)
         } catch (error) {
-            console.error(error)
+            console.error("Error: " + error)
         }
     }
 }
