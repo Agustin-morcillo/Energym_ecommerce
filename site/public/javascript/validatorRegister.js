@@ -16,6 +16,25 @@ let email = document.querySelector("#email-register")
 let reemail = document.querySelector("#retype-email-register")
 let avatar = document.querySelector("#avatar-register")
 
+/* Expresiones regulares */
+const expresiones = {
+    name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
+    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // que sea email
+    password: /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/, //minimo 8, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico
+    avatar: /(.jpg|.jpeg|.png|.gif)$/i //que sea de esos formatos.
+}
+
+/* Estado de los inputs */
+let estado = {
+    name: false,
+    lastName: false,
+    email: false,
+    retypeEmail: false,
+    password: false,
+    retype: false,
+    avatar: true
+}
+
 /* Funcion que cambia las clases */
 let classController = (expresion,input)=>{
     if(expresion.test(input.value)){
@@ -99,27 +118,6 @@ let checkAvailable = (dbUsers,emailInput)=>{
         estado.email= true
     }
 }
-
-/* Expresiones regulares */
-const expresiones = {
-    name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
-    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // que sea email
-    password: /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/, //minimo 8, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico
-    avatar: /(.jpg|.jpeg|.png|.gif)$/i //que sea de esos formatos.
-}
-
-
-/* Estado de los inputs */
-let estado ={
-    name: false,
-    lastName: false,
-    email: false,
-    retypeEmail: false,
-    password: false,
-    retype: false,
-    avatar: true
-}
-
 
 /* Identificando y validando los inputs */
 let validarCampos = (e)=>{

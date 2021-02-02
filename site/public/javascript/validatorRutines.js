@@ -14,6 +14,13 @@ let description = document.querySelector("#add-edit-product-description");
 let error = (campo, label)=>{return document.querySelector(`.create-rutine-error-${campo} ${label}`)};
 let backEndError = document.querySelector(".validation-error-product");
 
+//Expresiones--------------------------------------------------------------------
+const expresiones = {
+    nombre: /^[a-zA-ZÀ-ÿ\s]{5,}$/, // Letras y espacios, pueden llevar acentos.
+    image: /(.jpg|.jpeg|.png|.gif)$/i,
+    precio: /(^(?:-\d))/g,
+}
+
 //Estados para preventDefault----------------------------------------------------
 let estado = {
     name:true,
@@ -24,45 +31,38 @@ let estado = {
     image:true,
 }
 
-//Expresiones--------------------------------------------------------------------
-const expresiones = {
-    nombre: /^[a-zA-ZÀ-ÿ\s]{5,}$/, // Letras y espacios, pueden llevar acentos.
-    image: /(.jpg|.jpeg|.png|.gif)$/i,
-    precio: /(^(?:-\d))/g,
-}
-
 //FUNCIONES DE VALIDADORES//
 
 //Distribuidor-------------------------------------------------------------------
 let validator = (inputElement, event)=>{
     if(inputElement.name == "name"){
         /*1- Empty*/ emptyValidator(inputElement); 
-        if(inputElement.value != ""){
+        if(inputElement.value.trim() != ""){
             /*2- Expresiones name*/ validExpName(inputElement, expresiones.nombre);
         }
     }
     if(inputElement.name == "price"){
         /*1- Empty*/ emptyValidator(inputElement); 
-        if(inputElement.value != ""){
+        if(inputElement.value.trim() != ""){
             /*6- Extension precio*/ extPrice(inputElement, expresiones.precio);
         }
     }
     if(inputElement.name == "introduction"){
         console.log(inputElement.name)
         /*1- Empty*/ emptyValidator(inputElement); 
-        if(inputElement.value != ""){
+        if(inputElement.value.trim() != ""){
             /*7- Extension introduccion*/ extIntroduction(inputElement);
         }
     }
     if(inputElement.name == "description"){
         /*9- Empty description*/ blankDescription(inputElement); 
-        if(inputElement.value != ""){
+        if(inputElement.value.trim() != ""){
             /*5- Extension description*/ extDescription(inputElement);
         }
     }
     if(inputElement.name == "duration"){
         /*1- Empty*/ emptyValidator(inputElement); 
-        if(inputElement.value != ""){
+        if(inputElement.value.trim() != ""){
             /*8- Validar mayor a 0*/ positiveNumber(inputElement);
         }
     }
@@ -70,7 +70,7 @@ let validator = (inputElement, event)=>{
 
 //Validador 1 empty o campo obligatorio-----------------------------------------
 let emptyValidator = (inputElement)=>{
-    if(inputElement.value == ""){
+    if(inputElement.value.trim() == ""){
         //add error
         error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
         error(inputElement.name, "small").classList.add("front-blank-error-active")
@@ -93,7 +93,7 @@ let emptyValidator = (inputElement)=>{
 
 //Validador 2 expresiones name-------------------------------------------------
 let validExpName = (inputElement, expresion)=>{
-    if(!expresion.test(inputElement.value) && inputElement.value != ""){
+    if(!expresion.test(inputElement.value.trim()) && inputElement.value.trim() != ""){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
@@ -114,8 +114,7 @@ let validExpName = (inputElement, expresion)=>{
 
 //Validador 3 extension description-------------------------------------------
 let extDescription = (inputElement)=>{
-    let inputElementValue = inputElement.value;
-    if(inputElementValue.length < 20){
+    if(inputElement.value.trim().length < 20){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
@@ -135,7 +134,7 @@ let extDescription = (inputElement)=>{
 
 //Validador 4 de expresion de imagen------------------------------------------
 let imgExtValidator = (inputElement)=>{
-    if(!expresiones.image.exec(inputElement.value)){
+    if(!expresiones.image.exec(inputElement.value.trim())){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
@@ -154,7 +153,7 @@ let imgExtValidator = (inputElement)=>{
 
 //Validador 5 submit---------------------------------------------------------
 let blankSubmitValidator = (inputElement)=>{
-    if(inputElement.value == ""){
+    if(inputElement.value.trim() == ""){
         //add error
         error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
         error(inputElement.name, "small").classList.add("front-blank-error-active")
@@ -176,7 +175,7 @@ let blankSubmitValidator = (inputElement)=>{
 
 //Validador 6 extension precio------------------------------------------------
 let extPrice = (inputElement, expresion)=>{
-    if(expresion.test(inputElement.value)){
+    if(expresion.test(inputElement.value.trim())){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
@@ -197,7 +196,7 @@ let extPrice = (inputElement, expresion)=>{
 
 //Validador 7 extension introduccion-----------------------------------------
 let extIntroduction = (inputElement)=>{
-    console.log(inputElement.value.length)
+    console.log(inputElement.value.trim().length)
     if(inputElement.value.length < 5 || inputElement.value.length > 78){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
@@ -219,8 +218,7 @@ let extIntroduction = (inputElement)=>{
 
 //Validador 8 numero mayor a 0----------------------------------------------
 let positiveNumber = (inputElement)=>{
-    console.log(inputElement.value)
-    if(inputElement.value < 1){
+    if(inputElement.value.trim() < 1){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
@@ -241,7 +239,7 @@ let positiveNumber = (inputElement)=>{
 
 //Validador 9 blank description-------------------------------------------
 let blankDescription = (inputElement)=>{  
-        if(inputElement.value == ""){
+        if(inputElement.value.trim() == ""){
             //add error
             error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
             error(inputElement.name, "small").classList.add("front-blank-error-active")
@@ -291,6 +289,6 @@ form.addEventListener("submit", (e)=>{
         }
     })
     blankDescription(description);
+    console.table(estado)
 })
-console.table(estado)
 

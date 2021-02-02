@@ -10,6 +10,13 @@
 let form = document.querySelector("form")
 let inputs = document.querySelectorAll(".inputs-fields")
 
+
+/* Expresiones regulares */
+const expresiones = {
+    name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
+    avatar: /(.jpg|.jpeg|.png|.gif)$/i //que sea de esos formatos.
+}
+
 /* Estado de los inputs */
 let estado = {
     name: true,
@@ -56,7 +63,6 @@ let blankInput = (input)=>{
         estado[input.name] = false
     } 
 }
-
 
 /* Identificando y validando los inputs */
 let validarCampos = (e)=>{
