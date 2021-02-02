@@ -10,6 +10,7 @@
 let form = document.querySelector("form")
 let inputs = document.querySelectorAll(".inputs-fields")
 
+
 /* Expresiones regulares */
 const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
@@ -21,6 +22,12 @@ let estado = {
     name: true,
     lastName: true,
     avatar: true
+}
+
+/* Expresiones regulares */
+const expresiones = {
+    name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
+    avatar: /(.jpg|.jpeg|.png|.gif)$/i //que sea de esos formatos.
 }
 
 /* Funcion que cambia las clases */

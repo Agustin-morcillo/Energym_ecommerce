@@ -4,23 +4,22 @@
 
 **Tareas completadas:**
 
-- Creacion de diagrama [grupo]
-- Creacion de script de estructura [grupo]
-- Creacion de script de data [grupo]
-- Instalacion de sequelize [grupo]
+- Creacion de validacion desde el back del Login [grupo]
+- Creacion de validacion desde el back del Register [grupo]
+- Creacion de validacion desde el back del Productos/Register [grupo] 
 
 ---
 
 **Impedimentos:**
 
-- Problemas en el manejo del workbench 
-- Problemas de configuracion con sequelize 
+- Complicaciones a la hora de encontrar la forma de validar con expresiones regulares.
+- No encontramos mayores impedimentos ya que lo teniamos encarado del sprint anterior.
 
 ---
 
 **Soluciones:**
 
-● Supimos encontrar las soluciones en cuanto a los diferentes tipos de datos en la configuracion del script de estructura
+● Investigacion de expresiones regulares
 
 ---
 
@@ -28,26 +27,26 @@
 
 **Tareas completadas:**
 
-- Modelos y CRUD de productos con sequelize [damian]
-- Modelos y CRUD de rutinas con sequelize [agus]
-- Modelos y CRUD de usuarios con sequelize [santi]
+- Creacion de validacion desde el front del Login [Agus]
+- Creacion de validacion desde el front del Register [grupo]
+- Creacion de validacion desde el front de Rutinas [Dami]
+- Creacion de validacion desde el front de Productos [Santi]
 
 ---
 
 **Impedimentos:**
 
-- Problemas en la configuracion y conexion con la base de datos
-- Problemas con los inputs de los formularios que no coincidian con formatos validos
-- Conflicto en el uso de promesas con async y await 
-- Complicaciones en la validacion de usuarios utilizando sql 
+- Complicaciones a la hora de encontrar la forma de validar con expresiones regulares.
+- Conexion de la base de datos con el front end.
+- Confusion a la hora de mostrar y ocultar los errores. 
 
 ---
 
 **Soluciones:**
 
-● Pudimos compartir los errores en grupo y encontrar soluciones
-● Repaso del material teorico para resolver problemas de configuracion 
-● Colaboracion con y de otros equipos en la busqueda de soluciones
-● Pudimos empezar a leer codigo ajeno, interpretarlo e internalizar la logica para la solucion de problemas en nuestro codigo
+● Implementacion de Apis. 
+● Trabajo con classlist. 
 
 --
+
+
