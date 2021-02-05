@@ -32,6 +32,8 @@ let classController = (expresion,input)=>{
         document.querySelector(`.login-${input.name} label`).classList.remove("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-inactive")
+        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-inactive")
+        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-active")  
         estado[input.name] = true
     } else{
         document.querySelector(`.login-${input.name} p`).classList.add("front-error-active")
@@ -40,6 +42,8 @@ let classController = (expresion,input)=>{
         document.querySelector(`.login-${input.name} label`).classList.add("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-inactive")
+        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-inactive")
+        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-active")  
         estado[input.name] = false
     }
 }
@@ -53,6 +57,8 @@ let blankInput = (input)=>{
         document.querySelector(`.login-${input.name} label`).classList.add("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-inactive")
+        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-inactive")
+        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-active")  
         estado[input.name] = false
     } 
 }
@@ -96,9 +102,6 @@ let validarCampos = (e)=>{
         case "email":
             classController(expresiones.email,e.target)
             blankInput(e.target)
-            if(e.target.value != "" && expresiones.email.test(e.target.value)){
-                userExist(e.target)
-            }
         break;
         case "password":
             classController(expresiones.password,e.target)
