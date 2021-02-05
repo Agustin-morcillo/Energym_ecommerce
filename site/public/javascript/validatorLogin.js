@@ -32,8 +32,8 @@ let classController = (expresion,input)=>{
         document.querySelector(`.login-${input.name} label`).classList.remove("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-inactive")
-        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-inactive")
-        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-active")  
+        document.querySelector(`.login-${input.name} .password-email-error`).classList.add("front-error-inactive")
+        document.querySelector(`.login-${input.name} .password-email-error`).classList.remove("front-error-active")  
         estado[input.name] = true
     } else{
         document.querySelector(`.login-${input.name} p`).classList.add("front-error-active")
@@ -42,8 +42,8 @@ let classController = (expresion,input)=>{
         document.querySelector(`.login-${input.name} label`).classList.add("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-inactive")
-        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-inactive")
-        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-active")  
+        document.querySelector(`.login-${input.name} .password-email-error`).classList.add("front-error-inactive")
+        document.querySelector(`.login-${input.name} .password-email-error`).classList.remove("front-error-active")  
         estado[input.name] = false
     }
 }
@@ -57,44 +57,22 @@ let blankInput = (input)=>{
         document.querySelector(`.login-${input.name} label`).classList.add("wrong-label")
         document.querySelector(`.login-${input.name} small`).classList.add("front-blank-error-active")
         document.querySelector(`.login-${input.name} small`).classList.remove("front-blank-error-inactive")
-        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-inactive")
-        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-active")  
+        document.querySelector(`.login-${input.name} .password-email-error`).classList.add("front-error-inactive")
+        document.querySelector(`.login-${input.name} .password-email-error`).classList.remove("front-error-active")  
         estado[input.name] = false
     } 
 }
 
-/* Funcion que chequea si el usuario existe en la base de datos */
-
-userMails = [];
-fetch("http://localhost:3000/api/users/")
-    .then((results)=>results.json())
-    .then((usersResult)=>{
-        let usersData = usersResult.data;
-        for(const user of usersData){
-            userMails.push(user.email)
+/* Usuarios de la base de datos */
+let usuarios = []
+fetch("http://localhost:3000/api/users")
+    .then(resp => resp.json())
+    .then(users => {
+        for(let user of users.data){
+            usuarios.push(user)
         }
-    })    
-
-//Funcion validadora de userExist
-function userExist(input){
-    for(const mail of userMails){
-        if(mail != input.value){
-            console.log("usuario no esta registrado")
-            document.querySelector(`.login-${input.name} input`).classList.add("wrong-input")
-            document.querySelector(`.login-${input.name} label`).classList.add("wrong-label")
-            document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-inactive")
-            document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-active")
-            estado[input.name] = false
-            return;
-        }
-        document.querySelector(`.login-${input.name} input`).classList.remove("wrong-input")
-        document.querySelector(`.login-${input.name} label`).classList.remove("wrong-label")
-        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.add("front-error-inactive")
-        document.querySelector(`.login-${input.name} #user-exist-login-email-error`).classList.remove("front-error-active")            
-        estado[input.name] = true
-        return;
-    }
-}
+    })
+  
 
 /* Identificando y validando los inputs */
 let validarCampos = (e)=>{
@@ -112,7 +90,6 @@ let validarCampos = (e)=>{
 
 /* Eventos de los inputs */
 inputs.forEach((input)=>{
-    console.log(input)
     input.addEventListener("keyup",validarCampos)
     input.addEventListener("blur",validarCampos)
 })
@@ -123,9 +100,6 @@ form.addEventListener("submit",(e)=>{
     inputs.forEach((input)=>{
         blankInput(input)
     })
-
-    /* Validacion user exist con DB */
-    userExist(email)
 
     /* Validacion estado de los inputs */
     if(!estado.email||!estado.password){
