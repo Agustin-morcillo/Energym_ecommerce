@@ -12,7 +12,6 @@ let inputs = document.querySelectorAll(".input-validator");
 let image = document.querySelector("#add-edit-product-image");
 let description = document.querySelector("#add-edit-product-description");
 let error = (campo, label)=>{return document.querySelector(`.create-rutine-error-${campo} ${label}`)};
-let backEndError = document.querySelector(".validation-error-product");
 
 //Expresiones--------------------------------------------------------------------
 const expresiones = {
@@ -48,7 +47,6 @@ let validator = (inputElement, event)=>{
         }
     }
     if(inputElement.name == "introduction"){
-        console.log(inputElement.name)
         /*1- Empty*/ emptyValidator(inputElement); 
         if(inputElement.value.trim() != ""){
             /*7- Extension introduccion*/ extIntroduction(inputElement);
@@ -70,7 +68,6 @@ let validator = (inputElement, event)=>{
 
 //Validador 1 empty o campo obligatorio-----------------------------------------
 let emptyValidator = (inputElement)=>{
-    console.log(inputElement)
     if(inputElement.value.trim() == ""){
         //add error
         error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
@@ -79,9 +76,7 @@ let emptyValidator = (inputElement)=>{
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "p").classList.add("front-error-inactive")
         error(inputElement.name, "p").classList.remove("front-error-active")
-        backEndError.classList.add("front-blank-error-inactive")
         estado[inputElement.name]= false;
-        console.table(estado)
         return;
     }
     //remove error
@@ -100,7 +95,6 @@ let validExpName = (inputElement, expresion)=>{
         error(inputElement.name, "p").classList.add("front-error-active")
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
-        backEndError.classList.add("front-blank-error-inactive")
         estado[inputElement.name]= false;
         return; 
     }
@@ -110,19 +104,16 @@ let validExpName = (inputElement, expresion)=>{
     error(inputElement.name, "input").classList.remove("wrong-input")
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
-    console.log(estado.name)
 }
 
 //Validador 3 extension description-------------------------------------------
 let extDescription = (inputElement)=>{
-    console.log(inputElement.name)
     if(inputElement.value.trim().length < 20){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
         error(inputElement.name, "textarea").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
-        backEndError.classList.add("front-blank-error-inactive")
         estado[inputElement.name]= false;        
         return; 
     }
@@ -143,7 +134,6 @@ let imgExtValidator = (inputElement)=>{
         error(inputElement.name, "label").classList.add("wrong-label")
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "small").classList.add("front-error-inactive")
-        backEndError.classList.add("front-blank-error-inactive")
         estado[inputElement.name]= false;
         return;
     }
@@ -154,19 +144,16 @@ let imgExtValidator = (inputElement)=>{
     error(inputElement.name, "input").classList.remove("wrong-input")
     error(inputElement.name, "small").classList.add("front-error-inactive")
     estado[inputElement.name]= true;
-    console.log(estado.image)
 }
 
 //Validador 5 submit---------------------------------------------------------
 let blankSubmitValidator = (inputElement)=>{
-    console.log(inputElement.name)
     if(inputElement.value.trim() == ""){
         //add error
         error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
         error(inputElement.name, "small").classList.add("front-blank-error-active")
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
-        backEndError.classList.add("front-blank-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-inactive")
         estado[inputElement.name]= false;
         return; 
@@ -188,9 +175,7 @@ let extPrice = (inputElement, expresion)=>{
         error(inputElement.name, "p").classList.add("front-error-active")
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
-        backEndError.classList.add("front-blank-error-inactive")
         estado[inputElement.name]= false;
-        console.table(estado)
         return; 
     }
     //remove error
@@ -203,14 +188,12 @@ let extPrice = (inputElement, expresion)=>{
 
 //Validador 7 extension introduccion-----------------------------------------
 let extIntroduction = (inputElement)=>{
-    console.log(inputElement.value.trim().length)
     if(inputElement.value.length < 5 || inputElement.value.length > 78){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
-        backEndError.classList.add("front-blank-error-inactive")
         estado[inputElement.name]= false;
         return; 
     }
@@ -220,7 +203,6 @@ let extIntroduction = (inputElement)=>{
     error(inputElement.name, "input").classList.remove("wrong-input")
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
-    console.log(estado.name)
 }
 
 //Validador 8 numero mayor a 0----------------------------------------------
@@ -231,7 +213,6 @@ let positiveNumber = (inputElement)=>{
         error(inputElement.name, "p").classList.add("front-error-active")
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
-        backEndError.classList.add("front-blank-error-inactive")
         estado[inputElement.name]= false;
         return; 
     }
@@ -253,7 +234,6 @@ let blankDescription = (inputElement)=>{
             error(inputElement.name, "label").classList.add("wrong-label")
             error(inputElement.name, "p").classList.add("front-error-inactive")
             error(inputElement.name, "p").classList.remove("front-error-active")
-            backEndError.classList.add("front-blank-error-inactive")
             estado[inputElement.name]= false;
             return; 
         }
@@ -286,32 +266,29 @@ image.addEventListener("change", (e)=>{
 
 image.addEventListener("focus", (e)=>{
     if(image.value == ""){
-        console.log(image.value)
         /*9- Empty description*/ return emptyValidator(image)    
     }
 })
 
 image.addEventListener("blur", (e)=>{
     if(image.value == ""){
-        console.log(image.value)
         /*9- Empty description*/ return emptyValidator(image)    
     }
 })
-
 console.table(estado)
+
 //Validacion submit empty
 form.addEventListener("submit", (e)=>{
+    if(!estado.name || !estado.price || !estado.introduction || !estado.description || !estado.duration || !estado.image){
+        e.preventDefault();
+    }   
     inputs.forEach((input)=>{
-        console.log(input.name)
         if(input.name != "description"){
             blankSubmitValidator(input);
         }
     })
     blankDescription(description);
     blankSubmitValidator(image);  
-    if(!estado.name || !estado.price || !estado.introduction || !estado.description || !estado.duration || !estado.image){
-        return e.preventDefault();
-    }   
-    console.table(estado)
 })
+console.table(estado)
 
