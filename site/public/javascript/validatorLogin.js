@@ -9,6 +9,7 @@
 /* Requiriendo los elementos del DOM */
 let form = document.querySelector("form")
 let inputs = document.querySelectorAll(".all-login-inputs")
+let email = document.querySelector("#email-login")
 
 /* Expresiones */
 const expresiones = {
@@ -58,13 +59,20 @@ let blankInput = (input)=>{
 
 /* Funcion que chequea si el usuario existe en la base de datos */
 
+userMails = [];
+fetch("http://localhost:3000/api/users/")
+    .then((results)=>results.json())
+    .then((usersResult)=>{
+        let usersData = usersResult.data;
+        for(const user of usersData){
+            userMails.push(user.email)
+        }
+    })    
+
 //Funcion validadora de userExist
-async function userExist(input){
-    let apiUsers = await fetch("http://localhost:3000/api/users/");
-    let usersResult = await apiUsers.json();
-    for(const user of usersResult.data){
-        console.log(user.email)
-        if(user.email != input.value){
+function userExist(input){
+    for(const mail of userMails){
+        if(mail != input.value){
             console.log("usuario no esta registrado")
             document.querySelector(`.login-${input.name} input`).classList.add("wrong-input")
             document.querySelector(`.login-${input.name} label`).classList.add("wrong-label")
@@ -112,6 +120,9 @@ form.addEventListener("submit",(e)=>{
     inputs.forEach((input)=>{
         blankInput(input)
     })
+
+    /* Validacion user exist con DB */
+    userExist(email)
 
     /* Validacion estado de los inputs */
     if(!estado.email||!estado.password){
