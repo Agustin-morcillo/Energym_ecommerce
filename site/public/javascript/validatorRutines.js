@@ -28,7 +28,7 @@ let estado = {
     introduction:true,
     description:true,
     duration:true,
-    image:true,
+    image:false
 }
 
 //FUNCIONES DE VALIDADORES//
@@ -70,6 +70,7 @@ let validator = (inputElement, event)=>{
 
 //Validador 1 empty o campo obligatorio-----------------------------------------
 let emptyValidator = (inputElement)=>{
+    console.log(inputElement)
     if(inputElement.value.trim() == ""){
         //add error
         error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
@@ -86,8 +87,8 @@ let emptyValidator = (inputElement)=>{
     //remove error
     error(inputElement.name, "small").classList.add("front-blank-error-inactive")
     error(inputElement.name, "small").classList.remove("front-blank-error-active")
-    error(inputElement.name, "input").classList.remove("wrong-input")
     error(inputElement.name, "label").classList.remove("wrong-label")
+    error(inputElement.name, "input").classList.remove("wrong-input")
     estado[inputElement.name]= true;
 }
 
@@ -114,6 +115,7 @@ let validExpName = (inputElement, expresion)=>{
 
 //Validador 3 extension description-------------------------------------------
 let extDescription = (inputElement)=>{
+    console.log(inputElement.name)
     if(inputElement.value.trim().length < 20){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
@@ -139,6 +141,8 @@ let imgExtValidator = (inputElement)=>{
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
         error(inputElement.name, "label").classList.add("wrong-label")
+        error(inputElement.name, "input").classList.add("wrong-input")
+        error(inputElement.name, "small").classList.add("front-error-inactive")
         backEndError.classList.add("front-blank-error-inactive")
         estado[inputElement.name]= false;
         return;
@@ -147,12 +151,15 @@ let imgExtValidator = (inputElement)=>{
     error(inputElement.name, "p").classList.add("front-error-inactive")
     error(inputElement.name, "p").classList.remove("front-error-active")
     error(inputElement.name, "label").classList.remove("wrong-label")
+    error(inputElement.name, "input").classList.remove("wrong-input")
+    error(inputElement.name, "small").classList.add("front-error-inactive")
     estado[inputElement.name]= true;
     console.log(estado.image)
 }
 
 //Validador 5 submit---------------------------------------------------------
 let blankSubmitValidator = (inputElement)=>{
+    console.log(inputElement.name)
     if(inputElement.value.trim() == ""){
         //add error
         error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
@@ -234,7 +241,6 @@ let positiveNumber = (inputElement)=>{
      error(inputElement.name, "input").classList.remove("wrong-input")
      error(inputElement.name, "label").classList.remove("wrong-label")
      estado[inputElement.name]= true;
-     console.log(estado.name)
 }
 
 //Validador 9 blank description-------------------------------------------
@@ -278,17 +284,34 @@ image.addEventListener("change", (e)=>{
     }
 })
 
+image.addEventListener("focus", (e)=>{
+    if(image.value == ""){
+        console.log(image.value)
+        /*9- Empty description*/ return emptyValidator(image)    
+    }
+})
+
+image.addEventListener("blur", (e)=>{
+    if(image.value == ""){
+        console.log(image.value)
+        /*9- Empty description*/ return emptyValidator(image)    
+    }
+})
+
+console.table(estado)
 //Validacion submit empty
 form.addEventListener("submit", (e)=>{
-    if(!estado.name || !estado.precio || !estado.introduction || !estado.description || !estado.duration){
-        e.preventDefault();
-    }
     inputs.forEach((input)=>{
+        console.log(input.name)
         if(input.name != "description"){
             blankSubmitValidator(input);
         }
     })
     blankDescription(description);
+    blankSubmitValidator(image);  
+    if(!estado.name || !estado.price || !estado.introduction || !estado.description || !estado.duration || !estado.image){
+        return e.preventDefault();
+    }   
     console.table(estado)
 })
 
