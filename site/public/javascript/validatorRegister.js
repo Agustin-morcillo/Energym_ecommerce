@@ -151,6 +151,7 @@ let validarCampos = (e)=>{
     }
 }
 
+
 /* Eventos de los inputs */
 inputs.forEach((input)=>{
     input.addEventListener("keyup",validarCampos)

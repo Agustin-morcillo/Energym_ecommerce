@@ -37,6 +37,7 @@ const apiUsersController={
             })
             return
         } 
+        
         res.status(400).json({
             meta: {
                 status: "error"

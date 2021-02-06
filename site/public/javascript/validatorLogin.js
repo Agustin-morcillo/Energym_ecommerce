@@ -100,12 +100,6 @@ inputs.forEach((input)=>{
     input.addEventListener("blur",validarCampos)
 })
 
-
-
-    
-    
-
-
 form.addEventListener("submit",(e)=>{
     
     /* Validacion campos en blanco */
@@ -147,8 +141,7 @@ form.addEventListener("submit",(e)=>{
     })
     .catch(error=>console.error(error)) */
 
-    
-  
+
     /* Validacion estado de los inputs */
     if(!estado.email||!estado.password){
         e.preventDefault()
