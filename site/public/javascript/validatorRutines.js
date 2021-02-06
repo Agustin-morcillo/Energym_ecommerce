@@ -21,7 +21,7 @@ let estado = {
     introduction:true,
     description:true,
     duration:true,
-    image:true,
+    image:true
 }
 
 //Expresiones--------------------------------------------------------------------
@@ -89,6 +89,7 @@ let emptyValidator = (inputElement)=>{
     error(inputElement.name, "input").classList.remove("wrong-input")
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
+    return;
 }
 
 //Validador 2 expresiones name-------------------------------------------------
@@ -110,6 +111,7 @@ let validExpName = (inputElement, expresion)=>{
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
     console.log(estado.name)
+    return;
 }
 
 //Validador 3 extension description-------------------------------------------
@@ -131,6 +133,7 @@ let extDescription = (inputElement)=>{
     error(inputElement.name, "textarea").classList.remove("wrong-input")
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
+    return;
 }
 
 //Validador 4 de expresion de imagen------------------------------------------
@@ -150,6 +153,7 @@ let imgExtValidator = (inputElement)=>{
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
     console.log(estado.image)
+    return;
 }
 
 //Validador 5 submit---------------------------------------------------------
@@ -171,6 +175,7 @@ let blankSubmitValidator = (inputElement)=>{
         error(inputElement.name, "input").classList.remove("wrong-input")
         error(inputElement.name, "label").classList.remove("wrong-label")
         estado[inputElement.name]= true;
+        return;
     }
 }
 
@@ -193,6 +198,7 @@ let extPrice = (inputElement, expresion)=>{
     error(inputElement.name, "input").classList.remove("wrong-input")
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
+    return;
 }
 
 //Validador 7 extension introduccion-----------------------------------------
@@ -215,6 +221,7 @@ let extIntroduction = (inputElement)=>{
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
     console.log(estado.name)
+    return;
 }
 
 //Validador 8 numero mayor a 0----------------------------------------------
@@ -237,6 +244,7 @@ let positiveNumber = (inputElement)=>{
      error(inputElement.name, "label").classList.remove("wrong-label")
      estado[inputElement.name]= true;
      console.log(estado.name)
+     return;
 }
 
 //Validador 9 blank description-------------------------------------------
@@ -259,6 +267,7 @@ let blankDescription = (inputElement)=>{
         error(inputElement.name, "textarea").classList.remove("wrong-input")
         error(inputElement.name, "label").classList.remove("wrong-label")
         estado[inputElement.name]= true;
+        return;
 }
 
 //EJECUCION DE EVENTOS DE VALIDACION//
@@ -282,15 +291,18 @@ image.addEventListener("change", (e)=>{
 
 //Validacion submit empty
 form.addEventListener("submit", (e)=>{
-    if(!estado.name || !estado.precio || !estado.introduction || !estado.description || !estado.duration){
-        e.preventDefault();
-    }
+    
     inputs.forEach((input)=>{
         if(input.name != "description"){
             blankSubmitValidator(input);
         }
     })
     blankDescription(description);
+    
 })
+if(!estado[name] || !estado[precio] || !estado[introduction] || !estado[description] || !estado[duration]){
+    console.table(estado)
+    return e.preventDefault();
+}
 console.table(estado)
 

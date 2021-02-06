@@ -23,7 +23,7 @@ let estado = {
     weight:true,
     size: true,
     material: true,
-    image:true,
+    image:true
 }
 
 //Expresiones--------------------------------------------------------------------
@@ -291,12 +291,12 @@ image.addEventListener("change", (e)=>{
 
 //Validacion submit empty
 form.addEventListener("submit", (e)=>{
-    if(!estado.name || !estado.precio || !estado.introduction || !estado.description || !estado.weight || !estado.size || !estado.material){
-        e.preventDefault();
+    if(!estado.name || !estado.price || !estado.introduction || !estado.description || !estado.weight || !estado.size || !estado.material || !estado.image){
+        return e.preventDefault();
     }
     inputs.forEach((input)=>{
         if(input.name != "description"){
-            blankSubmitValidator(input);
+            return blankSubmitValidator(input);
         }
     })
     blankDescription(description);
