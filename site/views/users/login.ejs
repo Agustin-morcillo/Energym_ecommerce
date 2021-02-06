@@ -19,7 +19,7 @@
                         <div class="general-containers login-email">
                             <label for="email-login" class="login-inputs-titles">Correo Electrónico<span class="mandatory">*</span></label>
                             <input type="text" name="email" id="email-login" class="inputs-fields all-login-inputs">
-                            <p class="front-error-inactive front-login-register-error-style">El email debe estar en un formato valido</p>
+                            <p class="front-error-inactive front-login-register-error-style login-email-error">El email debe estar en un formato valido</p>
                             <small class="front-blank-error-inactive front-login-register-error-style">Este campo no puede quedar vacío</small>
                             <p class="front-error-inactive front-login-register-error-style password-email-error">Email y/o contraseña invalidos</p>
                             <p class="validation-error-register">
@@ -30,8 +30,6 @@
                         <div class="general-containers login-password">
                             <label for="password-login" class="login-inputs-titles">Contraseña<span class="mandatory">*</span></label>
                             <input type="password" name="password" id="password-login" class="inputs-fields all-login-inputs">
-                            <p></p>
-                            <p class="password-email-error"></p>
                             <small class="front-blank-error-inactive front-login-register-error-style">Este campo no puede quedar vacío</small>
                             <p class="validation-error-register">
                                 <%= typeof errors == "undefined" ? "" : typeof errors.password != "undefined" ? errors.password.msg : "" %>

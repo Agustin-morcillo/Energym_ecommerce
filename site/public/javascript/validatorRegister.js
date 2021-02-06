@@ -165,11 +165,16 @@ form.addEventListener("submit",(e)=>{
             document.querySelector(`.register-img p`).classList.remove("front-error-active")
             document.querySelector(`.register-img p`).classList.add("front-error-inactive")
             estado.avatar = true
-        } else{
+        } 
+        else{
             document.querySelector(`.register-img p`).classList.add("front-error-active")
             document.querySelector(`.register-img p`).classList.remove("front-error-inactive")
             estado.avatar = false
         }
+    } else{
+        document.querySelector(`.register-img p`).classList.remove("front-error-active")
+        document.querySelector(`.register-img p`).classList.add("front-error-inactive")
+        estado.avatar = true
     }
 
     /* Validacion campos en blanco */
