@@ -100,14 +100,15 @@
                                     <div class="admin-options-containers admin-img-2  create-rutine-error-image">
                                         <div class="admin-label-option-container create-rutine-error-image">
                                             <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen de la rutina<span class="required-field">*</span></label>
-                                            <input type="file" id="add-edit-product-image" class="add-edit-product-image-input" name="image" accept=".jpg, .jpeg, .png, .gif">
+                                            <input type="file" id="add-edit-product-image" class="add-edit-product-image-input" name="image" accept=".jpg, .png, .jpeg, .gif">
                                         </div>
                                         <p class="front-error-inactive front-create-rutine-error-style">Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'</p>
                                         <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.image != "undefined" ? errors.image.msg : "" %>
                                         </p>
-                                    </div>
+                                       <input type="text" id="add-edit-product-image-edit" class="front-error-inactive">
+                                        </div>
             
                                     <div class="form-add-edit-product-button-container">
                                         <button type="submit" class="add-edit-product-create-product-button buttons-style"><i class="fas fa-plus product-add-icon"></i>Crear rutina</button>

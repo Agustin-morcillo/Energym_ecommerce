@@ -10,6 +10,7 @@
 let form = document.querySelector("form");
 let inputs = document.querySelectorAll(".input-validator");
 let image = document.querySelector("#add-edit-product-image");
+let imageEdit = document.querySelector("#add-edit-product-image-edit");
 let description = document.querySelector("#add-edit-product-description");
 let error = (campo, label)=>{return document.querySelector(`.create-rutine-error-${campo} ${label}`)};
 
@@ -27,7 +28,7 @@ let estado = {
     introduction:true,
     description:true,
     duration:true,
-    image:false
+    image:true,
 }
 
 //FUNCIONES DE VALIDADORES//
@@ -41,8 +42,8 @@ let validator = (inputElement, event)=>{
         }
     }
     if(inputElement.name == "price"){
-        /*1- Empty*/ emptyValidator(inputElement); 
-        if(inputElement.value.trim() != ""){
+        /*1- Empty*/ emptyValidator(inputElement);
+        if(inputElement.value != ""){ 
             /*6- Extension precio*/ extPrice(inputElement, expresiones.precio);
         }
     }
@@ -127,13 +128,15 @@ let extDescription = (inputElement)=>{
 
 //Validador 4 de expresion de imagen------------------------------------------
 let imgExtValidator = (inputElement)=>{
-    if(!expresiones.image.exec(inputElement.value.trim())){
+    console.log(inputElement.value)
+    if(!expresiones.image.exec(inputElement.value) && inputElement.value != ""){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
         error(inputElement.name, "label").classList.add("wrong-label")
         error(inputElement.name, "input").classList.add("wrong-input")
-        error(inputElement.name, "small").classList.add("front-error-inactive")
+        error(inputElement.name, "small").classList.add("front-blank-error-inactive")
+        error(inputElement.name, "small").classList.remove("front-blank-error-active")        
         estado[inputElement.name]= false;
         return;
     }
@@ -141,14 +144,15 @@ let imgExtValidator = (inputElement)=>{
     error(inputElement.name, "p").classList.add("front-error-inactive")
     error(inputElement.name, "p").classList.remove("front-error-active")
     error(inputElement.name, "label").classList.remove("wrong-label")
-    error(inputElement.name, "input").classList.remove("wrong-input")
-    error(inputElement.name, "small").classList.add("front-error-inactive")
+    error(inputElement.name, "input").classList.remove("wrong-input")       
+    error(inputElement.name, "small").classList.add("front-blank-error-inactive")
+    error(inputElement.name, "small").classList.remove("front-blank-error-active")       
     estado[inputElement.name]= true;
 }
 
 //Validador 5 submit---------------------------------------------------------
 let blankSubmitValidator = (inputElement)=>{
-    if(inputElement.value.trim() == ""){
+    if(inputElement.value == ""){
         //add error
         error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
         error(inputElement.name, "small").classList.add("front-blank-error-active")
@@ -169,14 +173,15 @@ let blankSubmitValidator = (inputElement)=>{
 
 //Validador 6 extension precio------------------------------------------------
 let extPrice = (inputElement, expresion)=>{
-    if(expresion.test(inputElement.value.trim())){
+    if(inputElement.value.match(expresion)){
         //add error
         error(inputElement.name, "p").classList.remove("front-error-inactive")
         error(inputElement.name, "p").classList.add("front-error-active")
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
-        estado[inputElement.name]= false;
-        return; 
+        error(inputElement.name, "small").classList.add("front-blank-error-inactive")
+        estado[inputElement.name]= false;   
+        return;
     }
     //remove error
     error(inputElement.name, "p").classList.add("front-error-inactive")
@@ -249,32 +254,44 @@ let blankDescription = (inputElement)=>{
 
 //Validacion campo por campo 
 inputs.forEach((input)=>{
-    input.addEventListener("blur", (e)=>{
-        validator(input, e);
-    })
     input.addEventListener("keyup", (e)=>{
         validator(input, e);
     })
+    input.addEventListener("blur", (e)=>{            
+        validator(input, e);
+    })
+    input.addEventListener("input", (e)=>{
+        if(input.name == "price" || input.name == "duration"){
+            validator(input, e);
+        }
+    })
+    console.table(estado)
 })
+console.table(estado)
 
-//Validacion imagen
+
+//Validacion imagen create
+console.log(image)
 image.addEventListener("change", (e)=>{
-    if(image.value != ""){
-        /*3- Expresiones de imagen*/ return imgExtValidator(image);
-    }
-})
-
-image.addEventListener("focus", (e)=>{
-    if(image.value == ""){
-        /*9- Empty description*/ return emptyValidator(image)    
-    }
+        if(image.value != ""){
+            /*3- Expresiones de imagen*/ imgExtValidator(image)
+        }
+        if(image.value == ""){
+            /*9- Empty description*/ emptyValidator(image)    
+        }
 })
 
 image.addEventListener("blur", (e)=>{
     if(image.value == ""){
-        /*9- Empty description*/ return emptyValidator(image)    
+        /*9- Empty description*/ emptyValidator(image)    
     }
+    if(image.value != ""){
+        /*3- Expresiones de imagen*/ imgExtValidator(image)
+    }    
+    console.table(estado)
 })
+
+
 console.table(estado)
 
 //Validacion submit empty
@@ -288,7 +305,33 @@ form.addEventListener("submit", (e)=>{
         }
     })
     blankDescription(description);
-    blankSubmitValidator(image);  
+    if(!form.classList.contains("edit-form")){
+        blankSubmitValidator(image);  
+    }
+    console.table(estado)
 })
 console.table(estado)
+
+//--------------------------------//
+console.log(imageEdit)
+//Validacion imagen edit
+imageEdit.addEventListener("change", (e)=>{
+    if(imageEdit.value != ""){
+        /*3- Expresiones de imagen*/ imgExtValidator(imageEdit)
+    } else {
+        estado[imageEdit.name]= true;
+        error(imageEdit.name, "p").classList.add("front-error-inactive")
+        error(imageEdit.name, "p").classList.remove("front-error-active")
+    }
+})
+
+imageEdit.addEventListener("blur", (e)=>{
+    if(imageEdit.value != ""){
+        /*3- Expresiones de imagen*/ imgExtValidator(imageEdit)
+    } else {
+        estado[imageEdit.name]= true;
+        error(imageEdit.name, "p").classList.add("front-error-inactive")
+        error(imageEdit.name, "p").classList.remove("front-error-active")
+    }
+})
 

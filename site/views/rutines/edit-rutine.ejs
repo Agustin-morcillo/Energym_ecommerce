@@ -18,7 +18,7 @@
                                     <%= typeof errors == "undefined" ? "" : "Hay algún error en los campos" %>
                                 </p>
                                 
-                                <form method="POST" action="/rutines/edit/<%=rutineToEdit.id%>?_method=PUT" enctype="multipart/form-data">
+                                <form method="POST" class="edit-form" action="/rutines/edit/<%=rutineToEdit.id%>?_method=PUT" enctype="multipart/form-data">
                                     
                                     <div class="admin-inputs-containers create-rutine-error-name">
                                         <div class="admin-label-container create-rutine-error-name">
@@ -105,13 +105,14 @@
                                     <div class="admin-options-containers admin-img-2 create-rutine-error-image">
                                         <div class="admin-label-option-container create-rutine-error-image">
                                             <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen de la rutina</label>
-                                            <input type="file" name="image" id="add-edit-product-image" class="add-edit-product-image-input input-validator" accept="image/jpg, image/png, image/jpeg, image/gif">
+                                            <input type="file" name="image" id="add-edit-product-image-edit" class="add-edit-product-image-input">
                                         </div>
                                         <p class="front-error-inactive front-create-rutine-error-style">Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'</p>
                                         <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.image != "undefined" ? errors.image.msg : "" %>
                                         </p>
+                                        <p id="add-edit-product-image" class="front-error-inactive"></p>
                                     </div>
             
                                     <div class="form-add-edit-product-button-container">
