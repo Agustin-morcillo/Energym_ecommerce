@@ -87,8 +87,10 @@ let emptyValidator = (inputElement)=>{
         error(inputElement.name, "p").classList.add("front-error-inactive")
         error(inputElement.name, "p").classList.remove("front-error-active")
         estado[inputElement.name]= false;
+
         console.log("pasando por empty validator true")
         console.log(inputElement.name + estado[inputElement.name])
+        console.table(estado)
         return;
     }
     //remove error
@@ -100,7 +102,8 @@ let emptyValidator = (inputElement)=>{
 
     console.log("pasando por empty validator false")
     console.log(inputElement.name + estado[inputElement.name])
-
+    console.table(estado)
+    return;
 }
 
 //Validador 2 expresiones name-------------------------------------------------
@@ -112,6 +115,8 @@ let validExpName = (inputElement, expresion)=>{
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
         estado[inputElement.name]= false;
+
+        console.log("pasando por validExpName validator false/error")
         console.log(inputElement.name + estado[inputElement.name])
         console.table(estado)
         return; 
@@ -123,8 +128,10 @@ let validExpName = (inputElement, expresion)=>{
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
 
+    console.log("pasando por validExpName validator true")
     console.log(inputElement.name + estado[inputElement.name])
-
+    console.table(estado)
+    return;
 }
 
 //Validador 3 extension description-------------------------------------------
@@ -135,8 +142,11 @@ let extDescription = (inputElement)=>{
         error(inputElement.name, "p").classList.add("front-error-active")
         error(inputElement.name, "textarea").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
-        estado[inputElement.name]= false;        
+        estado[inputElement.name]= false;     
+        
+        console.log("pasando por extDESCRIPTION validator FALSE/ERROR")
         console.log(inputElement.name + estado[inputElement.name])
+        console.table(estado)
         return;
     }
     //remove error
@@ -146,8 +156,10 @@ let extDescription = (inputElement)=>{
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
 
+    console.log("pasando por extDESCRIPTION validator TRUE")
     console.log(inputElement.name + estado[inputElement.name])
-
+    console.table(estado)
+    return;
 }
 
 //Validador 4 de expresion de imagen------------------------------------------
@@ -161,8 +173,10 @@ let imgExtValidator = (inputElement)=>{
         error(inputElement.name, "small").classList.add("front-blank-error-inactive")
         error(inputElement.name, "small").classList.remove("front-blank-error-active")        
         estado[inputElement.name]= false;
-        console.table(estado)
+
+        console.log("pasando por imgExtValidator FALSE/ERROR")
         console.log(inputElement.name + estado.image)
+        console.table(estado)
         return;
     }
     //remove error
@@ -174,36 +188,39 @@ let imgExtValidator = (inputElement)=>{
     error(inputElement.name, "small").classList.remove("front-blank-error-active")       
     estado[inputElement.name]= true;
 
+    console.log("pasando por imgExtValidator TRUE")
     console.log(inputElement.name + estado[inputElement.name])
-
+    console.table(estado)
+    return;
 }
 
 //Validador 5 submit---------------------------------------------------------
 let blankSubmitValidator = (inputElement)=>{
-    console.log("Pasando por Blank submit validator con input: " + inputElement.name)
     if(inputElement.value == ""){
         //add error
-        console.log("Pasando por Blank submit validator TRUE/BLANK con input: " + inputElement.name)
         error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
         error(inputElement.name, "small").classList.add("front-blank-error-active")
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
         error(inputElement.name, "p").classList.add("front-error-inactive")
         estado[inputElement.name]= false;
+
+        console.log("pasando por blank Submit Validator FALSE/ERROR")
         console.log(inputElement.name + estado[inputElement.name])
+        console.table(estado)
         return; 
-    } else {
-        //remove error
-        console.log("Pasando por Blank submit validator FALSE/NO BLANK con input: " + inputElement.name)
-        error(inputElement.name, "small").classList.add("front-blank-error-inactive")
-        error(inputElement.name, "small").classList.remove("front-blank-error-active")
-        error(inputElement.name, "input").classList.remove("wrong-input")
-        error(inputElement.name, "label").classList.remove("wrong-label")
-        estado[inputElement.name]= true;
-
-        console.log(inputElement.name + estado[inputElement.name])
-
     }
+    //remove error
+    error(inputElement.name, "small").classList.add("front-blank-error-inactive")
+    error(inputElement.name, "small").classList.remove("front-blank-error-active")
+    error(inputElement.name, "input").classList.remove("wrong-input")
+    error(inputElement.name, "label").classList.remove("wrong-label")
+    estado[inputElement.name]= true;
+
+    console.log("pasando por Blank submit validator TRUE")
+    console.log(inputElement.name + estado[inputElement.name])
+    console.table(estado)
+    return; 
 }
 
 //Validador 6 extension precio------------------------------------------------
@@ -215,9 +232,11 @@ let extPrice = (inputElement, expresion)=>{
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
         error(inputElement.name, "small").classList.add("front-blank-error-inactive")
-        console.log("pasando por ext price false")
         estado[inputElement.name]= false; 
+       
+        console.log("pasando por ext price FALSE/ERROR")
         console.log(inputElement.name + estado[inputElement.name])  
+        console.table(estado)
         return;
     }
     //remove error
@@ -225,11 +244,12 @@ let extPrice = (inputElement, expresion)=>{
     error(inputElement.name, "p").classList.remove("front-error-active")
     error(inputElement.name, "input").classList.remove("wrong-input")
     error(inputElement.name, "label").classList.remove("wrong-label")
-    console.log("pasando por ext price true")
     estado[inputElement.name]= true;
 
+    console.log("pasando por ext price TRUE")
     console.log(inputElement.name + estado[inputElement.name])
-
+    console.table(estado)
+    return; 
 }
 
 //Validador 7 extension introduccion-----------------------------------------
@@ -241,7 +261,10 @@ let extIntroduction = (inputElement)=>{
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
         estado[inputElement.name]= false;
+
+        console.log("pasando por ext Introduction FALSE/ERROR")
         console.log(inputElement.name + estado[inputElement.name])
+        console.table(estado)
         return; 
     }
     //remove error
@@ -251,8 +274,10 @@ let extIntroduction = (inputElement)=>{
     error(inputElement.name, "label").classList.remove("wrong-label")
     estado[inputElement.name]= true;
 
+    console.log("pasando por ext Introduction TRUE")
     console.log(inputElement.name + estado[inputElement.name])
-
+    console.table(estado)
+    return; 
 }
 
 //Validador 8 numero mayor a 0----------------------------------------------
@@ -264,7 +289,10 @@ let positiveNumber = (inputElement)=>{
         error(inputElement.name, "input").classList.add("wrong-input")
         error(inputElement.name, "label").classList.add("wrong-label")
         estado[inputElement.name]= false;
+
+        console.log("pasando por ext Introduction FALSE/ERROR")
         console.log(inputElement.name + estado[inputElement.name])
+        console.table(estado)
         return; 
     }
      //remove error
@@ -274,7 +302,10 @@ let positiveNumber = (inputElement)=>{
      error(inputElement.name, "label").classList.remove("wrong-label")
      estado[inputElement.name]= true;
 
+     console.log("pasando por ext Introduction TRUE")
      console.log(inputElement.name + estado[inputElement.name])
+     console.table(estado)
+     return; 
 
 }
 
@@ -290,7 +321,10 @@ let blankDescription = (inputElement)=>{
             error(inputElement.name, "p").classList.add("front-error-inactive")
             error(inputElement.name, "p").classList.remove("front-error-active")
             estado[inputElement.name]= false;
+
+            console.log("pasando por BlankDescription FALSE/ERROR")
             console.log(inputElement.name + estado[inputElement.name])
+            console.table(estado)
             return; 
         }
         console.log("Pasando por Blank description FALSE/NO BLANK con input: " + inputElement.name)
@@ -301,8 +335,10 @@ let blankDescription = (inputElement)=>{
         error(inputElement.name, "label").classList.remove("wrong-label")
         estado[inputElement.name]= true;
 
+        console.log("pasando por BlankDescription TRUE")
         console.log(inputElement.name + estado[inputElement.name])
-
+        console.table(estado)
+        return; 
 }
 
 //EJECUCION DE EVENTOS DE VALIDACION//
@@ -342,35 +378,43 @@ image.addEventListener("blur", (e)=>{
 //Validacion submit empty
 form.addEventListener("submit", (e)=>{
     
+    //Validacion en submit de campo por campo si estan vacios
     inputs.forEach((input)=>{
         console.log(input.name)
         if(input.name != "description"){
             blankSubmitValidator(input);
+            if(input.name == "duration" && input.value != ""){
+                positiveNumber(input)
+                console.log(input.name)
+                console.table(estado)
+            }
         }
     })
 
+    //Validacion en submit del campo description si esta vacio
     blankDescription(description);
 
+    //Validacion en submit si el campo imagen esta vacio
     if(form.classList.contains("edit-form")){
         estado.image = true;
         console.log("pasando por validacion image blank - Estado: " + estado.image)
     } else {
         console.log("Pasando por image blank validator")
         blankSubmitValidator(image);  
-        imgExtValidator(image)
+        if(image.value != ""){
+            imgExtValidator(image)
+        }
     }
-    
+
+    //Prevent Default segun estado
     if(!estado.name||!estado.price||!estado.introduction||!estado.description||!estado.duration||!estado.image){
         e.preventDefault();
+        console.table(estado)
         console.log("Pasando por el segundo prevent default")
     }   
 
 })
-if(!estado[name] || !estado[precio] || !estado[introduction] || !estado[description] || !estado[duration]){
-    console.table(estado)
-    return e.preventDefault();
-}
-console.table(estado)
+
 
 
 
