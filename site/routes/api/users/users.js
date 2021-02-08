@@ -4,4 +4,6 @@ const apiUsersController= require("../../../controllers/api/users/apiUsersContro
 
 router.get("/",apiUsersController.list)
 
+router.post("/checkCredentials",apiUsersController.login)
+
 module.exports = router;
