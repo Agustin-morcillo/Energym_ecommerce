@@ -9,21 +9,21 @@
 //Selectores---------------------------------------------------------------------
 let form = document.querySelector("form");
 let inputs = document.querySelectorAll(".input-validator");
-let image = document.querySelector("#add-edit-product-image");
-let description = document.querySelector("#create-edit-product-description");
+let image = document.querySelector("#create-product-image");
+let description = document.querySelector("#edit-product-description");
 let error = (campo, label)=>{return document.querySelector(`.create-product-error-${campo} ${label}`)};
 let backEndError = document.querySelector(".validation-error-product");
 
 //Estados para preventDefault----------------------------------------------------
 let estado = {
-    name:false,
-    price:false,
-    introduction:false,
-    description:false,
-    weight:false,
-    size: false,
-    material: false,
-    image:false
+    name:true,
+    price:true,
+    introduction:true,
+    description:true,
+    weight:true,
+    size: true,
+    material: true,
+    image:true
 }
 
 //Expresiones--------------------------------------------------------------------
@@ -266,10 +266,7 @@ inputs.forEach((input)=>{
 
 //Validacion submit empty
 form.addEventListener("submit", (e)=>{
-    if(!estado.name || !estado.price || !estado.introduction || !estado.description || !estado.weight || !estado.size || !estado.material || !estado.image){
-        e.preventDefault();
-    }
-    inputs.forEach((input)=>{
+   inputs.forEach((input)=>{
         if(input.name != "description"){
             blankSubmitValidator(input);
         }
@@ -285,13 +282,12 @@ form.addEventListener("submit", (e)=>{
                 document.querySelector(`.admin-img-2 p`).classList.remove("front-error-inactive")
                 estado.image = false
             }
-        }else {
-            document.querySelector(`.admin-img-2 p`).classList.add("front-error-active")
-            document.querySelector(`.admin-img-2 p`).classList.remove("front-error-inactive")
-            estado.image = false
         }
         console.table(estado)
         blankDescription(description);
+        if(!estado.name || !estado.price || !estado.introduction || !estado.description || !estado.weight || !estado.size || !estado.material || !estado.image){
+            e.preventDefault();
+        }
 })
 console.table(estado)
 

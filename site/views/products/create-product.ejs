@@ -36,7 +36,7 @@
                                             <label for="create-product-price" class="admin-labels">Precio<span class="required-field">*</span></label>
                                         </div>
                                         <input type="number" name="price" id="create-product-price" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: 2000">
-                                        <p class="front-error-inactive front-create-rutine-error-style">El precio no puede ser negativo</p>
+                                        <p class="front-error-inactive front-create-rutine-error-style">El precio no puede ser negativo y sólo debe contener números</p>
                                         <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.price != "undefined" ? errors.price.msg : "" %>
@@ -125,7 +125,7 @@
                                             <label for="create-product-image" class="add-edit-product-image-label">Imagen del producto<span class="required-field">*</span></label>
                                             <input type="file" name="image" id="add-edit-product-image" class="add-edit-product-image-input" accept="image/jpg, image/png, image/jpeg, image/gif">
                                         </div>
-                                        <p class="front-error-inactive front-create-rutine-error-style">Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'</p>
+                                        <p class="front-error-inactive front-create-rutine-error-style">Al menos debes cargar una imagen; formatos válidos: '.jpg', '.png', '.jpeg', '.gif'</p>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.image != "undefined" ? errors.image.msg : "" %>
                                         </p>
