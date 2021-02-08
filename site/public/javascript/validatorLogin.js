@@ -40,7 +40,6 @@ let classController = (expresion,input)=>{
             document.querySelector(`.login-${input.name} .password-email-error`).classList.add("front-error-inactive")
             document.querySelector(`.login-${input.name} .password-email-error`).classList.remove("front-error-active")
         }
-          
         estado[input.name] = true
     } else{
         document.querySelector(`.login-${input.name} input`).classList.add("wrong-input")
