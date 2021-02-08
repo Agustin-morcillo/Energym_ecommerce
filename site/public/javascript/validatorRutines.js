@@ -383,21 +383,45 @@ form.addEventListener("submit", (e)=>{
         console.log(input.name)
         if(input.name != "description"){
             blankSubmitValidator(input);
+
+            //Validacion en submit si el campo no esta vacio para Estado de Prevent Default
             if(input.name == "duration" && input.value != ""){
                 positiveNumber(input)
                 console.log(input.name)
                 console.table(estado)
             }
+            if(input.name == "introduction" && input.value != ""){
+                extIntroduction(input)
+                console.log(input.name)
+                console.table(estado)
+            }
+            if(input.name == "price" && input.value != ""){
+                extPrice(input, expresiones.precio)
+                console.log(input.name)
+                console.table(estado)
+            }
+            if(input.name == "name" && input.value != ""){
+                validExpName(input, expresiones.nombre)                
+                console.log(input.name)
+                console.table(estado)
+            }
         }
+        
     })
 
     //Validacion en submit del campo description si esta vacio
     blankDescription(description);
+    if(description.value != ""){
+        extDescription(description);
+    }
 
     //Validacion en submit si el campo imagen esta vacio
     if(form.classList.contains("edit-form")){
         estado.image = true;
         console.log("pasando por validacion image blank - Estado: " + estado.image)
+        if(image.value != ""){
+            imgExtValidator(imageEdit)
+        }
     } else {
         console.log("Pasando por image blank validator")
         blankSubmitValidator(image);  
