@@ -7,84 +7,96 @@
         <main>
             <section>
                 <article>
-                    <div class="add-edit-product-rutine-card-main-container">
-                        <div class="add-edit-product-rutine-card-container">
+                    <div class="add-edit-product-product-card-main-container">
+                        <div class="add-edit-product-product-card-container">
                             <div class="sections-welcome-titles-container">
                                 <h2 class="sections-welcome-titles">Nuevo Producto</h2>
                                 <p class="sections-welcome-description">Completa los campos para crear un nuevo producto</p>
                             </div>
-                            <div class="add-edit-product-rutine-card-form-container">
+                            <div class="add-edit-product-product-card-form-container">
                                 <p class="validation-error-product-title">
                                     <%= typeof errors == "undefined" ? "" : "Hay algún error en los campos" %>
                                 </p>
 
                                 <form action="/products/create" method="POST" enctype="multipart/form-data"> 
-                                    <div class="admin-inputs-containers">
-                                        <div class="admin-label-container">
+                                    <div class="admin-inputs-containers create-product-error-name">
+                                        <div class="admin-label-container create-product-error-name">
                                             <label for="create-product-name" class="admin-labels">Nombre del producto<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="name" id="create-product-name" class="add-edit-product-input inputs-fields" placeholder="Ej: Colchoneta Flex" >
+                                        <input type="text" name="name" id="create-product-name" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: Colchoneta Flex" >
+                                        <p class="front-error-inactive front-create-rutine-error-style">El nombre debe tener al menos 5 caracteres (solo letras)</p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.name != "undefined" ? errors.name.msg : "" %>
                                         </p>
                                     </div>
                                    
-                                    <div class="admin-inputs-containers">
-                                        <div class="admin-label-container">
+                                    <div class="admin-inputs-containers create-product-error-price">
+                                        <div class="admin-label-container create-product-error-price">
                                             <label for="create-product-price" class="admin-labels">Precio<span class="required-field">*</span></label>
                                         </div>
-                                        <input type="number" name="price" id="create-product-price" class="add-edit-product-input inputs-fields" placeholder="Ej: 2000">
+                                        <input type="number" name="price" id="create-product-price" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: 2000">
+                                        <p class="front-error-inactive front-create-rutine-error-style">El precio no puede ser negativo y sólo debe contener números</p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.price != "undefined" ? errors.price.msg : "" %>
                                         </p>
                                     </div>
 
-                                    <div class="admin-inputs-containers">
-                                        <div class="admin-label-container">
+                                    <div class="admin-inputs-containers create-product-error-introduction">
+                                        <div class="admin-label-container create-product-error-introduction">
                                             <label for="create-product-introduction" class="admin-labels">Breve descripción (max 78 caract)<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="introduction" id="create-product-introduction" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit">
+                                        <input type="text" name="introduction" id="create-product-introduction" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit">
+                                        <p class="front-error-inactive front-create-rutine-error-style">La introduccion debe tener entre 5 y 78 caracteres</p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.introduction != "undefined" ? errors.introduction.msg : "" %>
                                         </p>
                                     </div>
 
                                     
-                                    <div class="admin-inputs-containers2">
-                                        <div class="admin-label-container">
+                                    <div class="admin-inputs-containers2 create-product-error-description">
+                                        <div class="admin-label-container create-product-error-description">
                                             <label for="create-product-description" class="admin-labels">Descripción completa<span class="required-field">*</span></label>
                                         </div>
-                                        <textarea name="description" id="create-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi "></textarea>
+                                        <textarea name="description" id="create-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles input-validator" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi "></textarea>
+                                        <p class="front-error-inactive front-create-rutine-error-style input-wrong">La descripción debe tener al menos 20 caracteres</p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.description != "undefined" ? errors.description.msg : "" %>
                                         </p>
                                     </div>
 
-                                    <div class="admin-inputs-containers">
-                                        <div class="admin-label-container">
+                                    <div class="admin-inputs-containers create-product-error-weight">
+                                        <div class="admin-label-container create-product-error-weight">
                                             <label for="create-product-weight" class="admin-labels">Peso Total (en KG)<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="number" name="weight" id="create-product-weight" class="add-edit-product-input inputs-fields" placeholder="Ej: 1" >
+                                        <input type="number" name="weight" id="create-product-weight" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: 1" >
+                                        <p class="front-error-inactive front-create-rutine-error-style">El peso no puede ser negativo</p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.weight != "undefined" ? errors.weight.msg : "" %>
                                         </p>
                                     </div>
 
-                                    <div class="admin-inputs-containers">
-                                        <div class="admin-label-container">
+                                    <div class="admin-inputs-containers create-product-error-size">
+                                        <div class="admin-label-container create-product-error-size">
                                             <label for="create-product-size" class="admin-labels">Medidas<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="size" id="create-product-size" class="add-edit-product-input inputs-fields" placeholder="Ej: 100 x 50 cm" >
+                                        <input type="text" name="size" id="create-product-size" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: 100 x 50 cm" >
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.size != "undefined" ? errors.size.msg : "" %>
                                         </p>
                                     </div>
 
-                                    <div class="admin-inputs-containers">
-                                        <div class="admin-label-container">
+                                    <div class="admin-inputs-containers create-product-error-material">
+                                        <div class="admin-label-container create-product-error-material">
                                             <label for="create-product-material" class="admin-labels">Material<span class="required-field">*</span></label>
                                         </div> 
-                                        <input type="text" name="material" id="create-product-material" class="add-edit-product-input inputs-fields" placeholder="Ej: Goma" >
+                                        <input type="text" name="material" id="create-product-material" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: Goma" >
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.material != "undefined" ? errors.material.msg : "" %>
                                         </p>
@@ -93,8 +105,8 @@
 
                                     <div class="admin-options-containers">
                                         <div class="admin-label-option-container">
-                                            <label for="create-product-category" class="admin-labels">Categoría:</label>
-                                            <select name="category" id="create-product-category" class="admin-select-category">
+                                            <label for="" class="admin-labels">Categoría:</label>
+                                            <select name="category" id="" class="admin-select-category">
                                                 <option value="products">Productos</option>
                                             </select>
                                          </div>
@@ -108,11 +120,12 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="admin-options-containers admin-img-2">
-                                        <div class="admin-label-option-container">
+                                    <div class="admin-options-containers admin-img-2 create-product-error-material">
+                                        <div class="admin-label-option-container create-product-error-material">
                                             <label for="create-product-image" class="add-edit-product-image-label">Imagen del producto<span class="required-field">*</span></label>
-                                            <input type="file" name="image" id="create-product-image" class="add-edit-product-image-input" accept="image/jpg, image/png, image/jpeg, image/gif">
+                                            <input type="file" name="image" id="add-edit-product-image" class="add-edit-product-image-input" accept="image/jpg, image/png, image/jpeg, image/gif">
                                         </div>
+                                        <p class="front-error-inactive front-create-rutine-error-style">Al menos debes cargar una imagen; formatos válidos: '.jpg', '.png', '.jpeg', '.gif'</p>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.image != "undefined" ? errors.image.msg : "" %>
                                         </p>
@@ -130,7 +143,7 @@
                 </article>
             </section>
         </main>
-
+        <script src="/javascript/validatorProducts.js"></script>
 
         <%- include("../partials/footer") %> 
     </body>
