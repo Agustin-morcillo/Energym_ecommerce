@@ -5,9 +5,11 @@ const deleteFailureFile = path.join(__dirname, '../public/images/products/');
 const allFunctions = require("../helpers/allFunctions");
 const db = require("../database/models");
 
+let pageTitle = "";
+
 const productController = {
     detail: async (req,res)=>{
-        let pageTitle = "Energym - Detalle de producto";
+        pageTitle = "Energym - Detalle de producto";
         try{
             const detalleProducto = await db.Product.findByPk(req.params.id);
             return res.render("products/product-detail",{product: detalleProducto, pageTitle})
@@ -17,11 +19,11 @@ const productController = {
         }
     },
     cart: (req,res)=>{
-        let pageTitle = "Energym - Carrito";
+        pageTitle = "Energym - Carrito";
         return res.render("products/product-cart", {pageTitle})
     },
     productPage: async (req,res)=>{
-        let pageTitle = "Energym - Productos";
+        pageTitle = "Energym - Productos";
         try {
             const products = await db.Product.findAll();
             return res.render("products/products", {products: products, pageTitle})
@@ -30,16 +32,16 @@ const productController = {
         }
     },
     create: (req,res)=>{
-        let pageTitle = "Energym - Crear Producto";
+        pageTitle = "Energym - Crear Producto";
         return res.render("products/create-product", {pageTitle})
     },
     store: async (req,res, next)=>{
-        let pageTitle = "Energym - Crear Producto";
+        pageTitle = "Energym - Crear Producto";
         try {
             const errors = validationResult(req);
         
             if(!errors.isEmpty()){
-                    let pageTitle = "Energym - Crear Producto";
+                    pageTitle = "Energym - Crear Producto";
                     res.render("products/create-product", {errors: errors.mapped(), pageTitle});
                     return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
                 }
@@ -61,7 +63,7 @@ const productController = {
         } 
     },
     edit: async (req,res)=>{
-        let pageTitle = "Energym - Editar Producto";
+        pageTitle = "Energym - Editar Producto";
         try {
             const id = req.params.id;
             const productToEdit = await db.Product.findByPk(req.params.id)  
@@ -75,7 +77,7 @@ const productController = {
             const errors = validationResult(req);
 
             if(!errors.isEmpty()){
-                let pageTitle = "Energym - Editar Producto";
+                pageTitle = "Energym - Editar Producto";
                 const productToEdit = await db.Product.findByPk(req.params.id)  
                 res.render("products/edit-product", {errors: errors.mapped(), productToEdit, pageTitle});
                 return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";

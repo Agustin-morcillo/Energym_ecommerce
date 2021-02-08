@@ -4,28 +4,30 @@ const path = require('path');
 const db = require("../database/models")
 const deleteFailureFile = path.join(__dirname, '../public/images/rutines/');
 
+let pageTitle = "";
+
 
 const rutinesController = {
     rutinePage : async (req,res)=>{
-        let pageTitle = "Energym - Rutinas"
+        pageTitle = "Energym - Rutinas"
         let rutines = await db.Rutine.findAll();
         return res.render("rutines/rutines",{rutines,pageTitle})
     },
     rutineDetail: async (req,res)=>{
-        let pageTitle = "Energym - Detalle de rutina"
+        pageTitle = "Energym - Detalle de rutina"
         let id = req.params.id
         let rutine = await db.Rutine.findByPk(id);
         return res.render("rutines/rutine-detail",{rutine,pageTitle})
     },
     createView: (req,res)=>{
-        let pageTitle = "Energym - Crear Rutina"
+        pageTitle = "Energym - Crear Rutina"
         return res.render("rutines/create-rutine",{pageTitle})
     },
     storeRutine: async (req,res)=>{
         const errors = validationResult(req);
 
         if(!errors.isEmpty()){
-            let pageTitle = "Energym - Crear Rutina"
+            pageTitle = "Energym - Crear Rutina"
             res.render("rutines/create-rutine", {errors: errors.mapped(), pageTitle});
             return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
         }
@@ -43,7 +45,7 @@ const rutinesController = {
         return res.redirect('/admin');
     },
     editView: async (req,res)=>{
-        let pageTitle = "Energym - Editar Rutina"
+        pageTitle = "Energym - Editar Rutina"
         let id = req.params.id
         let rutineToEdit = await db.Rutine.findByPk(id);
         return res.render("rutines/edit-rutine",{rutineToEdit,pageTitle})
@@ -52,7 +54,7 @@ const rutinesController = {
         const errors = validationResult(req);
 
         if(!errors.isEmpty()){
-            let pageTitle = "Energym - Editar Rutina";
+            pageTitle = "Energym - Editar Rutina";
             let rutineToEdit = await db.Rutine.findByPk(req.params.id)
             res.render("rutines/edit-rutine", {errors: errors.mapped(),rutineToEdit, pageTitle});
             return req.files[0] && req.files[0].filename ? fs.unlinkSync(deleteFailureFile + req.files[0].filename) : " ";
