@@ -100,9 +100,8 @@ body{
 .validation-error-product{
     color: red;
     font-size: 10px;
-    font-weight: 600;
-    position: relative;
-    bottom: 18px;
+    font-weight: 700;
+    
 }
 
 .validation-error-register{
@@ -1854,6 +1853,7 @@ header{
 
 .add-edit-product-rutine-card-container{
     width: 50%;
+    height: 100%;
     background-color: white;
     border-radius: 10px;
     border: 1px solid gray;
@@ -1866,12 +1866,31 @@ header{
 
 .add-edit-product-rutine-card-form-container{
     width:100%;
+    height: 100%;
     margin: 0px 40px;
     margin-top: 30px;
+    padding-bottom: 10px;
+}
+
+.admin-inputs-containers {
+    height: 100px;
+}
+
+.admin-inputs-containers2{
+    height: 180px;
+}
+
+.admin-options-containers{
+    height: 40px;
+}
+
+.admin-img-2{
+    margin-bottom: 25px;
 }
 
 
 .admin-label-container{
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
@@ -1883,13 +1902,13 @@ header{
 .add-edit-product-input{
     width: 100%;
     height: 40px;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     background-color: #f4f4f4;
 }
 
 .add-edit-product-input-textarea{
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     height: 120px;
 }
 
@@ -1898,7 +1917,7 @@ header{
 }
 
 .admin-label-option-container{
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 
@@ -1938,6 +1957,7 @@ header{
     width: 400px;
     height: 40px;
     margin-bottom: 20px;
+    margin-top: 15px;
 }
 
 .add-edit-product-create-product-button:hover{
@@ -2307,6 +2327,7 @@ small{
 /* Profile */
 .front-profile-error-style{
     color: red;
+    font-style: bold;
     font-size: 10px;
     font-weight: 700;
     padding-top: 5px;
@@ -2314,5 +2335,11 @@ small{
 }
 
 
-
+.front-create-rutine-error-style{
+    color: red;
+    font-size: 10px;
+    font-weight: 700;
+    padding-top: 2px;
+    margin-bottom: auto;
+}
 

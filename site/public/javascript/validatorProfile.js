@@ -6,6 +6,30 @@
 - "front-blank-error-inactive" -- oculta el mensaje de campo en blanco.
 - "front-blank-error-active" -- activa el mensaje de campo en blanco. */
 
+/* Requiriendo los elementos del DOM */
+let form = document.querySelector("form")
+let inputs = document.querySelectorAll(".inputs-fields")
+
+
+/* Expresiones regulares */
+const expresiones = {
+    name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
+    avatar: /(.jpg|.jpeg|.png|.gif)$/i //que sea de esos formatos.
+}
+
+/* Estado de los inputs */
+let estado = {
+    name: true,
+    lastName: true,
+    avatar: true
+}
+
+/* Expresiones regulares */
+const expresiones = {
+    name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
+    avatar: /(.jpg|.jpeg|.png|.gif)$/i //que sea de esos formatos.
+}
+
 /* Funcion que cambia las clases */
 let classController = (expresion,input)=>{
     if(expresion.test(input.value)){
@@ -15,7 +39,7 @@ let classController = (expresion,input)=>{
         document.querySelector(`.profile-${input.name} label`).classList.remove("wrong-label")
         document.querySelector(`.profile-${input.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.profile-${input.name} small`).classList.add("front-blank-error-inactive")
-        estados[input.name] = true
+        estado[input.name] = true
     } else{
         document.querySelector(`.profile-${input.name} p`).classList.add("front-error-active")
         document.querySelector(`.profile-${input.name} p`).classList.remove("front-error-inactive")
@@ -23,7 +47,7 @@ let classController = (expresion,input)=>{
         document.querySelector(`.profile-${input.name} label`).classList.add("wrong-label")
         document.querySelector(`.profile-${input.name} small`).classList.remove("front-blank-error-active")
         document.querySelector(`.profile-${input.name} small`).classList.add("front-blank-error-inactive")
-        estados[input.name] = false
+        estado[input.name] = false
     }
 }
 
@@ -36,26 +60,8 @@ let blankInput = (input)=>{
         document.querySelector(`.profile-${input.name} label`).classList.add("wrong-label")
         document.querySelector(`.profile-${input.name} small`).classList.add("front-blank-error-active")
         document.querySelector(`.profile-${input.name} small`).classList.remove("front-blank-error-inactive")
-        estados[input.name] = false
+        estado[input.name] = false
     } 
-}
-
-/* Expresiones regulares */
-const expresiones = {
-    name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
-    avatar: /(.jpg|.jpeg|.png|.gif)$/i //que sea de esos formatos.
-}
-
-/* Requiriendo los elementos del DOM */
-let form = document.querySelector("form")
-let inputs = document.querySelectorAll(".inputs-fields")
-
-
-/* Estado de los inputs */
-let estados ={
-    name: true,
-    lastName: true,
-    avatar: true
 }
 
 /* Identificando y validando los inputs */
@@ -92,16 +98,16 @@ form.addEventListener("submit",(e)=>{
         if(expresiones.avatar.exec(avatar.value)){
             document.querySelector(`.register-img p`).classList.remove("front-error-active")
             document.querySelector(`.register-img p`).classList.add("front-error-inactive")
-            estados.avatar = true
+            estado.avatar = true
         } else{
             document.querySelector(`.register-img p`).classList.add("front-error-active")
             document.querySelector(`.register-img p`).classList.remove("front-error-inactive")
-            estados.avatar = false
+            estado.avatar = false
         }
     }
 
      /* Validacion estado de los inputs */
-     if(!estados.name||!estados.lastName||!estados.avatar){
+     if(!estado.name||!estado.lastName||!estado.avatar){
         e.preventDefault()
     }
 
