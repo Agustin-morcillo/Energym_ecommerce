@@ -10,7 +10,6 @@ const localSession = require('./middlewares/localSession');
 const methodOverride = require('method-override')
 const app = express();
 
-
 /* RUTAS REQUERIDAS */
 const mainRouter=require("./routes/main")
 const usersRouter=require("./routes/users");

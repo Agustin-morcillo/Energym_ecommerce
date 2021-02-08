@@ -6,10 +6,12 @@ const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const contactFilePath = path.join(__dirname, '../data/contactDataBase.json');
 const allFunctions = require("../helpers/allFunctions")
 
+let pageTitle = "";
+
 
 const mainController ={
     homepage: async (req,res)=>{
-        let pageTitle = "Energym - Home"
+        pageTitle = "Energym - Home"
 
         let productsHome = await db.Product.findAll({
             where:{
@@ -25,11 +27,11 @@ const mainController ={
         res.render("main/index", {productsHome,rutinasHome,pageTitle})
     },
     contactPage: (req,res)=>{
-        let pageTitle = "Energym - Contacto"
+        pageTitle = "Energym - Contacto"
         res.render("main/contact",{pageTitle})
     },
     storageContactInfo: (req,res)=>{
-        let pageTitle = "Energym - Contacto";
+        pageTitle = "Energym - Contacto";
         const contactInfo = allFunctions.getContactInfo();
         
         const newContactInfo = {
@@ -43,7 +45,7 @@ const mainController ={
         res.redirect('/');
     },
     adminPage: async (req,res)=>{
-        let pageTitle = "Energym - Admin";
+        pageTitle = "Energym - Admin";
         const products = await db.Product.findAll()
 
         let rutines = await db.Rutine.findAll()

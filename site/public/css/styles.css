@@ -172,6 +172,8 @@ header{
      display: flex;
      align-items: center;
      justify-content: center;
+     position: relative;
+     right: 45px;
     
 }
 
@@ -181,6 +183,7 @@ header{
     align-items: center;
     padding: 60px;
     margin-right: 30px;
+    position: relative;
 }
 
 .user-nav-list{
@@ -225,7 +228,7 @@ header{
     background-size: 100% 2px;
 }
 
-@media (max-width:900px){
+@media (max-width:1000px){
     .main-nav-list,.user-nav-list{
         display: none;
     }
@@ -1838,6 +1841,209 @@ header{
 
 }
 
+/* ----------------------------------------[ADMIN USERS]---------------------------------------- *//* -------------------------------------------------------------------------------------------- */
+
+.admin-users-main-container{
+    border: 1px solid gray;
+    width: 60%;
+    border-radius: 10px;
+    background-color: white;
+    margin: 80px 0px;
+}
+.admin-users-section-title-container{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.admin-users-card-container{
+    display: flex;
+    margin: 5px auto 0px auto;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 90%;
+    background-color: #f4f4f4;
+    margin-bottom: 10px;
+}
+
+.users-image-and-name-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.admin-users-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-users-name-container{
+    width: 100%;
+}
+
+.admin-users-name{
+    font-weight: 500;
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.roles-buttons-container{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 15px;
+}
+
+
+.user-admin-roles-container{
+    width: 90%;
+    margin: 5px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.roles-description-container{
+    margin-top: 15px;
+}
+
+.roles-description-container ul li{
+    font-size: 10px;
+}
+
+.super-admin-description{
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.admin-description{
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-description{
+    color: #686868;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-admin-instructions{
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 15px;
+    font-size: 11px;
+}
+
+.admin-important-data{
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.user-role{
+    font-size: 12px;
+}
+
+.super-admin{
+    color: green;
+}
+
+.super-admin-button{
+    background-color: green;
+}
+
+.super-admin-button:hover{
+    background-color: #00b347;
+}
+
+.admin{
+    color: blue;
+}
+
+.admin-button{
+    background-color: blue;
+}
+
+.admin-button:hover{
+    background-color: rgb(100, 100, 255);
+}
+
+.user{
+    color: #686868
+}
+
+.user-button{
+    background-color: #686868
+}
+
+.user-button:hover{
+    background-color: #949090
+}
+
+.user-delete-button{
+    background-color: red;
+}
+
+.user-delete-button:hover{
+    background-color: rgb(161, 53, 53);
+}
+
+.admin-users-button{
+    color: white;
+    margin-right: 15px;
+    height: 25px;
+    width: 120px;
+}
+
+.admin-users-icons{
+    padding-right: 7px;
+}
+
+@media(max-width:1150px){
+    .admin-users-main-container{
+        width: 90%;
+    }
+}
+
+@media(max-width:750px){
+    .admin-users-main-container{
+        width: 100%;
+    }
+    .admin-users-card-container{
+        width: 100%;
+    }
+}
+
+@media(max-width:650px){
+    .users-image-and-name-container{
+        width: 100%;
+    }
+    .admin-users-card-container{
+        flex-wrap: wrap;
+    }
+    .roles-buttons-container{
+        justify-content: flex-start;
+        margin: 5px
+    }
+}
+
+@media(max-width:410px){
+    .roles-buttons-container{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .roles-buttons-container form button{
+        width: 250px;
+        margin: 5px;
+    }
+}
+
+
 
 /* ------------------------------------ADMIN ADD/EDIT PRODUCT-RUTINE PAGE------------------------------------ */
 
@@ -2132,10 +2338,21 @@ header{
     height: 30px;
     position: center;
     left: 55px;
-    margin-top: 12px;
-    margin-bottom: 20px;
+    margin: 5px 0px 5px 0px;
     background-color: black;
     color: white
+}
+
+.admin-access-button:hover{
+    background-color: rgb(51, 48, 48);
+}
+
+.user-admin-profile{
+    background-color: blue;
+}
+
+.user-admin-profile:hover{
+    background-color: rgb(100, 100, 255);
 }
 
 .admin-edit-button:hover{
