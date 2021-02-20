@@ -4,20 +4,69 @@ const bcrypt = require("bcryptjs")
 const apiUsersController={
     list: async (req,res)=>{
         try {
-            const users =  await User.findAll()
-            let respuesta ={
+            const users =  await User.findAll({
+                attributes: ["id", "name", "lastname", "email"]
+            })
+            
+            const usersFullInfo = users.map((user)=>{
+                return{
+                    id:user.id,
+                    name: user.name,
+                    lastname:user.lastname,
+                    email: user.email,
+                    detail:`http://localhost:3000/api/users/${user.id}`
+                }
+            })
+            
+            return res.json({
                 meta: {
                     status:"Success",
-                    totalUsers: users.length
+                    count: users.length
                 },
-                data:users,
-            }
-            return res.json(respuesta)
+                data:usersFullInfo,
+            })
+        
         } catch (error) {
             console.error("Error: " + error)
         }
     },
+    findUser: async (req,res)=>{
+        
+        const id = req.params.id
+        
+        try{
+            const user = await User.findOne({where:{id,}, attributes: ["id", "name", "lastname", "email","avatar"]})
+
+            if(!user){
+                return res.json({
+                meta: {
+                    status: "Error",
+                    message: "Usuario no encontrado en la base"
+                }
+            })
+            }
+
+            const usersFullInfo = {
+                id:user.id,
+                name: user.name,
+                lastname: user.lastname,
+                email:user.email,
+                avatar: `http://localhost:3000/images/users/${user.avatar}`
+            }
+            
+            return res.json({
+                meta: {
+                    status: "Success"
+                },
+                data: usersFullInfo
+            })      
+            
+        } catch (error){
+            console.error("Error: " + error)
+        }
+    },
     login: async (req,res)=>{
+        
         const {email,password} = req.body
        
         const user = await User.findOne({
@@ -46,6 +95,5 @@ const apiUsersController={
             })
         }
     }
-
 
 module.exports=apiUsersController;

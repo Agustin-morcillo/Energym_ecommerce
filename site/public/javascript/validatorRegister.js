@@ -134,6 +134,7 @@ let validarCampos = (e)=>{
             classController(expresiones.email,e.target)
             blankInput(e.target)
             checkAvailable(usuarios,email);
+            reTypeInput(email,reemail)
         break;
         case "retypeEmail":
             reTypeInput(email,reemail)
@@ -142,6 +143,7 @@ let validarCampos = (e)=>{
         case "password":
             classController(expresiones.password,e.target)
             blankInput(e.target)
+            reTypeInput(password,repassword)
         break;
         case "retype":
             blankInput(e.target)
