@@ -1,4 +1,73 @@
-/* ----------------------------------------ESTILOS GENERALES---------------------------------------- */
+/* Índice 
+
+Método de búsqueda: busque con control + f 
+
+1.Estilos Generales
+
+2.Estilos Navbar
+    2.1 mobile menu
+    2.2 Navbar responsive
+
+3.Estilos Footer
+    3.1 Footer primera parte
+    3.2 Footer primera parte responsive
+    3.3 Footer segunda parte
+    3.4 Footer segunda parte responsive
+
+4.Estilos Homepage
+    4.1 Slider
+    4.2 Slider navegación manual
+    4.3 Slider navegación automatica
+    4.4 Productos más vendidos
+    4.5 Productos más vendidos responsive
+    4.6 Rutinas más populares
+    4.7 Rutinas más populares responsive
+
+5.Estilos Register
+    5.1 Register responsive
+
+6.Estilos Login
+    6.1 Login responsive
+
+7.Estilos perfil de usuario
+    7.1 perfil de usuario responsive
+
+8.Estilos pagina de producto
+    8.1 pagina de productos responsive
+
+9.Estilos detalle de producto
+    9.1 detalle de producto responsive
+
+10.Estilos carrito
+    10.1 carrito responsive
+
+11.Estilos pagina de contacto
+    11.1 pagina de contacto responsive
+
+12.Estilos Admin
+    12.1 Admin responsive
+
+13.Estilos Admin agregar/editar productos/rutinas
+    13.1 Admin agregar/editar productos/rutinas responsive
+
+14.Estilos Admin users
+    14.1 Admin users responsive
+
+15.Estilos validacion Front-end
+    15.1 generales
+    15.2 login/register
+    15.3 perfil de usuario
+    15.4 productos/rutinas
+
+16.Estilos validacion Back-end
+    16.1 generales
+    16.2 productos/rutinas
+    16.3 login/register
+    16.4 perfil de usuario
+*/
+
+
+/* ---------------------------------------------------1.Estilos Generales--------------------------------------------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
@@ -9,9 +78,8 @@
     
 }
 
-
 body{
-    background-color: #f4f4f4;
+    background-color:  white;
 }
 
 .inputs-fields{
@@ -21,7 +89,6 @@ body{
     background-color: #f4f4f4;
     transition: .3s ease all;
 }
-
 
 .inputs-fields:focus{
     border: 3px solid #0075ff;
@@ -42,9 +109,8 @@ body{
     box-shadow: 3px 0px 30px rgba(163,163,163,0.4)
 }
 
-
 .buttons-style{
-    border-radius: 20px;
+    border-radius: 3px;
     border: none;
 }
 
@@ -58,6 +124,7 @@ body{
     bottom: 1px;
     width: 100%;
 }
+
 .sections-welcome-titles{
     text-align: center;
     color:white;
@@ -74,54 +141,7 @@ body{
     font-size: 16px;
 }
 
-/* -----------------------ESTILOS VALIDACIONES DESDE EL BACK END--------------------------------------------- */
-
-.validation-errors-container{
-    padding: 10px 0px 0px 10px;
-    width: 100%;
-}
-
-.validation-error{
-    color: red;
-    font-size: 13px;
-    font-weight: 600;
-    margin: 5px 0px;
-}
-
-.validation-error-product-title{
-    color: red;
-    font-size: 15px;
-    font-weight: 700;
-    position: relative;
-    bottom: 18px;
-    text-align: center;
-}
-
-.validation-error-product{
-    color: red;
-    font-size: 10px;
-    font-weight: 700;
-    
-}
-
-.validation-error-register{
-    color: red;
-    font-size: 10px;
-    font-weight: 700;
-    padding-top: 5px;
-    text-align: center;
-}
-
-.validation-error-profile{
-    color: red;
-    font-size: 9px;
-    font-weight: 700;
-    padding-top: 5px;
-}
-
-
-
-/* ----------------------------------------[HEADER]---------------------------------------- */
+/* ---------------------------------------------------2.Estilos Navbar--------------------------------------------------- */
 
 header{
     position: fixed;
@@ -135,7 +155,8 @@ header{
     height: 80px;
     background-color: black;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    width: 100%;
 }
 
 .logo-container{
@@ -174,7 +195,6 @@ header{
      justify-content: center;
      position: relative;
      right: 45px;
-    
 }
 
 .main-nav-list{
@@ -191,7 +211,6 @@ header{
     display: flex;
     align-items: center;
 }
-
 
 .main-nav-item{
     list-style-type: none;
@@ -228,6 +247,61 @@ header{
     background-size: 100% 2px;
 }
 
+/* -----------------2.1 mobile menu----------------- */
+
+.menu-nav{
+    width: 100%;
+    height: 570px;
+    background: #2c3e50;
+    display: none;
+    height: 100vh;
+}
+
+.menu-list{
+    list-style-type: none;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu-div{
+    height: 555px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-link{
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    text-transform: uppercase;
+    background-image: linear-gradient(white, white);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size .3s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-link:hover{
+    background-size: 100% 2px;
+}
+
+.menu-nav-icon{
+    font-size: 22px;
+    padding-left: 5px;
+}
+
+.avatar-responsive{
+    padding-right: 20px;
+}
+
+
+/* -----------------2.2 Navbar responsive----------------- */
+
 @media (max-width:1000px){
     .main-nav-list,.user-nav-list{
         display: none;
@@ -236,33 +310,49 @@ header{
     .menu-icon-container{
         display: flex;
         flex-wrap: wrap;
-        flex-direction:row;
         align-items: center;
         padding: 10px;
-        margin-right: 15px;
         justify-content: flex-end;
     }
+
     .logo-container{
         position: relative;
         left: 80px;
     }
 }
+    
 
-@media (max-width:400px){
+@media (max-width:500px){
     .header-logo{
         height: 50px;
     }
+
+    .menu-icon-container{
+        width: 470px;
+    }
 }
 
-/* ----------------------------------------[FOOTER]---------------------------------------- */
+@media (max-width:400px){
+    .logo-container{
+        justify-content: flex-end;
+    }
 
-/* -----------------FOOTER PRIMERA PARTE----------------- */
+    .header-logo{
+        height: 40px;
+        position: relative;
+        right: 10px
+    }
+}
+
+
+/* ---------------------------------------------------3.Estilos Footer--------------------------------------------------- */
+
+/* -----------------3.1 Footer primera parte---------------- */
 
 .footer-first-part{
     display: flex;
     background-color: #eeeeee;
 }
-
 
 .footer-article{
     margin: 0px auto;
@@ -286,7 +376,6 @@ header{
     text-align: center;
 }
 
-
 .footer-service-title{
     color:#adadad;
     text-transform: uppercase;
@@ -300,31 +389,28 @@ header{
     text-align: center;
 }
 
-/* -----------------FOOTER PRIMERA PARTE RESPONSIVE----------------- */
-
+/* -----------------3.2 Footer primera parte responsive---------------- */
 
 @media (min-width:2560px){
     .footer-first-part{
         height: 300px
     }
+
     .footer-icon{
         font-size: 100px;
     }
 
-    
-.footer-service-title{
-    font-size: 40px;
-}
+    .footer-service-title{
+        font-size: 40px;
+    }
 
-.footer-detail{
-    font-size: 20px;
-}
-
+    .footer-detail{
+        font-size: 20px;
+    }
 }
 
 
 @media (max-width:830px){
-
     .footer-first-part{
         width: 100%;
         flex-wrap: wrap;
@@ -339,7 +425,6 @@ header{
         margin-top: 25px;
         width: 100%;
     }
-    
 }
 
 @media (max-width:600px){
@@ -363,7 +448,7 @@ header{
     }
 }
 
-/* -----------------FOOTER SEGUNDA PARTE----------------- */
+/* -----------------3.3 Footer segunda parte---------------- */
 .footer-bottom-part{
     height:140px;
     background-color: #2c2c2c;
@@ -375,7 +460,6 @@ header{
 .footer-menu-icon-container, .footer-menu-icon{
     display: none;
 }
-
 
 .footer-logo-container{
     height: 140px;
@@ -389,8 +473,6 @@ header{
     width: 60%;
     padding: 10px;
 }
-
-
 
 .footer-nav{
     width: 33%;
@@ -436,8 +518,7 @@ header{
     color: white;
 }
 
-/* -----------------FOOTER SEGUNDA PARTE RESPONSIVE----------------- */
-
+/* -----------------3.4 Footer segunda parte responsive---------------- */
 
 @media (min-width:2560px){
     .footer-bottom-part{
@@ -471,46 +552,45 @@ header{
 
 
 @media (max-width:830px){
+    .footer-menu-icon-container{
+        display: block;
+    }
 
-.footer-menu-icon-container{
-    display: block;
-}
+    .footer-menu-icon{
+        display: block;
+        color: white;
+        font-size: 30px;
+    }
 
-.footer-menu-icon{
-    display: block;
-    color: white;
-    font-size: 30px;
-}
+    .footer-nav{
+        display: none;
+    }
 
-.footer-nav{
-    display: none;
-}
+    .footer-bottom-part{
+        height: 100px;
+    }
 
-.footer-bottom-part{
-    height: 100px;
-}
+    .footer-logo-container{
+        width: 40%;
+        padding: 0px;
+        display: flex;
+        align-items: center;
+    }
 
-.footer-logo-container{
-    width: 40%;
-    padding: 0px;
-    display: flex;
-    align-items: center;
-}
+    .energym-logo-footer{
+        width: 80%;
+        padding-left: 10px;
+    }
 
-.energym-logo-footer{
-    width: 80%;
-    padding-left: 10px;
-}
+    .social-icons-container{
+        width: 40%;
+        position: relative;
+        left: -20px;
+    }
 
-
-.social-icons-container{
-    width: 40%;
-    position: relative;
-    left: -20px;
-}
-
-.social-cta{
-    font-size: 12px;
+    .social-cta{
+        font-size: 12px;
+    }
 }
 
 @media (max-width:425px){
@@ -527,11 +607,10 @@ header{
     .footer-menu-icon{
         font-size: 20px;
     }
+
     .energym-logo-footer{
         width: 155px;
     }
-}
-
 }
 
 @media (max-width:350px){
@@ -540,32 +619,123 @@ header{
     }
 }
 
-/* ----------------------------------------[HOMEPAGE]---------------------------------------- */
+/* ---------------------------------------------------4.Estilos Homepage--------------------------------------------------- */
 
 
-/* -----------------BANNER----------------- */
+/* -----------------4.1 Slider----------------- */
 
-.banner-image{
+.banner-container{
     width: 100%;
     margin-top: 80px;
 }
 
+.slider{
+    width: 100%;
+    height: 645px;
+    overflow: hidden;
+  }
+  
+  .slides{
+    width: 500%;
+    height: 645px;
+    display: flex;
+  }
+  
+  .slides input{
+    display: none;
+  }
+  
+  .slide{
+    width: 20%;
+    transition: 2s;
+  }
+  
+  .slide img{
+    width: 100%;
+    height: 645px;
+  }
+  
+  /* -----------------4.2 Slider navegación manual----------------- */
+  
+  .navigation-manual{
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .manual-btn{
+    border: 2px solid #40D3DC;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+  }
+  
+  .manual-btn:not(:last-child){
+    margin-right: 40px;
+  }
+  
+  .manual-btn:hover{
+    background: #40D3DC;
+  }
+  
+  #radio1:checked ~ .first{
+    margin-left: 0;
+  }
+  
+  #radio2:checked ~ .first{
+    margin-left: -20%;
+  }
+  
+  #radio3:checked ~ .first{
+    margin-left: -40%;
+  }
+  
+  #radio4:checked ~ .first{
+    margin-left: -60%;
+  }
+  
+  /* -----------------4.3 Slider navegación automatica----------------- */
+  
+  .navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 605px;
+  }
+  
+  .navigation-auto div{
+    border: 2px solid #40D3DC;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+  }
+  
+  .navigation-auto div:not(:last-child){
+    margin-right: 40px;
+  }
+  
+  #radio1:checked ~ .navigation-auto .auto-btn1{
+    background: #40D3DC;
+  }
+  
+  #radio2:checked ~ .navigation-auto .auto-btn2{
+    background: #40D3DC;
+  }
+  
+  #radio3:checked ~ .navigation-auto .auto-btn3{
+    background: #40D3DC;
+  }
+  
+  #radio4:checked ~ .navigation-auto .auto-btn4{
+    background: #40D3DC;
+  }
 
 
-/* -----------------ARTICULOS HOMEPAGE----------------- */
-
-.articles{
-    width: 30%;
-    margin: 10px 0;
-    background-color:#eeeeee;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);;
-    border-radius: 20px;
-}
-
-/* -----------------MÁS VENDIDOS HOME----------------- */
-
+ /* -----------------4.4 Productos más vendidos----------------- */
 
 .section-title{
     text-align: center;
@@ -575,77 +745,117 @@ header{
     margin-top: 10px;
 }
 
-.section-title-description{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 10px;
-}
-
-.articles-container{
+.home-products-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
 }
 
-.mas-vendidos-img{
-    width: 100%;
+.home-product-cart{
+    width: 28%;
+    margin: 20px 30px;
+    text-align: center;
+}
+
+.home-product-img{
+    width: 400px;
+    text-align: center;
+}
+
+.zoom{
+    /* Aumentamos la anchura y altura durante 2 segundos */
+    transition: width 5s, height 5s, transform 5s;
+}
+.zoom:hover{
+    /* tranformamos el elemento al pasar el mouse por encima al doble de
+       su tamaño con scale(2). */
+    transform : scale(1.1);
+}
+
+.home-product-name{
+    font-weight: lighter;
+    font-weight: 1000;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: block;
 }
 
-.product-names{
-    margin: 2px 0 4px 0;
-    text-align: center;
+.home-product-description{
+    font-size: 12px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 60px;
+}
+
+.home-product-price{
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.home-product-button{
+    background: rgb(85, 85, 240);
+    border-radius: 3px;
+    width: 60%;
+    color: white;
     text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    height: 30px;
+}
+
+.home-product-button:hover{
+    background: rgb(12, 12, 243);
+}
+
+.home-product-cart-icon{
     font-size: 15px;
+    padding-right: 10px;
 }
 
-.product-introduction{
-    font-size: 10px;
-    text-align: center;
-}
+/* -----------------4.5 Productos más vendidos responsive----------------- */
 
-.button-padre{
-    text-align: center;
-}
-
-.comprar-button{
-    background-color: orange;
-    color:white;
-    width: 50%;
-    font-size: 15px;
-    margin:10px 0px 10px 0px;
-}
-
-.comprar-button:hover{
-    background-color: orangered;
-    cursor: pointer;
-}
-
-/* -----------------MÁS VENDIDOS HOME RESPONSIVE----------------- */
-
-@media (max-width:830px){
-    .articles{
+@media(max-width:1400px){
+    .home-product-cart{
         width: 40%;
-        margin: 10px 10px 50px 10px;
     }
 }
 
-@media (max-width:600px){
-    .articles{
+@media(max-width:800px){
+    .home-product-cart{
         width: 100%;
-        margin: 10px 10px 50px 10px;
+    }
+
+    .home-product-button{
+        width: 80%;
+    }
+
+    .home-product-description{
+        padding-left: 125px;
+        padding-right: 125px;
+    }
+}
+
+@media(max-width:500px){
+    .home-product-img{
+        width: 100%;
+    }
+
+    .home-product-description{
+        padding: 0px;
+        height: 85px;
     }
 }
 
 
-/* -----------------RUTINAS----------------- */
+/* -----------------4.6 Rutinas más populares----------------- */
 
 .rutinas{
     margin:50px 0px;
 }
-
-
 
 .rutinas-img{
     width: 100%;
@@ -664,12 +874,32 @@ header{
     width: 25%;
 }
 
+.rutine-name{
+    margin: 2px 0 4px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.rutine-introduction{
+    font-size: 10px;
+    text-align: center;
+}
+
+.button-padre{
+    text-align: center;
+}
+
 .ver-mas-button{
     background-color: orange;
     color:white;
     width: 50%;
     font-size: 15px;
     margin:10px 0px 10px 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    height: 30px;
 }
 
 .ver-mas-button:hover{
@@ -678,327 +908,26 @@ header{
 }
 
 
-/* -----------------RUTINAS RESPONSIVE----------------- */
+/* -----------------4.7 Rutinas más populares responsive----------------- */
 
-@media (max-width:830px){
+@media (max-width:1000px){
     .rutina-articles{
         width: 50%;
     }
 }
 
-@media (max-width:600px){
+@media (max-width:700px){
     .rutina-articles{
         width: 100%;
         margin-bottom: 10px;
     }
-}
 
-/* ----------------------------------------[PRODUCTS PAGE]---------------------------------------- */
-
-.product-page-main-container{
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/contact-background.jpg);
-    background-attachment: fixed;
-}
-
-.product-page-container{
-    width: 90%;
-    margin: 80px 0px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    background-color: #eeeeee;
-}
-
-.product-page-articles-main-container{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    align-items: center;
-}
-
-.product-page-article-container{
-    display: flex;
-    width: 21%;
-    text-align: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: white;
-    border-radius: 20px;
-    margin: 25px;
-    min-height: 480px;
-}
-
-.product-page-img-container{
-    width: 100%;
-}
-
-.product-page-img{
-    border-radius: 20px;
-    width: 100%;
-    height: 250px;
-}
-
-.product-page-form-container{
-    width: 100%;
-}
-
-.product-page-div{
-    margin-top: 10px;
-    width: 100%;
-}
-
-.product-page-button{
-    width: 80%;
-    margin-bottom: 8px;
-    background-color: orange;
-    height: 30px;
-    color: white;
-    font-size: 17px;
-}
-
-.product-page-button:hover{
-    background-color: orangered;
-}
-
-.product-page-price{
-    font-size: 25px;
-    color: green;
-    font-weight: bolder;
-}
-
-.product-page-introduction{
-    padding: 0px 10px;
-}
-
-.product-page-name{
-    font-size: 19px;
-    margin-top: 5px;
-    width: 100%;
-}
-
-@media(max-width:1390px){
-    .product-page-article-container{
-        width: 28%;
-    }
-}
-
-@media(max-width:1044px){
-    .product-page-article-container{
-        width: 40%;
-        margin: 25px 38px 25px 38px
-    }
-}
-
-@media(max-width:848px){
-
-    .product-page-articles-main-container{
-        justify-content: center;
-    }
-
-    .product-page-container{
-        width: 100%;
-    }
-    .product-page-article-container{
+    .ver-mas-button{
         width: 80%;
     }
-
-    .product-page-name{
-        font-size: 25px;
-    }
-
-    .product-page-price{
-        font-size: 40px;
-        margin: 5px 0px;
-    }
-
-    .product-page-button{
-        height: 40px;
-        font-size: 20px;
-    }
 }
 
-@media(max-width:500px){
-    .product-page-article-container{
-        width: 100%;
-        margin-left: 3px;
-        margin-right: 3px;
-    }
-}
-
-
-
-/* ----------------------------------------[LOGIN]---------------------------------------- */
-
-.login-main-container{
-    margin-top: 80px;
-    margin-bottom: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/login-background.jpg);
-    background-size:cover;
-    background-repeat: no-repeat;
-}
-
-.login-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    flex-direction: column;
-    margin: 80px 0px;
-    width: 400px;
-    border: 1px solid gray;
-    border-radius: 15px;
-    background-color: white;
-}
-
-
-/* ------------LOGIN - CONTENDOR DE INPUTS-------------- */
-.login-inputs-container{
-    display: flex;
-    justify-content: center;
-}
-
-.email-or-password-error{
-    background-color: rgb(250, 161, 188);
-    position: relative;
-    top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25px;
-    width: 60%;
-    border-radius: 5px;
-}
-
-.form-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-}
-
-
-.general-containers{
-    text-align: center;
-    margin-top: 25px;
-    width: 100%;
-    height: 70px;
-}
-
-.login-email{
-    margin-top: 30px;
-}
-
-.login-inputs-titles{
-    display: block;
-    width: 60%;
-    text-align: left;
-    position: relative;
-    left: 60px;
-    margin-bottom: 5px;
-}
-
-
-.all-login-inputs{
-    width: 80%;
-    height: 35px;
-}
-
-.remember-me-container{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 12px;
-    width: 80%;
-    position: relative;
-    left: 20px;
-    font-weight: lighter;
-}
-
-.remember-login-input{
-    margin-left: 5px;
-}
-
-.buttons-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.login-button{
-    margin: 10px;
-    width: 70%;
-    height: 35px;
-    background-color: orange;
-    color: white;
-    font-size: 17px;
-}
-
-.login-button:hover{
-    background-color:orangered;
-    cursor: pointer;
-}
-
-
-
-.register-account-container{
-    text-align: center;
-}
-
-.forgot-password{
-    text-decoration: none;
-    font-weight: lighter;
-}
-
-.forgot-password:hover{
-    text-decoration:underline;
-}
-
-.no-account{
-    margin: 20px 0px;
-    border-top: 1px solid gray;
-    padding-top: 20px;
-}
-
-.register-account{
-    text-decoration: none;
-}
-
-.register-account:hover{
-    text-decoration: underline;
-}
-
-.mandatory{
-    color: red;
-    font-size: 10px;
-    position: relative;
-    top:-3px;
-}
-
-
-/* ------------LOGIN-RESPONSIVE-------------- */
-
-@media (max-width:700px){
-    .login-container{
-        width: 90%;
-    }
-}
-
-@media(max-width:400px){
-    .login-container{
-        width: 100%;
-    }
-}
-
-
-/* ----------------------------------------[REGISTER]---------------------------------------- */
-
+/* ---------------------------------------------------5.Estilos Register--------------------------------------------------- */
 
 .registration-main-container{
     margin-top: 80px;
@@ -1131,7 +1060,6 @@ header{
     bottom: 50px;
 }
 
-
 .button-info-container{
     width: 100%;
     display: flex;
@@ -1148,23 +1076,26 @@ header{
     bottom: 35px;
 }
 
-/* ---responsive--- */
+/* -----------------5.1 Register responsive----------------- */
 
 @media (max-width:600px){
-
     .registration-main-container{
         background-size: 2000px;
         background-repeat: no-repeat;
     }
+
     .registration-form-container{
         width: 100%;
     }
+
     .register-info-container{
         width: 100%;
     }
+
     .register-button,.facebook-button{
         width: 100%;
     }
+
     .facebook-google-form{
         margin: 0px 20px;
     }
@@ -1172,12 +1103,501 @@ header{
     .register-avatar-input{
         left:10px
     }
+
     .avatar-label{
         left: 10px;
     }
 }
 
-/* ----------------------------------------[DETALLE PRODUCTO]---------------------------------------- */
+/* ---------------------------------------------------6.Estilos Login--------------------------------------------------- */
+
+.login-main-container{
+    margin-top: 80px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/images/main/login-background.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.login-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 80px 0px;
+    width: 400px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.login-inputs-container{
+    display: flex;
+    justify-content: center;
+}
+
+.email-or-password-error{
+    background-color: rgb(250, 161, 188);
+    position: relative;
+    top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 60%;
+    border-radius: 5px;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.general-containers{
+    text-align: center;
+    margin-top: 25px;
+    width: 100%;
+    height: 70px;
+}
+
+.login-email{
+    margin-top: 30px;
+}
+
+.login-inputs-titles{
+    display: block;
+    width: 60%;
+    text-align: left;
+    position: relative;
+    left: 60px;
+    margin-bottom: 5px;
+}
+
+.all-login-inputs{
+    width: 80%;
+    height: 35px;
+}
+
+.remember-me-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 12px;
+    width: 80%;
+    position: relative;
+    left: 20px;
+    font-weight: lighter;
+}
+
+.remember-login-input{
+    margin-left: 5px;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-button{
+    margin: 10px;
+    width: 70%;
+    height: 35px;
+    background-color: orange;
+    color: white;
+    font-size: 17px;
+}
+
+.login-button:hover{
+    background-color:orangered;
+    cursor: pointer;
+}
+
+.register-account-container{
+    text-align: center;
+}
+
+.forgot-password{
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+.forgot-password:hover{
+    text-decoration:underline;
+}
+
+.no-account{
+    margin: 20px 0px;
+    border-top: 1px solid gray;
+    padding-top: 20px;
+}
+
+.register-account{
+    text-decoration: none;
+}
+
+.register-account:hover{
+    text-decoration: underline;
+}
+
+.mandatory{
+    color: red;
+    font-size: 10px;
+    position: relative;
+    top:-3px;
+}
+
+/* -----------------6.1 Login responsive----------------- */
+
+@media (max-width:700px){
+    .login-container{
+        width: 90%;
+    }
+}
+
+@media(max-width:400px){
+    .login-container{
+        width: 100%;
+    }
+}
+
+/* ---------------------------------------------------7.Estilos perfil de usuario--------------------------------------------------- */
+
+.profile-main-container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/images/main/profile.jpg);
+}
+
+.profile-container{
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    margin: 80px 0px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    justify-content: center;
+}
+
+.profile.left.side{
+    width: 40%;  
+}
+
+.admin-access-button{
+    width: 100%;
+    height: 30px;
+    position: center;
+    left: 55px;
+    margin: 5px 0px 5px 0px;
+    background-color: black;
+    color: white
+}
+
+.admin-access-button:hover{
+    background-color: rgb(51, 48, 48);
+}
+
+.user-admin-profile{
+    background-color: blue;
+}
+
+.user-admin-profile:hover{
+    background-color: rgb(100, 100, 255);
+}
+
+.admin-edit-button:hover{
+    background-color: gray
+}
+
+.profile-avatar-container{
+    width: 40%;
+}
+
+.profile-page-avatar{
+    width:250px;
+    height:250px;
+    border-radius:150px;
+    margin-top: 30px;
+}
+
+.profile-avatar-text{
+    position: relative;
+    left: 100px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.profile-information{
+    width: 90%;
+    margin: 20px auto;
+    height: 80px;
+    position: relative;
+    left: 20px;
+}
+
+.profile-labels{
+    font-weight: bold;
+}
+
+.profile-inputs{
+    margin-top: 5px;
+    width: 240px;
+}
+
+.profile-edit-button{
+    width: 60%;
+    height: 30px;
+    position: relative;
+    left: 55px;
+    margin-bottom: 20px;
+    background-color:orange;
+    color: white
+}
+
+.profile-edit-button:hover{
+    background-color: gray
+}
+
+.profile-logout-button{
+    width: 60%;
+    height: 30px;
+    position: relative;
+    left: 55px;
+    margin-bottom: 20px;
+    background-color: red;
+    color: white
+}
+
+.profile-logout-button:hover{
+    background-color: black;
+}
+
+.profile-icons{
+    padding: 7px;
+}
+
+.profile-message-container{
+    width: 60%;
+    margin: 0px auto;
+    margin-bottom: 10px;
+}
+
+.profile-message{
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+
+.profile-save-edit-button{
+    background-color: green;
+}
+
+.profile-save-edit-button:hover{
+    background-color: #00b347 
+}
+
+/* -----------------7.1 perfil de usuario responsive----------------- */
+
+@media (max-width:1350px){
+    .profile-container{
+        width: 50%;
+    }
+}
+
+@media (max-width:1100px){
+    .profile-container{
+        width: 60%;
+    }
+}
+
+@media (max-width:900px){
+    .profile-avatar-container{
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-information-container{
+        width: 80%;
+        margin: 5px 20px;
+    }
+
+    .profile-information,.profile-message-container{
+        width: 100%;
+    }
+
+    .profile-avatar-text{
+        left: 8px;   
+    }
+
+    .profile-inputs{
+        width: 90%;
+    }
+
+    .profile-edit-button,.profile-logout-button{
+        width: 80%;
+        left:30px ;
+    }
+}
+
+@media (max-width:600px){
+    .profile-container{
+        width: 90%;
+    }
+
+    .profile-information-container{
+        width: 100%;
+    }
+}
+
+/* ---------------------------------------------------8.Estilos pagina de producto--------------------------------------------------- */
+
+.product-page-main-container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/images/main/contact-background.jpg);
+    background-attachment: fixed;
+}
+
+.product-page-container{
+    width: 90%;
+    margin: 80px 0px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #eeeeee;
+}
+
+.product-page-articles-main-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+}
+
+.product-page-article-container{
+    display: flex;
+    width: 21%;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 20px;
+    margin: 25px;
+    min-height: 480px;
+}
+
+.product-page-img-container{
+    width: 100%;
+}
+
+.product-page-img{
+    border-radius: 20px;
+    width: 100%;
+    height: 250px;
+}
+
+.product-page-form-container{
+    width: 100%;
+}
+
+.product-page-div{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.product-page-button{
+    width: 80%;
+    margin-bottom: 8px;
+    background-color: orange;
+    height: 30px;
+    color: white;
+    font-size: 17px;
+}
+
+.product-page-button:hover{
+    background-color: orangered;
+}
+
+.product-page-price{
+    font-size: 25px;
+    color: green;
+    font-weight: bolder;
+}
+
+.product-page-introduction{
+    padding: 0px 10px;
+}
+
+.product-page-name{
+    font-size: 19px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+/* -----------------8.1 pagina de productos responsive----------------- */
+
+@media(max-width:1390px){
+    .product-page-article-container{
+        width: 28%;
+    }
+}
+
+@media(max-width:1044px){
+    .product-page-article-container{
+        width: 40%;
+        margin: 25px 38px 25px 38px
+    }
+}
+
+@media(max-width:848px){
+    .product-page-articles-main-container{
+        justify-content: center;
+    }
+
+    .product-page-container{
+        width: 100%;
+    }
+
+    .product-page-article-container{
+        width: 80%;
+    }
+
+    .product-page-name{
+        font-size: 25px;
+    }
+
+    .product-page-price{
+        font-size: 40px;
+        margin: 5px 0px;
+    }
+
+    .product-page-button{
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+@media(max-width:500px){
+    .product-page-article-container{
+        width: 100%;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+}
+
+
+/* ---------------------------------------------------9.Estilos detalle de producto--------------------------------------------------- */
 
 .product-detail-main-container{
     margin-top: 80px;
@@ -1196,7 +1616,6 @@ header{
     flex-wrap: wrap;
     border: 1px solid gray;
     margin: 80px 0px;
-
 }
 
 .product-detail-img-container{
@@ -1214,7 +1633,6 @@ header{
 .rutine-detail-img{
     height: 490px;
 }
-
 
 .product-name-and-price-container{
     width:50%;
@@ -1306,11 +1724,12 @@ header{
     color: white;
 }
 
+/* -----------------9.1 detalle de producto responsive----------------- */
+
 @media (max-width:1500px){
     .product-detail-container{
         width: 80%;
-    }
-    
+    }   
 }
 
 @media (max-width:1200px){
@@ -1320,7 +1739,6 @@ header{
 } 
 
 @media (max-width:1080px){
-
     .product-detail-img-container{
         width: 100%;
     }
@@ -1336,6 +1754,7 @@ header{
         position: relative;
         bottom: 20px;
     }
+
     .product-detail-name{
         font-size: 40px;
         text-align: center;
@@ -1357,12 +1776,15 @@ header{
     .product-detail-button{
         width: 40%;
     }
+
     .product-name-and-price-container{
         text-align: center;
     }
+
     .product-amount-container{
         text-align: center;
     }
+
     .product-detail-form-container{
         text-align: center;
     }
@@ -1373,11 +1795,10 @@ header{
 }
 
 @media (max-width:600px){
-
     .product-detail-welcome-title{
         font-size: 25px;
     }
-    
+
     .product-detail-img{
         width: 100%;
     }
@@ -1385,11 +1806,10 @@ header{
     .product-detail-container{
         width: 100%;
     }
+
     .product-detail-button{
         width: 60%;
     }
-
-
 }
 
 @media (max-width:400px){
@@ -1411,7 +1831,7 @@ header{
     }
 }
 
-/* ----------------------------------------[CARRITO COMPRAS]---------------------------------------- */
+/* ---------------------------------------------------10.Estilos carrito--------------------------------------------------- */
 
 .cart-section {
     background-image: url(/images/main/section-background.jpeg);
@@ -1421,7 +1841,6 @@ header{
     justify-content: center;
     margin-top: 80px;
 }
-
 
 .cart-section-box {
     background-color: #f4f4f4;
@@ -1444,9 +1863,6 @@ header{
     padding-right: 20px;
 }
 
-
-/* Box de imagen */
-
 .product-image-container {
     width: 50%;
     display: flex;
@@ -1459,9 +1875,6 @@ header{
     border-radius: 10px;
 }
 
-
-/* Columna de informacion */
-
 .main-info {
     display: flex;
     flex-direction: column;
@@ -1470,8 +1883,6 @@ header{
     width: 50%;
     padding-left: 10px;
 }
-
-/* Nombre y precio */
 
 .product-name {
     width: 100%;
@@ -1486,8 +1897,6 @@ header{
     text-align: start;
     margin-bottom: 35px;
 }
-
-/* Formularios */
 
 .buttons-container {
     width: 100%;
@@ -1516,7 +1925,6 @@ header{
     width: 100%;
     margin: 0px 0px 5px 0px;   
     text-align: left;
-
 }
 
 .edit-button {
@@ -1549,9 +1957,6 @@ header{
     background-color: black;
 }
 
-
-/* --- Totals Section --- */
-
 .totales-container {
     text-align: center;
     margin-bottom: 15px;
@@ -1561,8 +1966,6 @@ header{
 .total-info{
     padding: 10px;
 }
-
-/* --- Buy Section --- */
 
 .buy-container {
     height: 70px;
@@ -1583,7 +1986,6 @@ header{
 
 .boton-comprar:hover {
     background-color: #00b347 
-
 }
 
 .ver-mas {
@@ -1598,7 +2000,7 @@ header{
     text-decoration: underline;
 }
 
-/* -----------------CART RESPONSIVE----------------- */
+/* -----------------10.1 carrito responsive----------------- */
 
 @media (max-width: 830px) {
     .product-box{
@@ -1610,11 +2012,10 @@ header{
         align-items: center;
     }
 
-
     .cart-section-box {
         width: 90%;
     }
-    
+
     .product-image-container {
         width: 100%;
         margin-top: 10px;
@@ -1662,11 +2063,122 @@ header{
     .boton-comprar{
         width: 80%;
     }
+}
 
+/* ---------------------------------------------------11.Estilos pagina de contacto--------------------------------------------------- */
+
+.contact-section-main-container{
+    margin-top: 80px;
+    background-image: url(/images/main/contact-background.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+}
+
+.contact-section-container{
+    width: 50%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin: 80px 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-welcome-container{
+    height: 80px;
+}
+
+.contact-form-container{
+    margin-top: 30px;
+    text-align: left;
+    width: 60%;
+}
+
+.contact-inputs{
+    width: 90%;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.contact-textarea{
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.contact-icon{
+    padding-right: 10px;
+}
+
+.contact-button-send{
+    width: 40%;
+    height: 35px;
+    background-color: green;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    bottom: 10px;
+}
+
+.contact-extra-container{
+    width: 40%;
+    margin-top: 30px;
+    padding-left: 40px;
+}
+
+.contact-extra-info{
+    font-weight: lighter;
+    margin-bottom: 30px;
+}
+
+/* -----------------11.1 pagina de contacto responsive----------------- */
+
+@media (max-width:1444px){
+    .contact-section-container{
+        width: 70%
+    }
+}
+
+@media (max-width:1000px){
+    .contact-section-container{
+        width: 80%;
+    }
+
+    .contact-inputs{
+        width:100%
+    }
+
+    .contact-textarea{
+        width:100%
+    }
+
+    .contact-form-container{
+        width:100%;
+        position: relative;
+        bottom: 200px;
+        padding: 0px 25px;
+    }
+
+    .contact-extra-container{
+        width: 90%;
+        position: relative;
+        top: 450px;
+    }
+}
+
+@media (max-width:600px){
+    .contact-section-container{
+        width: 100%;
+    }
+
+    .contact-button-send{
+        width: 60%;
+    }
 }
 
 
-/* ----------------------------------------[ADMIN PAGE]---------------------------------------- */
+/* ---------------------------------------------------12.Estilos Admin--------------------------------------------------- */
 
 .admin-menu-main-container{
     margin-top: 80px;
@@ -1687,11 +2199,9 @@ header{
     margin: 80px 0px;
 }
 
-
 .admin-section-welcome-title{
     margin-bottom: 5px;
 }
-
 
 .admin-section-title-container{
     text-align: center;
@@ -1707,7 +2217,6 @@ header{
     text-align: center;
     margin-bottom: 20px;
     margin-top: 10px;
-
 }
 
 .admin-add-button{
@@ -1734,7 +2243,6 @@ header{
     width: 90%;
     background-color: #f4f4f4;
     margin-bottom: 10px;
-    
 }
 
 .product-image-and-name-container{
@@ -1749,7 +2257,6 @@ header{
     align-items: center;
 }
 
-
 .admin-product-img{
     height: 63px;
     border-radius: 10px;
@@ -1760,14 +2267,12 @@ header{
     width: 100%;
 }
 
-
 .admin-product-name{
     font-weight: 500;
     margin-left: 10px;
     font-size: 17px;
     font-weight: bold;
 }
-
 
 .edit-delete-buttons-container{
     width: 50%;
@@ -1776,8 +2281,6 @@ header{
     align-items: center;
     margin-right: 15px;
 }
-
-
 
 .admin-edit-button{
     background-color: orange;
@@ -1806,6 +2309,8 @@ header{
     padding-right: 7px;
 }
 
+/* -----------------12.1 Admin responsive----------------- */
+
 @media (max-width:950px){
     .admin-menu-container{
         width: 90%;
@@ -1823,7 +2328,6 @@ header{
 }
 
 @media (max-width:500px){
-
     .admin-product-card-container{
         flex-wrap: wrap;
         align-items: center;
@@ -1837,12 +2341,15 @@ header{
         justify-content: flex-start;
         margin: 10px 5px;
     }
+
     .product-image-and-name-container{
         width:100%;
     }
+
     .admin-add-button{
         width: 50%;
     }
+
     .admin-edit-button{
         width:125px;
     }
@@ -1850,10 +2357,157 @@ header{
     .admin-delete-button{
         width:125px;
     }
-
 }
 
-/* ----------------------------------------[ADMIN USERS]---------------------------------------- *//* -------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------13.Estilos Admin agregar/editar productos/rutinas--------------------------------------------------- */
+
+.add-edit-product-rutine-card-main-container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/images/main/section-background.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+} 
+
+.add-edit-product-rutine-card-container{
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid gray;
+    display: flex;
+    flex-wrap: wrap;   
+    justify-content: center;
+    align-items: flex-start;
+    margin: 80px 0px;
+}
+
+.add-edit-product-rutine-card-form-container{
+    width:100%;
+    height: 100%;
+    margin: 0px 40px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+}
+
+.admin-inputs-containers {
+    height: 100px;
+}
+
+.admin-inputs-containers2{
+    height: 180px;
+}
+
+.admin-options-containers{
+    height: 40px;
+}
+
+.admin-img-2{
+    margin-bottom: 25px;
+}
+
+.admin-label-container{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.admin-labels{
+    font-weight: bold;
+}
+
+.add-edit-product-input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    background-color: #f4f4f4;
+}
+
+.add-edit-product-input-textarea{
+    width: 100%;
+    margin-bottom: 5px;
+    height: 120px;
+}
+
+.admin-select-category{
+    margin-left: 5px;
+}
+
+.admin-label-option-container{
+    margin-bottom: 5px;
+}
+
+.admin-radio-input{
+    margin-left: 5px;
+}
+
+.add-edit-product-image-label{
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.add-edit-product-image-input{
+    display: inline;
+}
+
+.form-add-edit-product-button-container{
+    text-align: center;
+    width: 100%;
+}
+
+.product-add-icon{
+    padding-right: 7px;
+}
+
+.save-changes-icon{
+    padding-right: 10px;
+}
+
+.add-edit-product-create-product-button{
+    background-color: green;
+    color: white;
+    width: 400px;
+    height: 40px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.add-edit-product-create-product-button:hover{
+    background-color: #00b347 
+}
+
+/* -----------------13.1 Admin agregar/editar productos/rutinas responsive----------------- */
+
+@media (max-width:1024px){
+    .add-edit-product-rutine-card-container{
+        width: 80%;
+    }
+}
+
+@media (max-width:600px){
+    .add-edit-product-rutine-card-container{
+        width: 100%;
+    }
+
+    .add-edit-product-rutine-card-form-container{
+        margin: 20px 20px;
+    }
+
+    .add-edit-product-create-product-button{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .add-edit-product-create-product-button{
+        margin-bottom: 10px;
+    }
+}
+
+
+/* ---------------------------------------------------14.Estilos Admin users--------------------------------------------------- */
 
 .admin-users-main-container{
     border: 1px solid gray;
@@ -1862,6 +2516,7 @@ header{
     background-color: white;
     margin: 80px 0px;
 }
+
 .admin-users-section-title-container{
     text-align: center;
     margin-top: 20px;
@@ -1908,7 +2563,6 @@ header{
     align-items: center;
     margin-right: 15px;
 }
-
 
 .user-admin-roles-container{
     width: 90%;
@@ -2015,6 +2669,8 @@ header{
     padding-right: 7px;
 }
 
+/* -----------------14.1 Admin users responsive----------------- */
+
 @media(max-width:1150px){
     .admin-users-main-container{
         width: 90%;
@@ -2025,6 +2681,7 @@ header{
     .admin-users-main-container{
         width: 100%;
     }
+
     .admin-users-card-container{
         width: 100%;
     }
@@ -2034,9 +2691,11 @@ header{
     .users-image-and-name-container{
         width: 100%;
     }
+
     .admin-users-card-container{
         flex-wrap: wrap;
     }
+
     .roles-buttons-container{
         justify-content: flex-start;
         margin: 5px
@@ -2056,473 +2715,9 @@ header{
 }
 
 
+/* ---------------------------------------------------15.Estilos validacion Front-end--------------------------------------------------- */
 
-/* ------------------------------------ADMIN ADD/EDIT PRODUCT-RUTINE PAGE------------------------------------ */
-
-.add-edit-product-rutine-card-main-container{
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/section-background.jpeg);
-    background-size: cover;
-    background-attachment: fixed;
-} 
-
-.add-edit-product-rutine-card-container{
-    width: 50%;
-    height: 100%;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid gray;
-    display: flex;
-    flex-wrap: wrap;   
-    justify-content: center;
-    align-items: flex-start;
-    margin: 80px 0px;
-}
-
-.add-edit-product-rutine-card-form-container{
-    width:100%;
-    height: 100%;
-    margin: 0px 40px;
-    margin-top: 30px;
-    padding-bottom: 10px;
-}
-
-.admin-inputs-containers {
-    height: 100px;
-}
-
-.admin-inputs-containers2{
-    height: 180px;
-}
-
-.admin-options-containers{
-    height: 40px;
-}
-
-.admin-img-2{
-    margin-bottom: 25px;
-}
-
-
-.admin-label-container{
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
-.admin-labels{
-    font-weight: bold;
-}
-
-
-.add-edit-product-input{
-    width: 100%;
-    height: 40px;
-    margin-bottom: 5px;
-    background-color: #f4f4f4;
-}
-
-.add-edit-product-input-textarea{
-    width: 100%;
-    margin-bottom: 5px;
-    height: 120px;
-}
-
-.admin-select-category{
-    margin-left: 5px;
-}
-
-.admin-label-option-container{
-    margin-bottom: 5px;
-}
-
-
-.admin-radio-input{
-    margin-left: 5px;
-}
-
-.add-edit-product-image-label{
-    display: block;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.add-edit-product-image-input{
-    display: inline;
-}
-
-.form-add-edit-product-button-container{
-    text-align: center;
-    width: 100%;
-}
-
-
-.product-add-icon{
-    padding-right: 7px;
-}
-
-.save-changes-icon{
-    padding-right: 10px;
-}
-
-
-.add-edit-product-create-product-button{
-    background-color: green;
-    color: white;
-    width: 400px;
-    height: 40px;
-    margin-bottom: 20px;
-    margin-top: 15px;
-}
-
-.add-edit-product-create-product-button:hover{
-    background-color: #00b347 
-}
-
-
-
-
-@media (max-width:1024px){
-    .add-edit-product-rutine-card-container{
-        width: 80%;
-    }
-}
-
-@media (max-width:600px){
-
-    .add-edit-product-rutine-card-container{
-        width: 100%;
-    }
-    .add-edit-product-rutine-card-form-container{
-        margin: 20px 20px;
-    }
-
-    .add-edit-product-create-product-button{
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .add-edit-product-create-product-button{
-        margin-bottom: 10px;
-    }
-
-}
-
-
-/* ------------------------------------CONTACT------------------------------------ */
-
-.contact-section-main-container{
-    margin-top: 80px;
-    background-image: url(/images/main/contact-background.jpg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-attachment: fixed;
-}
-
-.contact-section-container{
-    width: 50%;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid gray;
-    margin: 80px 0px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.contact-welcome-container{
-    height: 80px;
-}
-
-.contact-form-container{
-    margin-top: 30px;
-    text-align: left;
-    width: 60%;
-}
-
-.contact-inputs{
-    width: 90%;
-    margin-bottom: 30px;
-    border-radius: 10px;
-}
-
-.contact-textarea{
-    width: 90%;
-    margin-bottom: 30px;
-}
-
-
-.contact-icon{
-    padding-right: 10px;
-}
-
-.contact-button-send{
-    width: 40%;
-    height: 35px;
-    background-color: green;
-    color: white;
-    font-size: 16px;
-    position: relative;
-    bottom: 10px;
-}
-
-.contact-extra-container{
-    width: 40%;
-    margin-top: 30px;
-    padding-left: 40px;
-}
-
-.contact-extra-info{
-    font-weight: lighter;
-    margin-bottom: 30px;
-}
-
-@media (max-width:1444px){
-    .contact-section-container{
-        width: 70%
-    }
-}
-
-@media (max-width:1000px){
-   
-    .contact-section-container{
-        width: 80%;
-    }
-
-    .contact-inputs{
-        width:100%
-    }
-
-    .contact-textarea{
-        width:100%
-    }
-    .contact-form-container{
-        width:100%;
-        position: relative;
-        bottom: 200px;
-        padding: 0px 25px;
-    }
-    .contact-extra-container{
-        width: 90%;
-        position: relative;
-        top: 450px;
-    }
-}
-
-@media (max-width:600px){
-    .contact-section-container{
-        width: 100%;
-    }
-    .contact-button-send{
-        width: 60%;
-    }
-}
-
-/* ------------------------------------PROFILE------------------------------------ */
-
-.profile-main-container{
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/profile.jpg);
-}
-
-.profile-container{
-    width: 40%;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: white;
-    margin: 80px 0px;
-    border-radius: 15px;
-    border: 1px solid gray;
-    justify-content: center;
-}
-
-.profile.left.side{
-    width: 40%;  
-}
-
-.admin-access-button{
-    width: 100%;
-    height: 30px;
-    position: center;
-    left: 55px;
-    margin: 5px 0px 5px 0px;
-    background-color: black;
-    color: white
-}
-
-.admin-access-button:hover{
-    background-color: rgb(51, 48, 48);
-}
-
-.user-admin-profile{
-    background-color: blue;
-}
-
-.user-admin-profile:hover{
-    background-color: rgb(100, 100, 255);
-}
-
-.admin-edit-button:hover{
-    background-color: gray
-}
-
-.profile-avatar-container{
-    width: 40%;
-}
-
-.profile-page-avatar{
-    width:250px;
-    height:250px;
-    border-radius:150px;
-    margin-top: 30px;
-}
-
-.profile-avatar-text{
-    position: relative;
-    left: 100px;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-
-
-.profile-information{
-    width: 90%;
-    margin: 20px auto;
-    height: 80px;
-    position: relative;
-    left: 20px;
-}
-
-
-.profile-labels{
-    font-weight: bold;
-}
-
-.profile-inputs{
-    margin-top: 5px;
-    width: 240px;
-}
-
-.profile-edit-button{
-    width: 60%;
-    height: 30px;
-    position: relative;
-    left: 55px;
-    margin-bottom: 20px;
-    background-color:orange;
-    color: white
-}
-
-.profile-edit-button:hover{
-    background-color: gray
-}
-
-.profile-logout-button{
-    width: 60%;
-    height: 30px;
-    position: relative;
-    left: 55px;
-    margin-bottom: 20px;
-    background-color: red;
-    color: white
-}
-
-.profile-logout-button:hover{
-    background-color: black;
-}
-
-
-
-.profile-icons{
-    padding: 7px;
-}
-
-.profile-message-container{
-    width: 60%;
-    margin: 0px auto;
-    margin-bottom: 10px;
-}
-
-.profile-message{
-    font-size: 14px;
-    color: red;
-    font-weight: bold;
-}
-
-@media (max-width:1350px){
-    .profile-container{
-        width: 50%;
-    }
-}
-
-@media (max-width:1100px){
-    .profile-container{
-        width: 60%;
-    }
-}
-
-@media (max-width:900px){
-    .profile-avatar-container{
-        width: 100%;
-        text-align: center;
-    }
-
-    .profile-information-container{
-        width: 80%;
-        margin: 5px 20px;
-    }
-
-    .profile-information,.profile-message-container{
-        width: 100%;
-    }
-    
-
-    .profile-avatar-text{
-        left: 8px;   
-    }
-
-    .profile-inputs{
-        width: 90%;
-    }
-
-    .profile-edit-button,.profile-logout-button{
-        width: 80%;
-        left:30px ;
-    }
-    
-}
-
-@media (max-width:600px){
-    .profile-container{
-        width: 90%;
-    }
-
-    .profile-information-container{
-        width: 100%;
-    }
-}
-
-
-
-.profile-save-edit-button{
-    background-color: green;
-}
-
-.profile-save-edit-button:hover{
-    background-color: #00b347 
-}
-
-/* --------------ESTILOS DE VALIDACIONES DEL FRONT END-------------------------------- */
-
-/* Generales */
-
+/* -----------------15.1 generales----------------- */
 small{
     display: block;
 }
@@ -2535,7 +2730,6 @@ small{
     border: 2px solid red;
 }
 
-
 .front-error-active,.front-blank-error-active{
     display: block;
     text-align: center;
@@ -2545,7 +2739,11 @@ small{
     display: none;
 }
 
-/* login - register */
+.active{
+    display: block;
+}
+
+/* -----------------15.2 login/register----------------- */
 .front-login-register-error-style{
     color: red;
     font-size: 10px;
@@ -2553,7 +2751,7 @@ small{
     padding-top: 5px;
 }
 
-/* Profile */
+/* -----------------15.3 perfil de usuario----------------- */
 .front-profile-error-style{
     color: red;
     font-style: bold;
@@ -2563,7 +2761,7 @@ small{
     text-align: left;
 }
 
-
+/* -----------------15.4 productos/rutinas----------------- */
 .front-create-rutine-error-style{
     color: red;
     font-size: 10px;
@@ -2572,3 +2770,52 @@ small{
     margin-bottom: auto;
 }
 
+/* ---------------------------------------------------16.Estilos validacion Back-end--------------------------------------------------- */
+
+/* -----------------16.1 generales----------------- */
+.validation-errors-container{
+    padding: 10px 0px 0px 10px;
+    width: 100%;
+}
+
+.validation-error{
+    color: red;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 5px 0px;
+}
+
+/* -----------------16.2 productos/rutinas----------------- */
+.validation-error-product-title{
+    color: red;
+    font-size: 15px;
+    font-weight: 700;
+    position: relative;
+    bottom: 18px;
+    text-align: center;
+}
+
+.validation-error-product{
+    color: red;
+    font-size: 10px;
+    font-weight: 700;
+    
+}
+
+/* -----------------16.3 login/register----------------- */
+.validation-error-register{
+    color: red;
+    font-size: 10px;
+    font-weight: 700;
+    padding-top: 5px;
+    text-align: center;
+}
+
+/* -----------------16.4 perfil de usuario----------------- */
+
+.validation-error-profile{
+    color: red;
+    font-size: 9px;
+    font-weight: 700;
+    padding-top: 5px;
+}

@@ -134,8 +134,6 @@ form.addEventListener("submit",(e)=>{
                document.querySelector(`.login-password label`).classList.add("wrong-label")
                document.querySelector(".email-or-password-error").classList.add("front-error-active")
                document.querySelector(".email-or-password-error").classList.remove("front-error-inactive")
-
-               
            }
         })   
         .catch(error=>console.error(error))
