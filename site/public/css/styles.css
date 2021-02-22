@@ -15,13 +15,14 @@ Método de búsqueda: busque con control + f
     3.4 Footer segunda parte responsive
 
 4.Estilos Homepage
-    4.1 Slider
-    4.2 Slider navegación manual
-    4.3 Slider navegación automatica
-    4.4 Productos más vendidos
-    4.5 Productos más vendidos responsive
-    4.6 Rutinas más populares
-    4.7 Rutinas más populares responsive
+    4.1 texto bienvenida y boton de shop
+    4.2 Slider
+    4.3 Slider navegación manual
+    4.4 Slider navegación automatica
+    4.5 Productos más vendidos
+    4.6 Productos más vendidos responsive
+    4.7 Rutinas más populares
+    4.8 Rutinas más populares responsive
 
 5.Estilos Register
     5.1 Register responsive
@@ -457,10 +458,6 @@ header{
     align-items: center;
 }
 
-.footer-menu-icon-container, .footer-menu-icon{
-    display: none;
-}
-
 .footer-logo-container{
     height: 140px;
     width: 33%;
@@ -552,16 +549,6 @@ header{
 
 
 @media (max-width:830px){
-    .footer-menu-icon-container{
-        display: block;
-    }
-
-    .footer-menu-icon{
-        display: block;
-        color: white;
-        font-size: 30px;
-    }
-
     .footer-nav{
         display: none;
     }
@@ -578,7 +565,7 @@ header{
     }
 
     .energym-logo-footer{
-        width: 80%;
+        height: 80px;
         padding-left: 10px;
     }
 
@@ -593,36 +580,77 @@ header{
     }
 }
 
+@media (max-width:600px){
+    .energym-logo-footer{
+        padding-left: 40px;
+    }
+}
+
 @media (max-width:425px){
+    .energym-logo-footer{
+        height: 60px;
+        padding-left: 65px;
+    }
+
     .social-icons-container{
         position: relative;
-        left: -5px;
+        left: -8px;
         bottom: 5px;
     }
 
     .social-cta{
-        font-size: 10px;
-    }
-
-    .footer-menu-icon{
-        font-size: 20px;
-    }
-
-    .energym-logo-footer{
-        width: 155px;
+        font-size: 8px;
     }
 }
 
-@media (max-width:350px){
-    .energym-logo-footer{
-        width: 140px;
-    }
-}
 
 /* ---------------------------------------------------4.Estilos Homepage--------------------------------------------------- */
 
+/* -----------------4.1 texto bienvenida y boton de shop----------------- */
+.homepage-welcome-main-container{
+    position: absolute;
+    width: 100%;
+    color: white;
+    height: 645px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
 
-/* -----------------4.1 Slider----------------- */
+.homepage-welcome-container{
+    width: 100%;
+}
+
+.homepage-title{
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+}
+
+.homepage-btn-container{
+    text-align: center;
+    margin-top: 35px;
+}
+
+.homepage-btn{
+    height: 70px;
+    width: 150px;
+    color:white;
+    background: transparent;
+    border: 2px solid white;
+    font-size: 30px;
+}
+
+@media(max-width:800px){
+    .homepage-title{
+        font-size: 50px;;
+    }
+}
+
+
+/* -----------------4.2 Slider----------------- */
 
 .banner-container{
     width: 100%;
@@ -655,7 +683,7 @@ header{
     height: 645px;
   }
   
-  /* -----------------4.2 Slider navegación manual----------------- */
+  /* -----------------4.3 Slider navegación manual----------------- */
   
   .navigation-manual{
     position: absolute;
@@ -697,7 +725,7 @@ header{
     margin-left: -60%;
   }
   
-  /* -----------------4.3 Slider navegación automatica----------------- */
+  /* -----------------4.4 Slider navegación automatica----------------- */
   
   .navigation-auto{
     position: absolute;
@@ -735,7 +763,7 @@ header{
   }
 
 
- /* -----------------4.4 Productos más vendidos----------------- */
+ /* -----------------4.5 Productos más vendidos----------------- */
 
 .section-title{
     text-align: center;
@@ -816,7 +844,7 @@ header{
     padding-right: 10px;
 }
 
-/* -----------------4.5 Productos más vendidos responsive----------------- */
+/* -----------------4.6 Productos más vendidos responsive----------------- */
 
 @media(max-width:1400px){
     .home-product-cart{
@@ -851,7 +879,7 @@ header{
 }
 
 
-/* -----------------4.6 Rutinas más populares----------------- */
+/* -----------------4.7 Rutinas más populares----------------- */
 
 .rutinas{
     margin:50px 0px;
@@ -908,7 +936,7 @@ header{
 }
 
 
-/* -----------------4.7 Rutinas más populares responsive----------------- */
+/* -----------------4.8 Rutinas más populares responsive----------------- */
 
 @media (max-width:1000px){
     .rutina-articles{
