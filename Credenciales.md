@@ -1,13 +1,21 @@
 # Credenciales
+#####Todas las contraseñas son "12345"
+
 **Super Admin** 
-● Usuario: gonza@gonza.com
-● Password: 12345
+Usuarios:
+● gonza@gonza.com
+● joaco@joaco.com
+● pablo@pablo.com
+● agustin@agustin.com
+● damian@damian.co
+● santiago@santiago.com
 
 **Admin** 
-● Usuario: joaco@joaco.com
-● Password: 12345
+● pedro@pedro.com
+● jorge@jorge.com
+● federico@federico.com
 
 **User** 
-● Usuario: damian@damian.com
-● Password: 12345
-
+● juan@juan.com
+● lucas@lucas.com
+● guillermo@guillermo.com

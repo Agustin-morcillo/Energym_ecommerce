@@ -1,6 +1,6 @@
 /* Índice 
 
-Método de búsqueda: busque con control + f 
+Método de búsqueda: busque con control + f por índice y título, por ejemplo: "5.Estilos Register"
 
 1.Estilos Generales
 
@@ -140,6 +140,16 @@ body{
 
 .sections-welcome-description{
     font-size: 16px;
+}
+
+@media(max-width:600px){
+    .sections-welcome-titles{
+        font-size: 15px;
+    }
+
+    .sections-welcome-description{
+        font-size: 13px;
+    }
 }
 
 /* ---------------------------------------------------2.Estilos Navbar--------------------------------------------------- */
@@ -938,7 +948,7 @@ header{
 
 /* -----------------4.8 Rutinas más populares responsive----------------- */
 
-@media (max-width:1000px){
+@media (max-width:1100px){
     .rutina-articles{
         width: 50%;
     }
@@ -977,6 +987,7 @@ header{
     border-radius: 15px;
     border: 1px solid gray;
     margin: 80px 0px;
+    height: 670px;
 }
 
 .register-info-container{
@@ -1106,14 +1117,10 @@ header{
 
 /* -----------------5.1 Register responsive----------------- */
 
-@media (max-width:600px){
-    .registration-main-container{
-        background-size: 2000px;
-        background-repeat: no-repeat;
-    }
-
+@media (max-width:800px){
     .registration-form-container{
         width: 100%;
+        height: auto;
     }
 
     .register-info-container{
@@ -1283,15 +1290,19 @@ header{
 
 /* -----------------6.1 Login responsive----------------- */
 
-@media (max-width:700px){
+@media (max-width:1000px){
     .login-container{
-        width: 90%;
+        width: 80%;
     }
 }
 
-@media(max-width:400px){
+@media (max-width:800px){
     .login-container{
         width: 100%;
+    }
+
+    .all-login-inputs{
+        width: 90%;
     }
 }
 
@@ -1336,6 +1347,7 @@ header{
 
 .user-admin-profile{
     background-color: blue;
+    margin-bottom: 20px;
 }
 
 .user-admin-profile:hover{
@@ -1363,6 +1375,12 @@ header{
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 10px;
+}
+
+.profile-rol-container{
+    width: 250px;
+    text-align: center;
+    margin-bottom: 10px
 }
 
 .profile-information{
@@ -1449,6 +1467,10 @@ header{
 }
 
 @media (max-width:900px){
+    .profile-container{
+        width: 80%;
+    }
+
     .profile-avatar-container{
         width: 100%;
         text-align: center;
@@ -1477,9 +1499,12 @@ header{
     }
 }
 
-@media (max-width:600px){
+@media (max-width:800px){
     .profile-container{
-        width: 90%;
+        width: 100%;
+    }
+    .profile-labels{
+        display: block;
     }
 
     .profile-information-container{
@@ -1547,14 +1572,14 @@ header{
 .product-page-button{
     width: 80%;
     margin-bottom: 8px;
-    background-color: orange;
+    background: rgb(85, 85, 240);
     height: 30px;
     color: white;
     font-size: 17px;
 }
 
 .product-page-button:hover{
-    background-color: orangered;
+    background: rgb(12, 12, 243);
 }
 
 .product-page-price{
@@ -1644,6 +1669,7 @@ header{
     flex-wrap: wrap;
     border: 1px solid gray;
     margin: 80px 0px;
+    height: 547px;
 }
 
 .product-detail-img-container{
@@ -1651,25 +1677,27 @@ header{
     display: flex;
     justify-content: center;
     margin: 0px;
+    height: 487px;
+    align-items: center;
 }
 
 .product-detail-img{
-    width: 100%;
-    height: 610px;
+    height: 320px;
 }
 
 .rutine-detail-img{
-    height: 490px;
+    height: 493px;
+    width: 100%;
 }
 
 .product-name-and-price-container{
     width:50%;
     border-left: 1px solid lightslategray;
     padding: 15px;
+    height: 490px;
 }
 
 .product-name-container{
-    margin-top: 10px;
     width:100%;
 }
 
@@ -1687,20 +1715,21 @@ header{
 .product-detail-information{
     font-weight: 600;
     padding-top: 10px;
+    font-size: 16px;
 }
 
 .product-price-container{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .product-detail-price{
     font-weight: 400;
-    font-size: 42px;
+    font-size: 35px;
     color: green;
 }
 
 .product-extra-info-container{
-    margin: 30px 0px 0px;
+    margin-top: 15px;
 }
 
 .product-extra-info{
@@ -1708,7 +1737,7 @@ header{
 }
 
 .product-detail-icon{
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     padding-right: 10px;
     color: green
 }
@@ -1737,14 +1766,14 @@ header{
 .product-detail-button{
     height: 40px;
     width:50%;
-    background-color: orange;
+    background: rgb(85, 85, 240);
     color: white;
     font-size: 16px;
     margin-top: 20px;
 }
 
 .product-detail-button:hover{
-    background-color: orangered;
+    background: rgb(12, 12, 243);
 }
 
 .sumar-carrito{
@@ -1767,12 +1796,21 @@ header{
 } 
 
 @media (max-width:1080px){
+    .product-detail-container{
+        height: auto;
+    }
+
     .product-detail-img-container{
         width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .rutine-detail-img-container{
+        margin-top: 40px;
     }
 
     .product-detail-img{
-        width: 80%;
         height: 400px
     }
 
@@ -1781,6 +1819,7 @@ header{
         border: none;
         position: relative;
         bottom: 20px;
+        height: auto;
     }
 
     .product-detail-name{
@@ -1791,6 +1830,10 @@ header{
     .product-detail-description{
         font-size: 22px;
         margin-top: 20px;
+    }
+
+    .product-detail-information{
+        font-size: 22px;
     }
 
     .product-detail-price{
@@ -1822,13 +1865,13 @@ header{
     }
 }
 
-@media (max-width:600px){
+@media (max-width:700px){
     .product-detail-welcome-title{
         font-size: 25px;
     }
 
     .product-detail-img{
-        width: 100%;
+        height: 350px;
     }
 
     .product-detail-container{
@@ -1840,24 +1883,22 @@ header{
     }
 }
 
-@media (max-width:400px){
+@media (max-width:550px){
+    .product-detail-img{
+        height: 280px;
+    }
     .product-detail-button{
         width: 90%;
     }
 }
 
-/* ----------------------------------------[DETALLE PRODUCTO/RUTINA]---------------------------------------- */
-
-.rutine-detail-img-container{
-    position: relative;
-    bottom: 1px;
-}
-
-@media (max-width:1080px){
-    .rutine-detail-img-container{
-        margin-top: 40px;
+@media (max-width:430px){
+    .product-detail-img{
+        height: 200px;
     }
 }
+
+
 
 /* ---------------------------------------------------10.Estilos carrito--------------------------------------------------- */
 
@@ -2195,7 +2236,7 @@ header{
     }
 }
 
-@media (max-width:600px){
+@media (max-width:800px){
     .contact-section-container{
         width: 100%;
     }
@@ -2210,7 +2251,6 @@ header{
 
 .admin-menu-main-container{
     margin-top: 80px;
-    /* height: 750px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2286,7 +2326,7 @@ header{
 }
 
 .admin-product-img{
-    height: 63px;
+    height: 70px;
     border-radius: 10px;
     width: 70px;
 }
@@ -2339,7 +2379,7 @@ header{
 
 /* -----------------12.1 Admin responsive----------------- */
 
-@media (max-width:950px){
+@media (max-width:1000px){
     .admin-menu-container{
         width: 90%;
     }
@@ -2705,13 +2745,17 @@ header{
     }
 }
 
-@media(max-width:750px){
+@media(max-width:781px){
     .admin-users-main-container{
         width: 100%;
     }
 
     .admin-users-card-container{
         width: 100%;
+    }
+
+    .user-admin-roles-container{
+        justify-content: flex-start;
     }
 }
 
@@ -2727,6 +2771,15 @@ header{
     .roles-buttons-container{
         justify-content: flex-start;
         margin: 5px
+    }
+
+    .user-admin-roles-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .roles-description-container{
+        margin-bottom: 20px;
     }
 }
 
