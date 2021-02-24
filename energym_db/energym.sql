@@ -53,10 +53,11 @@ CREATE TABLE rutines (
 
 CREATE TABLE contact (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    subject VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    body TEXT NOT NULL,
+    is_registered TINYINT UNSIGNED NOT NULL,
     user_id INT UNSIGNED,
+    email VARCHAR(255) NOT NULL,
+    subject VARCHAR(255) NOT NULL,
+    body TEXT NOT NULL,
 
 	created_at DATETIME DEFAULT CURRENT_TIMESTAMP, -- Fecha de alta
     updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de modificación
@@ -170,3 +171,13 @@ INSERT INTO users values (default,"Federico","Valverde","federico@federico.com",
 INSERT INTO users values (default,"Juan","Cabrera","juan@juan.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953216285-user_image_4.jpg",10,default,default,default);
 INSERT INTO users values (default,"Lucas","Rojas","lucas@lucas.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953243512-user_image_5.jpg",10,default,default,default);
 INSERT INTO users values (default,"Guillermo","Sanchez","guillermo@guillermo.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","avatar_img2.jpeg",10,default,default,default);
+
+INSERT INTO contact values (default,1,1,"gonza@gonza.com","Feedback de la página","Chicos, la página esta muy buena.",default,default,default);
+INSERT INTO contact values (default,1,2,"joaco@joaco.com","Opinión sobre la página","Esta bien, aunque tiene cosas para mejorar.",default,default,default);
+INSERT INTO contact values (default,1,3,"pablo@pablo.com","Referencias","Hola chicos, les paso un link de donde pueden sacar buenas practicas para mejorar el código.",default,default,default);
+INSERT INTO contact values (default,1,4,"agustin@agustin.com","Test","Probando el formulario",default,default,default);
+INSERT INTO contact values (default,1,5,"damian@damian.com","Test","Probando el formulario",default,default,default);
+INSERT INTO contact values (default,1,6,"santiago@santiago.com","Test","Probando el formulario",default,default,default);
+INSERT INTO contact values (default,0,null,"valentin@valentin.com","No register","Hola, no estoy registrado pero me gusta la página",default,default,default);
+INSERT INTO contact values (default,0,null,"pilar@pilar.com","No register","Hola, no estoy registrado pero me gusta la página",default,default,default);
+INSERT INTO contact values (default,0,null,"juanpedro@juanpedro.com","No register","Hola, no estoy registrado pero me gusta la página",default,default,default);

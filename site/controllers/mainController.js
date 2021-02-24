@@ -1,25 +1,18 @@
-const fs = require('fs');
-const path = require('path');
-const db = require('../database/models');
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const contactFilePath = path.join(__dirname, '../data/contactDataBase.json');
-const allFunctions = require("../helpers/allFunctions")
-
+const {Product, Contact, Rutine} = require('../database/models');
+let {validationResult} = require ('express-validator');
 let pageTitle = "";
-
 
 const mainController ={
     homepage: async (req,res)=>{
         pageTitle = "Energym - Home"
 
-        let productsHome = await db.Product.findAll({
+        let productsHome = await Product.findAll({
             where:{
                 homepage:1
             }
         })
 
-        let rutinasHome = await db.Rutine.findAll({
+        let rutinasHome = await Rutine.findAll({
             where:{
                 homepage:1
             }
@@ -30,25 +23,40 @@ const mainController ={
         pageTitle = "Energym - Contacto"
         res.render("main/contact",{pageTitle})
     },
-    storageContactInfo: (req,res)=>{
+    storageContactInfo: async (req,res)=>{
         pageTitle = "Energym - Contacto";
-        const contactInfo = allFunctions.getContactInfo();
-        
-        const newContactInfo = {
-            id: allFunctions.generateNewIdContact(),
-            email: req.body.email,
-            subject: req.body.subject,
-            emailBody: req.body.emailBody
+        const errors = validationResult(req);
+
+        if(!errors.isEmpty()){
+            pageTitle = "Energym - Contacto";
+            return res.render("main/contact", {errors: errors.mapped(), pageTitle});
         }
-        allFunctions.writeContactInfo(newContactInfo)
         
-        res.redirect('/');
+        if(req.session.userLogged){
+            await Contact.create({
+                isRegistered: 1,
+                userId: req.session.userLogged.id,
+                email: req.body.email,
+                subject: req.body.subject,
+                body: req.body.emailBody,
+            })
+        } else{
+            await Contact.create({
+                isRegistered: 0,
+                subject: req.body.subject,
+                email: req.body.email,
+                subject: req.body.subject,
+                body: req.body.emailBody,
+            })
+        }
+        
+        return res.redirect('/');
     },
     adminPage: async (req,res)=>{
         pageTitle = "Energym - Admin";
-        const products = await db.Product.findAll()
+        const products = await Product.findAll()
 
-        let rutines = await db.Rutine.findAll()
+        let rutines = await Rutine.findAll()
         res.render("main/admin", {products: products,rutines, pageTitle})
     }
 }

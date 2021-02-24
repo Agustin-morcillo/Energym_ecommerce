@@ -59,12 +59,14 @@ Método de búsqueda: busque con control + f por índice y título, por ejemplo:
     15.2 login/register
     15.3 perfil de usuario
     15.4 productos/rutinas
+    15.5 pagina de contacto
 
 16.Estilos validacion Back-end
     16.1 generales
     16.2 productos/rutinas
     16.3 login/register
     16.4 perfil de usuario
+    16.5 pagina de contacto
 */
 
 
@@ -2165,19 +2167,34 @@ header{
     width: 60%;
 }
 
-.contact-inputs{
+.contact-input-container{
+    width: 90%;
+    margin-bottom: 22px;
+    height: 50px;
+}
+
+.contact-textarea-container{
     width: 90%;
     margin-bottom: 30px;
+    height: 210px;
+}
+
+.contact-inputs{
+    width: 100%;
     border-radius: 10px;
 }
 
 .contact-textarea{
-    width: 90%;
-    margin-bottom: 30px;
+    width: 100%;
+    margin: 0px;
 }
 
 .contact-icon{
     padding-right: 10px;
+}
+
+.contact-button-container{
+    margin-bottom: 10px;
 }
 
 .contact-button-send{
@@ -2186,8 +2203,6 @@ header{
     background-color: green;
     color: white;
     font-size: 16px;
-    position: relative;
-    bottom: 10px;
 }
 
 .contact-extra-container{
@@ -2237,6 +2252,14 @@ header{
 }
 
 @media (max-width:800px){
+    .contact-input-container{
+        width: 100%
+    }
+    
+    .contact-textarea-container{
+        width: 100%;
+    }
+
     .contact-section-container{
         width: 100%;
     }
@@ -2310,7 +2333,7 @@ header{
     border-radius: 10px;
     width: 90%;
     background-color: #f4f4f4;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .product-image-and-name-container{
@@ -2326,9 +2349,8 @@ header{
 }
 
 .admin-product-img{
-    height: 70px;
+    height: 60px;
     border-radius: 10px;
-    width: 70px;
 }
 
 .admin-product-name-container{
@@ -2598,7 +2620,7 @@ header{
     border-radius: 10px;
     width: 90%;
     background-color: #f4f4f4;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .users-image-and-name-container{
@@ -2851,6 +2873,27 @@ small{
     margin-bottom: auto;
 }
 
+/* -----------------15.5 pagina de contacto----------------- */
+.front-contact-error-style{
+    color: red;
+    font-size: 10px;
+    font-weight: 700;
+    padding-top: 5px;
+}
+
+.front-contact-textarea-error-style{
+    color: red;
+    font-size: 10px;
+    font-weight: 700;
+    padding-top: 5px;
+    position: relative;
+    top: -5px
+}
+
+
+
+
+
 /* ---------------------------------------------------16.Estilos validacion Back-end--------------------------------------------------- */
 
 /* -----------------16.1 generales----------------- */
@@ -2899,4 +2942,13 @@ small{
     font-size: 9px;
     font-weight: 700;
     padding-top: 5px;
+}
+
+/* -----------------16.5 pagina de contacto----------------- */
+.validation-error-contact{
+    color: red;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 5px;
+    padding-left: 5px;
 }

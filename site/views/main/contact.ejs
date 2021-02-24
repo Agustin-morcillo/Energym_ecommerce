@@ -25,16 +25,34 @@
 
                         <div class="contact-form-container">
                             <form action="/contact" method="POST">
-                                <input type="email" class="inputs-fields contact-inputs" name="email" id="" placeholder="Correo electrónico" required>
+                                <div class="contact-input-container contact-email-container">
+                                    <input type="text" class="inputs-fields contact-inputs" name="email" id="" placeholder="Correo electrónico">
+                                    <p class="front-error-inactive contact-format-error front-contact-error-style">El email debe estar en un formato válido</p>
+                                    <small class="front-blank-error-inactive front-contact-error-style">Este campo no puede quedar vacío</small>
+                                    <p class="validation-error-contact">
+                                    <%= typeof errors == "undefined" ? "" : typeof errors.email != "undefined" ? errors.email.msg : "" %>
+                                    </p>
+                                </div>
+                                
+                                <div class="contact-input-container contact-subject-container">
+                                    <input type="text" class="inputs-fields contact-inputs" name="subject" id="" placeholder="Asunto">
+                                    <small class="front-blank-error-inactive front-contact-error-style">Este campo no puede quedar vacío</small>
+                                    <p class="validation-error-contact">
+                                        <%= typeof errors == "undefined" ? "" : typeof errors.subject != "undefined" ? errors.subject.msg : "" %>
+                                    </p>
+                                </div>
 
-                                <input type="text" class="inputs-fields contact-inputs" name="subject" id="" placeholder="Asunto" required>
-
-                                <textarea name="emailBody" id="" cols="30" rows="10" placeholder="Texto" class="contact-textarea textarea-styles" required></textarea>
+                                <div class="contact-textarea-container contact-emailBody-container">
+                                    <textarea name="emailBody" id="" cols="30" rows="10" placeholder="Texto" class="contact-textarea textarea-styles contact-inputs"></textarea>
+                                    <small class="front-blank-error-inactive front-contact-textarea-error-style">Este campo no puede quedar vacío</small>
+                                    <p class="validation-error-contact">
+                                        <%= typeof errors == "undefined" ? "" : typeof errors.emailBody != "undefined" ? errors.emailBody.msg : "" %>
+                                    </p>
+                                </div>
 
                                 <div class="contact-button-container">
                                     <button type="submit" class="buttons-style contact-button-send">Enviar</button>
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -45,6 +63,6 @@
 
 
     <%- include("../partials/footer") %> 
-    
+    <script src="/javascripts/validatorContact.js" type="text/javascript"></script>
 </body>
 </html>

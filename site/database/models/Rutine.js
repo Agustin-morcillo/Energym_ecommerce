@@ -55,5 +55,16 @@ module.exports = (sequelize, dataTypes)=> {
     };
 
     const Rutine = sequelize.define(alias, cols, config);
+
+    Rutine.associate = function(models){
+        Rutine.belongsToMany(models.User,
+            {
+              as: 'users',
+              through: "user-Product",
+              foreignKey: "rutine_id",
+              otherKey: "user_id"
+            }
+          );
+    }
     return Rutine;
 }
