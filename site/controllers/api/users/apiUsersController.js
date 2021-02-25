@@ -1,10 +1,18 @@
 const {User} = require("../../../database/models")
 const bcrypt = require("bcryptjs")
+const { paginationFunction } = require("../../../helpers/pagination.js");
 
 const apiUsersController={
     list: async (req,res)=>{
         try {
+            //paginacion
+            const counter = await User.findAll();
+            const pagination = paginationFunction(req.baseUrl, counter, req.query.limit, req.query.page)
+            // 
+
             const users =  await User.findAll({
+                offset: pagination.offset, //paginacion
+                limit: pagination.limit, //paginacion
                 attributes: ["id", "name", "lastname", "email"]
             })
             
@@ -19,10 +27,7 @@ const apiUsersController={
             })
             
             return res.json({
-                meta: {
-                    status:"Success",
-                    count: users.length
-                },
+                meta:pagination.meta, //paginacion
                 data:usersFullInfo,
             })
         
