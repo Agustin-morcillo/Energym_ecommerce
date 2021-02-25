@@ -48,7 +48,7 @@ module.exports = (sequelize, dataTypes)=> {
         Contact.belongsTo(models.User,
             {
               as: 'users',
-              foreignKey: 'userId'
+              foreignKey: 'user_id'
             }
           );
     }

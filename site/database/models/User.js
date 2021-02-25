@@ -57,25 +57,37 @@ module.exports = (sequelize, dataTypes)=> {
               foreignKey: "user_id",
               otherKey: "product_id"
             }
-          );
+        );
 
-          User.belongsToMany(models.Rutine,
+        User.belongsToMany(models.Rutine,
             {
               as: 'rutines',
               through: "user-rutine",
               foreignKey: "user_id",
               otherKey: "rutine_id"
             }
-          );
+        );
 
-          User.associate = function(models){
-            User.hasMany(models.Contact,
+        User.hasMany(models.Contact,
                 {
                   as: 'contact',
-                  foreignKey: 'userId'
+                  foreignKey: 'user_id'
                 }
-              );
-        }
+        );
+
+        User.hasMany(models.Item,
+            {
+              as: 'items',
+              foreignKey: 'user_id'
+            }
+        );
+
+        User.hasMany(models.Order,
+            {
+              as: 'orders',
+              foreignKey: 'user_id'
+            }
+        );
     }
     return User;
 }
