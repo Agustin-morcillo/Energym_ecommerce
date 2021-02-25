@@ -51,7 +51,7 @@ const apiUsersController={
             })
             }
 
-            const usersFullInfo = {
+            const usersFullInfo = { 
                 id:user.id,
                 name: user.name,
                 lastname: user.lastname,

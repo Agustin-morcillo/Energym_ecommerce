@@ -53,13 +53,12 @@ const apiRutinesController = {
                 introduction: rutine.introduction,
                 price: rutine.price,
                 duration: rutine.duration_weeks,
-                image: `../../../public/images/rutines/${rutine.image}`,
+                image: `http://localhost:3000/images/rutines/${rutine.image}`,
                 url: `http://localhost:3000${req.originalUrl}`
             }
             let respuestaDetail = {
                 meta:{
                     status: 200,
-                    count: rutine.length
                 },
                 data: rutineObj
             };

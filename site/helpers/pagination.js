@@ -9,10 +9,10 @@ const pagination = {
         }    
         let meta = {
             status: 200,
+            count: counter.length,
             page: parseInt(page, 10),
             limit: limit,
             totalPages: Math.ceil(counter.length / limit),
-            totalCount: counter.length,
             previous: `http://localhost:3000${modelName}?page=${(parseInt(page, 10) - 1)}&limit=${limit}`,
             next: `http://localhost:3000${modelName}?page=${(parseInt(page, 10) + 1)}&limit=${limit}`
         };
