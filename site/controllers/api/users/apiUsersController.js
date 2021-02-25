@@ -84,9 +84,6 @@ const apiUsersController={
             res.json({
                 meta: {
                     status: "sucess",
-                },
-                data:{
-                    user
                 }
             })
             return

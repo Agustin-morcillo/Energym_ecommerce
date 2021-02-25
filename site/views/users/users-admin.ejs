@@ -16,14 +16,13 @@
                 <div class="user-admin-instructions">
                     <h2 class="admin-important-data">Leer antes de modificar los accesos</h2>
                     <p>- Los roles actuales de los usuarios se muestran debajo de sus nombres.</p>
-                    <p>- Si modifica el usuario con el que esta logeado, debe cerrar sesión y reingresar para ver afectados los cambios.</p>
+                    <p>- Por motivos de seguridad no puedes modificar tus propios accesos.</p>
                     <p>- Al precionar los botones los usuarios adquirirán el rol seleccionado, <b>por ejemplo:</b></p>
                     <ul>
                         <li>En un <span class="super-admin"><b>Super Admin</b></span>: si se aprieta el <span class="admin">boton azul (Admin)</span> su rol pasara a ser Admin y si se apreta el <span class="user"><b>boton gris (User)</b></span> su rol pasara a ser de User.</li>
                         <li>En un <span class="admin"><b>Admin</b></span>: si se aprieta el <span class="super-admin">boton verde (Super Admin)</span> su rol pasara a ser de Super Admin y si se apreta el <span class="user"><b>boton gris (User)</b></span> su rol pasara a ser de User.</li>
                         <li>En un <span class="user"><b>User</b></span>: si se aprieta el <span class="super-admin">boton verde (Super Admin)</span> su rol pasara a ser de Super Admin y si se apreta el <span class="admin">boton azul (Admin)</span> su rol pasara a ser Admin.</li>
                     </ul>
-                   
                 </div>
                 
                 <div class="user-admin-roles-container">
@@ -32,14 +31,14 @@
                         <ul>
                             <li>Edita roles.</li>
                             <li>Elimina usuarios.</li>
-                            <li>Agrega y edita productos y rutinas.</li>
+                            <li>Agrega, edita y elimina productos y rutinas.</li>
                         </ul>
                     </div>
                     
                     <div class="roles-description-container">
                         <p class="admin-description">Admin <i class="fas fa-clipboard-list"></i> </p>
                         <ul>
-                            <li>Agrega y edita productos y rutinas.</li>
+                            <li>Agrega, edita y elimina productos y rutinas.</li>
                         </ul>
                     </div>
 
@@ -50,83 +49,106 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="current-user">
+                    <div class="admin-users-section-title-container">
+                        <h2 class="admin-section-title">Usuario actual</h2>
+                    </div>
+
+                    <article>
+                        <div class="admin-users-card-container">
+                            <div class="users-image-and-name-container">
+                                
+                                <div class="admin-users-image-container">
+                                    <img src="/images/users/<%=userLog.avatar%>" class="header-avatar">
+                                </div>
+                                
+                                <div class="admin-users-name-container">
+                                    <h2 class="admin-users-name"> <%=userLog.name + " " + userLog.lastname%>
+                                        <p class="user-role super-admin"><%="(Super Admin)"%> <i class="fas fa-crown"></i></p>
+                                    </h2>
+                                </div>
+                            </div>     
+                        </div>
+                    </article>
+                </div>
                
                 <section>
                     <div class="admin-products-main-container">
                         <div class="admin-product-container">
                             <div class="admin-section-title-and-add-button">
-                                    <div class="admin-users-section-title-container">
-                                        <h2 class="admin-section-title">Usuarios</h2>
-                                        <p>Lista de usuarios existentes y sus roles</p>
-                                    </div>
+                                <div class="admin-users-section-title-container">
+                                    <h2 class="admin-section-title">Usuarios</h2>
+                                    <p>Lista de usuarios existentes y sus roles</p>
+                                </div>
                             </div>
 
                                 <article>
                                     <% for(let user of allUsers){ %> 
-                                    <div class="admin-users-card-container">
-                                        <div class="users-image-and-name-container">
-                                            <div class="admin-users-image-container">
-                                                    <img src="/images/users/<%=user.avatar%>" class="header-avatar">
-                                            </div>
-                                            <div class="admin-users-name-container">
+                                        <% if(user.id == userLog.id) {%>
+                                            <%continue%> 
+                                        <%  } %> 
+                                        <div class="admin-users-card-container">
+                                            <div class="users-image-and-name-container">
+                                                <div class="admin-users-image-container">
+                                                        <img src="/images/users/<%=user.avatar%>" class="header-avatar">
+                                                </div>
+                                                <div class="admin-users-name-container">
                                                     <h2 class="admin-users-name"> <%=user.name + " " + user.lastname%>
-                                                         <%if(user.rol==10) { %> 
+                                                        <%if(user.rol==10) { %> 
                                                             <p class="user-role user"><%="(User)"%> <i class="fas fa-user"></i></p>
-                    
-                                                            <%  } else if (user.rol==20){%>
-                                                                <p class="user-role admin"><%="(Admin)"%> <i class="fas fa-clipboard-list"></i></p>
+                                                        <%  } else if (user.rol==20){%>
+                                                            <p class="user-role admin"><%="(Admin)"%> <i class="fas fa-clipboard-list"></i></p>
+                                                        <%  } else {%>
+                                                            <p class="user-role super-admin"><%="(Super Admin)"%> <i class="fas fa-crown"></i></p>
+                                                        <%  } %> 
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                            <div class="roles-buttons-container">
+                                                
+                                                <%if(user.rol==10) { %> 
+                                                    <form method="post" action="/users/superAdmin/<%=user.id%>?_method=PUT">
+                                                        <button type="submit" class="admin-users-button buttons-style super-admin-button"><i class="fas fa-crown admin-users-icons"></i>Super Admin</button>
+                                                    </form>
+                                                    <form method="post" action="/users/admin/<%=user.id%>?_method=PUT">
+                                                        <button type="submit" class="admin-users-button buttons-style admin-button"><i class="fas fa-clipboard-list admin-users-icons"></i>Admin</button>
+                                                    </form>
+                                                    <form method="post" action="/users/user/<%=user.id%>?_method=DELETE">
+                                                        <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
+                                                    </form>
+                                                <%  } %> 
 
-                                                            <%  } else {%>
-                                                                <p class="user-role super-admin"><%="(Super Admin)"%> <i class="fas fa-crown"></i></p>
-                                                                <%  } %> 
-                                                        </h2>
+                                                <%if(user.rol==20) { %> 
+                                                    <form method="post" action="/users/superAdmin/<%=user.id%>?_method=PUT">
+                                                        <button type="submit" class="admin-users-button buttons-style super-admin-button"><i class="fas fa-crown admin-users-icons"></i>Super Admin</button>
+                                                    </form>
+                                                    <form method="post" action="/users/user/<%=user.id%>?_method=PUT">
+                                                        <button type="submit" class="admin-users-button buttons-style user-button"><i class="fas fa-user admin-users-icons"></i>User</button>
+                                                    </form>
+                                                    <form method="post" action="/users/user/<%=user.id%>?_method=DELETE">
+                                                        <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
+                                                    </form>
+                                                <%  } %> 
+
+                                                <%if(user.rol==30) { %> 
+                                                    <form method="post" action="admin/<%=user.id%>?_method=PUT">
+                                                        <button type="submit" class="admin-users-button buttons-style admin-button"><i class="fas fa-clipboard-list admin-users-icons"></i>Admin</button>
+                                                    </form>
+                                                    <form method="post" action="/users/user/<%=user.id%>?_method=PUT">
+                                                        <button type="submit" class="admin-users-button buttons-style user-button"><i class="fas fa-user admin-users-icons"></i>User</button>
+                                                    </form>
+                                                    <form method="post" action="/users/user/<%=user.id%>?_method=DELETE">
+                                                        <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
+                                                    </form>
+                                                <%  } %> 
                                             </div>
                                         </div>
-                                        <div class="roles-buttons-container">
-                                            
-                                            <%if(user.rol==10) { %> 
-                                                <form method="post" action="/users/superAdmin/<%=user.id%>?_method=PUT">
-                                                    <button type="submit" class="admin-users-button buttons-style super-admin-button"><i class="fas fa-crown admin-users-icons"></i>Super Admin</button>
-                                                </form>
-                                                <form method="post" action="/users/admin/<%=user.id%>?_method=PUT">
-                                                    <button type="submit" class="admin-users-button buttons-style admin-button"><i class="fas fa-clipboard-list admin-users-icons"></i>Admin</button>
-                                                </form>
-                                                <form method="post" action="/users/user/<%=user.id%>?_method=DELETE">
-                                                    <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
-                                                </form>
-                                            <%  } %> 
-
-                                            <%if(user.rol==20) { %> 
-                                                <form method="post" action="/users/superAdmin/<%=user.id%>?_method=PUT">
-                                                    <button type="submit" class="admin-users-button buttons-style super-admin-button"><i class="fas fa-crown admin-users-icons"></i>Super Admin</button>
-                                                </form>
-                                                <form method="post" action="/users/user/<%=user.id%>?_method=PUT">
-                                                    <button type="submit" class="admin-users-button buttons-style user-button"><i class="fas fa-user admin-users-icons"></i>User</button>
-                                                </form>
-                                                <form method="post" action="/users/user/<%=user.id%>?_method=DELETE">
-                                                    <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
-                                                </form>
-                                            <%  } %> 
-
-                                            <%if(user.rol==30) { %> 
-                                                <form method="post" action="admin/<%=user.id%>?_method=PUT">
-                                                    <button type="submit" class="admin-users-button buttons-style admin-button"><i class="fas fa-clipboard-list admin-users-icons"></i>Admin</button>
-                                                </form>
-                                                <form method="post" action="/users/user/<%=user.id%>?_method=PUT">
-                                                    <button type="submit" class="admin-users-button buttons-style user-button"><i class="fas fa-user admin-users-icons"></i>User</button>
-                                                </form>
-                                                <form method="post" action="/users/user/<%=user.id%>?_method=DELETE">
-                                                    <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
-                                                </form>
-                                            <%  } %> 
-                                        </div>
-                                    </div>
                                     <%  } %> 
                                 </article>
                         </div>
                     </div>
                 </section>
-        
             </div>
         </div>
     </main>

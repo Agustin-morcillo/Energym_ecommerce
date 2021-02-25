@@ -48,5 +48,46 @@ module.exports = (sequelize, dataTypes)=> {
     };
 
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models){
+        User.belongsToMany(models.Product,
+            {
+              as: 'products',
+              through: "user-product",
+              foreignKey: "user_id",
+              otherKey: "product_id"
+            }
+        );
+
+        User.belongsToMany(models.Rutine,
+            {
+              as: 'rutines',
+              through: "user-rutine",
+              foreignKey: "user_id",
+              otherKey: "rutine_id"
+            }
+        );
+
+        User.hasMany(models.Contact,
+                {
+                  as: 'contact',
+                  foreignKey: 'user_id'
+                }
+        );
+
+        User.hasMany(models.Item,
+            {
+              as: 'items',
+              foreignKey: 'user_id'
+            }
+        );
+
+        User.hasMany(models.Order,
+            {
+              as: 'orders',
+              foreignKey: 'user_id'
+            }
+        );
+    }
     return User;
 }

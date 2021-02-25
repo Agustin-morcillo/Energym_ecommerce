@@ -17,6 +17,13 @@
                             <div class="profile-avatar-container">
                                 <img src="/images/users/<%=userLog.avatar%>" alt="" class="profile-page-avatar">
                                 <p class="profile-avatar-text profile-labels">Avatar</p>
+                                <div class="profile-rol-container">
+                                    <%if(userLog.rol == 20) { %>
+                                        <h2 class="admin-users-name admin"><%="(Admin)"%> <i class="fas fa-clipboard-list"></i></h2>
+                                    <% } else if(userLog.rol == 30) {%>
+                                        <h2 class="admin-users-name super-admin"><%="(Super Admin)"%> <i class="fas fa-crown"></i></h2>
+                                    <% }  %>
+                                </div>
                             </div>
                             <%if(userLog.rol > 10) { %>
                             <div class="admin-button-container">

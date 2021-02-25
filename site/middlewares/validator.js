@@ -340,6 +340,20 @@ const validator = {
                 return true;
             })
             .withMessage ("Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'")
+    ],
+    contact: [
+        body("email")
+            .notEmpty()
+            .withMessage("Debes ingresar un email.")
+            .bail()
+            .isEmail()
+            .withMessage("El email ingresado no tiene un formato válido."),
+        body("subject")
+            .notEmpty()
+            .withMessage("Debes ingresar un asunto."),
+        body("emailBody")
+            .notEmpty()
+            .withMessage("Debes completar el cuerpo."),
     ]
 }
 

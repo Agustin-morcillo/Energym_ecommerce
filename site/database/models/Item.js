@@ -1,7 +1,7 @@
 const config = require("../config/config")
 
 module.exports = (sequelize, dataTypes)=> {
-    const alias = "Rutine";
+    const alias = "Item";
     const cols = {
         id: {
             autoIncrement: true,
@@ -15,29 +15,27 @@ module.exports = (sequelize, dataTypes)=> {
         price: {
             type: dataTypes.DECIMAL
         },
-        introduction: {
-            allowNull: false,
-            type: dataTypes.STRING
-        },
-        description: {
-            allowNull: false,
-            type: dataTypes.TEXT
-        },
-        duration_weeks: {
+        quantity: {
             allowNull: false,
             type: dataTypes.INTEGER
-        },
-        category: {
-            allowNull: false,
-            type: dataTypes.STRING
-        },
-        homepage: {
-            allowNull: false,
-            type: dataTypes.BOOLEAN
         },
         image: {
             allowNull: false,
             type: dataTypes.STRING
+        },
+        total: {
+            allowNull: false,
+            type: dataTypes.INTEGER
+        },
+        userId: {
+            allowNull: false,
+            type: dataTypes.INTEGER,
+            references: {model: "User", key: "id"}
+        },
+        orderId: {
+            allowNull: false,
+            type: dataTypes.INTEGER,
+            references: {model: "Order", key: "id"}
         },
         createdAt: {
             type: dataTypes.DATE
@@ -51,20 +49,23 @@ module.exports = (sequelize, dataTypes)=> {
     };
 
     const config = {
-        tableName: "rutines",
+        tableName: "items",
     };
 
-    const Rutine = sequelize.define(alias, cols, config);
+    const Item = sequelize.define(alias, cols, config);
 
-    Rutine.associate = function(models){
-        Rutine.belongsToMany(models.User,
-            {
-              as: 'users',
-              through: "user-Product",
-              foreignKey: "rutine_id",
-              otherKey: "user_id"
-            }
-          );
+    Item.associate = function(models){
+       Item.belongsTo(models.User,{
+           as: "user",
+           foreignKey: 'user_id'
+       })
     }
-    return Rutine;
+
+    Item.associate = function(models){
+        Item.belongsTo(models.Order,{
+            as: "order",
+            foreignKey: 'order_id'
+        })
+     }
+    return Item;
 }
