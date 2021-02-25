@@ -22,9 +22,11 @@ const apiProductsController = {
                 return { 
                     id: product.id,
                     name: product.name,
+                    introduction: product.introduction,
                     description: product.description,
+                    price: product.price,
                     category: [product.category],
-                    url: `http://localhost:3000${req.baseUrl}${req.path}${product.id}`
+                    detail: `http://localhost:3000${req.baseUrl}${req.path}${product.id}`
                 }
             });
 
@@ -67,13 +69,15 @@ const apiProductsController = {
             let productObj = { 
                 id: product.id,
                 name: product.name,
-                description: product.description,
                 introduction: product.introduction,
+                description: product.description,
                 price: product.price,
+                category: [product.category],
                 weight: product.weight,
                 size: product.size,
                 material: product.material,
-                image: `../../../public/images/products/${product.image}`,
+                homepage: product.homepage,
+                image: `http://localhost:3000/images/products/${product.image}`,
                 url: `http://localhost:3000${req.originalUrl}`
             }
             let respuestaDetail = {
