@@ -1,24 +1,23 @@
 const { Rutine } = require("../../../database/models");
 const { detail } = require("../../productController");
+const { paginationFunction } = require("../../../helpers/pagination.js");
 
 const apiRutinesController = {
     rutineList: async (req,res)=>{
-        try {        
+        try {    
             //Configuracion variables paginacion
-            let rutinesCount = await Rutine.findAll();
-            let { page, limit } = req.query;        
-
-            limit = parseInt(limit && limit > 0 && limit <= rutinesCount.length ? limit : "8", 10);
-            let offset = parseInt(((page ? page : page = 1) - 1) * limit, 10);
-            if(page <= 0 || page > Math.ceil(rutinesCount.length / limit) ){
-                return res.json({ TypeOfError: "Pagination", ErrorMessage: "La pagina requerida no existe" });
-            }
-        
+            const counter = await Rutine.findAll();
+            const pagination = paginationFunction(req.baseUrl, counter, req.query.limit, req.query.page); 
+            //
+            
             //Pedido asincronico base de datos rutinas
-            let rutines = await Rutine.findAll({ offset: offset, limit: limit });
+            let rutines = await Rutine.findAndCountAll({ 
+                offset: pagination.offset, 
+                limit: pagination.limit
+            });
 
             //Constructor objeto/propiedad data
-            let rutineObj = rutines.map((rutine)=>{
+            let rutineObj = rutines.rows.map((rutine)=>{
                 return { 
                     id: rutine.id,
                     name: rutine.name,
@@ -27,31 +26,13 @@ const apiRutinesController = {
                     url: `http://localhost:3000${req.baseUrl}${req.path}${rutine.id}`
                 }
             });
+            console.log(req.baseUrl)
 
             //Constructor objeto respuesta List
             let respuestaListObj =  {
-                meta:{
-                    status: 200,
-                    count: rutines.length,
-                    page: parseInt(page, 10),
-                    limit: limit,
-                    totalPages: Math.ceil(rutinesCount.length / limit),
-                    totalRutines: rutinesCount.length,
-                    previous: `http://localhost:3000/api/rutines?page=${(parseInt(page, 10) - 1)}&limit=${limit}`,
-                    next: `http://localhost:3000/api/rutines?page=${(parseInt(page, 10) + 1)}&limit=${limit}`
-                },
-                data: rutineObj
+                meta:pagination.meta, //paginacion
+                data:rutineObj
             };
-
-            //Validacion de visualizacion de propiedades previous/next segun page
-            if(page == Math.ceil(rutinesCount.length / limit)){
-                delete respuestaListObj.meta.next;
-            }
-
-            if(page == 1){
-                delete respuestaListObj.meta.previous;
-            }
-        
             return res.json(respuestaListObj);
         } catch(error) {
             return res.json({ TypeOfError: "Catch Rutine List Promise Error", ErrorMessage: error })
@@ -68,6 +49,7 @@ const apiRutinesController = {
                 id: rutine.id,
                 name: rutine.name,
                 description: rutine.description,
+                category: [rutine.category],
                 introduction: rutine.introduction,
                 price: rutine.price,
                 duration: rutine.duration_weeks,
