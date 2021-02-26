@@ -1,5 +1,4 @@
 const { Rutine } = require("../../../database/models");
-const { detail } = require("../../productController");
 const { paginationFunction } = require("../../../helpers/pagination.js");
 
 const apiRutinesController = {
@@ -12,8 +11,8 @@ const apiRutinesController = {
             
             //Pedido asincronico base de datos rutinas
             let rutines = await Rutine.findAndCountAll({ 
-                offset: pagination.offset, 
-                limit: pagination.limit
+                offset: pagination.offset, //paginacion 
+                limit: pagination.limit //paginacion
             });
 
             //Constructor objeto/propiedad data
@@ -23,10 +22,11 @@ const apiRutinesController = {
                     name: rutine.name,
                     description: rutine.description,
                     category: [rutine.category],
-                    url: `http://localhost:3000${req.baseUrl}${req.path}${rutine.id}`
+                    url: `http://localhost:3000${req.baseUrl}${req.path}${rutine.id}`,
+                    createdAt: rutine.createdAt,
+                    updatedAt: rutine.updatedAt
                 }
             });
-            console.log(req.baseUrl)
 
             //Constructor objeto respuesta List
             let respuestaListObj =  {
@@ -54,7 +54,9 @@ const apiRutinesController = {
                 price: rutine.price,
                 duration: rutine.duration_weeks,
                 image: `http://localhost:3000/images/rutines/${rutine.image}`,
-                url: `http://localhost:3000${req.originalUrl}`
+                url: `http://localhost:3000${req.originalUrl}`,
+                createdAt: rutine.createdAt,
+                updatedAt: rutine.updatedAt
             }
             let respuestaDetail = {
                 meta:{

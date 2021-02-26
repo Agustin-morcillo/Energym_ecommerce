@@ -1,21 +1,16 @@
 const { Product } = require("../../../database/models");
-const { detail } = require("../../productController");
+const { paginationFunction } = require("../../../helpers/pagination.js");
 
 const apiProductsController = {
     productList: async (req,res)=>{
         try {        
             //Configuracion variables paginacion
-            let productsCount = await Product.findAll();
-            let { page, limit } = req.query;        
+            const counter = await Product.findAll();
+            const pagination = paginationFunction(req.baseUrl, counter, req.query.limit, req.query.page); 
+            //
 
-            limit = parseInt(limit && limit > 0 && limit <= productsCount.length ? limit : "8", 10);
-            let offset = parseInt(((page ? page : page = 1) - 1) * limit, 10);
-            if(page <= 0 || page > Math.ceil(productsCount.length / limit) ){
-                return res.json({ TypeOfError: "Pagination", ErrorMessage: "La pagina requerida no existe" });
-            }
-        
             //Pedido asincronico base de datos productos
-            let products = await Product.findAll({ offset: offset, limit: limit });
+            let products = await Product.findAll({ offset: pagination.offset, limit: pagination.limit  }); //paginacion
 
             //Constructor objeto/propiedad data
             let productObj = products.map((product)=>{
@@ -26,34 +21,18 @@ const apiProductsController = {
                     description: product.description,
                     price: product.price,
                     category: [product.category],
-                    detail: `http://localhost:3000${req.baseUrl}${req.path}${product.id}`
+                    detail: `http://localhost:3000${req.baseUrl}${req.path}${product.id}`,
+                    createdAt: product.createdAt,
+                    updatedAt: product.updatedAt
                 }
             });
 
             //Constructor objeto respuesta List
             let respuestaListObj =  {
-                meta:{
-                    status: 200,
-                    count: products.length,
-                    page: parseInt(page, 10),
-                    limit: limit,
-                    totalPages: Math.ceil(productsCount.length / limit),
-                    totalProduts: productsCount.length,
-                    previous: `http://localhost:3000/api/products?page=${(parseInt(page, 10) - 1)}&limit=${limit}`,
-                    next: `http://localhost:3000/api/products?page=${(parseInt(page, 10) + 1)}&limit=${limit}`
-                },
+                meta: pagination.meta, //paginacion
                 data: productObj
             };
 
-            //Validacion de visualizacion de propiedades previous/next segun page
-            if(page == Math.ceil(productsCount.length / limit)){
-                delete respuestaListObj.meta.next;
-            }
-
-            if(page == 1){
-                delete respuestaListObj.meta.previous;
-            }
-        
             return res.json(respuestaListObj);
         } catch(error) {
             return res.json({ TypeOfError: "Catch Product List Promise Error", ErrorMessage: error })
@@ -78,7 +57,9 @@ const apiProductsController = {
                 material: product.material,
                 homepage: product.homepage,
                 image: `http://localhost:3000/images/products/${product.image}`,
-                url: `http://localhost:3000${req.originalUrl}`
+                url: `http://localhost:3000${req.originalUrl}`,
+                createdAt: product.createdAt,
+                updatedAt: product.updatedAt
             }
             let respuestaDetail = {
                 meta:{

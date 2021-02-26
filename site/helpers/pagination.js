@@ -1,8 +1,7 @@
-const { Rutine } = require("../database/models");
 
 const pagination = {
     paginationFunction: (modelName, counter, limit, page)=>{
-        limit = parseInt(limit && limit > 0 && limit <= counter.length ? limit : "8", 10);
+        limit = parseInt(limit && limit > 0 && limit <= counter.length ? limit : counter.length, 10);
         let offset = parseInt(((page ? page : page = 1) - 1) * limit, 10);
         if(page <= 0 || page > Math.ceil(counter.length / limit) ){
             return res.json({ TypeOfError: "Pagination", ErrorMessage: "La pagina requerida no existe" });
