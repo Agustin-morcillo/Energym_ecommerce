@@ -28,11 +28,11 @@
                             <%if(userLog.rol > 10) { %>
                             <div class="admin-button-container">
                                 <form action="/admin">
-                                    <button class="buttons-style admin-access-button"><i class="fas fa-clipboard-list profile-icons"></i>Ir a la página de admin</button>
+                                    <button class="buttons-style admin-access-button"><i class="fas fa-clipboard-list page-icons"></i>Ir a la página de admin</button>
                                 </form>
                                 <%if(userLog.rol > 20) { %>
                                     <form action="/users/admin">
-                                        <button class="buttons-style admin-access-button user-admin-profile"><i class="fas fa-user-cog profile-icons"></i>Administrar usuarios</button>
+                                        <button class="buttons-style admin-access-button user-admin-profile"><i class="fas fa-user-cog page-icons"></i>Administrar usuarios</button>
                                     </form>
                                 <% } %>
                             </div>
@@ -58,11 +58,11 @@
                             </form>
 
                             <form action="/users/profile/edit">
-                                <button class="buttons-style profile-edit-button"><i class="fas fa-edit profile-icons"></i>Editar perfil</button>
+                                <button class="buttons-style profile-edit-button"><i class="fas fa-edit page-icons"></i>Editar perfil</button>
                             </form>
 
                             <form action="/users/logout">
-                                <button class="buttons-style profile-logout-button"><i class="fas fa-sign-out-alt profile-icons"></i>Salir de la cuenta</button>
+                                <button class="buttons-style profile-logout-button"><i class="fas fa-sign-out-alt page-icons"></i>Salir de la cuenta</button>
                             </form>
                         </div>
                     </div>

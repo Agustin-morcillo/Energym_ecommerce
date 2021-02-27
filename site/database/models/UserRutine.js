@@ -19,7 +19,7 @@ module.exports = (sequelize, dataTypes)=> {
     }
         
     const config = {
-        tableName: "user-rutine",
+        tableName: "user_rutine",
     };
 
     const UserRutine = sequelize.define(alias, cols, config)

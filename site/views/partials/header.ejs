@@ -25,7 +25,7 @@
                     <ul class="user-nav-list">
                         <li><a href="/users/profile" class="main-nav-item"><img src="/images/users/<%=userLog.avatar%>" class="header-avatar" alt=""></a></li>
                         <li><a href="/users/profile" class="main-nav-item"><%=userLog.email%></a></li>
-                        <li><a href="/products/cart" class="main-nav-item"><i class="fas fa-shopping-cart nav-icons"></i></a></li>
+                        <li><a href="/cart" class="main-nav-item"><i class="fas fa-shopping-cart nav-icons"></i></a></li>
                         <% if(userLog.rol>10){ %>
                             <li><a href="/admin" class=" main-nav-item"><i class="fas fa-clipboard-list nav-icons"></i></a></li>
                         <% } %>
@@ -58,7 +58,7 @@
                     <li><a href="/contact" class="menu-link">Contacto</a></li> 
                     <% if (userLog) { %>
                         <li style="display: none;"><a href="/users/login" class="menu-link"><i class="fas fa-user menu-nav-icon"></i></a></li>
-                        <li><a href="/products/cart" class="menu-link">Carrito  <i class="fas fa-shopping-cart menu-nav-icon"></i></a></li>
+                        <li><a href="/cart" class="menu-link">Carrito  <i class="fas fa-shopping-cart menu-nav-icon"></i></a></li>
                         <% if(userLog.rol>10){ %>
                             <li><a href="/admin" class=" menu-link">Admin <i class="fas fa-clipboard-list menu-nav-icon"></i></a></li>
                         <% } %>

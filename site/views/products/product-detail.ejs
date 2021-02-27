@@ -38,10 +38,10 @@
                             </div>
 
                             <div class="product-detail-form-container">
-                                <form action="/products/cart">
+                                <form action="/cart/addToCart/<%=product.id%>/<%=product.category%>" method="POST">
                                     <div class="product-amount-container">
                                         <label for="product-detail-amount" class="product-detail-amount-label">Cantidad:</label>
-                                        <input type="number" id="product-detail-amount" class="product-detail-amount-field inputs-fields">
+                                        <input type="number" name="productQuantity" id="product-detail-amount" class="product-detail-amount-field inputs-fields" value="1" min="1" pattern="^[0-9]+">
                                     </div>
                                     <button type="submit" class="buttons-style product-detail-button"><i class="fas fa-shopping-cart sumar-carrito"></i>Agregar al carrito</button>
                                 </form>

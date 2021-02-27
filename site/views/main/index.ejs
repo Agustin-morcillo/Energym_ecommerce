@@ -67,8 +67,8 @@
                         <h2 class="home-product-name"><%=product.name%></h2>
                         <p class="home-product-description"><%=product.description%></p>
                         <p class="home-product-price">$<%=product.price%>.00</p>
-                        <form action="/products/cart">
-                            <button class="home-product-button"><i class="fas fa-shopping-cart home-product-cart-icon"></i>Agregar al carrito</button>
+                        <form action="/products/detail/<%=product.id%>" method="GET">
+                            <button class="home-product-button">Ver más</button>
                         </form>
                     </div>
                 <% } %>

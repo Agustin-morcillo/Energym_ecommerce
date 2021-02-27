@@ -109,37 +109,37 @@
                                                 
                                                 <%if(user.rol==10) { %> 
                                                     <form method="post" action="/users/superAdmin/<%=user.id%>?_method=PUT">
-                                                        <button type="submit" class="admin-users-button buttons-style super-admin-button"><i class="fas fa-crown admin-users-icons"></i>Super Admin</button>
+                                                        <button type="submit" class="admin-users-button buttons-style super-admin-button"><i class="fas fa-crown page-icons"></i>Super Admin</button>
                                                     </form>
                                                     <form method="post" action="/users/admin/<%=user.id%>?_method=PUT">
-                                                        <button type="submit" class="admin-users-button buttons-style admin-button"><i class="fas fa-clipboard-list admin-users-icons"></i>Admin</button>
+                                                        <button type="submit" class="admin-users-button buttons-style admin-button"><i class="fas fa-clipboard-list page-icons"></i>Admin</button>
                                                     </form>
                                                     <form method="post" action="/users/user/<%=user.id%>?_method=DELETE">
-                                                        <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
+                                                        <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt page-icons"></i>Eliminar</button>
                                                     </form>
                                                 <%  } %> 
 
                                                 <%if(user.rol==20) { %> 
                                                     <form method="post" action="/users/superAdmin/<%=user.id%>?_method=PUT">
-                                                        <button type="submit" class="admin-users-button buttons-style super-admin-button"><i class="fas fa-crown admin-users-icons"></i>Super Admin</button>
+                                                        <button type="submit" class="admin-users-button buttons-style super-admin-button"><i class="fas fa-crown page-icons"></i>Super Admin</button>
                                                     </form>
                                                     <form method="post" action="/users/user/<%=user.id%>?_method=PUT">
-                                                        <button type="submit" class="admin-users-button buttons-style user-button"><i class="fas fa-user admin-users-icons"></i>User</button>
+                                                        <button type="submit" class="admin-users-button buttons-style user-button"><i class="fas fa-user page-icons"></i>User</button>
                                                     </form>
                                                     <form method="post" action="/users/user/<%=user.id%>?_method=DELETE">
-                                                        <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
+                                                        <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt page-icons"></i>Eliminar</button>
                                                     </form>
                                                 <%  } %> 
 
                                                 <%if(user.rol==30) { %> 
                                                     <form method="post" action="admin/<%=user.id%>?_method=PUT">
-                                                        <button type="submit" class="admin-users-button buttons-style admin-button"><i class="fas fa-clipboard-list admin-users-icons"></i>Admin</button>
+                                                        <button type="submit" class="admin-users-button buttons-style admin-button"><i class="fas fa-clipboard-list page-icons"></i>Admin</button>
                                                     </form>
                                                     <form method="post" action="/users/user/<%=user.id%>?_method=PUT">
-                                                        <button type="submit" class="admin-users-button buttons-style user-button"><i class="fas fa-user admin-users-icons"></i>User</button>
+                                                        <button type="submit" class="admin-users-button buttons-style user-button"><i class="fas fa-user page-icons"></i>User</button>
                                                     </form>
                                                     <form method="post" action="/users/user/<%=user.id%>?_method=DELETE">
-                                                        <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt admin-delete-icon"></i>Eliminar</button>
+                                                        <button type="submit" class="user-delete-button buttons-style admin-users-button"><i class="far fa-trash-alt page-icons"></i>Eliminar</button>
                                                     </form>
                                                 <%  } %> 
                                             </div>

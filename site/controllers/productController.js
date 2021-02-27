@@ -4,6 +4,7 @@ const path = require('path');
 const deleteFailureFile = path.join(__dirname, '../public/images/products/');
 const allFunctions = require("../helpers/allFunctions");
 const db = require("../database/models");
+const {Product, Item, Order, Rutine} = require("../database/models");
 
 let pageTitle = "";
 
@@ -17,10 +18,6 @@ const productController = {
         } catch (errors) {
             return res.send(errors);
         }
-    },
-    cart: (req,res)=>{
-        pageTitle = "Energym - Carrito";
-        return res.render("products/product-cart", {pageTitle})
     },
     productPage: async (req,res)=>{
         pageTitle = "Energym - Productos";

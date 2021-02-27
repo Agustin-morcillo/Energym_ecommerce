@@ -9,9 +9,6 @@ const adminAuth = require('../middlewares/adminAuth');
 /* Detalle producto */
 router.get("/detail/:id", productController.detail)
 
-/* Carrito de compras */
-router.get("/cart",auth,productController.cart)
-
 /* Pagina de productos */
 router.get("/", productController.productPage)
 
