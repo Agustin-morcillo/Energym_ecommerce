@@ -42,31 +42,34 @@ Método de búsqueda: busque con control + f por índice y título, por ejemplo:
 10.Estilos carrito
     10.1 carrito responsive
 
-11.Estilos pagina de contacto
-    11.1 pagina de contacto responsive
+11.Estilos Orden de compra (compra realizada)
+    11.1 orden de compra responsive
 
-12.Estilos Admin
-    12.1 Admin responsive
+12.Estilos pagina de contacto
+    12.1 pagina de contacto responsive
 
-13.Estilos Admin agregar/editar productos/rutinas
-    13.1 Admin agregar/editar productos/rutinas responsive
+13.Estilos Admin
+    13.1 Admin responsive
 
-14.Estilos Admin users
-    14.1 Admin users responsive
+14.Estilos Admin agregar/editar productos/rutinas
+    14.1 Admin agregar/editar productos/rutinas responsive
 
-15.Estilos validacion Front-end
-    15.1 generales
-    15.2 login/register
-    15.3 perfil de usuario
-    15.4 productos/rutinas
-    15.5 pagina de contacto
+15.Estilos Admin users
+    15.1 Admin users responsive
 
-16.Estilos validacion Back-end
+16.Estilos validacion Front-end
     16.1 generales
-    16.2 productos/rutinas
-    16.3 login/register
-    16.4 perfil de usuario
+    16.2 login/register
+    16.3 perfil de usuario
+    16.4 productos/rutinas
     16.5 pagina de contacto
+
+17.Estilos validacion Back-end
+    17.1 generales
+    17.2 productos/rutinas
+    17.3 login/register
+    17.4 perfil de usuario
+    17.5 pagina de contacto
 */
 
 
@@ -115,6 +118,11 @@ body{
 .buttons-style{
     border-radius: 3px;
     border: none;
+    color: white;
+}
+
+.page-icons{
+    padding-right: 7px;
 }
 
 .sections-welcome-titles-container{
@@ -142,6 +150,10 @@ body{
 
 .sections-welcome-description{
     font-size: 16px;
+}
+
+.page-title-icons{
+    padding-right: 10px;
 }
 
 @media(max-width:600px){
@@ -1430,10 +1442,6 @@ header{
     background-color: black;
 }
 
-.profile-icons{
-    padding: 7px;
-}
-
 .profile-message-container{
     width: 60%;
     margin: 0px auto;
@@ -1769,7 +1777,8 @@ header{
 .product-detail-amount-field{
     height: 25px;
     margin: 10px 0px;
-    width: 80px;
+    width: 100px;
+    text-align: center;
 }
 
 .product-amount-container{
@@ -1912,239 +1921,271 @@ header{
 
 /* ---------------------------------------------------10.Estilos carrito--------------------------------------------------- */
 
-.cart-section {
-    background-image: url(/images/main/section-background.jpeg);
-    background-attachment: fixed;
+
+.no-product-in-cart{
+    height: 370px;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 80px;
-}
-
-.cart-section-box {
-    background-color: #f4f4f4;
-    width: 700px;
-    margin: 80px 0px;
-    border-radius: 10px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.product-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 10px 25px;
-    border-bottom: 2px solid gray;
-}
-
-.product-cart-icon{
-    padding-right: 20px;
-}
-
-.product-image-container {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.cart-product-img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.main-info {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 50%;
-    padding-left: 10px;
-}
-
-.product-name {
-    width: 100%;
-    height: 30px;
-    text-align: start;
-    margin-top: 10px;
-}
-
-.product-prize {
-    width: 100%;
-    height: 30px;
-    text-align: start;
-    margin-bottom: 35px;
-}
-
-.buttons-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     align-items: center;
 }
 
-.quantity-container {
-    align-self: flex-start;
+.no-product-in-cart p{
+    color: red;
+    font-size: 22px;
+}
+
+.product-cart-main-container{
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-cart-container{
+    width: 1100px;
+    margin: 80px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.products-section{
+    width: 70%;
+}
+
+.individual-product-container{
     width: 100%;
-    margin: 0px 0px 5px 5px;    
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px 15px 15px 15px;
+    border-bottom: 2px solid gray;
 }
 
-.quantity-button {  
-    width: 50px;
+.product-cart-img-container{
+    display: flex;
+    align-items: center;
+    width: 33%;
 }
 
-.label-cantidad {
-    font-size: 15px;
-}
-
-.edit-container {
-    align-items: flex-start;
+.product-cart-img{
+    border: 1px solid gray;
     width: 100%;
-    margin: 0px 0px 5px 0px;   
-    text-align: left;
 }
 
-.edit-button {
-    font-size: 16px;
+.product-cart-information{
+    padding-left: 10px;
+    width: 40%;
+}
+
+.product-cart-info-container{
+    padding-bottom: 10px;
+}
+
+.product-cart-quantity{
+    font-size: 14px;
+}
+
+.product-cart-unit-price{
+    font-weight: 600;
+}
+
+.product-cart-total-price{
+    color: green;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.product-cart-btn-container{
+    width: 27%;
+}
+
+.cart-btn{
+    width: 100%;
+    margin-top: 10px;
+    font-size: 14px;
+    height: 30px;
+}
+
+.cart-edit-btn{
     background-color: orange;
-    color: white;
-    width: 70%;
-    margin: 5px 0px;
+    height: 35px;
 }
 
-.edit-button:hover {
-    background-color: orangered;
+.cart-edit-btn:hover{
+    background-color: gray;
 }
 
-.delete-container {
-    align-items: flex-start;
-    width: 100%;
-    margin: 0px 0px 15px 0px;    
-    text-align: left;
-}
-
-.delete-button {
-    font-size: 16px;
+.cart-delete-btn{
     background-color: red;
-    color: white;
-    width: 70%;
+    height: 35px;
 }
 
-.delete-button:hover {
+.cart-delete-btn:hover{
     background-color: black;
 }
 
-.totales-container {
+.purchase-section{
+    width: 30%;
+    border-left: 2px solid gray;
+}
+
+.purchase-section-main-container{
+    margin: 30px 10px 0px 10px;
+}
+
+.purchase-section-price-container{
+    margin-bottom: 30px;
     text-align: center;
-    margin-bottom: 15px;
-    margin-top: 10px;
 }
 
-.total-info{
-    padding: 10px;
+.purchase-section-btn-container{
+    text-align: center;
 }
 
-.buy-container {
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.boton-comprar {
-    width: 25%;
-    height: 30px;
-    align-self: center;
-    color: white;
-    background-color: green;
-    font-size: 20px;
+.final-purchase-btn{
+    background: rgb(85, 85, 240);
+    height: 40px;
+    width: 80%;
+    font-size: 18px;
     text-transform: uppercase;
 }
 
-.boton-comprar:hover {
-    background-color: #00b347 
-}
-
-.ver-mas {
-    font-size: 17px;
-    align-self: center;
-    margin: 20px 0px;
-    text-decoration: none;
-    color: red;
-}
-
-.ver-mas:hover {
-    text-decoration: underline;
+.final-purchase-btn:hover{
+    background: rgb(12, 12, 243);
 }
 
 /* -----------------10.1 carrito responsive----------------- */
 
-@media (max-width: 830px) {
-    .product-box{
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+@media(max-width:1000px){
+    .products-section{
+        width: 60%;
     }
 
-    .cart-section-box {
-        width: 90%;
+    .purchase-section{
+        width: 40%;
     }
 
-    .product-image-container {
+    .product-cart-information{
         width: 100%;
+    }
+
+    .product-cart-title{
         margin-top: 10px;
     }
 
-    .cart-product-img {
-        height: 380px;
-    }
-
-    .cart-detail-info {
-        font-size: 22px;
-    }
-
-    .main-info {
-       width: 100%;
-    }
-
-    .cart-detail-info{
-        text-align: center;
-    }
-
-    .buttons-container{
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .edit-container, .delete-container{
-        text-align: center;
-    }
-
-    .boton-comprar{
-        width: 60%;
-    }
-}
-
-@media (max-width: 600px) {
-    .cart-section-box {
+    .product-cart-btn-container{
         width: 100%;
     }
 
-    .product-image-container {
+    .product-cart-img-container{
         width: 100%;
     }
 
-    .boton-comprar{
-        width: 80%;
+    .final-purchase-btn{
+        width: 100%;
+        height: 50px;
     }
 }
 
-/* ---------------------------------------------------11.Estilos pagina de contacto--------------------------------------------------- */
+@media(max-width:700px){
+    .products-section{
+        width: 100%;
+    }
+
+    .purchase-section{
+        width: 100%;
+    }
+
+    .final-purchase-btn{
+        margin-bottom: 20px;
+    }
+
+    .cart-btn{
+        font-size: 17px;
+    }
+
+    .product-cart-title{
+        font-size: 30px;
+    }
+
+    .product-cart-quantity{
+        font-size: 19px;
+    }
+    
+    .product-cart-unit-price{
+        font-size: 19px;
+    }
+    
+    .product-cart-total-price{
+        font-size: 24px;
+    }
+}
+
+@media(max-width:500px){
+    .no-product-in-cart p{
+        font-size: 20px;
+        text-align: center;
+    }
+
+
+    .product-cart-information{
+        text-align: center;
+    }
+
+    .product-cart-info-container{
+        margin-top: 15px;
+    }
+}
+
+/* ---------------------------------------------------11.Estilos Orden de compra (compra realizada)--------------------------------------------------- */
+
+.order-page-main-container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-page-container{
+   width: 500px;
+   border: 1px solid gray;
+   margin: 80px 0px
+}
+
+.order-page-title{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.order-page-general-container{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.order-page-thanks{
+    color: green;
+    font-size: 22px;
+    font-weight: bold
+}
+
+.order-page-email-detail{
+    margin-bottom: 10px;
+}
+
+/* -----------------11.1 orden de compra responsive----------------- */
+
+@media(max-width:500px){
+    .order-page-container{
+        width: 100%;
+    }
+}
+
+
+/* ---------------------------------------------------12.Estilos pagina de contacto--------------------------------------------------- */
 
 .contact-section-main-container{
     margin-top: 80px;
@@ -2224,7 +2265,7 @@ header{
     margin-bottom: 30px;
 }
 
-/* -----------------11.1 pagina de contacto responsive----------------- */
+/* -----------------12.1 pagina de contacto responsive----------------- */
 
 @media (max-width:1444px){
     .contact-section-container{
@@ -2278,7 +2319,7 @@ header{
 }
 
 
-/* ---------------------------------------------------12.Estilos Admin--------------------------------------------------- */
+/* ---------------------------------------------------13.Estilos Admin--------------------------------------------------- */
 
 .admin-menu-main-container{
     margin-top: 80px;
@@ -2327,10 +2368,6 @@ header{
 
 .admin-add-button:hover{
     background-color: #00b347 
-}
-
-.add-icon{
-    padding-right: 7px;
 }
 
 .admin-product-card-container{
@@ -2403,11 +2440,7 @@ header{
     background-color:black
 }
 
-.admin-delete-icon, .admin-edit-icon{
-    padding-right: 7px;
-}
-
-/* -----------------12.1 Admin responsive----------------- */
+/* -----------------13.1 Admin responsive----------------- */
 
 @media (max-width:1000px){
     .admin-menu-container{
@@ -2457,7 +2490,7 @@ header{
     }
 }
 
-/* ---------------------------------------------------13.Estilos Admin agregar/editar productos/rutinas--------------------------------------------------- */
+/* ---------------------------------------------------14.Estilos Admin agregar/editar productos/rutinas--------------------------------------------------- */
 
 .add-edit-product-rutine-card-main-container{
     margin-top: 80px;
@@ -2556,14 +2589,6 @@ header{
     width: 100%;
 }
 
-.product-add-icon{
-    padding-right: 7px;
-}
-
-.save-changes-icon{
-    padding-right: 10px;
-}
-
 .add-edit-product-create-product-button{
     background-color: green;
     color: white;
@@ -2577,7 +2602,7 @@ header{
     background-color: #00b347 
 }
 
-/* -----------------13.1 Admin agregar/editar productos/rutinas responsive----------------- */
+/* -----------------14.1 Admin agregar/editar productos/rutinas responsive----------------- */
 
 @media (max-width:1024px){
     .add-edit-product-rutine-card-container{
@@ -2605,7 +2630,7 @@ header{
 }
 
 
-/* ---------------------------------------------------14.Estilos Admin users--------------------------------------------------- */
+/* ---------------------------------------------------15.Estilos Admin users--------------------------------------------------- */
 
 .admin-users-main-container{
     border: 1px solid gray;
@@ -2763,11 +2788,7 @@ header{
     width: 120px;
 }
 
-.admin-users-icons{
-    padding-right: 7px;
-}
-
-/* -----------------14.1 Admin users responsive----------------- */
+/* -----------------15.1 Admin users responsive----------------- */
 
 @media(max-width:1150px){
     .admin-users-main-container{
@@ -2826,9 +2847,9 @@ header{
 }
 
 
-/* ---------------------------------------------------15.Estilos validacion Front-end--------------------------------------------------- */
+/* ---------------------------------------------------16.Estilos validacion Front-end--------------------------------------------------- */
 
-/* -----------------15.1 generales----------------- */
+/* -----------------16.1 generales----------------- */
 small{
     display: block;
 }
@@ -2854,7 +2875,7 @@ small{
     display: block;
 }
 
-/* -----------------15.2 login/register----------------- */
+/* -----------------16.2 login/register----------------- */
 .front-login-register-error-style{
     color: red;
     font-size: 10px;
@@ -2862,7 +2883,7 @@ small{
     padding-top: 5px;
 }
 
-/* -----------------15.3 perfil de usuario----------------- */
+/* -----------------16.3 perfil de usuario----------------- */
 .front-profile-error-style{
     color: red;
     font-style: bold;
@@ -2872,7 +2893,7 @@ small{
     text-align: left;
 }
 
-/* -----------------15.4 productos/rutinas----------------- */
+/* -----------------16.4 productos/rutinas----------------- */
 .front-create-rutine-error-style{
     color: red;
     font-size: 10px;
@@ -2881,7 +2902,7 @@ small{
     margin-bottom: auto;
 }
 
-/* -----------------15.5 pagina de contacto----------------- */
+/* -----------------16.5 pagina de contacto----------------- */
 .front-contact-error-style{
     color: red;
     font-size: 10px;
@@ -2902,9 +2923,9 @@ small{
 
 
 
-/* ---------------------------------------------------16.Estilos validacion Back-end--------------------------------------------------- */
+/* ---------------------------------------------------17.Estilos validacion Back-end--------------------------------------------------- */
 
-/* -----------------16.1 generales----------------- */
+/* -----------------17.1 generales----------------- */
 .validation-errors-container{
     padding: 10px 0px 0px 10px;
     width: 100%;
@@ -2917,7 +2938,7 @@ small{
     margin: 5px 0px;
 }
 
-/* -----------------16.2 productos/rutinas----------------- */
+/* -----------------17.2 productos/rutinas----------------- */
 .validation-error-product-title{
     color: red;
     font-size: 15px;
@@ -2934,7 +2955,7 @@ small{
     
 }
 
-/* -----------------16.3 login/register----------------- */
+/* -----------------17.3 login/register----------------- */
 .validation-error-register{
     color: red;
     font-size: 10px;
@@ -2943,7 +2964,7 @@ small{
     text-align: center;
 }
 
-/* -----------------16.4 perfil de usuario----------------- */
+/* -----------------17.4 perfil de usuario----------------- */
 
 .validation-error-profile{
     color: red;
@@ -2952,7 +2973,7 @@ small{
     padding-top: 5px;
 }
 
-/* -----------------16.5 pagina de contacto----------------- */
+/* -----------------17.5 pagina de contacto----------------- */
 .validation-error-contact{
     color: red;
     font-size: 10px;
@@ -2960,3 +2981,7 @@ small{
     margin-top: 5px;
     padding-left: 5px;
 }
+
+
+
+

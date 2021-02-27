@@ -8,14 +8,27 @@ module.exports = (sequelize, dataTypes)=> {
             primaryKey: true,
             type: dataTypes.INTEGER
         },
+        elementId: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        category: {
+            allowNull: false,
+            type: dataTypes.STRING
+        },
         name: {
             allowNull: false,
             type: dataTypes.STRING
         },
         price: {
+            allowNull: false,
             type: dataTypes.DECIMAL
         },
         quantity: {
+            allowNull: false,
+            type: dataTypes.INTEGER
+        },
+        total: {
             allowNull: false,
             type: dataTypes.INTEGER
         },
@@ -23,17 +36,12 @@ module.exports = (sequelize, dataTypes)=> {
             allowNull: false,
             type: dataTypes.STRING
         },
-        total: {
-            allowNull: false,
-            type: dataTypes.INTEGER
-        },
         userId: {
             allowNull: false,
             type: dataTypes.INTEGER,
             references: {model: "User", key: "id"}
         },
         orderId: {
-            allowNull: false,
             type: dataTypes.INTEGER,
             references: {model: "Order", key: "id"}
         },

@@ -15,9 +15,11 @@ const mainRouter=require("./routes/main")
 const usersRouter=require("./routes/users");
 const productRouter=require("./routes/products");
 const rutineRouter=require("./routes/rutines");
+const cartRouter = require("./routes/cart")
 const apiUsersRouter = require("./routes/api/users/users");
 const apiRutinesRouter = require("./routes/api/rutines/rutines");
 const apiProductsRouter = require("./routes/api/products/products");
+const cors = require("cors")
 
 /* CONFIGURACIONES */
 app.use(session({secret: 'energym session', resave: false, saveUninitialized: true}))
@@ -27,6 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors())
 
 //middleware auth session cookie
 app.use(logCookie);
@@ -37,6 +40,7 @@ app.use("/", mainRouter);
 app.use("/users", usersRouter);
 app.use("/products", productRouter);
 app.use("/rutines", rutineRouter);
+app.use("/cart", cartRouter)
 app.use("/api/users", apiUsersRouter);
 app.use("/api/rutines", apiRutinesRouter);
 app.use("/api/products", apiProductsRouter);
