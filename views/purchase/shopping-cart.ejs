@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %> 
+<body>
+    <%- include("../partials/header") %> 
+
+    <main>
+        <div class="product-cart-main-container">
+            <% if(items.length == 0) { %> 
+                <div class="no-product-in-cart">
+                    <p>Aún no tenes artículos agregados al carrito.</p>
+                </div>
+            <% } else{ %> 
+                
+                <div class="product-cart-container">
+                    
+                    <div class="sections-welcome-titles-container">
+                        <h2 class="sections-welcome-titles"><i class="fas fa-shopping-cart page-title-icons"></i>Carrito de compras</h2>
+                    </div>
+
+                    <section class="products-section">
+                        <% for(let item of items) { %> 
+                            <article class="individual-product-container">
+                                
+                                <div class="product-cart-img-container">
+                                    <img src="/images/<%=item.category%>/<%=item.image%>" alt="" class="product-cart-img">
+                                </div>
+
+                                <div class="product-cart-information">
+                                    <div class="product-cart-name-container product-cart-info-container">
+                                        <h2 class="product-cart-title"><%=item.name%></h2>
+                                    </div>
+
+                                    <div class="product-cart-quantity-container product-cart-info-container">
+                                        <p class="product-cart-quantity">Cantidad:</p>
+                                        <input type="number" name="quantity-input" class="cart-total-quantity" value="<%=item.quantity%>">
+                                    </div>
+                                    
+                                    <div class="product-cart-price-container product-cart-info-container">
+                                        <p class="product-cart-unit-price">Precio por unidad: $<span class="cart-product-unit-price"><%=item.price%></span></p>
+                                    </div>
+
+                                    <div class="product-cart-price-container product-cart-info-container">
+                                        <p class="product-cart-total-price">Precio total: $<span class="cart-total"><%=item.total%></span></p>
+                                    </div>
+            
+                                </div>
+
+                                <div class="product-cart-btn-container">
+                                    <form method="POST" action="/cart/delete/<%=item.id%>?_method=DELETE">
+                                        <button type="submit" class="cart-btn buttons-style cart-delete-btn"><i class="far fa-trash-alt page-icons"></i>Eliminar</button>
+                                    </form>
+                                </div>
+
+                            </article>
+                        <% } %> 
+                    </section>
+
+                    <section class="purchase-section">
+                        <div class="purchase-section-main-container">
+                            <div class="purchase-section-price-container">
+                                <h2 class="">Total a pagar: $<span class="cart-final-price"><%=total%></span></h2>
+                            </div>
+
+                            <div class="purchase-section-btn-container">
+                                <form action="/cart/shop" method="POST">
+                                    <input type="hidden" class="product-quantity-hidden" name="cartFinalQuantity">
+                                    <% for(let item of items) { %>
+                                        <input type="hidden" name="cartProductUnitPrice" value="<%=item.price%>" class="cartproductunitprice">
+                                    <% } %> 
+                                    <button type="submit" class="buttons-style final-purchase-btn">Finalizar compra</button>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </section>
+                
+                </div>
+            <% } %> 
+        </div>
+    </main>
+   
+    <%- include("../partials/footer") %> 
+    <script src="javascripts/shoppingCartJs.js"></script>
+</body>
+</html>
