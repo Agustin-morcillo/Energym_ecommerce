@@ -20,9 +20,12 @@ const apiRutinesController = {
                 return { 
                     id: rutine.id,
                     name: rutine.name,
+                    introduction: rutine.introduction,
                     description: rutine.description,
+                    price: rutine.price,
                     category: [rutine.category],
-                    url: `http://localhost:3000${req.baseUrl}${req.path}${rutine.id}`,
+                    image: `http://localhost:3000/images/rutines/${rutine.image}`,
+                    detail: `http://localhost:3000${req.baseUrl}${req.path}${rutine.id}`,
                     createdAt: rutine.createdAt,
                     updatedAt: rutine.updatedAt
                 }

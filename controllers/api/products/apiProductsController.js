@@ -21,6 +21,7 @@ const apiProductsController = {
                     description: product.description,
                     price: product.price,
                     category: [product.category],
+                    image: `http://localhost:3000/images/products/${product.image}`,
                     detail: `http://localhost:3000${req.baseUrl}${req.path}${product.id}`,
                     createdAt: product.createdAt,
                     updatedAt: product.updatedAt
