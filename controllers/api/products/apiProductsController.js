@@ -53,7 +53,7 @@ const apiProductsController = {
                 description: product.description,
                 price: product.price,
                 category: [product.category],
-                weight: product.weight,
+                weight: product.weightKg,
                 size: product.size,
                 material: product.material,
                 homepage: product.homepage,

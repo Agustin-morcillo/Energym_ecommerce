@@ -21,7 +21,7 @@ CREATE TABLE products (
     price DECIMAL UNSIGNED NOT NULL,
     introduction VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    weight_KG smallint UNSIGNED NOT NULL,
+    weight_kg smallint UNSIGNED NOT NULL,
     size VARCHAR(255) NOT NULL,
     material VARCHAR(80) NOT NULL,
     category VARCHAR(20) NOT NULL,
