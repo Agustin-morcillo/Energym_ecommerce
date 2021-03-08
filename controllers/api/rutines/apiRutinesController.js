@@ -6,7 +6,7 @@ const apiRutinesController = {
         try {    
             //Configuracion variables paginacion
             const counter = await Rutine.findAll();
-            const pagination = paginationFunction(req.baseUrl, counter, req.query.limit, req.query.page); 
+            const pagination = paginationFunction(req.baseUrl, counter, req.query.limit, req.query.page)
             //
             
             //Pedido asincronico base de datos rutinas
@@ -24,8 +24,8 @@ const apiRutinesController = {
                     description: rutine.description,
                     price: rutine.price,
                     category: [rutine.category],
-                    image: `http://localhost:3000/images/rutines/${rutine.image}`,
-                    detail: `http://localhost:3000${req.baseUrl}${req.path}${rutine.id}`,
+                    image: process.env.API_URL+`images/rutines/${rutine.image}`,
+                    detail: process.env.API_URL+`api/rutines/${rutine.id}`,
                     createdAt: rutine.createdAt,
                     updatedAt: rutine.updatedAt
                 }
@@ -38,7 +38,12 @@ const apiRutinesController = {
             };
             return res.json(respuestaListObj);
         } catch(error) {
-            return res.json({ TypeOfError: "Catch Rutine List Promise Error", ErrorMessage: error })
+            res.status(404).json({
+                meta: {
+                    status: "error"
+                },
+                error: error
+                })
         }
     },
     rutineDetail: async (req,res)=>{
@@ -51,13 +56,14 @@ const apiRutinesController = {
             let rutineObj = { 
                 id: rutine.id,
                 name: rutine.name,
-                description: rutine.description,
-                category: [rutine.category],
                 introduction: rutine.introduction,
+                description: rutine.description,
                 price: rutine.price,
                 duration: rutine.duration_weeks,
-                image: `http://localhost:3000/images/rutines/${rutine.image}`,
-                url: `http://localhost:3000${req.originalUrl}`,
+                category: [rutine.category],
+                homepage: rutine.homepage,
+                image: process.env.API_URL+`images/rutines/${rutine.image}`,
+                url: process.env.API_URL+`api/rutines/${rutine.id}`,
                 createdAt: rutine.createdAt,
                 updatedAt: rutine.updatedAt
             }
@@ -69,7 +75,12 @@ const apiRutinesController = {
             };
             return res.json(respuestaDetail);
         } catch(error) {
-            return res.json({ TypeOfError: "Catch Rutine Detail Promise Error", ErrorMessage: error })
+            res.status(404).json({
+                meta: {
+                    status: "error"
+                },
+                error: error
+                })
         }
     }
 }

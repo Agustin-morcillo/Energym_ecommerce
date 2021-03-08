@@ -34,7 +34,7 @@
                             </div>
                             
                             <div class="product-price-container">
-                                <h2 class="product-detail-price">Precio: <span>$<%=product.price%>.00</span></h2>
+                                <h2 class="product-detail-price">Precio: $<span class="price-global"><%=product.price%></span></h2>
                             </div>
 
                             <div class="product-detail-form-container">
@@ -64,6 +64,7 @@
 
 
     <%- include("../partials/footer") %> 
+    <script src="/javascripts/priceFormat.js"></script>
     
 </body>
 </html>

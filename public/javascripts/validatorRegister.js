@@ -94,7 +94,7 @@ let blankInput = (input)=>{
 
 /* Usuarios de la base de datos */
 let usuarios = []
-fetch("http://localhost:3000/api/users")
+fetch("https://energym.herokuapp.com/api/users")
     .then(resp => resp.json())
     .then(users => {
         for(let user of users.data){

@@ -30,7 +30,7 @@
                                     </div>
 
                                     <div class="product-page-product-price product-page-div">
-                                        <p class="product-page-price">$<%=rutine.price%>.00</p>
+                                        <p class="product-page-price-container">$<span class="product-page-price price-global"><%=rutine.price%></span></p>
                                     </div>
 
                                     <div class="product-page-form-container product-page-div">
@@ -50,6 +50,6 @@
 
 
     <%- include("../partials/footer") %> 
-    
+    <script src="/javascripts/priceFormat.js"></script>
 </body>
 </html>

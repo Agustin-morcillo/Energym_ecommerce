@@ -23,6 +23,8 @@ let calculos = (e,itera)=>{
         e.target.value = 1
     }
 
+
+
     productQuantityHidden.value = e.target.value
 
     for(let i=0;i<productQuantity.length;i++){
@@ -77,4 +79,8 @@ let calculos = (e,itera)=>{
 productQuantity.forEach((input,itera)=>{
     input.addEventListener("change", function(e){calculos(e,itera)})
 })
+
+
+
+
 
