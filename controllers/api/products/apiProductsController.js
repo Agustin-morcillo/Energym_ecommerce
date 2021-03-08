@@ -21,8 +21,8 @@ const apiProductsController = {
                     description: product.description,
                     price: product.price,
                     category: [product.category],
-                    image: `http://localhost:3000/images/products/${product.image}`,
-                    detail: `http://localhost:3000${req.baseUrl}${req.path}${product.id}`,
+                    image: process.env.API_URL+`images/products/${product.image}`,
+                    detail: process.env.API_URL+`api/products/${product.id}`,
                     createdAt: product.createdAt,
                     updatedAt: product.updatedAt
                 }
@@ -36,7 +36,12 @@ const apiProductsController = {
 
             return res.json(respuestaListObj);
         } catch(error) {
-            return res.json({ TypeOfError: "Catch Product List Promise Error", ErrorMessage: error })
+            res.status(404).json({
+                meta: {
+                    status: "error"
+                },
+                error: error
+                })
         }
     },
     productDetail: async (req,res)=>{
@@ -57,8 +62,8 @@ const apiProductsController = {
                 size: product.size,
                 material: product.material,
                 homepage: product.homepage,
-                image: `http://localhost:3000/images/products/${product.image}`,
-                url: `http://localhost:3000${req.originalUrl}`,
+                image: process.env.API_URL+`images/products/${product.image}`,
+                url: process.env.API_URL+`api/products/${product.id}`,
                 createdAt: product.createdAt,
                 updatedAt: product.updatedAt
             }
@@ -71,7 +76,12 @@ const apiProductsController = {
             };
             return res.json(respuestaDetail);
         } catch(error) {
-            return res.json({ TypeOfError: "Catch Product Detail Promise Error", ErrorMessage: error })
+            res.status(404).json({
+                meta: {
+                    status: "error"
+                },
+                error: error
+                })
         }
     }
 }

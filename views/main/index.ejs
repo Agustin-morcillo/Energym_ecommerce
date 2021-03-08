@@ -28,16 +28,16 @@
                     <input type="radio" name="radio-btn" id="radio4" class="banner-btn">
         
                     <div class="slide first">
-                        <img src="images/main/slider_1.jpg" alt="" class="slide-img">
+                        <img src="" alt="" class="slide-img">
                     </div>
                     <div class="slide">
-                        <img src="images/main/slider_2.jpg" alt="" class="slide-img">
+                        <img src="" alt="" class="slide-img">
                     </div>
                     <div class="slide">
-                        <img src="images/main/slider_3.jpg" alt="" class="slide-img">
+                        <img src="" alt="" class="slide-img">
                     </div>
                     <div class="slide">
-                        <img src="images/main/slider_4.jpg" alt="" class="slide-img">
+                        <img src="" alt="" class="slide-img">
                     </div>
     
                     <div class="navigation-auto">
@@ -66,7 +66,7 @@
                         <img src="images/products/<%=product.image%>"  alt="" class="home-product-img ">
                         <h2 class="home-product-name"><%=product.name%></h2>
                         <p class="home-product-description"><%=product.description%></p>
-                        <p class="home-product-price">$<%=product.price%>.00</p>
+                        <p class="home-product-price-container">$<span class="home-product-price price-global"><%=product.price%></span></p>
                         <form action="/products/detail/<%=product.id%>" method="GET">
                             <button class="home-product-button">Ver más</button>
                         </form>
@@ -95,5 +95,6 @@
 
     <%- include("../partials/footer") %> 
     <script src="/javascripts/homepage.js"></script>
+    <script src="/javascripts/priceFormat.js"></script>
 </body>
 </html>

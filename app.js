@@ -21,6 +21,7 @@ const apiRutinesRouter = require("./routes/api/rutines/rutines");
 const apiProductsRouter = require("./routes/api/products/products");
 const cors = require("cors")
 
+
 /* CONFIGURACIONES */
 app.use(session({secret: 'energym session', resave: false, saveUninitialized: true}))
 app.use(methodOverride('_method'))
@@ -30,6 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
+require('dotenv').config()
 
 //middleware auth session cookie
 app.use(logCookie);

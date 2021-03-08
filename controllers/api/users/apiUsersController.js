@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs")
 const { paginationFunction } = require("../../../helpers/pagination.js");
 
 const apiUsersController={
-    list: async (req,res)=>{
+    listUsers: async (req,res)=>{
         try {
             //paginacion
             const counter = await User.findAll();
@@ -22,8 +22,8 @@ const apiUsersController={
                     name: user.name,
                     lastname:user.lastname,
                     email: user.email,
-                    avatar: `http://localhost:3000/images/users/${user.avatar}`,
-                    detail:`http://localhost:3000/api/users/${user.id}`,
+                    avatar: process.env.API_URL+`images/users/${user.avatar}`,
+                    detail:process.env.API_URL+`api/users/${user.id}`,
                     createdAt: user.createdAt,
                     updatedAt: user.updatedAt
                 }
@@ -35,10 +35,15 @@ const apiUsersController={
             })
         
         } catch (error) {
-            console.error("Error: " + error)
+            res.status(404).json({
+                meta: {
+                    status: "error"
+                },
+                error: `${error}`
+                })
         }
     },
-    findUser: async (req,res)=>{
+    userDetail: async (req,res)=>{
         
         const id = req.params.id
         
@@ -59,8 +64,8 @@ const apiUsersController={
                 name: user.name,
                 lastname: user.lastname,
                 email:user.email,
-                avatar: `http://localhost:3000/images/users/${user.avatar}`,
-                url: `http://localhost:3000/api/users/${user.id}`,
+                avatar: process.env.API_URL+`images/users/${user.avatar}`,
+                url: process.env.API_URL+`api/users/${user.id}`,
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt
             }
@@ -73,10 +78,17 @@ const apiUsersController={
             })      
             
         } catch (error){
-            console.error("Error: " + error)
-        }
+            res.status(404).json({
+                meta: {
+                    status: "error"
+                },
+                error: error
+                })
+            }
+
+        
     },
-    login: async (req,res)=>{
+    checkLogin: async (req,res)=>{
         
         const {email,password} = req.body
        

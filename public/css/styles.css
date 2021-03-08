@@ -336,7 +336,7 @@ header{
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        padding: 10px;
+        padding: 10px 20px 10px 10px;
         justify-content: flex-end;
     }
 
@@ -706,7 +706,7 @@ header{
     width: 100%;
     height: 645px;
   }
-  
+
   /* -----------------4.3 Slider navegación manual----------------- */
   
   .navigation-manual{
@@ -840,12 +840,20 @@ header{
     height: 60px;
 }
 
+.home-product-price-container{
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
+    display: block;
+    margin-bottom: 20px;
+}
+
 .home-product-price{
     color: green;
     font-weight: bold;
     font-size: 25px;
-    margin-bottom: 20px;
-    display: block;
+    display: inline;
+    padding-left: 2px;
 }
 
 .home-product-button{
@@ -886,19 +894,19 @@ header{
     }
 
     .home-product-description{
-        padding-left: 125px;
-        padding-right: 125px;
+        padding-left: 120px;
+        padding-right: 120px;
     }
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
     .home-product-img{
         width: 100%;
     }
 
     .home-product-description{
         padding: 0px;
-        height: 85px;
+        height: auto
     }
 }
 
@@ -1604,10 +1612,17 @@ header{
     background: rgb(12, 12, 243);
 }
 
+.product-page-price-container{
+    font-size: 25px;
+    color: green;
+    font-weight: bolder;
+}
+
 .product-page-price{
     font-size: 25px;
     color: green;
     font-weight: bolder;
+    padding-left: 2px;
 }
 
 .product-page-introduction{
@@ -1648,8 +1663,16 @@ header{
         width: 80%;
     }
 
+    .rutine-page-img{
+        height: 250px;
+    }
+    
     .product-page-name{
         font-size: 25px;
+    }
+
+    .product-page-price-container{
+        font-size: 40px;
     }
 
     .product-page-price{

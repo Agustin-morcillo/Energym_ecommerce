@@ -116,7 +116,7 @@ form.addEventListener("submit",(e)=>{
     } 
     
     if(estado.email && estado.password){
-        fetch("http://localhost:3000/api/users/checkCredentials",seeting)
+        fetch("https://energym.herokuapp.com/api/users/checkCredentials",seeting)
         .then(res => res.json())
         .then(response => {
            if(response.meta.status!="error"){

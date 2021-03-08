@@ -12,8 +12,8 @@ const pagination = {
             page: parseInt(page, 10),
             limit: limit,
             totalPages: Math.ceil(counter.length / limit),
-            previous: `http://localhost:3000${modelName}?page=${(parseInt(page, 10) - 1)}&limit=${limit}`,
-            next: `http://localhost:3000${modelName}?page=${(parseInt(page, 10) + 1)}&limit=${limit}`
+            previous: process.env.API_URL+`${modelName}?page=${(parseInt(page, 10) - 1)}&limit=${limit}`,
+            next: process.env.API_URL+`${modelName}?page=${(parseInt(page, 10) + 1)}&limit=${limit}`
         };
 
         if(page == Math.ceil(counter.length / limit)){
