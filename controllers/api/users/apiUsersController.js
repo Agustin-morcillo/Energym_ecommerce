@@ -13,7 +13,7 @@ const apiUsersController={
             const users =  await User.findAll({
                 offset: pagination.offset, //paginacion
                 limit: pagination.limit, //paginacion
-                attributes: ["id", "name", "lastname", "email", "createdAt", "updatedAt"]
+                attributes: ["id", "name", "lastname", "email", "avatar", "createdAt", "updatedAt"]
             })
             
             const usersFullInfo = users.map((user)=>{
@@ -22,6 +22,7 @@ const apiUsersController={
                     name: user.name,
                     lastname:user.lastname,
                     email: user.email,
+                    avatar: `http://localhost:3000/images/users/${user.avatar}`,
                     detail:`http://localhost:3000/api/users/${user.id}`,
                     createdAt: user.createdAt,
                     updatedAt: user.updatedAt
