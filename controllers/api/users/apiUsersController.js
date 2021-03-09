@@ -7,7 +7,7 @@ const apiUsersController={
         try {
             //paginacion
             const counter = await User.findAll();
-            const pagination = paginationFunction(req.baseUrl, counter, req.query.limit, req.query.page)
+            const pagination = paginationFunction("api/users", counter, req.query.limit, req.query.page)
             // 
 
             const users =  await User.findAll({
@@ -23,7 +23,7 @@ const apiUsersController={
                     lastname:user.lastname,
                     email: user.email,
                     avatar: process.env.API_URL+`images/users/${user.avatar}`,
-                    detail:process.env.API_URL+`api/users/${user.id}`,
+                    detail: process.env.API_URL+`api/users/${user.id}`,
                     createdAt: user.createdAt,
                     updatedAt: user.updatedAt
                 }

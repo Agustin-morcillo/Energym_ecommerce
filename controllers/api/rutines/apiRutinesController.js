@@ -6,7 +6,7 @@ const apiRutinesController = {
         try {    
             //Configuracion variables paginacion
             const counter = await Rutine.findAll();
-            const pagination = paginationFunction(req.baseUrl, counter, req.query.limit, req.query.page)
+            const pagination = paginationFunction("api/rutines", counter, req.query.limit, req.query.page)
             //
             
             //Pedido asincronico base de datos rutinas
