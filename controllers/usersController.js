@@ -122,8 +122,8 @@ const usersController={
         return res.redirect("/users/admin")
     },
     deleteUser: async (req,res)=>{
-        
-        db.User.destroy({
+
+        await db.User.destroy({
             where:{
                 id: req.params.id
             }
