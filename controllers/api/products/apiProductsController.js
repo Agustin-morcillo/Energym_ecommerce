@@ -6,9 +6,8 @@ const apiProductsController = {
         try {        
             //Configuracion variables paginacion
             const counter = await Product.findAll();
-            const pagination = paginationFunction(req.baseUrl, counter, req.query.limit, req.query.page); 
+            const pagination = paginationFunction("api/products", counter, req.query.limit, req.query.page); 
             //
-
             //Pedido asincronico base de datos productos
             let products = await Product.findAll({ offset: pagination.offset, limit: pagination.limit  }); //paginacion
 
