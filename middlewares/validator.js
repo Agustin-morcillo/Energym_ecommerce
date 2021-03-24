@@ -1,16 +1,12 @@
-const { body } = require("express-validator");
-const fs = require("fs");
+const {body} = require("express-validator");
 const path = require("path");
-const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
-const allFunctions = require("../helpers/allFunctions");
 const bcrypt = require("bcryptjs");
-const { User } = require("../database/models");
+const {User} = require("../database/models");
 
 const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
     password: /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/, //minimo 8, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico
 }
-
 
 const validator = {
     login: [

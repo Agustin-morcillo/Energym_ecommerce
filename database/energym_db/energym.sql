@@ -150,10 +150,16 @@ INSERT INTO users values (default,"Pablo","Bacchetta","pablo@pablo.com","$2a$10$
 INSERT INTO users values (default,"Agustin","Morcillo","agustin@agustin.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1608404035569-1608063773535-9202af0d723d0b09d5d434eea53f92dd.jpg",30,default,default,default);
 INSERT INTO users values (default,"Damian","Mugnolo","damian@damian.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1608404063362-1608063802795-13615.jpg",30,default,default,default);
 INSERT INTO users values (default,"Santiago","Ruiz","santiago@santiago.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1608404090712-1608063826020-a34557edb440b87588943994469f9aea.jpg",30,default,default,default);
-INSERT INTO users values (default,"Pedro","Mancera","pedro@pedro.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953117979-user_image_2.jpg",20,default,default,default);
-INSERT INTO users values (default,"Jorge","Zapiola","jorge@jorge.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953158279-user_image_3.jpg",20,default,default,default);
+INSERT INTO users values (default,"Pedro","Gonzales","pedro@pedro.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953117979-user_image_2.jpg",20,default,default,default);
+INSERT INTO users values (default,"Francisco","Zapiola","fran@fran.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953158279-user_image_3.jpg",20,default,default,default);
 INSERT INTO users values (default,"Federico","Valverde","federico@federico.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","avatar_img.jpg",20,default,default,default);
-INSERT INTO users values (default,"Juan","Cabrera","juan@juan.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953216285-user_image_4.jpg",10,default,default,default);
-INSERT INTO users values (default,"Lucas","Rojas","lucas@lucas.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953243512-user_image_5.jpg",10,default,default,default);
-INSERT INTO users values (default,"Guillermo","Sanchez","guillermo@guillermo.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","avatar_img2.jpeg",10,default,default,default);
+INSERT INTO users values (default,"Juan","Lopez","juan@juan.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953216285-user_image_4.jpg",10,default,default,default);
+INSERT INTO users values (default,"Lucas","Garcia","lucas@lucas.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","1613953243512-user_image_5.jpg",10,default,default,default);
+INSERT INTO users values (default,"Tomás","Martinez","tomas@tomas.com","$2a$10$SYN5.ZhuQoAfV7VJod28QODfWYh4qVoIEmNgrowSnJSOkzvwB9ME2","avatar_img2.jpeg",10,default,default,default);
 
+INSERT INTO contact values (default,1,1,"gonza@gonza.com","Feedback de la página","Chicos, la página esta muy buena.",default,default,default);
+INSERT INTO contact values (default,0,null,"peter@peter.com","No register","Hola, no estoy registrado pero me gusta la página",default,default,default);
+INSERT INTO contact values (default,1,6,"santiago@santiago.com","Excelente","Veo que todo funciona bien",default,default,default);
+INSERT INTO contact values (default,0,null,"john@john.com","Linda página","Me gusta mucho, en un rato me registro",default,default,default);
+INSERT INTO contact values (default,1,2,"joaco@joaco.com","Opinión sobre la página","Esta bien, aunque tiene cosas para mejorar.",default,default,default);
+INSERT INTO contact values (default,1,3,"pablo@pablo.com","Referencias","Hola chicos, les paso un link de donde pueden sacar buenas practicas para mejorar el código.",default,default,default);

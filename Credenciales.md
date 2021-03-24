@@ -12,10 +12,10 @@ Usuarios:
 
 **Admin** 
 ● pedro@pedro.com
-● jorge@jorge.com
+● fran@fran.com
 ● federico@federico.com
 
 **User** 
 ● juan@juan.com
 ● lucas@lucas.com
-● guillermo@guillermo.com
+● tomas@tomas.com

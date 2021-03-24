@@ -7,17 +7,23 @@
     <div class="home-banner">
         <div class="banner-container">
             <div class="homepage-welcome-main-container">
-                <div class="homepage-welcome-container">
+                
+                <div class="homepage-welcome-container"> 
                     <div class="homepage-title-container">
-                        <p class="homepage-title">Live the experience</p>
+                        <p class="homepage-title">
+                            Live the experience
+                        </p>
                     </div>
                     
                     <div class="homepage-btn-container">
                         <form action="/products">
-                            <button class="homepage-btn">Shop</button>
+                            <button class="homepage-btn">
+                                Shop
+                            </button>
                         </form>
                     </div>
                 </div>
+
             </div>
 
             <div class="slider">
@@ -26,18 +32,21 @@
                     <input type="radio" name="radio-btn" id="radio2" class="banner-btn">
                     <input type="radio" name="radio-btn" id="radio3" class="banner-btn">
                     <input type="radio" name="radio-btn" id="radio4" class="banner-btn">
-        
+                    
                     <div class="slide first">
-                        <img src="" alt="" class="slide-img">
+                        <img src="#" alt="" class="slide-img">
                     </div>
+
                     <div class="slide">
-                        <img src="" alt="" class="slide-img">
+                        <img src="#" alt="" class="slide-img">
                     </div>
+
                     <div class="slide">
-                        <img src="" alt="" class="slide-img">
+                        <img src="#" alt="" class="slide-img">
                     </div>
+
                     <div class="slide">
-                        <img src="" alt="" class="slide-img">
+                        <img src="#" alt="" class="slide-img">
                     </div>
     
                     <div class="navigation-auto">
@@ -46,46 +55,70 @@
                         <div class="auto-btn3"></div>
                         <div class="auto-btn4"></div>
                     </div>
+
                 </div>
+
                 <div class="navigation-manual">
                     <label for="radio1" class="manual-btn"></label>
                     <label for="radio2" class="manual-btn"></label>
                     <label for="radio3" class="manual-btn"></label>
                     <label for="radio4" class="manual-btn"></label>
                 </div>
+
             </div>
         </div>
     </div>
 
     <main>
         <section class="productos">
-            <h2 class="section-title">Los productos más vendidos</h2>
+            <h2 class="section-title">
+                Los productos más vendidos
+            </h2>
+
             <div class="home-products-container">
                 <% for(let product of productsHome) { %>
                     <div class="home-product-cart zoom">
                         <img src="images/products/<%=product.image%>"  alt="" class="home-product-img ">
-                        <h2 class="home-product-name"><%=product.name%></h2>
-                        <p class="home-product-description"><%=product.description%></p>
-                        <p class="home-product-price-container">$<span class="home-product-price price-global"><%=product.price%></span></p>
+                        <h2 class="home-product-name">
+                            <%=product.name%>
+                        </h2>
+                        <p class="home-product-description">
+                            <%=product.description%>
+                        </p>
+                        <p class="home-product-price-container">
+                            $<span class="home-product-price price-global">
+                                <%=product.price%>
+                            </span>
+                        </p>
                         <form action="/products/detail/<%=product.id%>" method="GET">
-                            <button class="home-product-button">Ver más</button>
+                            <button class="home-product-button">
+                                Ver más
+                            </button>
                         </form>
                     </div>
                 <% } %>
             </div>
         </section>
        
-
         <section class="rutinas">
-            <h2 class="section-title">Rutinas más populares</h2>
+            <h2 class="section-title">
+                Rutinas más populares
+            </h2>
+            
             <div class="rutinas-articles-container">
                 <% for(let rutine of rutinasHome) { %>
                     <article class="rutina-articles">
                         <img src="images/rutines/<%= rutine.image %>" alt="" class="rutinas-img">
-                        <h2 class="rutine-name"><%= rutine.name %></h2>
-                        <p class="rutine-introduction"><%= rutine.introduction %></p>
+                        <h2 class="rutine-name">
+                            <%=rutine.name %>
+                        </h2>
+                        <p class="rutine-introduction">
+                            <%=rutine.introduction %>
+                        </p>
                         <form action="/rutines/detail/<%= rutine.id %>" class="button-padre">
-                            <button type="submit" class="ver-mas-button buttons-style">Ver más</button>
+                            <button type="submit" class="ver-mas-button buttons-style">
+                                Ver más
+                            </button>
                         </form>
                     </article>
                 <% } %>

@@ -94,13 +94,25 @@ let blankInput = (input)=>{
 
 /* Usuarios de la base de datos */
 let usuarios = []
-fetch("https://energym.herokuapp.com/api/users")
+
+if(window.location.href.includes("localhost")) {
+    fetch("http://localhost:3000/api/users")
     .then(resp => resp.json())
     .then(users => {
         for(let user of users.data){
             usuarios.push(user.email)
         }
     })
+} else {
+    fetch("https://energym.herokuapp.com/api/users")
+    .then(resp => resp.json())
+    .then(users => {
+        for(let user of users.data){
+            usuarios.push(user.email)
+        }
+    })
+}
+
 
 /* Ver si existe el email */
 let checkAvailable = (dbUsers,emailInput)=>{

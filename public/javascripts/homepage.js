@@ -1,4 +1,4 @@
-/* Image Slider */
+/* Slider de imagenes automático y manual */
 let counter = 1;
 let botones = document.querySelectorAll(".banner-btn")
 
@@ -17,11 +17,9 @@ setInterval(() => {
 }, 4000);
 
 
-
-/* Home images */
+/* Proveedor de imagenes al slider segun ancho de pantalla */
 let vpWidth = window.innerWidth
 let images = document.querySelectorAll(".slide-img")
-
 
 if(vpWidth<800){
     images.forEach((image,i)=>{

@@ -156,19 +156,19 @@ body{
     padding-right: 10px;
 }
 
-@media(max-width:600px){
-    .sections-welcome-titles{
-        font-size: 15px;
-    }
-
-    .sections-welcome-description{
-        font-size: 13px;
-    }
+.required-field{
+    color: red;
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+    bottom: 5px;
+    right: 3px;
 }
+
 
 /* ---------------------------------------------------2.Estilos Navbar--------------------------------------------------- */
 
-header{
+.page-header{
     position: fixed;
     left:0px;
     top:0px;
@@ -195,31 +195,11 @@ header{
     height: 60px;
 }
 
-.menu-icon-container{
-    display: none;
-    width: 70%;
-    height: 80px;
-}
-
-.menu-icon{
-    color: white;
-    font-size: 50px;
-}
-
 .main-nav-container{
     width: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.user-nav-container{
-     width: 30%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     position: relative;
-     right: 45px;
 }
 
 .main-nav-list{
@@ -229,12 +209,6 @@ header{
     padding: 60px;
     margin-right: 30px;
     position: relative;
-}
-
-.user-nav-list{
-    list-style-type: none;
-    display: flex;
-    align-items: center;
 }
 
 .main-nav-item{
@@ -252,11 +226,19 @@ header{
     font-size: 20px;
 }
 
-.header-avatar{
-    width:50px;
-    height:50px;
-    border-radius:150px;
-    border:2px solid white
+.user-nav-container{
+     width: 30%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     right: 45px;
+}
+
+.user-nav-list{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
 }
 
 .main-nav-item{
@@ -271,6 +253,29 @@ header{
 .main-nav-item:hover{
     background-size: 100% 2px;
 }
+
+.menu-icon-container{
+    display: none;
+    width: 70%;
+    height: 80px;
+}
+
+.avatar-responsive{
+    padding-right: 20px;
+}
+
+.header-avatar{
+    width: 50px;
+    height: 50px;
+    border-radius:150px;
+    border:2px solid white
+}
+
+.menu-icon{
+    color: white;
+    font-size: 40px;
+}
+
 
 /* -----------------2.1 mobile menu----------------- */
 
@@ -320,11 +325,6 @@ header{
     padding-left: 5px;
 }
 
-.avatar-responsive{
-    padding-right: 20px;
-}
-
-
 /* -----------------2.2 Navbar responsive----------------- */
 
 @media (max-width:1000px){
@@ -358,14 +358,11 @@ header{
 }
 
 @media (max-width:400px){
-    .logo-container{
-        justify-content: flex-end;
-    }
-
+   
     .header-logo{
-        height: 40px;
+        height: 42px;
         position: relative;
-        right: 10px
+        right: 35px
     }
 }
 
@@ -484,15 +481,14 @@ header{
 
 .footer-logo-container{
     height: 140px;
-    width: 33%;
+    width: 400px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .energym-logo-footer{
-    width: 60%;
-    padding: 10px;
+    width: 70%;
 }
 
 .footer-nav{
@@ -541,56 +537,13 @@ header{
 
 /* -----------------3.4 Footer segunda parte responsive---------------- */
 
-@media (min-width:2560px){
-    .footer-bottom-part{
-        height: 300px;
-    }
-
-    .footer-list{
-        height: 300px;
-    }
-
-    .footer-list-item{
-        font-size: 30px;
-        margin-top:25px
-    }
-
-    .social-cta{
-        font-size: 30px;
-    }
-
-    .social-icon{
-        font-size: 60px;
-        margin: 10px 20px;
-    }
-}
-
-@media (max-width:1024px){
-    .energym-logo-footer{
-        width: 250px;
-    }
-}
-
-
 @media (max-width:830px){
-    .footer-nav{
-        display: none;
-    }
-
     .footer-bottom-part{
         height: 100px;
     }
 
-    .footer-logo-container{
-        width: 40%;
-        padding: 0px;
-        display: flex;
-        align-items: center;
-    }
-
-    .energym-logo-footer{
-        height: 80px;
-        padding-left: 10px;
+    .footer-nav{
+        display: none;
     }
 
     .social-icons-container{
@@ -604,26 +557,15 @@ header{
     }
 }
 
-@media (max-width:600px){
-    .energym-logo-footer{
-        padding-left: 40px;
-    }
-}
-
-@media (max-width:425px){
-    .energym-logo-footer{
-        height: 60px;
-        padding-left: 65px;
+@media (max-width:500px){
+    .footer-logo-container{
+        position: relative;
+        right: 15px;
     }
 
     .social-icons-container{
-        position: relative;
-        left: -8px;
-        bottom: 5px;
-    }
-
-    .social-cta{
-        font-size: 8px;
+        bottom: 10px;
+        width: 55%;
     }
 }
 
@@ -811,18 +753,8 @@ header{
 }
 
 .home-product-img{
-    width: 400px;
+    height: 220px;
     text-align: center;
-}
-
-.zoom{
-    /* Aumentamos la anchura y altura durante 2 segundos */
-    transition: width 5s, height 5s, transform 5s;
-}
-.zoom:hover{
-    /* tranformamos el elemento al pasar el mouse por encima al doble de
-       su tamaño con scale(2). */
-    transform : scale(1.1);
 }
 
 .home-product-name{
@@ -902,6 +834,7 @@ header{
 @media(max-width:600px){
     .home-product-img{
         width: 100%;
+        height: auto;
     }
 
     .home-product-description{
@@ -919,6 +852,7 @@ header{
 
 .rutinas-img{
     width: 100%;
+    height: 270px;
     display: block;
     text-align: center;
     padding: 10px;
@@ -954,7 +888,6 @@ header{
     background-color: orange;
     color:white;
     width: 50%;
-    font-size: 15px;
     margin:10px 0px 10px 0px;
     text-transform: uppercase;
     font-weight: bold;
@@ -974,6 +907,11 @@ header{
     .rutina-articles{
         width: 50%;
     }
+
+    .rutinas-img{
+        height: 320px;
+        padding-left: 0px;
+    }
 }
 
 @media (max-width:700px){
@@ -982,8 +920,18 @@ header{
         margin-bottom: 10px;
     }
 
+    .rutinas-img{
+        height: 400px;
+    }
+
     .ver-mas-button{
         width: 80%;
+    }
+}
+
+@media (max-width:500px){
+    .rutinas-img{
+        height: auto;
     }
 }
 
@@ -1053,13 +1001,6 @@ header{
     left: 170px;
 }
 
-.required-field{
-    color: red;
-    font-size: 12px;
-    position: relative;
-    bottom: 5px;
-}
-
 .button-container{
     width: 100%;
     margin: 0px;
@@ -1084,7 +1025,6 @@ header{
 .facebook-button:hover{
     background-color:rgb(6, 31, 70);
 }
-
 
 .google-button{
     background-color: gray;
@@ -1150,7 +1090,7 @@ header{
     }
 
     .register-button,.facebook-button{
-        width: 100%;
+        width: 80%;
     }
 
     .facebook-google-form{
@@ -1163,6 +1103,12 @@ header{
 
     .avatar-label{
         left: 10px;
+    }
+}
+
+@media (max-width:500px){
+    .register-button,.facebook-button{
+        width: 100%;
     }
 }
 
@@ -1269,6 +1215,7 @@ header{
     background-color: orange;
     color: white;
     font-size: 17px;
+    font-weight: bold
 }
 
 .login-button:hover{
@@ -1303,20 +1250,7 @@ header{
     text-decoration: underline;
 }
 
-.mandatory{
-    color: red;
-    font-size: 10px;
-    position: relative;
-    top:-3px;
-}
-
 /* -----------------6.1 Login responsive----------------- */
-
-@media (max-width:1000px){
-    .login-container{
-        width: 80%;
-    }
-}
 
 @media (max-width:800px){
     .login-container{
@@ -1324,7 +1258,17 @@ header{
     }
 
     .all-login-inputs{
-        width: 90%;
+        width: 80%;
+    }
+
+    .login-button{
+        width: 50%;
+    }
+}
+
+@media (max-width:500px){
+    .login-button{
+        width: 70%;
     }
 }
 
@@ -1339,7 +1283,7 @@ header{
 }
 
 .profile-container{
-    width: 40%;
+    width: 600px;
     display: flex;
     flex-wrap: wrap;
     background-color: white;
@@ -1351,6 +1295,31 @@ header{
 
 .profile.left.side{
     width: 40%;  
+}
+
+.profile-avatar-container{
+    width: 40%;
+}
+
+.profile-page-avatar{
+    width:250px;
+    height:250px;
+    border-radius:150px;
+    margin-top: 30px;
+}
+
+.profile-avatar-text{
+    position: relative;
+    left: 100px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.profile-rol-container{
+    width: 250px;
+    text-align: center;
+    margin-bottom: 10px
 }
 
 .admin-access-button{
@@ -1380,31 +1349,6 @@ header{
     background-color: gray
 }
 
-.profile-avatar-container{
-    width: 40%;
-}
-
-.profile-page-avatar{
-    width:250px;
-    height:250px;
-    border-radius:150px;
-    margin-top: 30px;
-}
-
-.profile-avatar-text{
-    position: relative;
-    left: 100px;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.profile-rol-container{
-    width: 250px;
-    text-align: center;
-    margin-bottom: 10px
-}
-
 .profile-information{
     width: 90%;
     margin: 20px auto;
@@ -1422,11 +1366,24 @@ header{
     width: 240px;
 }
 
-.profile-edit-button{
-    width: 60%;
-    height: 30px;
+.form-profile-container{
+    width: 75%;
     position: relative;
-    left: 55px;
+    left: 40px;
+    text-align: center;
+}
+
+.form-profile-edit-container{
+    width: 75%;
+    position: relative;
+    left: 40px;
+    bottom: 25px;
+    text-align: center;
+}
+
+.profile-edit-button{
+    width: 100%;
+    height: 30px;
     margin-bottom: 20px;
     background-color:orange;
     color: white
@@ -1437,10 +1394,8 @@ header{
 }
 
 .profile-logout-button{
-    width: 60%;
+    width: 100%;
     height: 30px;
-    position: relative;
-    left: 55px;
     margin-bottom: 20px;
     background-color: red;
     color: white
@@ -1448,18 +1403,6 @@ header{
 
 .profile-logout-button:hover{
     background-color: black;
-}
-
-.profile-message-container{
-    width: 60%;
-    margin: 0px auto;
-    margin-bottom: 10px;
-}
-
-.profile-message{
-    font-size: 14px;
-    color: red;
-    font-weight: bold;
 }
 
 .profile-save-edit-button{
@@ -1470,64 +1413,95 @@ header{
     background-color: #00b347 
 }
 
+.profile-message-container{
+    width: 60%;
+    margin: 0px auto;
+    position: relative;
+    bottom: 20px;
+}
+
+.profile-message{
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+
 /* -----------------7.1 perfil de usuario responsive----------------- */
 
-@media (max-width:1350px){
-    .profile-container{
-        width: 50%;
-    }
-}
 
-@media (max-width:1100px){
-    .profile-container{
-        width: 60%;
-    }
-}
-
-@media (max-width:900px){
-    .profile-container{
-        width: 80%;
-    }
-
+@media (max-width:800px){
     .profile-avatar-container{
         width: 100%;
         text-align: center;
     }
 
-    .profile-information-container{
-        width: 80%;
-        margin: 5px 20px;
-    }
-
-    .profile-information,.profile-message-container{
-        width: 100%;
-    }
-
     .profile-avatar-text{
         left: 8px;   
+    }
+    
+    .profile-rol{
+        position: relative;
+        left: 80px;
+    }
+
+    .admin-button-container{
+        width: 400px
     }
 
     .profile-inputs{
         width: 90%;
     }
 
-    .profile-edit-button,.profile-logout-button{
-        width: 80%;
-        left:30px ;
+    .form-profile-container{
+        width: 90%;
+        left: 20px;
     }
-}
 
-@media (max-width:800px){
+    .profile-edit-button,.profile-logout-button{
+        width: 75%;
+    }
+
     .profile-container{
         width: 100%;
     }
+
     .profile-labels{
         display: block;
     }
 
-    .profile-information-container{
+    .profile-information,.profile-message-container{
         width: 100%;
     }
+
+    .profile-information-container{
+        width: 100%;
+        margin: 5px 20px;
+    }
+
+    .form-profile-edit-container{
+        left: 20px;
+        width: 90%;
+    }
+}
+
+@media (max-width:500px){
+    .profile-rol{
+        position: relative;
+        left: 30px;
+    }
+
+    .admin-button-container{
+        width: 300px;
+        text-align: center;
+    }
+
+    .admin-access-button{
+        width: 90%;
+    }
+    
+    .profile-edit-button,.profile-logout-button{
+        width: 100%;
+    }  
 }
 
 /* ---------------------------------------------------8.Estilos pagina de producto--------------------------------------------------- */
@@ -1704,6 +1678,7 @@ header{
     align-items: center;
     background-image: url(/images/main/contact-background.jpg);
     background-attachment: fixed;
+    width: 100%;
 }
 
 .product-detail-container{
@@ -1714,7 +1689,6 @@ header{
     flex-wrap: wrap;
     border: 1px solid gray;
     margin: 80px 0px;
-    height: 548px;
 }
 
 .product-detail-img-container{
@@ -1735,7 +1709,7 @@ header{
     width: 100%;
 }
 
-.product-name-and-price-container{
+.product-detail-right-side{
     width:50%;
     border-left: 1px solid lightslategray;
     padding: 15px;
@@ -1773,22 +1747,13 @@ header{
     color: green;
 }
 
-.product-extra-info-container{
-    margin-top: 15px;
-}
-
-.product-extra-info{
-    font-weight: 100;
-}
-
-.product-detail-icon{
-    margin-bottom: 15px;
-    padding-right: 10px;
-    color: green
-}
-
 .product-detail-form-container{
     text-align: left;
+}
+
+.product-amount-container{
+    text-align: left;
+    margin-top: 10px;
 }
 
 .product-detail-amount-label{
@@ -1804,11 +1769,6 @@ header{
     text-align: center;
 }
 
-.product-amount-container{
-    text-align: left;
-    margin-top: 10px;
-}
-
 .product-detail-button{
     height: 40px;
     width:50%;
@@ -1822,10 +1782,24 @@ header{
     background: rgb(12, 12, 243);
 }
 
+.product-extra-info-container{
+    margin-top: 15px;
+}
+
+.product-extra-info{
+    font-weight: 100;
+}
+
+.product-extra-info-icon{
+    margin-bottom: 15px;
+    padding-right: 10px;
+    color: green;
+}
+
 /* -----------------9.1 detalle de producto responsive----------------- */
 
 
-@media (max-width:1080px){
+@media (max-width:1070px){
     .product-detail-container{
         height: auto;
     }
@@ -1837,98 +1811,101 @@ header{
     }
 
     .product-detail-img{
-        height: 400px
+        height: 340px
     }
 
-    .product-name-and-price-container{
+    .rutine-detail-img{
+        height: 500px;
+    }
+
+    .product-detail-right-side{
         width: 100%;
         border: none;
-        position: relative;
-        bottom: 20px;
         height: auto;
+        text-align: left;
     }
 
     .product-detail-name{
         font-size: 40px;
-        text-align: center;
+        font-weight: bold;
     }
 
     .product-detail-description{
         font-size: 22px;
         margin-top: 20px;
+        font-weight: 500;
     }
 
     .product-detail-information{
-        font-size: 22px;
+        font-size: 25px;
+        font-weight: 700;
+        margin-top:5px;
     }
 
     .product-detail-price{
-        font-size: 45px;
+        font-size: 40px;
+        font-weight: 700;
     }
 
-    .product-extra-info{
-        font-size: 22px;
+    .product-detail-amount-label{
+        font-size: 20px;
     }
 
-    .product-detail-button{
-        width: 40%;
-    }
-
-    .product-name-and-price-container{
-        text-align: center;
-    }
-
-    .product-amount-container{
-        text-align: center;
+    .product-detail-amount-field{
+        width: 150px;
     }
 
     .product-detail-form-container{
         text-align: center;
     }
 
-    .product-detail-information-container{
-        margin-top: 10px;
-    }
-}
-
-@media (max-width:700px){
-    .product-detail-welcome-title{
-        font-size: 25px;
-    }
-
-    .product-detail-img{
-        height: 350px;
-    }
-
-    .product-detail-container{
-        width: 100%;
-    }
-
     .product-detail-button{
-        width: 60%;
+        width: 400px;
+        font-size: 20px;
+    }
+
+    .product-extra-info{
+        font-size: 22px;
     }
 }
 
 @media (max-width:550px){
     .product-detail-img{
-        height: 280px;
+        height: 200px
+    }
+
+    .rutine-detail-img{
+        height: 300px;
+    }
+
+    .product-detail-name{
+        font-size: 30px;
+    }
+
+    .product-detail-description{
+        font-size: 18px;
+    }
+
+    .product-detail-information{
+        font-size: 20px;
+    }
+
+    .product-detail-price{
+        font-size: 35px;
+    }
+
+    .product-detail-amount-label{
+        font-size: 18px;
     }
 
     .product-detail-button{
-        width: 90%;
+        width: 100%;
     }
 
     .product-extra-info{
-        font-size: 16px;
+        font-size: 18px;
     }
 }
-
-@media (max-width:430px){
-    .product-detail-img{
-        height: 200px;
-    }
-}
-
 
 
 /* ---------------------------------------------------10.Estilos carrito--------------------------------------------------- */
@@ -2209,7 +2186,7 @@ header{
 }
 
 .contact-section-container{
-    width: 50%;
+    width: 760px;
     background-color: white;
     border-radius: 10px;
     border: 1px solid gray;
@@ -2218,8 +2195,15 @@ header{
     flex-wrap: wrap;
 }
 
-.contact-welcome-container{
-    height: 80px;
+.contact-information-container{
+    width: 40%;
+    margin-top: 30px;
+    padding-left: 40px;
+}
+
+.contact-information{
+    font-weight: lighter;
+    margin-bottom: 30px;
 }
 
 .contact-form-container{
@@ -2234,15 +2218,15 @@ header{
     height: 50px;
 }
 
+.contact-inputs{
+    width: 100%;
+    border-radius: 10px;
+}
+
 .contact-textarea-container{
     width: 90%;
     margin-bottom: 30px;
     height: 210px;
-}
-
-.contact-inputs{
-    width: 100%;
-    border-radius: 10px;
 }
 
 .contact-textarea{
@@ -2255,47 +2239,29 @@ header{
 }
 
 .contact-button-container{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .contact-button-send{
-    width: 40%;
+    width: 50%;
     height: 35px;
     background-color: green;
     color: white;
     font-size: 16px;
-}
-
-.contact-extra-container{
-    width: 40%;
-    margin-top: 30px;
-    padding-left: 40px;
-}
-
-.contact-extra-info{
-    font-weight: lighter;
-    margin-bottom: 30px;
+    font-weight: bold;
 }
 
 /* -----------------12.1 pagina de contacto responsive----------------- */
 
-@media (max-width:1444px){
+@media (max-width:800px){
     .contact-section-container{
-        width: 70%
-    }
-}
-
-@media (max-width:1000px){
-    .contact-section-container{
-        width: 80%;
+        width: 100%;
     }
 
-    .contact-inputs{
-        width:100%
-    }
-
-    .contact-textarea{
-        width:100%
+    .contact-information-container{
+        width: 90%;
+        position: relative;
+        top: 450px;
     }
 
     .contact-form-container{
@@ -2305,28 +2271,34 @@ header{
         padding: 0px 25px;
     }
 
-    .contact-extra-container{
-        width: 90%;
-        position: relative;
-        top: 450px;
-    }
-}
-
-@media (max-width:800px){
     .contact-input-container{
         width: 100%
     }
-    
+
+    .contact-inputs{
+        width:100%
+    }
+
     .contact-textarea-container{
         width: 100%;
     }
 
-    .contact-section-container{
-        width: 100%;
+    .contact-textarea{
+        width:100%
+    }
+
+    .contact-button-container{
+        text-align: center;
     }
 
     .contact-button-send{
         width: 60%;
+    }
+}
+
+@media (max-width:500px){
+    .contact-button-send{
+        width: 90%;
     }
 }
 
@@ -2460,7 +2432,7 @@ header{
     }
 }
 
-@media (max-width:640px){
+@media (max-width:800px){
     .admin-menu-container{
         width: 100%;
     }
@@ -2470,7 +2442,7 @@ header{
     }
 }
 
-@media (max-width:500px){
+@media (max-width:550px){
     .admin-product-card-container{
         flex-wrap: wrap;
         align-items: center;
@@ -2493,12 +2465,28 @@ header{
         width: 50%;
     }
 
-    .admin-edit-button{
+    .admin-edit-button, .admin-delete-button{
         width:125px;
+    }
+}
+
+@media (max-width:400px){
+    .edit-delete-buttons-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .admin-edit-button, .admin-delete-button{
+        width:200px;
+        margin: 0px;
+        margin-top: 15px;
     }
 
     .admin-delete-button{
-        width:125px;
+        margin-bottom: 10px;
     }
 }
 
@@ -2588,8 +2576,7 @@ header{
 .add-edit-product-image-label{
     display: block;
     font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .add-edit-product-image-input{
@@ -2808,7 +2795,7 @@ header{
     }
 }
 
-@media(max-width:781px){
+@media(max-width:800px){
     .admin-users-main-container{
         width: 100%;
     }

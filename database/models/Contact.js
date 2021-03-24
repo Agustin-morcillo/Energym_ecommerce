@@ -13,7 +13,7 @@ module.exports = (sequelize, dataTypes)=> {
             type: dataTypes.BOOLEAN
         },
         userId: {
-            type: dataTypes.STRING,
+            type: dataTypes.INTEGER,
         },
         email: {
             allowNull: false,

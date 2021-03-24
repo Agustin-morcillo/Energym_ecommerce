@@ -4,15 +4,14 @@ const cartController = require("../controllers/cartController")
 const auth = require('../middlewares/auth');
 const orderPageAuth = require('../middlewares/orderPageAuth');
 
-
 /* Mostrar carrito */
-router.get("/",auth,cartController.showCart)
+router.get("/", auth ,cartController.showCart)
 
 /* Agregar producto al carrito */
-router.post("/addToCart/:id/:category",auth, cartController.addToCart)
+router.post("/addToCart/:id/:category", auth , cartController.addToCart)
 
 /* Eliminar producto del carrito */
-router.delete("/delete/:id", auth, cartController.deleteFromCart)
+router.delete("/delete/:id", auth , cartController.deleteFromCart)
 
 /* Efectuar la compra */
 router.post("/shop", auth ,cartController.shop)
