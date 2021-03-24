@@ -8,9 +8,14 @@
         <section>
             <div class="product-page-main-container">
                 <div class="product-page-container">
+                    
                     <div class="sections-welcome-titles-container">
-                        <h2 class="sections-welcome-titles">Todas las rutinas</h2>
-                        <p class="sections-welcome-description">Listado de todas las rutinas del sitio</p>
+                        <h2 class="sections-welcome-titles">
+                            Todas las rutinas
+                        </h2>
+                        <p class="sections-welcome-description">
+                            Listado de todas las rutinas del sitio
+                        </p>
                     </div>
                 
                     <div class="product-page-articles-main-container">
@@ -22,20 +27,30 @@
                                     </div>
 
                                     <div class="product-page-product-name product-page-div">
-                                        <h2 class="product-page-name"><%=rutine.name%></h2>
+                                        <h2 class="product-page-name">
+                                            <%=rutine.name%>
+                                        </h2>
                                     </div>
 
                                     <div class="product-page-product-introduction product-page-div">
-                                        <p class="product-page-introduction"><%=rutine.introduction%>.</p>
+                                        <p class="product-page-introduction">
+                                            <%=rutine.introduction%>.
+                                        </p>
                                     </div>
 
                                     <div class="product-page-product-price product-page-div">
-                                        <p class="product-page-price-container">$<span class="product-page-price price-global"><%=rutine.price%></span></p>
+                                        <p class="product-page-price-container">
+                                            $<span class="product-page-price price-global">
+                                                <%=rutine.price%>
+                                            </span>
+                                        </p>
                                     </div>
 
                                     <div class="product-page-form-container product-page-div">
                                         <form action="rutines/detail/<%=rutine.id%>" method="GET">
-                                            <button type="submit" class="buttons-style product-page-button">Comprar</button>
+                                            <button type="submit" class="buttons-style product-page-button">
+                                                Comprar
+                                            </button>
                                         </form>
                                     </div>
                             

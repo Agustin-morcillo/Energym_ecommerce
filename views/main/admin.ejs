@@ -8,45 +8,71 @@
     <main>
         <div class="admin-menu-main-container">
             <div class="admin-menu-container">
+
                 <div class="sections-welcome-titles-container">
-                    <h2 class="sections-welcome-titles">¡Bienvenido a la vista de administrador!</h2>
-                    <p class="sections-welcome-description">Puedes agregar, editar o eliminar productos y rutinas</p>
+                    <h2 class="sections-welcome-titles">
+                        ¡Bienvenido a la vista de administrador!
+                    </h2>
+                    <p class="sections-welcome-description">
+                        Puedes agregar, editar o eliminar productos y rutinas
+                    </p>
                 </div>
+
                 <section>
                     <div class="admin-products-main-container">
                         <div class="admin-product-container">
-                            <div class="admin-section-title-and-add-button">
-                                    <div class="admin-section-title-container">
-                                        <h2 class="admin-section-title">Productos</h2>
-                                        <p>Lista de productos disponibles</p>
-                                    </div>
+                            <div class="admin-section-title-and-add-button">    
+                                
+                                <div class="admin-section-title-container">
+                                    <h2 class="admin-section-title">
+                                        Productos
+                                    </h2>
+                                    <p>
+                                        Lista de productos disponibles
+                                    </p>
+                                </div>
 
-                                    <div class="admin-product-add-container">
-                                        <form action="/products/create">
-                                            <button type="submit" class="admin-add-button buttons-style"><i class="fas fa-plus page-icons"></i>Agregar producto</button>
-                                        </form>
-                                    </div>
+                                <div class="admin-product-add-container">
+                                    <form action="/products/create">
+                                        <button type="submit" class="admin-add-button buttons-style">
+                                            <i class="fas fa-plus page-icons"></i>
+                                            Agregar producto
+                                        </button>
+                                    </form>
+                                </div>
+
                             </div>
 
                             <% for(let product of products){ %>    
                                 <article>
                                     <div class="admin-product-card-container">
+                                        
                                         <div class="product-image-and-name-container">
                                             <div class="admin-products-image-container">
                                                     <img src="images/products/<%= product.image %>" alt="<%= product.name %>" class="admin-product-img">
                                             </div>
                                             <div class="admin-product-name-container">
-                                                    <h2 class="admin-product-name"> <%= product.name %> </h2>
+                                                    <h2 class="admin-product-name">
+                                                        <%= product.name %>
+                                                    </h2>
                                             </div>
                                         </div>
+
                                         <div class="edit-delete-buttons-container">
                                             <form method="get" action="/products/edit/<%= product.id %>">
-                                                <button type="submit" class="admin-edit-button buttons-style"><i class="fas fa-edit page-icons"></i>Editar</button>
+                                                <button type="submit" class="admin-edit-button buttons-style">
+                                                    <i class="fas fa-edit page-icons"></i>
+                                                    Editar
+                                                </button>
                                             </form>
                                             <form method="post" action="/products/delete/<%=product.id%>?_method=DELETE">
-                                                <button type="submit" class="admin-delete-button buttons-style"><i class="far fa-trash-alt page-icons"></i>Eliminar</button>
+                                                <button type="submit" class="admin-delete-button buttons-style">
+                                                    <i class="far fa-trash-alt page-icons"></i>
+                                                    Eliminar
+                                                </button>
                                             </form>
                                         </div>
+
                                     </div>
                                 </article>
                             <% } %>
@@ -58,37 +84,58 @@
                     <div class="admin-products-main-container">
                         <div class="admin-product-container">
                             <div class="admin-section-title-and-add-button">
-                                    <div class="admin-section-title-container">
-                                        <h2 class="admin-section-title">Rutinas</h2>
-                                        <p>Lista de rutinas disponibles</p>
-                                    </div>
+                                
+                                <div class="admin-section-title-container">
+                                    <h2 class="admin-section-title">
+                                        Rutinas
+                                    </h2>
+                                    <p>
+                                        Lista de rutinas disponibles
+                                    </p>
+                                </div>
 
-                                    <div class="admin-product-add-container">
-                                        <form action="/rutines/create">
-                                            <button type="submit" class="admin-add-button buttons-style"><i class="fas fa-plus page-icons"></i>Agregar rutina</button>
-                                        </form>
-                                    </div>
+                                <div class="admin-product-add-container">
+                                    <form action="/rutines/create">
+                                        <button type="submit" class="admin-add-button buttons-style">
+                                            <i class="fas fa-plus page-icons"></i>
+                                            Agregar rutina
+                                        </button>
+                                    </form>
+                                </div>
+
                             </div>
                             
                             <% for(let rutine of rutines){ %>  
                                 <article>
                                     <div class="admin-product-card-container">
                                         <div class="product-image-and-name-container">
+
                                             <div class="admin-products-image-container">
-                                                    <img src="images/rutines/<%=rutine.image%>" alt="" class="admin-product-img">
+                                                <img src="images/rutines/<%=rutine.image%>" alt="" class="admin-product-img">
                                             </div>
                                             <div class="admin-product-name-container">
-                                                    <h2 class="admin-product-name"><%=rutine.name%></h2>
+                                                <h2 class="admin-product-name">
+                                                    <%=rutine.name%>
+                                                </h2>
                                             </div>
+
                                         </div>
+
                                         <div class="edit-delete-buttons-container">
                                             <form action="/rutines/edit/<%=rutine.id%>">
-                                                <button type="submit" class="admin-edit-button buttons-style"><i class="fas fa-edit page-icons"></i>Editar</button>
+                                                <button type="submit" class="admin-edit-button buttons-style">
+                                                    <i class="fas fa-edit page-icons"></i>
+                                                    Editar
+                                                </button>
                                             </form>
                                             <form method="post" action="/rutines/delete/<%=rutine.id%>?_method=DELETE">
-                                                <button type="submit" class="admin-delete-button buttons-style"><i class="far fa-trash-alt page-icons"></i>Eliminar</button>
+                                                <button type="submit" class="admin-delete-button buttons-style">
+                                                    <i class="far fa-trash-alt page-icons"></i>
+                                                    Eliminar
+                                                </button>
                                             </form>
                                         </div>
+                                        
                                     </div>     
                                 </article>
                             <% } %>

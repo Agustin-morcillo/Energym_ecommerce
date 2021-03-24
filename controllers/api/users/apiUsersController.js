@@ -1,18 +1,20 @@
 const {User} = require("../../../database/models")
 const bcrypt = require("bcryptjs")
-const { paginationFunction } = require("../../../helpers/pagination.js");
+const {paginationFunction} = require("../../../helpers/pagination.js");
 
 const apiUsersController={
     listUsers: async (req,res)=>{
+        
         try {
-            //paginacion
+            //Configuracion variables paginacion
             const counter = await User.findAll();
+            
             const pagination = paginationFunction("api/users", counter, req.query.limit, req.query.page)
-            // 
-
+            
+            //Pedido asincronico base de datos usuarios
             const users =  await User.findAll({
-                offset: pagination.offset, //paginacion
-                limit: pagination.limit, //paginacion
+                offset: pagination.offset,
+                limit: pagination.limit,
                 attributes: ["id", "name", "lastname", "email", "avatar", "createdAt", "updatedAt"]
             })
             
@@ -30,33 +32,36 @@ const apiUsersController={
             })
             
             return res.json({
-                meta:pagination.meta, //paginacion
+                meta:pagination.meta,
                 data:usersFullInfo,
             })
         
         } catch (error) {
-            res.status(404).json({
+            return res.status(404).json({
                 meta: {
                     status: "error"
                 },
-                error: `${error}`
-                })
+                error: error
+            })
         }
     },
     userDetail: async (req,res)=>{
         
-        const id = req.params.id
-        
-        try{
-            const user = await User.findOne({where:{id,}, attributes: ["id", "name", "lastname", "email","avatar", "createdAt", "updatedAt"]})
+        try {
+            const user = await User.findOne({
+                where:{
+                    id: req.params.id
+                },
+                attributes: ["id", "name", "lastname", "email","avatar", "createdAt", "updatedAt"]
+            })
 
             if(!user){
                 return res.json({
                 meta: {
                     status: "Error",
                     message: "Usuario no encontrado en la base"
-                }
-            })
+                    }
+                })
             }
 
             const usersFullInfo = { 
@@ -78,40 +83,43 @@ const apiUsersController={
             })      
             
         } catch (error){
-            res.status(404).json({
+            return res.status(404).json({
                 meta: {
                     status: "error"
                 },
                 error: error
-                })
-            }
-
-        
+            })
+        }
     },
     checkLogin: async (req,res)=>{
         
         const {email,password} = req.body
-       
-        const user = await User.findOne({
-            where:{
-                email,
-            }
-        })
 
+        let user;
+
+        try {
+            user = await User.findOne({
+                where:{
+                    email,
+                }
+            })
+        } catch (error) {
+            console.error(error)
+        }
+       
         if(user && bcrypt.compareSync(password,user.password)){
             res.json({
                 meta: {
                     status: "sucess",
                 }
             })
-            return
         } 
         
-        res.status(200).json({
+        return res.status(200).json({
             meta: {
                 status: "error"
-            },
-            error: "Email o password Incorrecto"
+                },
+                error: "Email o password Incorrecto"
             })
         }
     }

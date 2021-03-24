@@ -116,28 +116,53 @@ form.addEventListener("submit",(e)=>{
     } 
     
     if(estado.email && estado.password){
-        fetch("https://energym.herokuapp.com/api/users/checkCredentials",seeting)
-        .then(res => res.json())
-        .then(response => {
-           if(response.meta.status!="error"){
-                document.querySelector(`.login-email input`).classList.remove("wrong-input")
-                document.querySelector(`.login-email label`).classList.remove("wrong-label")
-                document.querySelector(`.login-password input`).classList.remove("wrong-input")
-                document.querySelector(`.login-password label`).classList.remove("wrong-label")
-                document.querySelector(".email-or-password-error").classList.remove("front-error-active")
-                document.querySelector(".email-or-password-error").classList.add("front-error-inactive")
-                form.submit()
-           } else{
-               document.querySelector(`.login-email input`).classList.add("wrong-input")
-               document.querySelector(`.login-email label`).classList.add("wrong-label")
-               document.querySelector(`.login-password input`).classList.add("wrong-input")
-               document.querySelector(`.login-password label`).classList.add("wrong-label")
-               document.querySelector(".email-or-password-error").classList.add("front-error-active")
-               document.querySelector(".email-or-password-error").classList.remove("front-error-inactive")
-           }
-        })   
-        .catch(error=>console.error(error))
+        if(window.location.href.includes("localhost")) {
+            fetch("http://localhost:3000/api/users/checkCredentials",seeting)
+            .then(res => res.json())
+            .then(response => {
+               if(response.meta.status!="error"){
+                    document.querySelector(`.login-email input`).classList.remove("wrong-input")
+                    document.querySelector(`.login-email label`).classList.remove("wrong-label")
+                    document.querySelector(`.login-password input`).classList.remove("wrong-input")
+                    document.querySelector(`.login-password label`).classList.remove("wrong-label")
+                    document.querySelector(".email-or-password-error").classList.remove("front-error-active")
+                    document.querySelector(".email-or-password-error").classList.add("front-error-inactive")
+                    form.submit()
+               } else{
+                   document.querySelector(`.login-email input`).classList.add("wrong-input")
+                   document.querySelector(`.login-email label`).classList.add("wrong-label")
+                   document.querySelector(`.login-password input`).classList.add("wrong-input")
+                   document.querySelector(`.login-password label`).classList.add("wrong-label")
+                   document.querySelector(".email-or-password-error").classList.add("front-error-active")
+                   document.querySelector(".email-or-password-error").classList.remove("front-error-inactive")
+               }
+            })   
+            .catch(error=>console.error(error))
+        } else {
+            fetch("https://energym.herokuapp.com/api/users/checkCredentials",seeting)
+            .then(res => res.json())
+            .then(response => {
+               if(response.meta.status!="error"){
+                    document.querySelector(`.login-email input`).classList.remove("wrong-input")
+                    document.querySelector(`.login-email label`).classList.remove("wrong-label")
+                    document.querySelector(`.login-password input`).classList.remove("wrong-input")
+                    document.querySelector(`.login-password label`).classList.remove("wrong-label")
+                    document.querySelector(".email-or-password-error").classList.remove("front-error-active")
+                    document.querySelector(".email-or-password-error").classList.add("front-error-inactive")
+                    form.submit()
+               } else{
+                   document.querySelector(`.login-email input`).classList.add("wrong-input")
+                   document.querySelector(`.login-email label`).classList.add("wrong-label")
+                   document.querySelector(`.login-password input`).classList.add("wrong-input")
+                   document.querySelector(`.login-password label`).classList.add("wrong-label")
+                   document.querySelector(".email-or-password-error").classList.add("front-error-active")
+                   document.querySelector(".email-or-password-error").classList.remove("front-error-inactive")
+               }
+            })   
+            .catch(error=>console.error(error))
+        }
     }
+       
 })
    
 

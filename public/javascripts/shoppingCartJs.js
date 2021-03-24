@@ -23,8 +23,6 @@ let calculos = (e,itera)=>{
         e.target.value = 1
     }
 
-
-
     productQuantityHidden.value = e.target.value
 
     for(let i=0;i<productQuantity.length;i++){
@@ -70,7 +68,7 @@ let calculos = (e,itera)=>{
             }
         }
 
-        fetch("cart//editQuantity", seeting)
+        fetch("cart/editQuantity", seeting)
             .then(response=>response.json())
             .then(data =>console.log(data))
     }

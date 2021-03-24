@@ -9,47 +9,84 @@
             <article>
                 <div class="product-detail-main-container">
                     <div class="product-detail-container">
+
                         <div class="sections-welcome-titles-container">
-                            <h2 class="sections-welcome-titles product-detail-welcome-title">Detalle del producto: <%=product.name%></h2>
+                            <h2 class="sections-welcome-titles product-detail-welcome-title">
+                                Detalle del producto: <%=product.name%>
+                            </h2>
                         </div>
                 
                         <div class="product-detail-img-container">
                              <img src="/images/products/<%=product.image%>" alt="" class="product-detail-img">
                         </div>
 
-                        <div class="product-name-and-price-container">
-                           
+                        <div class="product-detail-right-side">
                             <div class="product-name-container">
-                                <h1 class="product-detail-name"><%=product.name%></h1>
+                                <h1 class="product-detail-name">
+                                    <%=product.name%>
+                                </h1>
                             </div>
 
                             <div class="product-detail-description-container">
-                                <h2 class="product-detail-description"><%=product.description%></h2>
+                                <h2 class="product-detail-description">
+                                    <%=product.description%>
+                                </h2>
                             </div>
 
                             <div class="product-detail-information-container">
-                                <h3 class="product-detail-information">Peso total: <span class="product-detail-information-detail"><%=product.weightKg%></span>KG.</h3>
-                                <h3 class="product-detail-information">Medidas: <span class="product-detail-information-detail"><%=product.size%></span>.</h3>
-                                <h3 class="product-detail-information">Material: <span class="product-detail-information-detail"><%=product.material%></span>.</h3>
+                                <h3 class="product-detail-information">
+                                    Peso total: 
+                                    <span class="product-detail-information-detail">
+                                        <%=product.weightKg%>
+                                    </span>KG.
+                                </h3>
+                                <h3 class="product-detail-information">
+                                    Medidas: 
+                                    <span class="product-detail-information-detail">
+                                        <%=product.size%>.
+                                    </span>
+                                </h3>
+                                <h3 class="product-detail-information">
+                                    Material: 
+                                    <span class="product-detail-information-detail">
+                                        <%=product.material%>.
+                                    </span>
+                                </h3>
                             </div>
                             
                             <div class="product-price-container">
-                                <h2 class="product-detail-price">Precio: $<span class="price-global"><%=product.price%></span></h2>
+                                <h2 class="product-detail-price">
+                                    Precio: 
+                                    $<span class="price-global">
+                                        <%=product.price%>
+                                    </span>
+                                </h2>
                             </div>
 
                             <div class="product-detail-form-container">
                                 <form action="/cart/addToCart/<%=product.id%>/<%=product.category%>" method="POST">
                                     <div class="product-amount-container">
-                                        <label for="product-detail-amount" class="product-detail-amount-label">Cantidad:</label>
+                                        <label for="product-detail-amount" class="product-detail-amount-label">
+                                            Cantidad:
+                                        </label>
                                         <input type="number" name="productQuantity" id="product-detail-amount" class="product-detail-amount-field inputs-fields" value="1" min="1" pattern="^[0-9]+">
                                     </div>
-                                    <button type="submit" class="buttons-style product-detail-button"><i class="fas fa-shopping-cart page-icons"></i>Agregar al carrito</button>
+                                    <button type="submit" class="buttons-style product-detail-button">
+                                        <i class="fas fa-shopping-cart page-icons"></i>
+                                        Agregar al carrito
+                                    </button>
                                 </form>
                             </div>
                             
                             <div class="product-extra-info-container">
-                                <h3 class="product-extra-info"><i class="far fa-credit-card product-detail-icon"></i>Pagá en cuotas sin interes</h2>    
-                                <h3 class="product-extra-info"><i class="fas fa-truck envio-icon product-detail-icon"></i>Envio gratis apartir de $4000</h2>
+                                <h3 class="product-extra-info">
+                                    <i class="far fa-credit-card product-extra-info-icon"></i>
+                                    Pagá en cuotas sin interes
+                                </h3>    
+                                <h3 class="product-extra-info">
+                                    <i class="fas fa-truck envio-icon product-extra-info-icon"></i>
+                                    Envío gratis apartir de $4.000
+                                </h3>
                             </div>
 
                         </div>
@@ -65,6 +102,5 @@
 
     <%- include("../partials/footer") %> 
     <script src="/javascripts/priceFormat.js"></script>
-    
 </body>
 </html>

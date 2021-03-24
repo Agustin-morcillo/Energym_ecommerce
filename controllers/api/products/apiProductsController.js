@@ -1,15 +1,17 @@
-const { Product } = require("../../../database/models");
-const { paginationFunction } = require("../../../helpers/pagination.js");
+const {Product} = require("../../../database/models");
+const {paginationFunction} = require("../../../helpers/pagination.js");
 
 const apiProductsController = {
     productList: async (req,res)=>{
+        
         try {        
             //Configuracion variables paginacion
             const counter = await Product.findAll();
+            
             const pagination = paginationFunction("api/products", counter, req.query.limit, req.query.page); 
-            //
+            
             //Pedido asincronico base de datos productos
-            let products = await Product.findAll({ offset: pagination.offset, limit: pagination.limit  }); //paginacion
+            let products = await Product.findAll({ offset: pagination.offset, limit: pagination.limit  });
 
             //Constructor objeto/propiedad data
             let productObj = products.map((product)=>{
@@ -29,27 +31,31 @@ const apiProductsController = {
 
             //Constructor objeto respuesta List
             let respuestaListObj =  {
-                meta: pagination.meta, //paginacion
+                meta: pagination.meta,
                 data: productObj
             };
 
             return res.json(respuestaListObj);
         } catch(error) {
-            res.status(404).json({
+            return res.status(404).json({
                 meta: {
                     status: "error"
                 },
                 error: error
-                })
+            })
         }
     },
     productDetail: async (req,res)=>{
+        
         try {
             let id = req.params.id;
+            
             let product = await Product.findByPk(id);
+            
             if(product==null){
                 return res.json({TypeOfError: "Database", ErrorMessage: "No se ha encontrado el producto requerido"})
             }
+            
             let productObj = { 
                 id: product.id,
                 name: product.name,
@@ -66,6 +72,7 @@ const apiProductsController = {
                 createdAt: product.createdAt,
                 updatedAt: product.updatedAt
             }
+            
             let respuestaDetail = {
                 meta:{
                     status: 200,
@@ -73,14 +80,15 @@ const apiProductsController = {
                 },
                 data: productObj
             };
+            
             return res.json(respuestaDetail);
         } catch(error) {
-            res.status(404).json({
+            return res.status(404).json({
                 meta: {
                     status: "error"
                 },
                 error: error
-                })
+            })
         }
     }
 }

@@ -7,49 +7,83 @@
     <main>
         <section class="login-main-container">
             <article class="login-container">
-                <div class="sections-welcome-titles-container">
-                    <h2 class="sections-welcome-titles">Iniciar sesión</h2>
-                </div>
 
-               
+                <div class="sections-welcome-titles-container">
+                    <h2 class="sections-welcome-titles">
+                        Iniciar sesión
+                    </h2>
+                </div>
 
                 <div class="login-inputs-container">
                     <form action="/users/login" method="POST" class="form-container">
                         <div class="front-error-inactive front-login-register-error-style email-or-password-error">
-                            <p>Email y/o contraseña invalidos</p>
+                            <p>
+                                Email y/o contraseña invalidos
+                            </p>
                         </div>
+
                         <div class="general-containers login-email">
-                            <label for="email-login" class="login-inputs-titles">Correo Electrónico<span class="mandatory">*</span></label>
+                            <label for="email-login" class="login-inputs-titles">
+                                Correo Electrónico
+                                <span class="required-field">
+                                    *
+                                </span>
+                            </label>
                             <input type="text" name="email" id="email-login" class="inputs-fields all-login-inputs">
-                            <p class="front-error-inactive front-login-register-error-style login-email-error">El email debe estar en un formato valido</p>
-                            <small class="front-blank-error-inactive front-login-register-error-style">Este campo no puede quedar vacío</small>
+                            <p class="front-error-inactive front-login-register-error-style login-email-error">
+                                El email debe estar en un formato valido
+                            </p>
+                            <small class="front-blank-error-inactive front-login-register-error-style">
+                                Este campo no puede quedar vacío
+                            </small>
                             <p class="validation-error-register">
                                 <%= typeof errors == "undefined" ? "" : typeof errors.email != "undefined" ? errors.email.msg : "" %>
                             </p>
                         </div>
                         
                         <div class="general-containers login-password">
-                            <label for="password-login" class="login-inputs-titles">Contraseña<span class="mandatory">*</span></label>
+                            <label for="password-login" class="login-inputs-titles">
+                                Contraseña
+                                <span class="required-field">
+                                    *
+                                </span>
+                            </label>
                             <input type="password" name="password" id="password-login" class="inputs-fields all-login-inputs">
-                            <small class="front-blank-error-inactive front-login-register-error-style">Este campo no puede quedar vacío</small>
+                            <small class="front-blank-error-inactive front-login-register-error-style">
+                                Este campo no puede quedar vacío
+                            </small>
                             <p class="validation-error-register">
                                 <%= typeof errors == "undefined" ? "" : typeof errors.password != "undefined" ? errors.password.msg : "" %>
                             </p>
-                         </div>
+                        </div>
                         
-                         <div class="remember-me-container">
-                            <label for="remember">Recordarme</label>
+                        <div class="remember-me-container">
+                            <label for="remember">
+                                Recordarme
+                            </label>
                             <input type="checkbox" name="remember" id="remember" class="remember-login-input">
                         </div>
 
                         <div class="buttons-container general-containers">
-                            <button type="submit" class="login-button buttons-style">Ingresar</button>
+                            <button type="submit" class="login-button buttons-style">
+                                Ingresar
+                            </button>
                         </div>
                     </form>
                 </div>
+
                 <div class="register-account-container">
-                    <h4><a href="#" class="forgot-password">Olvide mi contraseña</a></h4>
-                    <h4 class="no-account">¿No tenés cuenta?<a href="/users/register" class="register-account"> Registrate</a></h4>
+                    <h4>
+                        <a href="#" class="forgot-password">
+                            Olvide mi contraseña
+                        </a>
+                    </h4>
+                    <h4 class="no-account">
+                        ¿No tenés cuenta?
+                        <a href="/users/register" class="register-account">
+                            Registrate
+                        </a>
+                    </h4>
                 </div>
 
             </article>

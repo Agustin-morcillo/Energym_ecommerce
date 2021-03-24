@@ -1,18 +1,19 @@
-const { Rutine } = require("../../../database/models");
-const { paginationFunction } = require("../../../helpers/pagination.js");
+const {Rutine} = require("../../../database/models");
+const {paginationFunction} = require("../../../helpers/pagination.js");
 
 const apiRutinesController = {
     rutineList: async (req,res)=>{
+        
         try {    
             //Configuracion variables paginacion
             const counter = await Rutine.findAll();
-            const pagination = paginationFunction("api/rutines", counter, req.query.limit, req.query.page)
-            //
             
+            const pagination = paginationFunction("api/rutines", counter, req.query.limit, req.query.page)
+        
             //Pedido asincronico base de datos rutinas
             let rutines = await Rutine.findAndCountAll({ 
-                offset: pagination.offset, //paginacion 
-                limit: pagination.limit //paginacion
+                offset: pagination.offset, 
+                limit: pagination.limit
             });
 
             //Constructor objeto/propiedad data
@@ -36,23 +37,26 @@ const apiRutinesController = {
                 meta:pagination.meta, //paginacion
                 data:rutineObj
             };
+
             return res.json(respuestaListObj);
         } catch(error) {
-            res.status(404).json({
+            return res.status(404).json({
                 meta: {
                     status: "error"
                 },
                 error: error
-                })
+            })
         }
     },
     rutineDetail: async (req,res)=>{
-        try {
-            let id = req.params.id;
-            let rutine = await Rutine.findByPk(id);
+
+        try { 
+            let rutine = await Rutine.findByPk(req.params.id);
+            
             if(rutine==null){
                 return res.json({TypeOfError: "Database", ErrorMessage: "No se ha encontrado la rutina requerida"})
             }
+
             let rutineObj = { 
                 id: rutine.id,
                 name: rutine.name,
@@ -67,20 +71,22 @@ const apiRutinesController = {
                 createdAt: rutine.createdAt,
                 updatedAt: rutine.updatedAt
             }
+
             let respuestaDetail = {
                 meta:{
                     status: 200,
                 },
                 data: rutineObj
             };
+
             return res.json(respuestaDetail);
         } catch(error) {
-            res.status(404).json({
+            return res.status(404).json({
                 meta: {
                     status: "error"
                 },
                 error: error
-                })
+            })
         }
     }
 }

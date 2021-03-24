@@ -1,20 +1,50 @@
-<header>
+<header class="page-header">
     <div class="header-main-container">
         <div class="logo-container">
-           <a href="/"><img src="/images/main/energym-logo.png" class="header-logo" alt=""></a>
+           <a href="/">
+              <img src="/images/main/energym-logo.png" class="header-logo" alt="">
+           </a>
         </div>
 
         <div class="main-nav-container">
-            <nav class="nav-bar">
+            <nav>
                 <ul class="main-nav-list">
-                    <li><a href="/" class="main-nav-item">Inicio</a></li>
-                    <li><a href="/products" class="main-nav-item">Productos</a></li>
-                    <li><a href="/rutines" class="main-nav-item">Rutinas</a></li>
-                    <li><a href="/contact" class="main-nav-item">Contacto</a></li>
+                    <li>
+                        <a href="/" class="main-nav-item">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/products" class="main-nav-item">
+                            Productos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/rutines" class="main-nav-item">
+                            Rutinas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/contact" class="main-nav-item">
+                            Contacto
+                        </a>
+                    </li>
+
                     <% if (userLog) { %>
-                        <li style="display: none;"><a href="/users/login" class="main-nav-item"><i class="fas fa-user nav-icons"></i></a></li>
+                        <li style="display: none;">
+                            <a href="/users/login" class="main-nav-item">
+                                <i class="fas fa-user nav-icons"></i>
+                            </a>
+                        </li>
                     <% } else { %>
-                        <li><a href="/users/login" class="main-nav-item"><i class="fas fa-user nav-icons"></i></a></li>
+                        <li>
+                            <a href="/users/login" class="main-nav-item">
+                                <i class="fas fa-user nav-icons"></i>
+                            </a>
+                        </li>
                     <% } %>
                 </ul>
             </nav>
@@ -23,16 +53,45 @@
             <div class="user-nav-container">
                 <nav>
                     <ul class="user-nav-list">
-                        <li><a href="/users/profile" class="main-nav-item"><img src="/images/users/<%=userLog.avatar%>" class="header-avatar" alt=""></a></li>
-                        <li><a href="/users/profile" class="main-nav-item"><%=userLog.email%></a></li>
-                        <li><a href="/cart" class="main-nav-item"><i class="fas fa-shopping-cart nav-icons"></i></a></li>
+                        <li>
+                            <a href="/users/profile" class="main-nav-item">
+                                <img src="/images/users/<%=userLog.avatar%>" class="header-avatar" alt="">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/users/profile" class="main-nav-item">
+                                <%=userLog.email%>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/cart" class="main-nav-item">
+                                <i class="fas fa-shopping-cart nav-icons"></i>
+                            </a>
+                        </li>
+
                         <% if(userLog.rol>10){ %>
-                            <li><a href="/admin" class=" main-nav-item"><i class="fas fa-clipboard-list nav-icons"></i></a></li>
+                            <li>
+                                <a href="/admin" class=" main-nav-item">
+                                    <i class="fas fa-clipboard-list nav-icons"></i>
+                                </a>
+                            </li>
                         <% } %>
+
                         <% if(userLog.rol>20){ %>
-                            <li><a href="/users/admin" class=" main-nav-item"><i class="fas fa-user-cog nav-icons"></i></a></li>
+                            <li>
+                                <a href="/users/admin" class=" main-nav-item">
+                                    <i class="fas fa-user-cog nav-icons"></i>
+                                </a>
+                            </li>
                         <% } %>
-                        <li><a href="/users/logout" class=" main-nav-item"><i class="fas fa-sign-out-alt nav-icons"></i></a></li>
+
+                        <li>
+                            <a href="/users/logout" class=" main-nav-item">
+                                <i class="fas fa-sign-out-alt nav-icons"></i>
+                            </a>
+                        </li>
                         
                     </ul>
                 </nav>
@@ -41,9 +100,15 @@
 
         <div class="menu-icon-container">
             <% if (userLog) { %>
-                <li><a href="/users/profile" class="avatar-responsive"><img src="/images/users/<%=userLog.avatar%>" class="header-avatar" alt=""></a></li>
+                <li>
+                    <a href="/users/profile" class="avatar-responsive">
+                        <img src="/images/users/<%=userLog.avatar%>" class="header-avatar" alt="">
+                    </a>
+                </li>
             <% } %>
-            <label for=""><i class="fas fa-bars menu-icon"></i></label>
+            <label for="">
+                <i class="fas fa-bars menu-icon"></i>
+            </label>
         </div>
        
     </div>
@@ -52,22 +117,74 @@
         <nav class="menu-nav">
             <ul class="menu-list">
                 <div class="menu-div">
-                    <li><a href="/" class="menu-link">Inicio</a></li>
-                    <li><a href="/products" class="menu-link">Productos</a></li>
-                    <li><a href="/rutines" class="menu-link">Rutinas</a></li>
-                    <li><a href="/contact" class="menu-link">Contacto</a></li> 
+                    <li>
+                        <a href="/" class="menu-link">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/products" class="menu-link">
+                            Productos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/rutines" class="menu-link">
+                            Rutinas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/contact" class="menu-link">
+                            Contacto
+                        </a>
+                    </li> 
                     <% if (userLog) { %>
-                        <li style="display: none;"><a href="/users/login" class="menu-link"><i class="fas fa-user menu-nav-icon"></i></a></li>
-                        <li><a href="/cart" class="menu-link">Carrito  <i class="fas fa-shopping-cart menu-nav-icon"></i></a></li>
+                        <li style="display: none;">
+                            <a href="/users/login" class="menu-link">
+                                <i class="fas fa-user menu-nav-icon"></i>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="/cart" class="menu-link">
+                                Carrito
+                                <i class="fas fa-shopping-cart menu-nav-icon"></i>
+                            </a>
+                        </li>
+
                         <% if(userLog.rol>10){ %>
-                            <li><a href="/admin" class=" menu-link">Admin <i class="fas fa-clipboard-list menu-nav-icon"></i></a></li>
+                            <li>
+                                <a href="/admin" class=" menu-link">
+                                    Admin
+                                    <i class="fas fa-clipboard-list menu-nav-icon"></i>
+                                </a>
+                            </li>
                         <% } %>
+
                         <% if(userLog.rol>20){ %>
-                            <li><a href="/users/admin" class=" menu-link">Admin users <i class="fas fa-user-cog menu-nav-icon"></i></a></li>
+                            <li>
+                                <a href="/users/admin" class=" menu-link">
+                                    Admin users
+                                    <i class="fas fa-user-cog menu-nav-icon"></i>
+                                </a>
+                            </li>
                         <% } %>
-                        <li><a href="/users/logout" class=" menu-link">Logout  <i class="fas fa-sign-out-alt menu-nav-icon"></i></a></li>
+                        
+                        <li>
+                            <a href="/users/logout" class=" menu-link">
+                                Logout
+                                <i class="fas fa-sign-out-alt menu-nav-icon"></i>
+                            </a>
+                        </li>
                     <% } else { %>
-                        <li><a href="/users/login" class="menu-link">Login/Register <i class="fas fa-user menu-nav-icon"></i></a></li>
+                        <li>
+                            <a href="/users/login" class="menu-link">
+                                Login/Register
+                                <i class="fas fa-user menu-nav-icon"></i>
+                            </a>
+                        </li>
                     <% } %>
                 </div>
             </ul>

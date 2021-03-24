@@ -1,5 +1,5 @@
 const adminAuth = (req, res, next) => {
-    if(req.session.userLogged.rol > 10){
+    if(req.session.userLogged && req.session.userLogged.rol > 10){
         return next();
     }
     return res.redirect('/');

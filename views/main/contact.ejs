@@ -10,33 +10,54 @@
             <article>
                 <div class="contact-section-main-container">
                     <div class="contact-section-container">
-                        <div class="sections-welcome-titles-container contact-welcome-container">
-                            <h2 class="sections-welcome-titles">Contactanos</h2>
-                            <p class="sections-welcome-description">Envianos tu consulta</p>
+
+                        <div class="sections-welcome-titles-container">
+                            <h2 class="sections-welcome-titles">
+                                Contactanos
+                            </h2>
+                            <p class="sections-welcome-description">
+                                Envianos tu consulta
+                            </p>
                         </div>
 
-                        <div class="contact-extra-container">
-                            <h3 class="contact-extra-info"><i class="fas fa-envelope contact-icon"></i>email@consultas.com</h3>
+                        <div class="contact-information-container">
+                            <h3 class="contact-information">
+                                <i class="fas fa-envelope contact-icon"></i>
+                                email@consultas.com
+                            </h3>
 
-                            <h3 class="contact-extra-info"><i class="fas fa-phone contact-icon"></i>(011) 1574393901</h3>
+                            <h3 class="contact-information">
+                                <i class="fas fa-phone contact-icon"></i>
+                                (011) 1574393901
+                            </h3>
 
-                            <h3 class="contact-extra-info"><i class="fas fa-map-marker-alt contact-icon"></i>Av.Cabildo 1842, CABA.</h3>
+                            <h3 class="contact-information">
+                                <i class="fas fa-map-marker-alt contact-icon"></i>
+                                Av.Cabildo 1842, CABA.
+                            </h3>
                         </div>
 
                         <div class="contact-form-container">
                             <form action="/contact" method="POST">
+
                                 <div class="contact-input-container contact-email-container">
                                     <input type="text" class="inputs-fields contact-inputs" name="email" id="" placeholder="Correo electrónico">
-                                    <p class="front-error-inactive contact-format-error front-contact-error-style">El email debe estar en un formato válido</p>
-                                    <small class="front-blank-error-inactive front-contact-error-style">Este campo no puede quedar vacío</small>
+                                    <p class="front-error-inactive contact-format-error front-contact-error-style">
+                                        El email debe estar en un formato válido
+                                    </p>
+                                    <small class="front-blank-error-inactive front-contact-error-style">
+                                        Este campo no puede quedar vacío
+                                    </small>
                                     <p class="validation-error-contact">
-                                    <%= typeof errors == "undefined" ? "" : typeof errors.email != "undefined" ? errors.email.msg : "" %>
+                                        <%= typeof errors == "undefined" ? "" : typeof errors.email != "undefined" ? errors.email.msg : "" %>
                                     </p>
                                 </div>
                                 
                                 <div class="contact-input-container contact-subject-container">
                                     <input type="text" class="inputs-fields contact-inputs" name="subject" id="" placeholder="Asunto">
-                                    <small class="front-blank-error-inactive front-contact-error-style">Este campo no puede quedar vacío</small>
+                                    <small class="front-blank-error-inactive front-contact-error-style">
+                                        Este campo no puede quedar vacío
+                                    </small>
                                     <p class="validation-error-contact">
                                         <%= typeof errors == "undefined" ? "" : typeof errors.subject != "undefined" ? errors.subject.msg : "" %>
                                     </p>
@@ -44,17 +65,23 @@
 
                                 <div class="contact-textarea-container contact-emailBody-container">
                                     <textarea name="emailBody" id="" cols="30" rows="10" placeholder="Texto" class="contact-textarea textarea-styles contact-inputs"></textarea>
-                                    <small class="front-blank-error-inactive front-contact-textarea-error-style">Este campo no puede quedar vacío</small>
+                                    <small class="front-blank-error-inactive front-contact-textarea-error-style">
+                                        Este campo no puede quedar vacío
+                                    </small>
                                     <p class="validation-error-contact">
                                         <%= typeof errors == "undefined" ? "" : typeof errors.emailBody != "undefined" ? errors.emailBody.msg : "" %>
                                     </p>
                                 </div>
 
                                 <div class="contact-button-container">
-                                    <button type="submit" class="buttons-style contact-button-send">Enviar</button>
+                                    <button type="submit" class="buttons-style contact-button-send">
+                                        Enviar
+                                    </button>
                                 </div>
+
                             </form>
                         </div>
+                        
                     </div>
             </article>
         </section>

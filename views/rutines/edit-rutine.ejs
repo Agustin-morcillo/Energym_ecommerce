@@ -9,24 +9,38 @@
                 <article>
                     <div class="add-edit-product-rutine-card-main-container">
                         <div class="add-edit-product-rutine-card-container">
+
                             <div class="sections-welcome-titles-container">
-                                <h2 class="sections-welcome-titles">Editar Rutina</h2>
-                                <p class="sections-welcome-description">Modifica los campos para editar la rutina</p>
+                                <h2 class="sections-welcome-titles">
+                                    Editar Rutina
+                                </h2>
+                                <p class="sections-welcome-description">
+                                    Modifica los campos para editar la rutina
+                                </p>
                             </div>
+
                             <div class="add-edit-product-rutine-card-form-container">
                                 <p class="validation-error-product-title">
                                     <%= typeof errors == "undefined" ? "" : "Hay algún error en los campos" %>
                                 </p>
                                 
                                 <form method="POST" class="edit-form" action="/rutines/edit/<%=rutineToEdit.id%>?_method=PUT" enctype="multipart/form-data">
-                                    
                                     <div class="admin-inputs-containers create-rutine-error-name">
                                         <div class="admin-label-container create-rutine-error-name">
-                                            <label for="add-edit-product-name" class="admin-labels">Nombre de la rutina<span class="required-field">*</span></label>
+                                            <label for="add-edit-product-name" class="admin-labels">
+                                                Nombre de la rutina
+                                                <span class="required-field">
+                                                    *
+                                                </span>
+                                            </label>
                                         </div> 
                                         <input type="text" name="name" id="add-edit-product-name" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: Abdominales" value="<%=rutineToEdit.name%>">
-                                        <p class="front-error-inactive front-create-rutine-error-style">El nombre debe tener al menos 5 caracteres (solo letras)</p>
-                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
+                                        <p class="front-error-inactive front-create-rutine-error-style">
+                                            El nombre debe tener al menos 5 caracteres (solo letras)
+                                        </p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">
+                                            El campo no puede estar vacío
+                                        </small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.name != "undefined" ? errors.name.msg : "" %>
                                         </p>
@@ -34,11 +48,20 @@
                                    
                                     <div class="admin-inputs-containers create-rutine-error-price">
                                         <div class="admin-label-container create-rutine-error-price">
-                                            <label for="add-edit-product-price" class="admin-labels">Precio<span class="required-field">*</span></label>
+                                            <label for="add-edit-product-price" class="admin-labels">
+                                                Precio
+                                                <span class="required-field">
+                                                    *
+                                                </span>
+                                            </label>
                                         </div>
                                         <input type="number" name="price" id="add-edit-product-price" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: 2000" value="<%=rutineToEdit.price%>">
-                                        <p class="front-error-inactive front-create-rutine-error-style">El precio no puede ser negativo</p>
-                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
+                                        <p class="front-error-inactive front-create-rutine-error-style">
+                                            El precio no puede ser negativo
+                                        </p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">
+                                            El campo no puede estar vacío
+                                        </small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.price != "undefined" ? errors.price.msg : "" %>
                                         </p>
@@ -46,11 +69,20 @@
 
                                     <div class="admin-inputs-containers create-rutine-error-introduction">
                                         <div class="admin-label-container create-rutine-error-introduction">
-                                            <label for="add-edit-product-short-description" class="admin-labels">Breve descripción (max 78 caract)<span class="required-field">*</span></label>
+                                            <label for="add-edit-product-short-description" class="admin-labels">
+                                                Breve descripción (max 78 caract)
+                                                <span class="required-field">
+                                                    *
+                                                </span>
+                                            </label>
                                         </div> 
                                         <input type="text" name="introduction" id="add-edit-product-short-description" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit" value="<%=rutineToEdit.introduction%>">
-                                        <p class="front-error-inactive front-create-rutine-error-style">La introduccion debe tener entre 5 y 78 caracteres</p>
-                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
+                                        <p class="front-error-inactive front-create-rutine-error-style">
+                                            La introducción debe tener entre 5 y 78 caracteres
+                                        </p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">
+                                            El campo no puede estar vacío
+                                        </small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.introduction != "undefined" ? errors.introduction.msg : "" %>
                                         </p>
@@ -58,11 +90,20 @@
                                     
                                     <div class="admin-inputs-containers2 create-rutine-error-description">
                                         <div class="admin-label-container create-rutine-error-description">
-                                            <label for="add-edit-product-description" class="admin-labels">Descripción completa<span class="required-field">*</span></label>
+                                            <label for="add-edit-product-description" class="admin-labels">
+                                                Descripción completa
+                                                <span class="required-field">
+                                                    *
+                                                </span>
+                                            </label>
                                         </div>
                                         <textarea name="description" id="add-edit-product-description" cols="30" rows="10" class="add-edit-product-input-textarea textarea-styles input-validator" placeholder="Ej: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex officia eligendi "><%=rutineToEdit.description%></textarea>
-                                        <p class="front-error-inactive front-create-rutine-error-style input-wrong">La descripción debe tener al menos 20 caracteres</p>
-                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
+                                        <p class="front-error-inactive front-create-rutine-error-style input-wrong">
+                                            La descripción debe tener al menos 20 caracteres
+                                        </p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">
+                                            El campo no puede estar vacío
+                                        </small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.description != "undefined" ? errors.description.msg : "" %>
                                         </p>
@@ -70,11 +111,20 @@
 
                                     <div class="admin-inputs-containers create-rutine-error-duration">
                                         <div class="admin-label-container create-rutine-error-duration">
-                                            <label for="add-edit-product-duration" class="admin-labels">Duración (en semanas)<span class="required-field">*</span></label>
+                                            <label for="add-edit-product-duration" class="admin-labels">
+                                                Duración (en semanas)
+                                                <span class="required-field">
+                                                    *
+                                                </span>
+                                            </label>
                                         </div> 
                                         <input type="number" name="duration" id="add-edit-product-duration" class="add-edit-product-input inputs-fields input-validator" placeholder="Ej: 8" value="<%=rutineToEdit.duration_weeks%>">
-                                        <p class="front-error-inactive front-create-rutine-error-style">La duracion debe ser mayor a 0</p>
-                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
+                                        <p class="front-error-inactive front-create-rutine-error-style">
+                                            La duración debe ser mayor a 0
+                                        </p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">
+                                            El campo no puede estar vacío
+                                        </small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.duration != "undefined" ? errors.duration.msg : "" %>
                                         </p>
@@ -82,7 +132,9 @@
 
                                     <div class="admin-options-containers">
                                         <div class="admin-label-option-container">
-                                            <label for="" class="admin-labels">Categoría:</label>
+                                            <label for="" class="admin-labels">
+                                                Categoría:
+                                            </label>
                                             <select name="category" id="" class="admin-select-category">
                                                 <option value="rutines">Rutinas</option>
                                             </select>
@@ -91,7 +143,9 @@
                                     
                                     <div class="admin-options-containers">
                                         <div class="admin-label-option-container">
-                                            <label for="" class="admin-labels">¿Agregar en la Home?</label>
+                                            <label for="" class="admin-labels">
+                                                ¿Agregar en la Home?
+                                            </label>
                                             <% if(rutineToEdit.homepage == 1) { %> 
                                                 <input type="radio" name="homepage" value="1" class="admin-radio-input" checked> Sí
                                                 <input type="radio" name="homepage" value="0" class="admin-radio-input"> No
@@ -104,11 +158,17 @@
                                     
                                     <div class="admin-options-containers admin-img-2 create-rutine-error-image">
                                         <div class="admin-label-option-container create-rutine-error-image">
-                                            <label for="add-edit-product-image-input" class="add-edit-product-image-label">Imagen de la rutina</label>
+                                            <label for="add-edit-product-image-input" class="add-edit-product-image-label">
+                                                Imagen de la rutina
+                                            </label>
                                             <input type="file" name="image" id="add-edit-product-image-edit" class="add-edit-product-image-input" accept="image/jpg, image/png, image/jpeg, image/gif">
                                         </div>
-                                        <p class="front-error-inactive front-create-rutine-error-style">Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'</p>
-                                        <small class="front-blank-error-inactive front-create-rutine-error-style">El campo no puede estar vacío</small>
+                                        <p class="front-error-inactive front-create-rutine-error-style">
+                                            Formato de imagen Inválido, formatos válidos: '.jpg', '.png', '.jpeg', '.gif'
+                                        </p>
+                                        <small class="front-blank-error-inactive front-create-rutine-error-style">
+                                            El campo no puede estar vacío
+                                        </small>
                                         <p class="validation-error-product">
                                             <%= typeof errors == "undefined" ? "" : typeof errors.image != "undefined" ? errors.image.msg : "" %>
                                         </p>
@@ -116,7 +176,10 @@
                                     </div>
             
                                     <div class="form-add-edit-product-button-container">
-                                        <button type="submit" class="add-edit-product-create-product-button buttons-style"><i class="fas fa-check page-icons"></i>Guardar cambios</button>
+                                        <button type="submit" class="add-edit-product-create-product-button buttons-style">
+                                            <i class="fas fa-check page-icons"></i>
+                                            Guardar cambios
+                                        </button>
                                     </div>
                                 </form>
                             </div>
