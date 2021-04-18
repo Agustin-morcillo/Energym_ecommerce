@@ -1,75 +1,77 @@
 # ENERGYM
 
-**Slogan:** lleva el gimnasio a donde quieras.
+**Project deployed:** [Energym Webpage](https://energym.herokuapp.com/) 
 
-**Productos ofrecidos:** elementos para entrenar (mancuernas, pesas, elásticos, colchonetas, sogas, grips, barras, pelotas, etc).
+La primera carga de la página puede tardar hasta 10 segundos.
 
-**Servicios:** rutinas de ejercicios para hacer con los productos.
+Loading the page for the first time can take up to 10 seconds.
+ 
+A. **Español**
 
-
-## Contexto
-
-**Productos ofrecidos:** con la llegada del COVID-19 el concepto del tiempo se revoluciono, tanto las personas que viven en familia como aquellos individuos que viven solos, se encontraron con nuevas realidades. Por un lado los padres tienen menos tiempo de relax, ya que pasan todo el día con sus hijos,  y buscan optimizar el tiempo libre. Por otro lado, los jóvenes o adultos que viven solos tienen más tiempo que antes y quieren aprovecharlo de forma práctica para realizar distintas actividades.
-
-**La Solución:** Energym optimiza tu tiempo dándote una vía fácil para armar tu espacio de entrenamiento en tu casa, ofreciendo productos para el entrenamiento personal, rutinas y clases online con instructores profesionales.
+B. **English** 
 
 
-## Audiencia objetivo
+# A. Español
 
-**Target primario:** personas que desean ahorrar tiempo y grandes desplazamientos para realizar ejercicios ganando de esta manera practicidad y dinamismo a la hora de hacer ejercicio.
+## A.1 Aspectos Generales
 
-**Datos demográficos del target:** hombres y mujeres de entre 20 y 60 años que vivan en Argentina.
+Proyecto integrador realizado durante la cursada de **Programación Web Full Stack** en **Digital House**. La aplicación consiste de una página web **e-commerce 100% responsive** desarrollada siguiendo el **patrón MVC**, **metodologías agiles Scrum** y buenas prácticas.
 
+El sitio trata de un e-commerce de **venta de productos de entrenamiento y de rutinas de ejercicio.** Dentro del mismo, podemos encontrar **3 tipos de roles (Usuario, Admin, Super Admin) con diferentes accesos:**
 
-**Target secundarios:**
+- **Usuario**: puede registrarse, logearse, modificar los datos de su perfil, enviar emails en la página de contacto, agregar y quitar productos del carrito y efectuar una compra.
 
-●   Personas que desean empezar a hacer ejercicio pero que no quieren ir a gimnasios ni estar ligados a una cuota mensual.
+- **Admin**: además de las acciones de usuario, puede: agregar nuevos productos, modificar productos existentes, eliminar productos y elegir los productos que se muestran en la Homepage.
 
-●   Personas que se sienten más a gusto entrenando en privado.
+- **Super Admin**: aparte de las acciones de admin, puede: administrar usuarios (modificarles su rol actual y/o eliminarlos de la base de datos)
 
-●     Personas que quieren reforzar su entrenamiento por fuera del gimnasio.
-
-●    Personas cuyo ejercicio se vio interrumpido por la llegada de la cuarentena.
-
-## Sitio relacionados
-
-**Por los productos que ofrecen:**
-
-● [GMP](https://www.gmp.com.ar/)
-
-● [G-FITNESS](https://tienda.gfitness.com.ar/shop/category/entrena-en-casa-38/page/1)
-
-**Por el publico al que apunta:**
-
-● [PASCAL BOLLMAN](http://www.pascalbollmann.ch/de/)
-
-**Por la forma en que clasifican los productos:**
-
-● [MIR FITNESS](https://mirfitness.com.ar/categoria-producto/accesorios/)
-
-**Por el layout que tiene en la pantalla de detalles del producto:**
-
-● [YAGMOUR](https://www.yagmour.com.ar/pantalon-de-sintetico-millie/p)
-
-**Por el carrito de compras:**
-
-● [FITNESS-SHOW](https://www.fitness-show.com.ar/)
-
-**Por la funcionalidad del login:**
-
-● [MIR FITNESS](https://mirfitness.com.ar/)
+**Ver archivo "credenciales.md" para los accesos de admin.**
 
 
+## A.2 Tecnologías utilizadas
 
-## Descripción
+### Front-End
 
-**Agustín Morcillo:** mi nombre es Agustín Morcillo, aunque todo el mundo me conoce como “morci”. Tengo 24 años y me recibí de la carrera de Licenciatura en Publicidad en la USAL a finales de 2017. Me gusta mucho el futbol, soy hincha fanático de boca. Me considero una persona creativa, organizada y con mucha voluntad para hacer las cosas, pero por sobre todas las cosas comprensiva y divertida.
+- **HTML** (maquetado)
+- **CSS** (estilos)
+- **JavaScript** (validaciones, modificaciones del DOM, interacciones en general, consumo de APIs REST)
+- **EJS** (motor de plantillas)
 
-**Damián Mugnolo:** Hola! Mi nombre es Damián Mugnolo, y tengo 33 años. Estudié Comunicación social con orientación en Periodismo en la USAL y soy Cocinero Profesional del IAG, pero solo cocino por placer. Me gusta mucho la información, leer, el cine e Internet. Soy una persona observadora, paciente y analítica. Como no podría ser de otra manera, soy hincha fanático de Racing. El método y la organización son mi filosofía de vida. 
+### Back-End
+- **Node.js**
+- **Express.js**
+- **MySQL Database (ORM Sequelize)**
+- **Middlewares** (Express Validator, Multer, Sessions/Cookies, accesos según rol, etc.)
+- **Creación de APIs REST**
 
-**Santiago Ruiz Moreno:** Buenas! Soy Santiago Ruiz Moreno pero todo el mundo me dice Perga, porque crecí en la ciudad de Pergamino. Tengo 31 años y terminé la carrera de Ingeniería Industrial en la UCA. Dentro de mis grandes pasiones están el fútbol, el tenis y la comedia musical. Me considero una persona muy curiosa, ambiciosa y autoexigente. Admiro a las personas creativas y prácticas… como yo jaja.
+# B. English
 
-## Tablero de trabajo
+## B.1 Overview
 
-**Trello:** https://trello.com/invite/b/iRzleofj/0fb0157893e0bcd226475d84072b8083/energym
+Integrative project carried out during the **Full Stack Web Programming** course at **Digital House**. The application consists of a web page **e-commerce 100% responsive** developed following the **MVC pattern**, **Agile methodologies (Scrum)** and good practices.
 
+This is an e-commerce site for **sale of training products and exercise routines.** Within it, you can find **3 types of roles (User, Admin, Super Admin) with different level of access:**
+
+- **User**: can register, log in, modify their profile data, send emails on the contact page, add and remove products from the cart and make a purchase.
+
+- **Admin**: in addition to user actions, Admins can: add new products, modify existing products, delete products and choose the products to be displayed on the Homepage.
+
+- **Super Admin**: apart from admins actions, Super Admins can: manage users (modify their current role and / or delete them from the database)
+
+**Check the file "credenciales.md" for admin access.**
+
+## B.2 Used technologies
+
+### Front-End
+
+- **HTML** (layout)
+- **CSS** (styles)
+- **JavaScript** (validations, DOM modifications, general interactions , use of REST APIs)
+- **EJS** (template engine)
+
+### Back-End
+- **Node.js**
+- **Express.js**
+- **MySQL Database (ORM Sequelize)**
+- **Middlewares** (Express Validator, Multer, Sessions/Cookies, accesses according to role, etc.)
+- **Creation of REST APIs**
