@@ -1,12 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const apiRutinesController= require("../../../controllers/api/rutines/apiRutinesController");
+const express = require("express")
+const router = express.Router()
+const apiRutinesController = require("../../../controllers/api/rutines/apiRutinesController")
 
 /* Listado de rutinas */
-router.get("/",apiRutinesController.rutineList)
+router.get("/", apiRutinesController.rutineList)
 
 /* Detalle de rutina particular */
-router.get("/:id",apiRutinesController.rutineDetail)
+router.get("/:id", apiRutinesController.rutineDetail)
 
-module.exports = router;
-
+module.exports = router

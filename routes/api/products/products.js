@@ -1,11 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const apiProductsController= require("../../../controllers/api/products/apiProductsController");
+const express = require("express")
+const router = express.Router()
+const apiProductsController = require("../../../controllers/api/products/apiProductsController")
 
 /* Listado de productos */
-router.get("/",apiProductsController.productList)
+router.get("/", apiProductsController.productList)
 
 /* Detalle de producto particular */
-router.get("/:id",apiProductsController.productDetail)
+router.get("/:id", apiProductsController.productDetail)
 
-module.exports = router;
+module.exports = router

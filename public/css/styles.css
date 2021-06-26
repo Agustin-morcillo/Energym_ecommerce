@@ -72,2916 +72,2895 @@ Método de búsqueda: busque con control + f por índice y título, por ejemplo:
     17.5 pagina de contacto
 */
 
-
 /* ---------------------------------------------------1.Estilos Generales--------------------------------------------------- */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
 
-*{
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
-    
+* {
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
-body{
-    background-color:  white;
+body {
+  background-color: white;
 }
 
-.inputs-fields{
-    border-radius: 10px;
-    border: 1px solid gray;
-    padding: 10px;
-    background-color: #f4f4f4;
-    transition: .3s ease all;
+.inputs-fields {
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 10px;
+  background-color: #f4f4f4;
+  transition: 0.3s ease all;
 }
 
-.inputs-fields:focus{
-    border: 3px solid #0075ff;
-    outline: none;
-    box-shadow: 3px 0px 30px rgba(163,163,163,0.4)
+.inputs-fields:focus {
+  border: 3px solid #0075ff;
+  outline: none;
+  box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
 }
 
-.textarea-styles{
-    border-radius: 10px;
-    resize:none;
-    background-color: #f4f4f4;
-    padding: 10px;
+.textarea-styles {
+  border-radius: 10px;
+  resize: none;
+  background-color: #f4f4f4;
+  padding: 10px;
 }
 
-.textarea-styles:focus{
-    border: 3px solid #0075ff;
-    outline: none;
-    box-shadow: 3px 0px 30px rgba(163,163,163,0.4)
+.textarea-styles:focus {
+  border: 3px solid #0075ff;
+  outline: none;
+  box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
 }
 
-.buttons-style{
-    border-radius: 3px;
-    border: none;
-    color: white;
+.buttons-style {
+  border-radius: 3px;
+  border: none;
+  color: white;
 }
 
-.page-icons{
-    padding-right: 7px;
+.page-icons {
+  padding-right: 7px;
 }
 
-.sections-welcome-titles-container{
-    text-align: center;
-    color:white;
-    background-color: black;
-    border: 1px solid black;
-    padding: 5px;
-    position: relative;
-    bottom: 1px;
-    width: 100%;
+.sections-welcome-titles-container {
+  text-align: center;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  padding: 5px;
+  position: relative;
+  bottom: 1px;
+  width: 100%;
 }
 
-.sections-welcome-titles{
-    text-align: center;
-    color:white;
-    background-color: black;
-    border-radius: 10px;
-    border: 1px solid black;
-    padding: 5px;
-    position: relative;
-    bottom: 1px;
-    width: 100%;
+.sections-welcome-titles {
+  text-align: center;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 5px;
+  position: relative;
+  bottom: 1px;
+  width: 100%;
 }
 
-.sections-welcome-description{
-    font-size: 16px;
+.sections-welcome-description {
+  font-size: 16px;
 }
 
-.page-title-icons{
-    padding-right: 10px;
+.page-title-icons {
+  padding-right: 10px;
 }
 
-.required-field{
-    color: red;
-    font-size: 12px;
-    font-weight: 600;
-    position: relative;
-    bottom: 5px;
-    right: 3px;
+.required-field {
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+  bottom: 5px;
+  right: 3px;
 }
-
 
 /* ---------------------------------------------------2.Estilos Navbar--------------------------------------------------- */
 
-.page-header{
-    position: fixed;
-    left:0px;
-    top:0px;
-    right: 0px;
-    z-index: 1;
+.page-header {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
 }
 
-.header-main-container{
-    height: 80px;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.header-main-container {
+  height: 80px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.logo-container{
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.logo-container {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header-logo{
-    height: 60px;
+.header-logo {
+  height: 60px;
 }
 
-.main-nav-container{
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.main-nav-container {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.main-nav-list{
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    padding: 60px;
-    margin-right: 30px;
-    position: relative;
+.main-nav-list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding: 60px;
+  margin-right: 30px;
+  position: relative;
 }
 
-.main-nav-item{
-    list-style-type: none;
-    padding: 10px;
-    font-size: 11px;
-    text-decoration: none;
-    color:white;
-    text-transform: uppercase;
-    width: 100%;
+.main-nav-item {
+  list-style-type: none;
+  padding: 10px;
+  font-size: 11px;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  width: 100%;
 }
 
-.nav-icons{
-    color:white;
-    font-size: 20px;
+.nav-icons {
+  color: white;
+  font-size: 20px;
 }
 
-.user-nav-container{
-     width: 30%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     position: relative;
-     right: 45px;
+.user-nav-container {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  right: 45px;
 }
 
-.user-nav-list{
-    list-style-type: none;
-    display: flex;
-    align-items: center;
+.user-nav-list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
 }
 
-.main-nav-item{
-    text-decoration: none;
-    background-image: linear-gradient(white, white);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 1px;
-    transition: background-size .3s;
+.main-nav-item {
+  text-decoration: none;
+  background-image: linear-gradient(white, white);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s;
 }
 
-.main-nav-item:hover{
-    background-size: 100% 2px;
+.main-nav-item:hover {
+  background-size: 100% 2px;
 }
 
-.menu-icon-container{
-    display: none;
-    width: 70%;
-    height: 80px;
+.menu-icon-container {
+  display: none;
+  width: 70%;
+  height: 80px;
 }
 
-.avatar-responsive{
-    padding-right: 20px;
+.avatar-responsive {
+  padding-right: 20px;
 }
 
-.header-avatar{
-    width: 50px;
-    height: 50px;
-    border-radius:150px;
-    border:2px solid white
+.header-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 150px;
+  border: 2px solid white;
 }
 
-.menu-icon{
-    color: white;
-    font-size: 40px;
+.menu-icon {
+  color: white;
+  font-size: 40px;
 }
-
 
 /* -----------------2.1 mobile menu----------------- */
 
-.menu-nav{
-    width: 100%;
-    height: 570px;
-    background: #2c3e50;
-    display: none;
-    height: 100vh;
+.menu-nav {
+  width: 100%;
+  height: 570px;
+  background: #2c3e50;
+  display: none;
+  height: 100vh;
 }
 
-.menu-list{
-    list-style-type: none;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
+.menu-list {
+  list-style-type: none;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
-.menu-div{
-    height: 555px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+.menu-div {
+  height: 555px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.menu-link{
-    text-decoration: none;
-    color: white;
-    font-size: 22px;
-    text-transform: uppercase;
-    background-image: linear-gradient(white, white);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 1px;
-    transition: background-size .3s;
-    font-family: 'Montserrat', sans-serif;
+.menu-link {
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  text-transform: uppercase;
+  background-image: linear-gradient(white, white);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s;
+  font-family: "Montserrat", sans-serif;
 }
 
-.menu-link:hover{
-    background-size: 100% 2px;
+.menu-link:hover {
+  background-size: 100% 2px;
 }
 
-.menu-nav-icon{
-    font-size: 22px;
-    padding-left: 5px;
+.menu-nav-icon {
+  font-size: 22px;
+  padding-left: 5px;
 }
 
 /* -----------------2.2 Navbar responsive----------------- */
 
-@media (max-width:1000px){
-    .main-nav-list,.user-nav-list{
-        display: none;
-    }
+@media (max-width: 1000px) {
+  .main-nav-list,
+  .user-nav-list {
+    display: none;
+  }
 
-    .menu-icon-container{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 10px 20px 10px 10px;
-        justify-content: flex-end;
-    }
+  .menu-icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 20px 10px 10px;
+    justify-content: flex-end;
+  }
 
-    .logo-container{
-        position: relative;
-        left: 80px;
-    }
-}
-    
-
-@media (max-width:500px){
-    .header-logo{
-        height: 50px;
-    }
-
-    .menu-icon-container{
-        width: 470px;
-    }
+  .logo-container {
+    position: relative;
+    left: 80px;
+  }
 }
 
-@media (max-width:400px){
-   
-    .header-logo{
-        height: 42px;
-        position: relative;
-        right: 35px
-    }
+@media (max-width: 500px) {
+  .header-logo {
+    height: 50px;
+  }
+
+  .menu-icon-container {
+    width: 470px;
+  }
 }
 
+@media (max-width: 400px) {
+  .header-logo {
+    height: 42px;
+    position: relative;
+    right: 35px;
+  }
+}
 
 /* ---------------------------------------------------3.Estilos Footer--------------------------------------------------- */
 
 /* -----------------3.1 Footer primera parte---------------- */
 
-.footer-first-part{
-    display: flex;
-    background-color: #eeeeee;
+.footer-first-part {
+  display: flex;
+  background-color: #eeeeee;
 }
 
-.footer-article{
-    margin: 0px auto;
-    margin-top: 25px;
-    text-align: center;
+.footer-article {
+  margin: 0px auto;
+  margin-top: 25px;
+  text-align: center;
 }
 
-.footer-icon{
-    font-size: 40px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #adadad;
+.footer-icon {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #adadad;
 }
 
-.footer-container{
-    width: 25%;
-    height: 140px;
+.footer-container {
+  width: 25%;
+  height: 140px;
 }
 
-.icon-container{
-    text-align: center;
+.icon-container {
+  text-align: center;
 }
 
-.footer-service-title{
-    color:#adadad;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: bolder;
+.footer-service-title {
+  color: #adadad;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bolder;
 }
 
-.footer-detail{
-    margin-top: 10px;
-    font-size: 10px;
-    text-align: center;
+.footer-detail {
+  margin-top: 10px;
+  font-size: 10px;
+  text-align: center;
 }
 
 /* -----------------3.2 Footer primera parte responsive---------------- */
 
-@media (min-width:2560px){
-    .footer-first-part{
-        height: 300px
-    }
+@media (min-width: 2560px) {
+  .footer-first-part {
+    height: 300px;
+  }
 
-    .footer-icon{
-        font-size: 100px;
-    }
+  .footer-icon {
+    font-size: 100px;
+  }
 
-    .footer-service-title{
-        font-size: 40px;
-    }
+  .footer-service-title {
+    font-size: 40px;
+  }
 
-    .footer-detail{
-        font-size: 20px;
-    }
+  .footer-detail {
+    font-size: 20px;
+  }
 }
 
+@media (max-width: 830px) {
+  .footer-first-part {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 
-@media (max-width:830px){
-    .footer-first-part{
-        width: 100%;
-        flex-wrap: wrap;
-    }
+  .footer-container {
+    width: 50%;
+  }
 
-    .footer-container{
-        width: 50%;
-    }
-
-    .footer-article{
-        margin: 0px;
-        margin-top: 25px;
-        width: 100%;
-    }
+  .footer-article {
+    margin: 0px;
+    margin-top: 25px;
+    width: 100%;
+  }
 }
 
-@media (max-width:600px){
-    .footer-first-part{
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 5px;
-    }
+@media (max-width: 600px) {
+  .footer-first-part {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+  }
 
-    .footer-container{
-        width: 100%;
-    }
+  .footer-container {
+    width: 100%;
+  }
 
-    .footer-article{
-        width: 100%;
-    }
+  .footer-article {
+    width: 100%;
+  }
 
-    .footer-detail{
-        width: 100%;
-    }
+  .footer-detail {
+    width: 100%;
+  }
 }
 
 /* -----------------3.3 Footer segunda parte---------------- */
-.footer-bottom-part{
-    height:140px;
-    background-color: #2c2c2c;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.footer-bottom-part {
+  height: 140px;
+  background-color: #2c2c2c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer-logo-container{
-    height: 140px;
-    width: 400px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+.footer-logo-container {
+  height: 140px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
-.energym-logo-footer{
-    width: 70%;
+.energym-logo-footer {
+  width: 70%;
 }
 
-.footer-nav{
-    width: 33%;
+.footer-nav {
+  width: 33%;
 }
 
-.footer-list{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height:140px;
-    list-style-type: none;
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+  list-style-type: none;
 }
 
-.footer-list-item{
-    list-style-type: none;
-    margin: 5px;
-    font-size: 11px;
-    text-decoration: none;
-    color:white;
-    text-transform: uppercase;
-    display: block;
+.footer-list-item {
+  list-style-type: none;
+  margin: 5px;
+  font-size: 11px;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  display: block;
 }
 
-.footer-list-item:hover{
-    text-decoration: underline;
+.footer-list-item:hover {
+  text-decoration: underline;
 }
 
-.social-icons-container{
-    height: 140px;
-    width: 33%;
-    text-align: center;
-    padding: 50px 0px;
+.social-icons-container {
+  height: 140px;
+  width: 33%;
+  text-align: center;
+  padding: 50px 0px;
 }
 
-.social-cta{
-    font-size: 11px;
-    color:white;
-    text-transform: uppercase;
+.social-cta {
+  font-size: 11px;
+  color: white;
+  text-transform: uppercase;
 }
 
-.social-icon{
-    color: white;
+.social-icon {
+  color: white;
 }
 
 /* -----------------3.4 Footer segunda parte responsive---------------- */
 
-@media (max-width:830px){
-    .footer-bottom-part{
-        height: auto;
-    }
+@media (max-width: 830px) {
+  .footer-bottom-part {
+    height: auto;
+  }
 
-    .footer-nav{
-        display: none;
-    }
+  .footer-nav {
+    display: none;
+  }
 
-    .social-icons-container{
-        width: 40%;
-        position: relative;
-        left: -20px;
-    }
+  .social-icons-container {
+    width: 40%;
+    position: relative;
+    left: -20px;
+  }
 
-    .social-cta{
-        font-size: 12px;
-    }
+  .social-cta {
+    font-size: 12px;
+  }
 }
 
-@media (max-width:500px){
-    .footer-logo-container{
-        position: relative;
-        right: 15px;
-    }
+@media (max-width: 500px) {
+  .footer-logo-container {
+    position: relative;
+    right: 15px;
+  }
 
-    .social-icons-container{
-        bottom: 10px;
-        width: 55%;
-    }
+  .social-icons-container {
+    bottom: 10px;
+    width: 55%;
+  }
 }
-
 
 /* ---------------------------------------------------4.Estilos Homepage--------------------------------------------------- */
 
 /* -----------------4.1 texto bienvenida y boton de shop----------------- */
-.homepage-welcome-main-container{
-    position: absolute;
-    width: 100%;
-    color: white;
-    height: 80vh;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+.homepage-welcome-main-container {
+  position: absolute;
+  width: 100%;
+  color: white;
+  height: 80vh;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.homepage-welcome-container{
-    width: 100%;
+.homepage-welcome-container {
+  width: 100%;
 }
 
-.homepage-title{
-    font-size: 70px;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 2px 2px 2px black;
+.homepage-title {
+  font-size: 70px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 2px black;
 }
 
-.homepage-btn-container{
-    text-align: center;
-    margin-top: 35px;
+.homepage-btn-container {
+  text-align: center;
+  margin-top: 35px;
 }
 
-.homepage-btn{
-    height: 70px;
-    width: 150px;
-    color:white;
-    background: transparent;
-    border: 2px solid white;
-    font-size: 30px;
+.homepage-btn {
+  height: 70px;
+  width: 150px;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  font-size: 30px;
 }
 
-@media(max-width:800px){
-    .homepage-title{
-        font-size: 50px;;
-    }
+@media (max-width: 800px) {
+  .homepage-title {
+    font-size: 50px;
+  }
 }
-
 
 /* -----------------4.2 Slider----------------- */
 
-.banner-container{
-    width: 100%;
-    margin-top: 80px;
+.banner-container {
+  width: 100%;
+  margin-top: 80px;
 }
 
-.slider{
-    width: 100%;
-    height: 90vh;
-    overflow: hidden;
-  }
-  
-  .slides{
-    width: 500%;
-    height: 90vh;
-    display: flex;
-  }
-  
-  .slides input{
-    display: none;
-  }
-  
-  .slide{
-    width: 20%;
-    transition: 2s;
-  }
-  
-  .slide img{
-    width: 100%;
-    height: 90vh;
-  }
-
-  /* -----------------4.3 Slider navegación manual----------------- */
-  
-  .navigation-manual{
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: -10vh;
-  }
-  
-  .manual-btn{
-    border: 2px solid #40D3DC;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-  }
-  
-  .manual-btn:not(:last-child){
-    margin-right: 40px;
-  }
-  
-  .manual-btn:hover{
-    background: #40D3DC;
-  }
-  
-  #radio1:checked ~ .first{
-    margin-left: 0;
-  }
-  
-  #radio2:checked ~ .first{
-    margin-left: -20%;
-  }
-  
-  #radio3:checked ~ .first{
-    margin-left: -40%;
-  }
-  
-  #radio4:checked ~ .first{
-    margin-left: -60%;
-  }
-  
-  /* -----------------4.4 Slider navegación automatica----------------- */
-  
-  .navigation-auto{
-    position: absolute;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-top: 80vh;
-  }
-  
-  .navigation-auto div{
-    border: 2px solid #40D3DC;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
-  }
-  
-  .navigation-auto div:not(:last-child){
-    margin-right: 40px;
-  }
-  
-  #radio1:checked ~ .navigation-auto .auto-btn1{
-    background: #40D3DC;
-  }
-  
-  #radio2:checked ~ .navigation-auto .auto-btn2{
-    background: #40D3DC;
-  }
-  
-  #radio3:checked ~ .navigation-auto .auto-btn3{
-    background: #40D3DC;
-  }
-  
-  #radio4:checked ~ .navigation-auto .auto-btn4{
-    background: #40D3DC;
-  }
-
-
-
- /* -----------------4.5 Productos más vendidos----------------- */
-
-.section-title{
-    text-align: center;
-    padding: 10px 0px 10px 0px;
-    text-transform: uppercase;
-    font-size: 20px;
-    margin-top: 10px;
+.slider {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
 }
 
-.home-products-container{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
+.slides {
+  width: 500%;
+  height: 90vh;
+  display: flex;
 }
 
-.home-product-cart{
-    width: 28%;
-    margin: 20px 30px;
-    text-align: center;
+.slides input {
+  display: none;
 }
 
-.home-product-img{
-    height: 220px;
-    text-align: center;
+.slide {
+  width: 20%;
+  transition: 2s;
 }
 
-.home-product-name{
-    font-weight: lighter;
-    font-weight: 1000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: block;
+.slide img {
+  width: 100%;
+  height: 90vh;
 }
 
-.home-product-description{
-    font-size: 12px;
-    margin-bottom: 10px;
-    width: 100%;
-    height: 60px;
+/* -----------------4.3 Slider navegación manual----------------- */
+
+.navigation-manual {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -10vh;
 }
 
-.home-product-price-container{
-    color: green;
-    font-weight: bold;
-    font-size: 25px;
-    display: block;
-    margin-bottom: 20px;
+.manual-btn {
+  border: 2px solid #40d3dc;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
 }
 
-.home-product-price{
-    color: green;
-    font-weight: bold;
-    font-size: 25px;
-    display: inline;
-    padding-left: 2px;
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
 }
 
-.home-product-button{
-    background: rgb(85, 85, 240);
-    border-radius: 3px;
-    width: 60%;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    border: none;
-    height: 30px;
+.manual-btn:hover {
+  background: #40d3dc;
 }
 
-.home-product-button:hover{
-    background: rgb(12, 12, 243);
+#radio1:checked ~ .first {
+  margin-left: 0;
 }
 
-.home-product-cart-icon{
-    font-size: 15px;
-    padding-right: 10px;
+#radio2:checked ~ .first {
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+  margin-left: -60%;
+}
+
+/* -----------------4.4 Slider navegación automatica----------------- */
+
+.navigation-auto {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 80vh;
+}
+
+.navigation-auto div {
+  border: 2px solid #40d3dc;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background: #40d3dc;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background: #40d3dc;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+  background: #40d3dc;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+  background: #40d3dc;
+}
+
+/* -----------------4.5 Productos más vendidos----------------- */
+
+.section-title {
+  text-align: center;
+  padding: 10px 0px 10px 0px;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.home-products-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.home-product-cart {
+  width: 28%;
+  margin: 20px 30px;
+  text-align: center;
+}
+
+.home-product-img {
+  height: 220px;
+  text-align: center;
+}
+
+.home-product-name {
+  font-weight: lighter;
+  font-weight: 1000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.home-product-description {
+  font-size: 12px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 60px;
+}
+
+.home-product-price-container {
+  color: green;
+  font-weight: bold;
+  font-size: 25px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.home-product-price {
+  color: green;
+  font-weight: bold;
+  font-size: 25px;
+  display: inline;
+  padding-left: 2px;
+}
+
+.home-product-button {
+  background: rgb(85, 85, 240);
+  border-radius: 3px;
+  width: 60%;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  height: 30px;
+}
+
+.home-product-button:hover {
+  background: rgb(12, 12, 243);
+}
+
+.home-product-cart-icon {
+  font-size: 15px;
+  padding-right: 10px;
 }
 
 /* -----------------4.6 Productos más vendidos responsive----------------- */
 
-@media(max-width:1400px){
-    .home-product-cart{
-        width: 40%;
-    }
+@media (max-width: 1400px) {
+  .home-product-cart {
+    width: 40%;
+  }
 }
 
-@media(max-width:800px){
-    .home-product-cart{
-        width: 100%;
-    }
+@media (max-width: 800px) {
+  .home-product-cart {
+    width: 100%;
+  }
 
-    .home-product-button{
-        width: 80%;
-    }
+  .home-product-button {
+    width: 80%;
+  }
 
-    .home-product-description{
-        padding-left: 120px;
-        padding-right: 120px;
-    }
+  .home-product-description {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
 }
 
-@media(max-width:600px){
-    .home-product-img{
-        width: 100%;
-        height: auto;
-    }
+@media (max-width: 600px) {
+  .home-product-img {
+    width: 100%;
+    height: auto;
+  }
 
-    .home-product-description{
-        padding: 0px;
-        height: auto
-    }
+  .home-product-description {
+    padding: 0px;
+    height: auto;
+  }
 }
-
 
 /* -----------------4.7 Rutinas más populares----------------- */
 
-.rutinas{
-    margin:50px 0px;
+.rutinas {
+  margin: 50px 0px;
 }
 
-.rutinas-img{
-    width: 100%;
-    height: 270px;
-    display: block;
-    text-align: center;
-    padding: 10px;
+.rutinas-img {
+  width: 100%;
+  height: 270px;
+  display: block;
+  text-align: center;
+  padding: 10px;
 }
 
-.rutinas-articles-container{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
+.rutinas-articles-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-.rutina-articles{
-    width: 25%;
+.rutina-articles {
+  width: 25%;
 }
 
-.rutine-name{
-    margin: 2px 0 4px 0;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 15px;
+.rutine-name {
+  margin: 2px 0 4px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
 }
 
-.rutine-introduction{
-    font-size: 10px;
-    text-align: center;
+.rutine-introduction {
+  font-size: 10px;
+  text-align: center;
 }
 
-.button-padre{
-    text-align: center;
+.button-padre {
+  text-align: center;
 }
 
-.ver-mas-button{
-    background-color: orange;
-    color:white;
-    width: 50%;
-    margin:10px 0px 10px 0px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border: none;
-    height: 30px;
+.ver-mas-button {
+  background-color: orange;
+  color: white;
+  width: 50%;
+  margin: 10px 0px 10px 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  height: 30px;
 }
 
-.ver-mas-button:hover{
-    background-color: orangered;
-    cursor: pointer;
+.ver-mas-button:hover {
+  background-color: orangered;
+  cursor: pointer;
 }
-
 
 /* -----------------4.8 Rutinas más populares responsive----------------- */
 
-@media (max-width:1100px){
-    .rutina-articles{
-        width: 50%;
-    }
+@media (max-width: 1100px) {
+  .rutina-articles {
+    width: 50%;
+  }
 
-    .rutinas-img{
-        height: 320px;
-    }
+  .rutinas-img {
+    height: 320px;
+  }
 }
 
-@media (max-width:700px){
-    .rutina-articles{
-        width: 100%;
-        margin-bottom: 10px;
-    }
+@media (max-width: 700px) {
+  .rutina-articles {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
-    .rutinas-img{
-        height: 400px;
-    }
+  .rutinas-img {
+    height: 400px;
+  }
 
-    .ver-mas-button{
-        width: 80%;
-    }
+  .ver-mas-button {
+    width: 80%;
+  }
 }
 
-@media (max-width:500px){
-    .rutinas-img{
-        height: auto;
-    }
+@media (max-width: 500px) {
+  .rutinas-img {
+    height: auto;
+  }
 }
 
 /* ---------------------------------------------------5.Estilos Register--------------------------------------------------- */
 
-.registration-main-container{
-    margin-top: 80px;
-    width: 100%;
-    background-image: url(/images/main/register-background.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.registration-main-container {
+  margin-top: 80px;
+  width: 100%;
+  background-image: url(/images/main/register-background.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.registration-form-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 630px;
-    background-color: white;
-    border-radius: 15px;
-    border: 1px solid gray;
-    margin: 80px 0px;
-    height: 670px;
+.registration-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 630px;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid gray;
+  margin: 80px 0px;
+  height: 670px;
 }
 
-.register-info-container{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    align-items: center;
-    text-align: left;
-    height: 105px;
+.register-info-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+  text-align: left;
+  height: 105px;
 }
 
-.form{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+.form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.register-input{
-    height: 35px;
-    margin-top: 5px;
-    width: 90%;
+.register-input {
+  height: 35px;
+  margin-top: 5px;
+  width: 90%;
 }
 
-.avatar-label{
-    position: relative;
-    left:155px
+.avatar-label {
+  position: relative;
+  left: 155px;
 }
 
-.register-img{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    bottom: 40px;
+.register-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 40px;
 }
 
-.register-avatar-input{
-    position: relative;
-    top: 10px;
-    left: 170px;
+.register-avatar-input {
+  position: relative;
+  top: 10px;
+  left: 170px;
 }
 
-.button-container{
-    width: 100%;
-    margin: 0px;
-    display: flex;
-    align-items: center;
+.button-container {
+  width: 100%;
+  margin: 0px;
+  display: flex;
+  align-items: center;
 }
 
-.register-button{
-    margin: 10px 0px;
-    height: 35px;
-    width: 50%;
-    background-color: orange;
-    color: white;
-    font-size: 15px;
+.register-button {
+  margin: 10px 0px;
+  height: 35px;
+  width: 50%;
+  background-color: orange;
+  color: white;
+  font-size: 15px;
 }
 
-.facebook-button{
-    background-color: #3b5998;
-    width: 47%;
+.facebook-button {
+  background-color: #3b5998;
+  width: 47%;
 }
 
-.facebook-button:hover{
-    background-color:rgb(6, 31, 70);
+.facebook-button:hover {
+  background-color: rgb(6, 31, 70);
 }
 
-.google-button{
-    background-color: gray;
-    width: 47%;
+.google-button {
+  background-color: gray;
+  width: 47%;
 }
 
-.google-button:hover{
-    background-color: rgb(42, 45, 49);
+.google-button:hover {
+  background-color: rgb(42, 45, 49);
 }
 
-.google-icon{
-    position: relative;
-    left:-10px;
-    padding: 3px;
-    font-size: 20px;
+.google-icon {
+  position: relative;
+  left: -10px;
+  padding: 3px;
+  font-size: 20px;
 }
 
-.facebook-icon{
-    position: relative;
-    left:-5px;
-    padding: 3px;
-    font-size: 20px;
+.facebook-icon {
+  position: relative;
+  left: -5px;
+  padding: 3px;
+  font-size: 20px;
 }
 
-.final-register-button:hover{
-    background-color: orangered
+.final-register-button:hover {
+  background-color: orangered;
 }
 
-.facebook-google-form{
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    bottom: 50px;
+.facebook-google-form {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  bottom: 50px;
 }
 
-.button-info-container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    position: relative;
-    bottom: 22px;
+.button-info-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  position: relative;
+  bottom: 22px;
 }
 
-.position-class{
-    position: relative;
-    bottom: 35px;
+.position-class {
+  position: relative;
+  bottom: 35px;
 }
 
 /* -----------------5.1 Register responsive----------------- */
 
-@media (max-width:800px){
-    .registration-form-container{
-        width: 100%;
-        height: auto;
-    }
+@media (max-width: 800px) {
+  .registration-form-container {
+    width: 100%;
+    height: auto;
+  }
 
-    .register-info-container{
-        width: 100%;
-    }
+  .register-info-container {
+    width: 100%;
+  }
 
-    .register-button,.facebook-button{
-        width: 80%;
-    }
+  .register-button,
+  .facebook-button {
+    width: 80%;
+  }
 
-    .facebook-google-form{
-        margin: 0px 20px;
-    }
+  .facebook-google-form {
+    margin: 0px 20px;
+  }
 
-    .register-avatar-input{
-        left:10px
-    }
+  .register-avatar-input {
+    left: 10px;
+  }
 
-    .avatar-label{
-        left: 10px;
-    }
+  .avatar-label {
+    left: 10px;
+  }
 }
 
-@media (max-width:500px){
-    .register-button,.facebook-button{
-        width: 100%;
-    }
+@media (max-width: 500px) {
+  .register-button,
+  .facebook-button {
+    width: 100%;
+  }
 }
 
 /* ---------------------------------------------------6.Estilos Login--------------------------------------------------- */
 
-.login-main-container{
-    margin-top: 80px;
-    margin-bottom: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/login-background.jpg);
-    background-size:cover;
-    background-repeat: no-repeat;
-    height: 90vh;
+.login-main-container {
+  margin-top: 80px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/images/main/login-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
 }
 
-.login-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    flex-direction: column;
-    margin: 80px 0px;
-    width: 400px;
-    border: 1px solid gray;
-    border-radius: 15px;
-    background-color: white;
+.login-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin: 80px 0px;
+  width: 400px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  background-color: white;
 }
 
-.login-inputs-container{
-    display: flex;
-    justify-content: center;
+.login-inputs-container {
+  display: flex;
+  justify-content: center;
 }
 
-.email-or-password-error{
-    background-color: rgb(250, 161, 188);
-    position: relative;
-    top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25px;
-    width: 60%;
-    border-radius: 5px;
+.email-or-password-error {
+  background-color: rgb(250, 161, 188);
+  position: relative;
+  top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 60%;
+  border-radius: 5px;
 }
 
-.form-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
 }
 
-.general-containers{
-    text-align: center;
-    margin-top: 25px;
-    width: 100%;
-    height: 70px;
+.general-containers {
+  text-align: center;
+  margin-top: 25px;
+  width: 100%;
+  height: 70px;
 }
 
-.login-email{
-    margin-top: 30px;
+.login-email {
+  margin-top: 30px;
 }
 
-.login-inputs-titles{
-    display: block;
-    width: 60%;
-    text-align: left;
-    position: relative;
-    left: 60px;
-    margin-bottom: 5px;
+.login-inputs-titles {
+  display: block;
+  width: 60%;
+  text-align: left;
+  position: relative;
+  left: 60px;
+  margin-bottom: 5px;
 }
 
-.all-login-inputs{
-    width: 80%;
-    height: 35px;
+.all-login-inputs {
+  width: 80%;
+  height: 35px;
 }
 
-.remember-me-container{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 12px;
-    width: 80%;
-    position: relative;
-    left: 20px;
-    font-weight: lighter;
+.remember-me-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 12px;
+  width: 80%;
+  position: relative;
+  left: 20px;
+  font-weight: lighter;
 }
 
-.remember-login-input{
-    margin-left: 5px;
+.remember-login-input {
+  margin-left: 5px;
 }
 
-.buttons-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.login-button{
-    margin: 10px;
-    width: 70%;
-    height: 35px;
-    background-color: orange;
-    color: white;
-    font-size: 17px;
-    font-weight: bold
+.login-button {
+  margin: 10px;
+  width: 70%;
+  height: 35px;
+  background-color: orange;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
 }
 
-.login-button:hover{
-    background-color:orangered;
-    cursor: pointer;
+.login-button:hover {
+  background-color: orangered;
+  cursor: pointer;
 }
 
-.register-account-container{
-    text-align: center;
+.register-account-container {
+  text-align: center;
 }
 
-.forgot-password{
-    text-decoration: none;
-    font-weight: lighter;
+.forgot-password {
+  text-decoration: none;
+  font-weight: lighter;
 }
 
-.forgot-password:hover{
-    text-decoration:underline;
+.forgot-password:hover {
+  text-decoration: underline;
 }
 
-.no-account{
-    margin: 20px 0px;
-    border-top: 1px solid gray;
-    padding-top: 20px;
+.no-account {
+  margin: 20px 0px;
+  border-top: 1px solid gray;
+  padding-top: 20px;
 }
 
-.register-account{
-    text-decoration: none;
+.register-account {
+  text-decoration: none;
 }
 
-.register-account:hover{
-    text-decoration: underline;
+.register-account:hover {
+  text-decoration: underline;
 }
 
 /* -----------------6.1 Login responsive----------------- */
 
-@media (max-width:800px){
-    .login-container{
-        width: 100%;
-    }
+@media (max-width: 800px) {
+  .login-container {
+    width: 100%;
+  }
 
-    .all-login-inputs{
-        width: 80%;
-    }
+  .all-login-inputs {
+    width: 80%;
+  }
 
-    .login-button{
-        width: 50%;
-    }
+  .login-button {
+    width: 50%;
+  }
 }
 
-@media (max-width:500px){
-    .login-button{
-        width: 70%;
-    }
+@media (max-width: 500px) {
+  .login-button {
+    width: 70%;
+  }
 }
 
 /* ---------------------------------------------------7.Estilos perfil de usuario--------------------------------------------------- */
 
-.profile-main-container{
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/profile.jpg);
+.profile-main-container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/images/main/profile.jpg);
 }
 
-.profile-container{
-    width: 600px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: white;
-    margin: 80px 0px;
-    border-radius: 15px;
-    border: 1px solid gray;
-    justify-content: center;
+.profile-container {
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  margin: 80px 0px;
+  border-radius: 15px;
+  border: 1px solid gray;
+  justify-content: center;
 }
 
-.profile.left.side{
-    width: 40%;  
+.profile.left.side {
+  width: 40%;
 }
 
-.profile-avatar-container{
-    width: 40%;
+.profile-avatar-container {
+  width: 40%;
 }
 
-.profile-page-avatar{
-    width:250px;
-    height:250px;
-    border-radius:150px;
-    margin-top: 30px;
+.profile-page-avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 150px;
+  margin-top: 30px;
 }
 
-.profile-avatar-text{
-    position: relative;
-    left: 100px;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 10px;
+.profile-avatar-text {
+  position: relative;
+  left: 100px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
-.profile-rol-container{
-    width: 250px;
-    text-align: center;
-    margin-bottom: 10px
+.profile-rol-container {
+  width: 250px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.admin-access-button{
-    width: 100%;
-    height: 30px;
-    position: center;
-    left: 55px;
-    margin: 5px 0px 5px 0px;
-    background-color: black;
-    color: white
+.admin-access-button {
+  width: 100%;
+  height: 30px;
+  position: center;
+  left: 55px;
+  margin: 5px 0px 5px 0px;
+  background-color: black;
+  color: white;
 }
 
-.admin-access-button:hover{
-    background-color: rgb(51, 48, 48);
+.admin-access-button:hover {
+  background-color: rgb(51, 48, 48);
 }
 
-.user-admin-profile{
-    background-color: blue;
-    margin-bottom: 20px;
+.user-admin-profile {
+  background-color: blue;
+  margin-bottom: 20px;
 }
 
-.user-admin-profile:hover{
-    background-color: rgb(100, 100, 255);
+.user-admin-profile:hover {
+  background-color: rgb(100, 100, 255);
 }
 
-.admin-edit-button:hover{
-    background-color: gray
+.admin-edit-button:hover {
+  background-color: gray;
 }
 
-.profile-information{
-    width: 90%;
-    margin: 20px auto;
-    height: 80px;
-    position: relative;
-    left: 20px;
+.profile-information {
+  width: 90%;
+  margin: 20px auto;
+  height: 80px;
+  position: relative;
+  left: 20px;
 }
 
-.profile-labels{
-    font-weight: bold;
+.profile-labels {
+  font-weight: bold;
 }
 
-.profile-inputs{
-    margin-top: 5px;
-    width: 240px;
+.profile-inputs {
+  margin-top: 5px;
+  width: 240px;
 }
 
-.form-profile-container{
-    width: 75%;
-    position: relative;
-    left: 40px;
-    text-align: center;
+.form-profile-container {
+  width: 75%;
+  position: relative;
+  left: 40px;
+  text-align: center;
 }
 
-.form-profile-edit-container{
-    width: 75%;
-    position: relative;
-    left: 40px;
-    bottom: 25px;
-    text-align: center;
+.form-profile-edit-container {
+  width: 75%;
+  position: relative;
+  left: 40px;
+  bottom: 25px;
+  text-align: center;
 }
 
-.profile-edit-button{
-    width: 100%;
-    height: 30px;
-    margin-bottom: 20px;
-    background-color:orange;
-    color: white
+.profile-edit-button {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  background-color: orange;
+  color: white;
 }
 
-.profile-edit-button:hover{
-    background-color: gray
+.profile-edit-button:hover {
+  background-color: gray;
 }
 
-.profile-logout-button{
-    width: 100%;
-    height: 30px;
-    margin-bottom: 20px;
-    background-color: red;
-    color: white
+.profile-logout-button {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  background-color: red;
+  color: white;
 }
 
-.profile-logout-button:hover{
-    background-color: black;
+.profile-logout-button:hover {
+  background-color: black;
 }
 
-.profile-save-edit-button{
-    background-color: green;
+.profile-save-edit-button {
+  background-color: green;
 }
 
-.profile-save-edit-button:hover{
-    background-color: #00b347 
+.profile-save-edit-button:hover {
+  background-color: #00b347;
 }
 
-.profile-message-container{
-    width: 60%;
-    margin: 0px auto;
-    position: relative;
-    bottom: 20px;
+.profile-message-container {
+  width: 60%;
+  margin: 0px auto;
+  position: relative;
+  bottom: 20px;
 }
 
-.profile-message{
-    font-size: 14px;
-    color: red;
-    font-weight: bold;
+.profile-message {
+  font-size: 14px;
+  color: red;
+  font-weight: bold;
 }
 
 /* -----------------7.1 perfil de usuario responsive----------------- */
 
+@media (max-width: 800px) {
+  .profile-avatar-container {
+    width: 100%;
+    text-align: center;
+  }
 
-@media (max-width:800px){
-    .profile-avatar-container{
-        width: 100%;
-        text-align: center;
-    }
+  .profile-avatar-text {
+    left: 8px;
+  }
 
-    .profile-avatar-text{
-        left: 8px;   
-    }
-    
-    .profile-rol{
-        position: relative;
-        left: 80px;
-    }
+  .profile-rol {
+    position: relative;
+    left: 80px;
+  }
 
-    .admin-button-container{
-        width: 400px
-    }
+  .admin-button-container {
+    width: 400px;
+  }
 
-    .profile-inputs{
-        width: 90%;
-    }
+  .profile-inputs {
+    width: 90%;
+  }
 
-    .form-profile-container{
-        width: 90%;
-        left: 20px;
-    }
+  .form-profile-container {
+    width: 90%;
+    left: 20px;
+  }
 
-    .profile-edit-button,.profile-logout-button{
-        width: 75%;
-    }
+  .profile-edit-button,
+  .profile-logout-button {
+    width: 75%;
+  }
 
-    .profile-container{
-        width: 100%;
-    }
+  .profile-container {
+    width: 100%;
+  }
 
-    .profile-labels{
-        display: block;
-    }
+  .profile-labels {
+    display: block;
+  }
 
-    .profile-information,.profile-message-container{
-        width: 100%;
-    }
+  .profile-information,
+  .profile-message-container {
+    width: 100%;
+  }
 
-    .profile-information-container{
-        width: 100%;
-        margin: 5px 20px;
-    }
+  .profile-information-container {
+    width: 100%;
+    margin: 5px 20px;
+  }
 
-    .form-profile-edit-container{
-        left: 20px;
-        width: 90%;
-    }
+  .form-profile-edit-container {
+    left: 20px;
+    width: 90%;
+  }
 }
 
-@media (max-width:500px){
-    .profile-rol{
-        position: relative;
-        left: 30px;
-    }
+@media (max-width: 500px) {
+  .profile-rol {
+    position: relative;
+    left: 30px;
+  }
 
-    .admin-button-container{
-        width: 300px;
-        text-align: center;
-    }
+  .admin-button-container {
+    width: 300px;
+    text-align: center;
+  }
 
-    .admin-access-button{
-        width: 90%;
-    }
-    
-    .profile-edit-button,.profile-logout-button{
-        width: 100%;
-    }  
+  .admin-access-button {
+    width: 90%;
+  }
+
+  .profile-edit-button,
+  .profile-logout-button {
+    width: 100%;
+  }
 }
 
 /* ---------------------------------------------------8.Estilos pagina de producto--------------------------------------------------- */
 
-.product-page-main-container{
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/contact-background.jpg);
-    background-attachment: fixed;
+.product-page-main-container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/images/main/contact-background.jpg);
+  background-attachment: fixed;
 }
 
-.product-page-container{
-    width: 90%;
-    margin: 80px 0px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    background-color: #eeeeee;
+.product-page-container {
+  width: 90%;
+  margin: 80px 0px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: #eeeeee;
 }
 
-.product-page-articles-main-container{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    align-items: center;
+.product-page-articles-main-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
 }
 
-.product-page-article-container{
-    display: flex;
-    width: 21%;
-    text-align: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: white;
-    border-radius: 20px;
-    margin: 25px;
-    min-height: 480px;
+.product-page-article-container {
+  display: flex;
+  width: 21%;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 20px;
+  margin: 25px;
+  min-height: 480px;
 }
 
-.product-page-img-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.product-page-img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.rutine-page-img-container{
-    width: 100%;
+.rutine-page-img-container {
+  width: 100%;
 }
 
-.product-page-img{
-    border-radius: 20px;
-    height: 170px;
+.product-page-img {
+  border-radius: 20px;
+  height: 170px;
 }
 
-.rutine-page-img{
-    border-radius: 20px;
-    width: 100%;
-    height: 210px;
+.rutine-page-img {
+  border-radius: 20px;
+  width: 100%;
+  height: 210px;
 }
 
-.product-page-form-container{
-    width: 100%;
+.product-page-form-container {
+  width: 100%;
 }
 
-.product-page-div{
-    margin-top: 0px;
-    width: 100%;
+.product-page-div {
+  margin-top: 0px;
+  width: 100%;
 }
 
-.product-page-button{
-    width: 80%;
-    margin-bottom: 8px;
-    background: rgb(85, 85, 240);
-    height: 30px;
-    color: white;
-    font-size: 17px;
+.product-page-button {
+  width: 80%;
+  margin-bottom: 8px;
+  background: rgb(85, 85, 240);
+  height: 30px;
+  color: white;
+  font-size: 17px;
 }
 
-.product-page-button:hover{
-    background: rgb(12, 12, 243);
+.product-page-button:hover {
+  background: rgb(12, 12, 243);
 }
 
-.product-page-price-container{
-    font-size: 25px;
-    color: green;
-    font-weight: bolder;
+.product-page-price-container {
+  font-size: 25px;
+  color: green;
+  font-weight: bolder;
 }
 
-.product-page-price{
-    font-size: 25px;
-    color: green;
-    font-weight: bolder;
-    padding-left: 2px;
+.product-page-price {
+  font-size: 25px;
+  color: green;
+  font-weight: bolder;
+  padding-left: 2px;
 }
 
-.product-page-introduction{
-    padding: 0px 10px;
+.product-page-introduction {
+  padding: 0px 10px;
 }
 
-.product-page-name{
-    font-size: 19px;
-    margin-top: 5px;
-    width: 100%;
+.product-page-name {
+  font-size: 19px;
+  margin-top: 5px;
+  width: 100%;
 }
 
 /* -----------------8.1 pagina de productos responsive----------------- */
 
-@media(max-width:1390px){
-    .product-page-article-container{
-        width: 28%;
-    }
+@media (max-width: 1390px) {
+  .product-page-article-container {
+    width: 28%;
+  }
 }
 
-@media(max-width:1044px){
-    .product-page-article-container{
-        width: 40%;
-        margin: 25px 38px 25px 38px
-    }
+@media (max-width: 1044px) {
+  .product-page-article-container {
+    width: 40%;
+    margin: 25px 38px 25px 38px;
+  }
 }
 
-@media(max-width:848px){
-    .product-page-articles-main-container{
-        justify-content: center;
-    }
+@media (max-width: 848px) {
+  .product-page-articles-main-container {
+    justify-content: center;
+  }
 
-    .product-page-container{
-        width: 100%;
-    }
+  .product-page-container {
+    width: 100%;
+  }
 
-    .product-page-article-container{
-        width: 80%;
-    }
+  .product-page-article-container {
+    width: 80%;
+  }
 
-    .rutine-page-img{
-        height: 250px;
-    }
-    
-    .product-page-name{
-        font-size: 25px;
-    }
+  .rutine-page-img {
+    height: 250px;
+  }
 
-    .product-page-price-container{
-        font-size: 40px;
-    }
+  .product-page-name {
+    font-size: 25px;
+  }
 
-    .product-page-price{
-        font-size: 40px;
-        margin: 5px 0px;
-    }
+  .product-page-price-container {
+    font-size: 40px;
+  }
 
-    .product-page-button{
-        height: 40px;
-        font-size: 20px;
-    }
+  .product-page-price {
+    font-size: 40px;
+    margin: 5px 0px;
+  }
+
+  .product-page-button {
+    height: 40px;
+    font-size: 20px;
+  }
 }
 
-@media(max-width:500px){
-    .product-page-article-container{
-        width: 100%;
-        margin-left: 3px;
-        margin-right: 3px;
-    }
+@media (max-width: 500px) {
+  .product-page-article-container {
+    width: 100%;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
 }
-
 
 /* ---------------------------------------------------9.Estilos detalle de producto--------------------------------------------------- */
 
-.product-detail-main-container{
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/contact-background.jpg);
-    background-attachment: fixed;
-    width: 100%;
+.product-detail-main-container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/images/main/contact-background.jpg);
+  background-attachment: fixed;
+  width: 100%;
 }
 
-.product-detail-container{
-    border-radius: 10px;
-    background-color: white;
-    width: 1070px;
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid gray;
-    margin: 80px 0px;
+.product-detail-container {
+  border-radius: 10px;
+  background-color: white;
+  width: 1070px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid gray;
+  margin: 80px 0px;
 }
 
-.product-detail-img-container{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    margin: 0px;
-    height: 487px;
-    align-items: center;
+.product-detail-img-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  height: 487px;
+  align-items: center;
 }
 
-.product-detail-img{
-    height: 320px;
+.product-detail-img {
+  height: 320px;
 }
 
-.rutine-detail-img{
-    height: 493px;
-    width: 100%;
+.rutine-detail-img {
+  height: 493px;
+  width: 100%;
 }
 
-.product-detail-right-side{
-    width:50%;
-    border-left: 1px solid lightslategray;
-    padding: 15px;
-    height: 490px;
+.product-detail-right-side {
+  width: 50%;
+  border-left: 1px solid lightslategray;
+  padding: 15px;
+  height: 490px;
 }
 
-.product-name-container{
-    width:100%;
+.product-name-container {
+  width: 100%;
 }
 
-.product-detail-name{
-    font-weight: 400;
-    font-size: 32px;
+.product-detail-name {
+  font-weight: 400;
+  font-size: 32px;
 }
 
-.product-detail-description{
-    font-weight: 100;
-    font-size: 16px;
-    margin-top: 5px;
+.product-detail-description {
+  font-weight: 100;
+  font-size: 16px;
+  margin-top: 5px;
 }
 
-.product-detail-information{
-    font-weight: 600;
-    padding-top: 10px;
-    font-size: 16px;
+.product-detail-information {
+  font-weight: 600;
+  padding-top: 10px;
+  font-size: 16px;
 }
 
-.product-price-container{
-    margin-top: 10px;
+.product-price-container {
+  margin-top: 10px;
 }
 
-.product-detail-price{
-    font-weight: 400;
-    font-size: 35px;
-    color: green;
+.product-detail-price {
+  font-weight: 400;
+  font-size: 35px;
+  color: green;
 }
 
-.product-detail-form-container{
-    text-align: left;
+.product-detail-form-container {
+  text-align: left;
 }
 
-.product-amount-container{
-    text-align: left;
-    margin-top: 10px;
+.product-amount-container {
+  text-align: left;
+  margin-top: 10px;
 }
 
-.product-detail-amount-label{
-    font-weight: lighter;
-    font-size: 17px;
-    font-weight: bold;
+.product-detail-amount-label {
+  font-weight: lighter;
+  font-size: 17px;
+  font-weight: bold;
 }
 
-.product-detail-amount-field{
-    height: 25px;
-    margin: 10px 0px;
-    width: 100px;
-    text-align: center;
+.product-detail-amount-field {
+  height: 25px;
+  margin: 10px 0px;
+  width: 100px;
+  text-align: center;
 }
 
-.product-detail-button{
-    height: 40px;
-    width:50%;
-    background: rgb(85, 85, 240);
-    color: white;
-    font-size: 16px;
-    margin-top: 20px;
+.product-detail-button {
+  height: 40px;
+  width: 50%;
+  background: rgb(85, 85, 240);
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
 }
 
-.product-detail-button:hover{
-    background: rgb(12, 12, 243);
+.product-detail-button:hover {
+  background: rgb(12, 12, 243);
 }
 
-.product-extra-info-container{
-    margin-top: 15px;
+.product-extra-info-container {
+  margin-top: 15px;
 }
 
-.product-extra-info{
-    font-weight: 100;
+.product-extra-info {
+  font-weight: 100;
 }
 
-.product-extra-info-icon{
-    margin-bottom: 15px;
-    padding-right: 10px;
-    color: green;
+.product-extra-info-icon {
+  margin-bottom: 15px;
+  padding-right: 10px;
+  color: green;
 }
 
 /* -----------------9.1 detalle de producto responsive----------------- */
 
+@media (max-width: 1070px) {
+  .product-detail-container {
+    height: auto;
+  }
 
-@media (max-width:1070px){
-    .product-detail-container{
-        height: auto;
-    }
+  .product-detail-img-container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
 
-    .product-detail-img-container{
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-    }
+  .product-detail-img {
+    height: 340px;
+  }
 
-    .product-detail-img{
-        height: 340px
-    }
+  .rutine-detail-img {
+    height: 500px;
+  }
 
-    .rutine-detail-img{
-        height: 500px;
-    }
+  .product-detail-right-side {
+    width: 100%;
+    border: none;
+    height: auto;
+    text-align: left;
+  }
 
-    .product-detail-right-side{
-        width: 100%;
-        border: none;
-        height: auto;
-        text-align: left;
-    }
+  .product-detail-name {
+    font-size: 40px;
+    font-weight: bold;
+  }
 
-    .product-detail-name{
-        font-size: 40px;
-        font-weight: bold;
-    }
+  .product-detail-description {
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: 500;
+  }
 
-    .product-detail-description{
-        font-size: 22px;
-        margin-top: 20px;
-        font-weight: 500;
-    }
+  .product-detail-information {
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 5px;
+  }
 
-    .product-detail-information{
-        font-size: 25px;
-        font-weight: 700;
-        margin-top:5px;
-    }
+  .product-detail-price {
+    font-size: 40px;
+    font-weight: 700;
+  }
 
-    .product-detail-price{
-        font-size: 40px;
-        font-weight: 700;
-    }
+  .product-detail-amount-label {
+    font-size: 20px;
+  }
 
-    .product-detail-amount-label{
-        font-size: 20px;
-    }
+  .product-detail-amount-field {
+    width: 150px;
+  }
 
-    .product-detail-amount-field{
-        width: 150px;
-    }
+  .product-detail-form-container {
+    text-align: center;
+  }
 
-    .product-detail-form-container{
-        text-align: center;
-    }
+  .product-detail-button {
+    width: 400px;
+    font-size: 20px;
+  }
 
-    .product-detail-button{
-        width: 400px;
-        font-size: 20px;
-    }
-
-    .product-extra-info{
-        font-size: 22px;
-    }
+  .product-extra-info {
+    font-size: 22px;
+  }
 }
 
-@media (max-width:550px){
-    .product-detail-img{
-        height: 200px
-    }
+@media (max-width: 550px) {
+  .product-detail-img {
+    height: 200px;
+  }
 
-    .rutine-detail-img{
-        height: 300px;
-    }
+  .rutine-detail-img {
+    height: 300px;
+  }
 
-    .product-detail-name{
-        font-size: 30px;
-    }
+  .product-detail-name {
+    font-size: 30px;
+  }
 
-    .product-detail-description{
-        font-size: 18px;
-    }
+  .product-detail-description {
+    font-size: 18px;
+  }
 
-    .product-detail-information{
-        font-size: 20px;
-    }
+  .product-detail-information {
+    font-size: 20px;
+  }
 
-    .product-detail-price{
-        font-size: 35px;
-    }
+  .product-detail-price {
+    font-size: 35px;
+  }
 
-    .product-detail-amount-label{
-        font-size: 18px;
-    }
+  .product-detail-amount-label {
+    font-size: 18px;
+  }
 
-    .product-detail-button{
-        width: 100%;
-    }
+  .product-detail-button {
+    width: 100%;
+  }
 
-    .product-extra-info{
-        font-size: 18px;
-    }
+  .product-extra-info {
+    font-size: 18px;
+  }
 }
-
 
 /* ---------------------------------------------------10.Estilos carrito--------------------------------------------------- */
 
-
-.no-product-in-cart{
-    height: 370px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.no-product-in-cart {
+  height: 370px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.no-product-in-cart p{
-    color: red;
-    font-size: 22px;
+.no-product-in-cart p {
+  color: red;
+  font-size: 22px;
 }
 
-.product-cart-main-container{
-    margin-top: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.product-cart-main-container {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.product-cart-container{
-    width: 1100px;
-    margin: 80px 0px;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 5px;
-    border: 1px solid gray;
+.product-cart-container {
+  width: 1100px;
+  margin: 80px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
 
-.products-section{
-    width: 70%;
+.products-section {
+  width: 70%;
 }
 
-.individual-product-container{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 15px 15px 15px 15px;
-    border-bottom: 2px solid gray;
+.individual-product-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 15px 15px 15px;
+  border-bottom: 2px solid gray;
 }
 
-.product-cart-img-container{
-    display: flex;
-    align-items: center;
-    width: 33%;
+.product-cart-img-container {
+  display: flex;
+  align-items: center;
+  width: 33%;
 }
 
-.product-cart-img{
-    border: 1px solid gray;
-    width: 100%;
+.product-cart-img {
+  border: 1px solid gray;
+  width: 100%;
 }
 
-.product-cart-information{
-    padding-left: 10px;
-    width: 40%;
+.product-cart-information {
+  padding-left: 10px;
+  width: 40%;
 }
 
-.product-cart-info-container{
-    padding-bottom: 10px;
+.product-cart-info-container {
+  padding-bottom: 10px;
 }
 
-.product-cart-quantity{
-    font-size: 14px;
-    display: inline;
+.product-cart-quantity {
+  font-size: 14px;
+  display: inline;
 }
 
-.cart-total-quantity{
-    width: 50px;
-    text-align: center;
+.cart-total-quantity {
+  width: 50px;
+  text-align: center;
 }
 
-.product-cart-unit-price{
-    font-weight: 600;
+.product-cart-unit-price {
+  font-weight: 600;
 }
 
-.product-cart-total-price{
-    color: green;
-    font-weight: bold;
-    font-size: 19px;
+.product-cart-total-price {
+  color: green;
+  font-weight: bold;
+  font-size: 19px;
 }
 
-.product-cart-btn-container{
-    width: 27%;
+.product-cart-btn-container {
+  width: 27%;
 }
 
-.cart-btn{
-    width: 100%;
-    margin-top: 10px;
-    font-size: 14px;
-    height: 30px;
+.cart-btn {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  height: 30px;
 }
 
-.cart-delete-btn{
-    background-color: red;
-    height: 35px;
+.cart-delete-btn {
+  background-color: red;
+  height: 35px;
 }
 
-.cart-delete-btn:hover{
-    background-color: black;
+.cart-delete-btn:hover {
+  background-color: black;
 }
 
-.purchase-section{
-    width: 30%;
-    border-left: 2px solid gray;
+.purchase-section {
+  width: 30%;
+  border-left: 2px solid gray;
 }
 
-.purchase-section-main-container{
-    margin: 30px 10px 0px 10px;
+.purchase-section-main-container {
+  margin: 30px 10px 0px 10px;
 }
 
-.purchase-section-price-container{
-    margin-bottom: 30px;
-    text-align: center;
+.purchase-section-price-container {
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.purchase-section-btn-container{
-    text-align: center;
+.purchase-section-btn-container {
+  text-align: center;
 }
 
-.final-purchase-btn{
-    background: rgb(85, 85, 240);
-    height: 40px;
-    width: 80%;
-    font-size: 18px;
-    text-transform: uppercase;
+.final-purchase-btn {
+  background: rgb(85, 85, 240);
+  height: 40px;
+  width: 80%;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
-.final-purchase-btn:hover{
-    background: rgb(12, 12, 243);
+.final-purchase-btn:hover {
+  background: rgb(12, 12, 243);
 }
 
 /* -----------------10.1 carrito responsive----------------- */
 
-@media(max-width:1000px){
-    .products-section{
-        width: 60%;
-    }
+@media (max-width: 1000px) {
+  .products-section {
+    width: 60%;
+  }
 
-    .purchase-section{
-        width: 40%;
-    }
+  .purchase-section {
+    width: 40%;
+  }
 
-    .product-cart-information{
-        width: 100%;
-    }
+  .product-cart-information {
+    width: 100%;
+  }
 
-    .product-cart-img-container{
-        width: 100%;
-    }
+  .product-cart-img-container {
+    width: 100%;
+  }
 
-    .product-cart-title{
-        margin-top: 10px;
-    }
+  .product-cart-title {
+    margin-top: 10px;
+  }
 
-    .cart-total-quantity{
-        width: 80px;
-    }
+  .cart-total-quantity {
+    width: 80px;
+  }
 
-    .product-cart-btn-container{
-        width: 100%;
-    }
+  .product-cart-btn-container {
+    width: 100%;
+  }
 
-    .final-purchase-btn{
-        width: 100%;
-        height: 50px;
-    }
+  .final-purchase-btn {
+    width: 100%;
+    height: 50px;
+  }
 }
 
-@media(max-width:700px){
-    .products-section{
-        width: 100%;
-    }
+@media (max-width: 700px) {
+  .products-section {
+    width: 100%;
+  }
 
-    .purchase-section{
-        width: 100%;
-    }
+  .purchase-section {
+    width: 100%;
+  }
 
-    .product-cart-title{
-        font-size: 30px;
-    }
+  .product-cart-title {
+    font-size: 30px;
+  }
 
-    .product-cart-quantity{
-        font-size: 19px;
-    }
-    
-    .product-cart-unit-price{
-        font-size: 19px;
-    }
-    
-    .product-cart-total-price{
-        font-size: 24px;
-    }
+  .product-cart-quantity {
+    font-size: 19px;
+  }
 
-    .cart-btn{
-        font-size: 17px;
-    }
+  .product-cart-unit-price {
+    font-size: 19px;
+  }
 
-    .final-purchase-btn{
-        margin-bottom: 20px;
-    }
+  .product-cart-total-price {
+    font-size: 24px;
+  }
+
+  .cart-btn {
+    font-size: 17px;
+  }
+
+  .final-purchase-btn {
+    margin-bottom: 20px;
+  }
 }
 
-@media(max-width:500px){
-    .no-product-in-cart p{
-        font-size: 20px;
-        text-align: center;
-    }
+@media (max-width: 500px) {
+  .no-product-in-cart p {
+    font-size: 20px;
+    text-align: center;
+  }
 
-    .product-cart-information{
-        text-align: center;
-    }
+  .product-cart-information {
+    text-align: center;
+  }
 
-    .product-cart-info-container{
-        margin-top: 15px;
-    }
+  .product-cart-info-container {
+    margin-top: 15px;
+  }
 }
 
 /* ---------------------------------------------------11.Estilos Orden de compra (compra realizada)--------------------------------------------------- */
 
-.order-page-main-container{
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.order-page-main-container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.order-page-container{
-   width: 500px;
-   border: 1px solid gray;
-   margin: 80px 0px
+.order-page-container {
+  width: 500px;
+  border: 1px solid gray;
+  margin: 80px 0px;
 }
 
-.order-page-title{
-    background-color: black;
-    color: white;
-    text-align: center;
+.order-page-title {
+  background-color: black;
+  color: white;
+  text-align: center;
 }
 
-.order-page-general-container{
-    text-align: center;
-    margin-top: 20px;
+.order-page-general-container {
+  text-align: center;
+  margin-top: 20px;
 }
 
-.order-page-thanks{
-    color: green;
-    font-size: 22px;
-    font-weight: bold
+.order-page-thanks {
+  color: green;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.order-page-email-detail{
-    margin-bottom: 10px;
+.order-page-email-detail {
+  margin-bottom: 10px;
 }
 
 /* -----------------11.1 orden de compra responsive----------------- */
 
-@media(max-width:500px){
-    .order-page-container{
-        width: 100%;
-    }
+@media (max-width: 500px) {
+  .order-page-container {
+    width: 100%;
+  }
 }
-
 
 /* ---------------------------------------------------12.Estilos pagina de contacto--------------------------------------------------- */
 
-.contact-section-main-container{
-    margin-top: 80px;
-    background-image: url(/images/main/contact-background.jpg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-attachment: fixed;
+.contact-section-main-container {
+  margin-top: 80px;
+  background-image: url(/images/main/contact-background.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
 }
 
-.contact-section-container{
-    width: 760px;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid gray;
-    margin: 80px 0px;
-    display: flex;
-    flex-wrap: wrap;
+.contact-section-container {
+  width: 760px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid gray;
+  margin: 80px 0px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.contact-information-container{
-    width: 40%;
-    margin-top: 30px;
-    padding-left: 40px;
+.contact-information-container {
+  width: 40%;
+  margin-top: 30px;
+  padding-left: 40px;
 }
 
-.contact-information{
-    font-weight: lighter;
-    margin-bottom: 30px;
+.contact-information {
+  font-weight: lighter;
+  margin-bottom: 30px;
 }
 
-.contact-form-container{
-    margin-top: 30px;
-    text-align: left;
-    width: 60%;
+.contact-form-container {
+  margin-top: 30px;
+  text-align: left;
+  width: 60%;
 }
 
-.contact-input-container{
-    width: 90%;
-    margin-bottom: 22px;
-    height: 50px;
+.contact-input-container {
+  width: 90%;
+  margin-bottom: 22px;
+  height: 50px;
 }
 
-.contact-inputs{
-    width: 100%;
-    border-radius: 10px;
+.contact-inputs {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.contact-textarea-container{
-    width: 90%;
-    margin-bottom: 30px;
-    height: 210px;
+.contact-textarea-container {
+  width: 90%;
+  margin-bottom: 30px;
+  height: 210px;
 }
 
-.contact-textarea{
-    width: 100%;
-    margin: 0px;
+.contact-textarea {
+  width: 100%;
+  margin: 0px;
 }
 
-.contact-icon{
-    padding-right: 10px;
+.contact-icon {
+  padding-right: 10px;
 }
 
-.contact-button-container{
-    margin-bottom: 15px;
+.contact-button-container {
+  margin-bottom: 15px;
 }
 
-.contact-button-send{
-    width: 50%;
-    height: 35px;
-    background-color: green;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+.contact-button-send {
+  width: 50%;
+  height: 35px;
+  background-color: green;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* -----------------12.1 pagina de contacto responsive----------------- */
 
-@media (max-width:800px){
-    .contact-section-container{
-        width: 100%;
-    }
+@media (max-width: 800px) {
+  .contact-section-container {
+    width: 100%;
+  }
 
-    .contact-information-container{
-        width: 90%;
-        position: relative;
-        top: 450px;
-    }
+  .contact-information-container {
+    width: 90%;
+    position: relative;
+    top: 450px;
+  }
 
-    .contact-form-container{
-        width:100%;
-        position: relative;
-        bottom: 200px;
-        padding: 0px 25px;
-    }
+  .contact-form-container {
+    width: 100%;
+    position: relative;
+    bottom: 200px;
+    padding: 0px 25px;
+  }
 
-    .contact-input-container{
-        width: 100%
-    }
+  .contact-input-container {
+    width: 100%;
+  }
 
-    .contact-inputs{
-        width:100%
-    }
+  .contact-inputs {
+    width: 100%;
+  }
 
-    .contact-textarea-container{
-        width: 100%;
-    }
+  .contact-textarea-container {
+    width: 100%;
+  }
 
-    .contact-textarea{
-        width:100%
-    }
+  .contact-textarea {
+    width: 100%;
+  }
 
-    .contact-button-container{
-        text-align: center;
-    }
+  .contact-button-container {
+    text-align: center;
+  }
 
-    .contact-button-send{
-        width: 60%;
-    }
+  .contact-button-send {
+    width: 60%;
+  }
 }
 
-@media (max-width:500px){
-    .contact-button-send{
-        width: 90%;
-    }
+@media (max-width: 500px) {
+  .contact-button-send {
+    width: 90%;
+  }
 }
-
 
 /* ---------------------------------------------------13.Estilos Admin--------------------------------------------------- */
 
-.admin-menu-main-container{
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/section-background.jpeg);
-    background-position: right;
-    background-attachment: fixed;
+.admin-menu-main-container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/images/main/section-background.jpeg);
+  background-position: right;
+  background-attachment: fixed;
 }
 
-.admin-menu-container{
-    border: 1px solid gray;
-    width: 60%;
-    border-radius: 10px;
-    background-color: white;
-    margin: 80px 0px;
+.admin-menu-container {
+  border: 1px solid gray;
+  width: 60%;
+  border-radius: 10px;
+  background-color: white;
+  margin: 80px 0px;
 }
 
-.admin-section-welcome-title{
-    margin-bottom: 5px;
+.admin-section-welcome-title {
+  margin-bottom: 5px;
 }
 
-.admin-section-title-container{
-    text-align: center;
-    margin-top: 40px;
+.admin-section-title-container {
+  text-align: center;
+  margin-top: 40px;
 }
 
-.admin-section-title{
-    font-weight: bold;
-    text-transform: uppercase;
+.admin-section-title {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.admin-product-add-container{
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
+.admin-product-add-container {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
-.admin-add-button{
-    background-color: green;
-    color: white;
-    width: 25%;
-    height: 30px;
+.admin-add-button {
+  background-color: green;
+  color: white;
+  width: 25%;
+  height: 30px;
 }
 
-.admin-add-button:hover{
-    background-color: #00b347 
+.admin-add-button:hover {
+  background-color: #00b347;
 }
 
-.admin-product-card-container{
-    display: flex;
-    margin: 5px auto 0px auto;
-    align-items: center;
-    border: 1px solid gray;
-    border-radius: 10px;
-    width: 90%;
-    background-color: #f4f4f4;
-    margin-bottom: 15px;
+.admin-product-card-container {
+  display: flex;
+  margin: 5px auto 0px auto;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 90%;
+  background-color: #f4f4f4;
+  margin-bottom: 15px;
 }
 
-.product-image-and-name-container{
-    width: 50%;
-    display: flex;
-    align-items: center;
+.product-image-and-name-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
 }
 
-.admin-products-image-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.admin-products-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.admin-product-img{
-    height: 60px;
-    border-radius: 10px;
+.admin-product-img {
+  height: 60px;
+  border-radius: 10px;
 }
 
-.admin-product-name-container{
-    width: 100%;
+.admin-product-name-container {
+  width: 100%;
 }
 
-.admin-product-name{
-    font-weight: 500;
-    margin-left: 10px;
-    font-size: 17px;
-    font-weight: bold;
+.admin-product-name {
+  font-weight: 500;
+  margin-left: 10px;
+  font-size: 17px;
+  font-weight: bold;
 }
 
-.edit-delete-buttons-container{
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 15px;
+.edit-delete-buttons-container {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 15px;
 }
 
-.admin-edit-button{
-    background-color: orange;
-    color: white;
-    width: 100px;
-    margin-right: 15px;
-    height: 25px;
+.admin-edit-button {
+  background-color: orange;
+  color: white;
+  width: 100px;
+  margin-right: 15px;
+  height: 25px;
 }
 
-.admin-edit-button:hover{
-    background-color: #da823f
+.admin-edit-button:hover {
+  background-color: #da823f;
 }
 
-.admin-delete-button{
-    background-color: red;
-    color: white;
-    width: 100px;
-    height: 25px;
+.admin-delete-button {
+  background-color: red;
+  color: white;
+  width: 100px;
+  height: 25px;
 }
 
-.admin-delete-button:hover{
-    background-color:black
+.admin-delete-button:hover {
+  background-color: black;
 }
 
 /* -----------------13.1 Admin responsive----------------- */
 
-@media (max-width:1000px){
-    .admin-menu-container{
-        width: 90%;
-    }
+@media (max-width: 1000px) {
+  .admin-menu-container {
+    width: 90%;
+  }
 }
 
-@media (max-width:800px){
-    .admin-menu-container{
-        width: 100%;
-    }
+@media (max-width: 800px) {
+  .admin-menu-container {
+    width: 100%;
+  }
 
-    .admin-add-button{
-        width: 35%;
-    }
+  .admin-add-button {
+    width: 35%;
+  }
 }
 
-@media (max-width:550px){
-    .admin-product-card-container{
-        flex-wrap: wrap;
-        align-items: center;
-    }
+@media (max-width: 550px) {
+  .admin-product-card-container {
+    flex-wrap: wrap;
+    align-items: center;
+  }
 
-    .admin-section-welcome-title{
-        font-size: 18px;
-    }
+  .admin-section-welcome-title {
+    font-size: 18px;
+  }
 
-    .edit-delete-buttons-container{
-        justify-content: flex-start;
-        margin: 10px 5px;
-    }
+  .edit-delete-buttons-container {
+    justify-content: flex-start;
+    margin: 10px 5px;
+  }
 
-    .product-image-and-name-container{
-        width:100%;
-    }
+  .product-image-and-name-container {
+    width: 100%;
+  }
 
-    .admin-add-button{
-        width: 50%;
-    }
+  .admin-add-button {
+    width: 50%;
+  }
 
-    .admin-edit-button, .admin-delete-button{
-        width:125px;
-    }
+  .admin-edit-button,
+  .admin-delete-button {
+    width: 125px;
+  }
 }
 
-@media (max-width:400px){
-    .edit-delete-buttons-container{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0px;
-        width: 100%;
-    }
+@media (max-width: 400px) {
+  .edit-delete-buttons-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    width: 100%;
+  }
 
-    .admin-edit-button, .admin-delete-button{
-        width:200px;
-        margin: 0px;
-        margin-top: 15px;
-    }
+  .admin-edit-button,
+  .admin-delete-button {
+    width: 200px;
+    margin: 0px;
+    margin-top: 15px;
+  }
 
-    .admin-delete-button{
-        margin-bottom: 10px;
-    }
+  .admin-delete-button {
+    margin-bottom: 10px;
+  }
 }
 
 /* ---------------------------------------------------14.Estilos Admin agregar/editar productos/rutinas--------------------------------------------------- */
 
-.add-edit-product-rutine-card-main-container{
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/images/main/section-background.jpeg);
-    background-size: cover;
-    background-attachment: fixed;
-} 
-
-.add-edit-product-rutine-card-container{
-    width: 50%;
-    height: 100%;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid gray;
-    display: flex;
-    flex-wrap: wrap;   
-    justify-content: center;
-    align-items: flex-start;
-    margin: 80px 0px;
+.add-edit-product-rutine-card-main-container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/images/main/section-background.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.add-edit-product-rutine-card-form-container{
-    width:100%;
-    height: 100%;
-    margin: 0px 40px;
-    margin-top: 30px;
-    padding-bottom: 10px;
+.add-edit-product-rutine-card-container {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid gray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 80px 0px;
+}
+
+.add-edit-product-rutine-card-form-container {
+  width: 100%;
+  height: 100%;
+  margin: 0px 40px;
+  margin-top: 30px;
+  padding-bottom: 10px;
 }
 
 .admin-inputs-containers {
-    height: 100px;
+  height: 100px;
 }
 
-.admin-inputs-containers2{
-    height: 180px;
+.admin-inputs-containers2 {
+  height: 180px;
 }
 
-.admin-options-containers{
-    height: 40px;
+.admin-options-containers {
+  height: 40px;
 }
 
-.admin-img-2{
-    margin-bottom: 25px;
+.admin-img-2 {
+  margin-bottom: 25px;
 }
 
-.admin-label-container{
-    margin-top: 10px;
-    margin-bottom: 15px;
+.admin-label-container {
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
-.admin-labels{
-    font-weight: bold;
+.admin-labels {
+  font-weight: bold;
 }
 
-.add-edit-product-input{
-    width: 100%;
-    height: 40px;
-    margin-bottom: 5px;
-    background-color: #f4f4f4;
+.add-edit-product-input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+  background-color: #f4f4f4;
 }
 
-.add-edit-product-input-textarea{
-    width: 100%;
-    margin-bottom: 5px;
-    height: 120px;
+.add-edit-product-input-textarea {
+  width: 100%;
+  margin-bottom: 5px;
+  height: 120px;
 }
 
-.admin-select-category{
-    margin-left: 5px;
+.admin-select-category {
+  margin-left: 5px;
 }
 
-.admin-label-option-container{
-    margin-bottom: 5px;
+.admin-label-option-container {
+  margin-bottom: 5px;
 }
 
-.admin-radio-input{
-    margin-left: 5px;
+.admin-radio-input {
+  margin-left: 5px;
 }
 
-.add-edit-product-image-label{
-    display: block;
-    font-weight: bold;
-    margin-bottom: 10px;
+.add-edit-product-image-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.add-edit-product-image-input{
-    display: inline;
+.add-edit-product-image-input {
+  display: inline;
 }
 
-.form-add-edit-product-button-container{
-    text-align: center;
-    width: 100%;
+.form-add-edit-product-button-container {
+  text-align: center;
+  width: 100%;
 }
 
-.add-edit-product-create-product-button{
-    background-color: green;
-    color: white;
-    width: 400px;
-    height: 40px;
-    margin-bottom: 20px;
-    margin-top: 15px;
+.add-edit-product-create-product-button {
+  background-color: green;
+  color: white;
+  width: 400px;
+  height: 40px;
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
 
-.add-edit-product-create-product-button:hover{
-    background-color: #00b347 
+.add-edit-product-create-product-button:hover {
+  background-color: #00b347;
 }
 
 /* -----------------14.1 Admin agregar/editar productos/rutinas responsive----------------- */
 
-@media (max-width:1024px){
-    .add-edit-product-rutine-card-container{
-        width: 80%;
-    }
+@media (max-width: 1024px) {
+  .add-edit-product-rutine-card-container {
+    width: 80%;
+  }
 }
 
-@media (max-width:600px){
-    .add-edit-product-rutine-card-container{
-        width: 100%;
-    }
+@media (max-width: 600px) {
+  .add-edit-product-rutine-card-container {
+    width: 100%;
+  }
 
-    .add-edit-product-rutine-card-form-container{
-        margin: 20px 20px;
-    }
+  .add-edit-product-rutine-card-form-container {
+    margin: 20px 20px;
+  }
 
-    .add-edit-product-create-product-button{
-        width: 100%;
-        margin-bottom: 20px;
-    }
+  .add-edit-product-create-product-button {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-    .add-edit-product-create-product-button{
-        margin-bottom: 10px;
-    }
+  .add-edit-product-create-product-button {
+    margin-bottom: 10px;
+  }
 }
-
 
 /* ---------------------------------------------------15.Estilos Admin users--------------------------------------------------- */
 
-.admin-users-main-container{
-    border: 1px solid gray;
-    width: 60%;
-    border-radius: 10px;
-    background-color: white;
-    margin: 80px 0px;
+.admin-users-main-container {
+  border: 1px solid gray;
+  width: 60%;
+  border-radius: 10px;
+  background-color: white;
+  margin: 80px 0px;
 }
 
-.admin-users-section-title-container{
-    text-align: center;
-    margin-top: 20px;
+.admin-users-section-title-container {
+  text-align: center;
+  margin-top: 20px;
 }
 
-.admin-users-card-container{
-    display: flex;
-    margin: 5px auto 0px auto;
-    align-items: center;
-    border: 1px solid gray;
-    border-radius: 10px;
-    width: 90%;
-    background-color: #f4f4f4;
-    margin-bottom: 15px;
+.admin-users-card-container {
+  display: flex;
+  margin: 5px auto 0px auto;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 90%;
+  background-color: #f4f4f4;
+  margin-bottom: 15px;
 }
 
-.users-image-and-name-container{
-    width: 50%;
-    display: flex;
-    align-items: center;
+.users-image-and-name-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
 }
 
-.admin-users-image-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.admin-users-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.admin-users-name-container{
-    width: 100%;
+.admin-users-name-container {
+  width: 100%;
 }
 
-.admin-users-name{
-    font-weight: 500;
-    margin-left: 10px;
-    font-size: 17px;
-    font-weight: bold;
+.admin-users-name {
+  font-weight: 500;
+  margin-left: 10px;
+  font-size: 17px;
+  font-weight: bold;
 }
 
-.roles-buttons-container{
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 15px;
+.roles-buttons-container {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 15px;
 }
 
-.user-admin-roles-container{
-    width: 90%;
-    margin: 5px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.user-admin-roles-container {
+  width: 90%;
+  margin: 5px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.roles-description-container{
-    margin-top: 15px;
+.roles-description-container {
+  margin-top: 15px;
 }
 
-.roles-description-container ul li{
-    font-size: 10px;
+.roles-description-container ul li {
+  font-size: 10px;
 }
 
-.super-admin-description{
-    color: green;
-    font-size: 20px;
-    font-weight: bold;
+.super-admin-description {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.admin-description{
-    color: blue;
-    font-size: 20px;
-    font-weight: bold;
+.admin-description {
+  color: blue;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.user-description{
-    color: #686868;
-    font-size: 20px;
-    font-weight: bold;
+.user-description {
+  color: #686868;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.user-admin-instructions{
-    width: 90%;
-    margin: 0px auto;
-    margin-top: 15px;
-    font-size: 11px;
+.user-admin-instructions {
+  width: 90%;
+  margin: 0px auto;
+  margin-top: 15px;
+  font-size: 11px;
 }
 
-.admin-important-data{
-    font-size: 12px;
-    margin-bottom: 2px;
+.admin-important-data {
+  font-size: 12px;
+  margin-bottom: 2px;
 }
 
-.user-role{
-    font-size: 12px;
+.user-role {
+  font-size: 12px;
 }
 
-.super-admin{
-    color: green;
+.super-admin {
+  color: green;
 }
 
-.super-admin-button{
-    background-color: green;
+.super-admin-button {
+  background-color: green;
 }
 
-.super-admin-button:hover{
-    background-color: #00b347;
+.super-admin-button:hover {
+  background-color: #00b347;
 }
 
-.admin{
-    color: blue;
+.admin {
+  color: blue;
 }
 
-.admin-button{
-    background-color: blue;
+.admin-button {
+  background-color: blue;
 }
 
-.admin-button:hover{
-    background-color: rgb(100, 100, 255);
+.admin-button:hover {
+  background-color: rgb(100, 100, 255);
 }
 
-.user{
-    color: #686868
+.user {
+  color: #686868;
 }
 
-.user-button{
-    background-color: #686868
+.user-button {
+  background-color: #686868;
 }
 
-.user-button:hover{
-    background-color: #949090
+.user-button:hover {
+  background-color: #949090;
 }
 
-.user-delete-button{
-    background-color: red;
+.user-delete-button {
+  background-color: red;
 }
 
-.user-delete-button:hover{
-    background-color: rgb(161, 53, 53);
+.user-delete-button:hover {
+  background-color: rgb(161, 53, 53);
 }
 
-.admin-users-button{
-    color: white;
-    margin-right: 15px;
-    height: 25px;
-    width: 120px;
+.admin-users-button {
+  color: white;
+  margin-right: 15px;
+  height: 25px;
+  width: 120px;
 }
 
 /* -----------------15.1 Admin users responsive----------------- */
 
-@media(max-width:1150px){
-    .admin-users-main-container{
-        width: 90%;
-    }
+@media (max-width: 1150px) {
+  .admin-users-main-container {
+    width: 90%;
+  }
 }
 
-@media(max-width:800px){
-    .admin-users-main-container{
-        width: 100%;
-    }
+@media (max-width: 800px) {
+  .admin-users-main-container {
+    width: 100%;
+  }
 
-    .admin-users-card-container{
-        width: 100%;
-    }
+  .admin-users-card-container {
+    width: 100%;
+  }
 
-    .user-admin-roles-container{
-        justify-content: flex-start;
-    }
+  .user-admin-roles-container {
+    justify-content: flex-start;
+  }
 }
 
-@media(max-width:650px){
-    .users-image-and-name-container{
-        width: 100%;
-    }
+@media (max-width: 650px) {
+  .users-image-and-name-container {
+    width: 100%;
+  }
 
-    .admin-users-card-container{
-        flex-wrap: wrap;
-    }
+  .admin-users-card-container {
+    flex-wrap: wrap;
+  }
 
-    .roles-buttons-container{
-        justify-content: flex-start;
-        margin: 5px
-    }
+  .roles-buttons-container {
+    justify-content: flex-start;
+    margin: 5px;
+  }
 
-    .user-admin-roles-container{
-        flex-direction: column;
-        align-items: center;
-    }
+  .user-admin-roles-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .roles-description-container{
-        margin-bottom: 20px;
-    }
+  .roles-description-container {
+    margin-bottom: 20px;
+  }
 }
 
-@media(max-width:410px){
-    .roles-buttons-container{
-        flex-direction: column;
-        width: 100%;
-    }
+@media (max-width: 410px) {
+  .roles-buttons-container {
+    flex-direction: column;
+    width: 100%;
+  }
 
-    .roles-buttons-container form button{
-        width: 250px;
-        margin: 5px;
-    }
+  .roles-buttons-container form button {
+    width: 250px;
+    margin: 5px;
+  }
 }
-
 
 /* ---------------------------------------------------16.Estilos validacion Front-end--------------------------------------------------- */
 
 /* -----------------16.1 generales----------------- */
-small{
-    display: block;
+small {
+  display: block;
 }
 
-.wrong-label{
-    color: red;
+.wrong-label {
+  color: red;
 }
 
-.wrong-input, .wrong-input:focus{
-    border: 2px solid red;
+.wrong-input,
+.wrong-input:focus {
+  border: 2px solid red;
 }
 
-.front-error-active,.front-blank-error-active{
-    display: block;
-    text-align: center;
+.front-error-active,
+.front-blank-error-active {
+  display: block;
+  text-align: center;
 }
 
-.front-error-inactive,.front-blank-error-inactive{
-    display: none;
+.front-error-inactive,
+.front-blank-error-inactive {
+  display: none;
 }
 
-.active{
-    display: block;
+.active {
+  display: block;
 }
 
 /* -----------------16.2 login/register----------------- */
-.front-login-register-error-style{
-    color: red;
-    font-size: 10px;
-    font-weight: 700;
-    padding-top: 5px;
+.front-login-register-error-style {
+  color: red;
+  font-size: 10px;
+  font-weight: 700;
+  padding-top: 5px;
 }
 
 /* -----------------16.3 perfil de usuario----------------- */
-.front-profile-error-style{
-    color: red;
-    font-style: bold;
-    font-size: 10px;
-    font-weight: 700;
-    padding-top: 5px;
-    text-align: left;
+.front-profile-error-style {
+  color: red;
+  font-style: bold;
+  font-size: 10px;
+  font-weight: 700;
+  padding-top: 5px;
+  text-align: left;
 }
 
 /* -----------------16.4 productos/rutinas----------------- */
-.front-create-rutine-error-style{
-    color: red;
-    font-size: 10px;
-    font-weight: 700;
-    padding-top: 2px;
-    margin-bottom: auto;
+.front-create-rutine-error-style {
+  color: red;
+  font-size: 10px;
+  font-weight: 700;
+  padding-top: 2px;
+  margin-bottom: auto;
 }
 
 /* -----------------16.5 pagina de contacto----------------- */
-.front-contact-error-style{
-    color: red;
-    font-size: 10px;
-    font-weight: 700;
-    padding-top: 5px;
+.front-contact-error-style {
+  color: red;
+  font-size: 10px;
+  font-weight: 700;
+  padding-top: 5px;
 }
 
-.front-contact-textarea-error-style{
-    color: red;
-    font-size: 10px;
-    font-weight: 700;
-    padding-top: 5px;
-    position: relative;
-    top: -5px
+.front-contact-textarea-error-style {
+  color: red;
+  font-size: 10px;
+  font-weight: 700;
+  padding-top: 5px;
+  position: relative;
+  top: -5px;
 }
-
-
-
-
 
 /* ---------------------------------------------------17.Estilos validacion Back-end--------------------------------------------------- */
 
 /* -----------------17.1 generales----------------- */
-.validation-errors-container{
-    padding: 10px 0px 0px 10px;
-    width: 100%;
+.validation-errors-container {
+  padding: 10px 0px 0px 10px;
+  width: 100%;
 }
 
-.validation-error{
-    color: red;
-    font-size: 13px;
-    font-weight: 600;
-    margin: 5px 0px;
+.validation-error {
+  color: red;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 5px 0px;
 }
 
 /* -----------------17.2 productos/rutinas----------------- */
-.validation-error-product-title{
-    color: red;
-    font-size: 15px;
-    font-weight: 700;
-    position: relative;
-    bottom: 18px;
-    text-align: center;
+.validation-error-product-title {
+  color: red;
+  font-size: 15px;
+  font-weight: 700;
+  position: relative;
+  bottom: 18px;
+  text-align: center;
 }
 
-.validation-error-product{
-    color: red;
-    font-size: 10px;
-    font-weight: 700;
-    
+.validation-error-product {
+  color: red;
+  font-size: 10px;
+  font-weight: 700;
 }
 
 /* -----------------17.3 login/register----------------- */
-.validation-error-register{
-    color: red;
-    font-size: 10px;
-    font-weight: 700;
-    padding-top: 5px;
-    text-align: center;
+.validation-error-register {
+  color: red;
+  font-size: 10px;
+  font-weight: 700;
+  padding-top: 5px;
+  text-align: center;
 }
 
 /* -----------------17.4 perfil de usuario----------------- */
 
-.validation-error-profile{
-    color: red;
-    font-size: 9px;
-    font-weight: 700;
-    padding-top: 5px;
+.validation-error-profile {
+  color: red;
+  font-size: 9px;
+  font-weight: 700;
+  padding-top: 5px;
 }
 
 /* -----------------17.5 pagina de contacto----------------- */
-.validation-error-contact{
-    color: red;
-    font-size: 10px;
-    font-weight: 700;
-    margin-top: 5px;
-    padding-left: 5px;
+.validation-error-contact {
+  color: red;
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 5px;
+  padding-left: 5px;
 }
-
-
-
-

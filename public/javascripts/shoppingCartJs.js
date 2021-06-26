@@ -12,73 +12,80 @@ let productName = document.querySelectorAll(".product-cart-title")
 
 let productImgSrc = document.querySelectorAll(".product-cart-img")
 
-let category;
+let category
 
+let calculos = (e, itera) => {
+  let data
 
-let calculos = (e,itera)=>{
+  if (e.target.value < 1) {
+    e.target.value = 1
+  }
 
-    let data;
+  productQuantityHidden.value = e.target.value
 
-    if(e.target.value < 1){
-        e.target.value = 1
+  for (let i = 0; i < productQuantity.length; i++) {
+    if (productQuantity.length == 1) {
+      purchaseFinalPrice.textContent = 0
+      productsFullPrice[i].textContent = parseInt(
+        productUnitPrice[i].textContent * e.target.value
+      )
+      purchaseFinalPrice.textContent =
+        parseInt(purchaseFinalPrice.textContent) +
+        parseInt(productsFullPrice[i].textContent)
+
+      productImgSrc[0].currentSrc.includes("rutines")
+        ? (category = "rutines")
+        : (category = "products")
+
+      data = {
+        newQuantity: e.target.value,
+        productUnitPrice: productUnitPrice[0].textContent,
+        productName: productName[0].textContent,
+        category: category,
+      }
+    } else {
+      productsFullPrice[itera].textContent = parseInt(
+        productUnitPrice[itera].textContent * e.target.value
+      )
+
+      if ([i] == 0) {
+        purchaseFinalPrice.textContent = parseInt(
+          productsFullPrice[0].textContent
+        )
+      } else {
+        purchaseFinalPrice.textContent =
+          parseInt(purchaseFinalPrice.textContent) +
+          parseInt(productsFullPrice[i].textContent)
+      }
+
+      productImgSrc[itera].currentSrc.includes("rutines")
+        ? (category = "rutines")
+        : (category = "products")
+
+      data = {
+        newQuantity: e.target.value,
+        productUnitPrice: productUnitPrice[itera].textContent,
+        productName: productName[itera].textContent,
+        category: category,
+      }
     }
 
-    productQuantityHidden.value = e.target.value
-
-    for(let i=0;i<productQuantity.length;i++){
-
-        if(productQuantity.length == 1){
-            purchaseFinalPrice.textContent = 0;
-            productsFullPrice[i].textContent = parseInt(productUnitPrice[i].textContent*e.target.value)
-            purchaseFinalPrice.textContent = parseInt(purchaseFinalPrice.textContent) + parseInt(productsFullPrice[i].textContent)
-
-            productImgSrc[0].currentSrc.includes("rutines") ? category = "rutines" : category = "products"
-
-            data ={
-                newQuantity: e.target.value,
-                productUnitPrice: productUnitPrice[0].textContent,
-                productName: productName[0].textContent,
-                category: category
-            }
-
-        } else{
-            productsFullPrice[itera].textContent = parseInt(productUnitPrice[itera].textContent*e.target.value)
-            
-            if([i]==0){
-                purchaseFinalPrice.textContent = parseInt(productsFullPrice[0].textContent)
-            } else{
-                purchaseFinalPrice.textContent = parseInt(purchaseFinalPrice.textContent) + parseInt(productsFullPrice[i].textContent)
-            }
-
-            productImgSrc[itera].currentSrc.includes("rutines") ? category = "rutines" : category = "products"
-
-            data ={
-                newQuantity: e.target.value,
-                productUnitPrice: productUnitPrice[itera].textContent,
-                productName: productName[itera].textContent,
-                category: category
-            }
-        }
-    
-        let seeting ={
-            method: "POST",
-            body: JSON.stringify(data),
-            headers:{
-            "Content-Type": "application/json"
-            }
-        }
-
-        fetch("cart/editQuantity", seeting)
-            .then(response=>response.json())
-            .then(data =>console.log(data))
+    let seeting = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
+
+    fetch("cart/editQuantity", seeting)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+  }
 }
 
-productQuantity.forEach((input,itera)=>{
-    input.addEventListener("change", function(e){calculos(e,itera)})
+productQuantity.forEach((input, itera) => {
+  input.addEventListener("change", function (e) {
+    calculos(e, itera)
+  })
 })
-
-
-
-
-
