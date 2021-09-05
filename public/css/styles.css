@@ -73,9 +73,6 @@ Método de búsqueda: busque con control + f por índice y título, por ejemplo:
 */
 
 /* ---------------------------------------------------1.Estilos Generales--------------------------------------------------- */
-
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
-
 * {
   margin: 0px;
   box-sizing: border-box;
@@ -1066,9 +1063,9 @@ body {
 
 /* -----------------5.1 Register responsive----------------- */
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .registration-form-container {
-    width: 100%;
+    width: 500px;
     height: auto;
   }
 
@@ -1095,6 +1092,14 @@ body {
 }
 
 @media (max-width: 500px) {
+  .registration-form-container {
+    width: 100%
+  }
+
+  .register-input {
+    width: 95%;
+  }
+
   .register-button,
   .facebook-button {
     width: 100%;
@@ -1242,24 +1247,33 @@ body {
 
 /* -----------------6.1 Login responsive----------------- */
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .login-container {
-    width: 100%;
+    width: 500px
   }
 
   .all-login-inputs {
-    width: 80%;
+    width: 85%;
   }
 
   .login-button {
-    width: 50%;
+    width: 70%;
   }
 }
 
 @media (max-width: 500px) {
-  .login-button {
-    width: 70%;
+  .login-container {
+    width: 100%
   }
+
+  .all-login-inputs {
+    width: 90%;
+  }
+
+  .login-button {
+    width: 90%;
+  }
+
 }
 
 /* ---------------------------------------------------7.Estilos perfil de usuario--------------------------------------------------- */
@@ -1418,7 +1432,7 @@ body {
 
 /* -----------------7.1 perfil de usuario responsive----------------- */
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .profile-avatar-container {
     width: 100%;
     text-align: center;
@@ -2240,9 +2254,9 @@ body {
 
 /* -----------------12.1 pagina de contacto responsive----------------- */
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .contact-section-container {
-    width: 100%;
+    width: 500px;
   }
 
   .contact-information-container {
@@ -2284,6 +2298,10 @@ body {
 }
 
 @media (max-width: 500px) {
+  .contact-section-container {
+    width: 100%;
+  }
+
   .contact-button-send {
     width: 90%;
   }
@@ -2296,7 +2314,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/main/section-images/section-background.jpeg);
+  background-image: url(/images/main/section-images/section-background.jpg);
   background-position: right;
   background-attachment: fixed;
 }
@@ -2485,7 +2503,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/main/section-images/section-background.jpeg);
+  background-image: url(/images/main/section-images/section-background.jpg);
   background-size: cover;
   background-attachment: fixed;
 }
@@ -2782,13 +2800,13 @@ body {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .admin-users-main-container {
     width: 100%;
   }
 
   .admin-users-card-container {
-    width: 100%;
+    width: 95%;
   }
 
   .user-admin-roles-container {
@@ -2820,7 +2838,7 @@ body {
   }
 }
 
-@media (max-width: 410px) {
+@media (max-width: 450px) {
   .roles-buttons-container {
     flex-direction: column;
     width: 100%;
