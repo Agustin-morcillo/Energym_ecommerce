@@ -7,7 +7,6 @@ const mainController = {
     pageTitle = "Energym - Home"
 
     let productsHome
-
     let rutinasHome
 
     try {
@@ -69,12 +68,10 @@ const mainController = {
     pageTitle = "Energym - Admin"
 
     let products
-
     let rutines
 
     try {
       products = await Product.findAll()
-
       rutines = await Rutine.findAll()
     } catch (error) {
       console.error(error)

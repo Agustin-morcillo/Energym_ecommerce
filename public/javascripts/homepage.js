@@ -1,8 +1,8 @@
 /* Slider de imagenes automático y manual */
 let counter = 1
-let botones = document.querySelectorAll(".banner-btn")
+const button = document.querySelectorAll(".banner-btn")
 
-botones.forEach((boton, i) => {
+button.forEach((boton, i) => {
   boton.addEventListener("click", () => {
     counter = i + 1
   })
@@ -17,16 +17,16 @@ setInterval(() => {
 }, 4000)
 
 /* Proveedor de imagenes al slider segun ancho de pantalla */
-let vpWidth = window.innerWidth
-let images = document.querySelectorAll(".slide-img")
+const vpWidth = window.innerWidth
+const images = document.querySelectorAll(".slide-img")
 
 if (vpWidth < 800) {
   images.forEach((image, i) => {
-    image.src = `images/main/mobile_slider_${i + 1}.jpg`
+    image.src = `images/main/homepage-slider/mobile/mobile_slider_${i + 1}.jpg`
   })
 } else {
   images.forEach((image, i) => {
-    image.src = `images/main/slider_${i + 1}.jpg`
+    image.src = `images/main/homepage-slider/desktop/slider_${i + 1}.jpg`
   })
 }
 
@@ -37,11 +37,11 @@ const mediaQueryMobile = window.matchMedia("(max-width: 800px)")
 mediaQueryMobile.addListener((e) => {
   if (e.matches) {
     images.forEach((image, i) => {
-      image.src = `images/main/mobile_slider_${i + 1}.jpg`
+      image.src = `images/main/homepage-slider/mobile/mobile_slider_${i + 1}.jpg`
     })
   } else {
     images.forEach((image, i) => {
-      image.src = `images/main/slider_${i + 1}.jpg`
+      image.src = `images/main/homepage-slider/desktop/slider_${i + 1}.jpg`
     })
   }
 })

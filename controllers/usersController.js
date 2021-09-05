@@ -1,10 +1,11 @@
+const { User, Contact } = require("../database/models")
+let { validationResult } = require("express-validator")
+let pageTitle = ""
+
 const fs = require("fs")
 const path = require("path")
 const deleteFailureFile = path.join(__dirname, "../public/images/users/")
 const bcrypt = require("bcryptjs")
-const { User, Contact } = require("../database/models")
-let { validationResult } = require("express-validator")
-let pageTitle = ""
 
 const usersController = {
   loginView: (req, res) => {
@@ -32,8 +33,10 @@ const usersController = {
       console.error(error)
     }
 
+    /* Creando la sesion */
     req.session.userLogged = userToLogin
 
+    /* Creando la Cookie */
     if (req.body.remember) {
       res.cookie("userLogged", userToLogin.id, { maxAge: 1000 * 60 * 60 * 365 })
     }
@@ -74,19 +77,16 @@ const usersController = {
   },
   logout: (req, res) => {
     res.clearCookie("userLogged")
-
     req.session.destroy()
 
     return res.redirect("/")
   },
   userProfileView: (req, res) => {
     pageTitle = "Energym - Perfil"
-
     return res.render("./users/profile", { pageTitle })
   },
   editUserProfileView: (req, res) => {
     pageTitle = "Energym - Editar Perfil"
-
     return res.render("./users/profile-edit", { pageTitle })
   },
   editUserProfile: async (req, res) => {

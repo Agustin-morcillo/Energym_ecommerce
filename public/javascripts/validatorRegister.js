@@ -7,21 +7,20 @@
 - "front-blank-error-active" -- activa el mensaje de campo en blanco. */
 
 /* Requiriendo los elementos del DOM */
-let form = document.querySelector("form")
-let inputs = document.querySelectorAll(".register-input")
-let password = document.querySelector("#password-register")
-let repassword = document.querySelector("#repassword-register")
-let email = document.querySelector("#email-register")
-let reemail = document.querySelector("#retype-email-register")
-let avatar = document.querySelector("#avatar-register")
+const form = document.querySelector("form")
+const inputs = document.querySelectorAll(".register-input")
+const password = document.querySelector("#password-register")
+const repassword = document.querySelector("#repassword-register")
+const email = document.querySelector("#email-register")
+const reemail = document.querySelector("#retype-email-register")
+const avatar = document.querySelector("#avatar-register")
 
 /* Expresiones regulares */
 const expresiones = {
-  name: /^[a-zA-ZÀ-ÿ\s]{2,}$/, // Letras y espacios, pueden llevar acentos.
-  email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // que sea email
-  password:
-    /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/, //minimo 8, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico
-  avatar: /(.jpg|.jpeg|.png|.gif)$/i, //que sea de esos formatos.
+  name: /^[a-zA-ZÀ-ÿ\s]{2,}$/,
+  email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  password:/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/,
+  avatar: /(.jpg|.jpeg|.png|.gif)$/i,
 }
 
 /* Estado de los inputs */
@@ -36,120 +35,61 @@ let estado = {
 }
 
 /* Funcion que cambia las clases */
-let classController = (expresion, input) => {
+const classController = (expresion, input) => {
   if (expresion.test(input.value)) {
-    document
-      .querySelector(`.register-${input.name} p`)
-      .classList.remove("front-error-active")
-    document
-      .querySelector(`.register-${input.name} p`)
-      .classList.add("front-error-inactive")
-    document
-      .querySelector(`.register-${input.name} input`)
-      .classList.remove("wrong-input")
-    document
-      .querySelector(`.register-${input.name} label`)
-      .classList.remove("wrong-label")
-    document
-      .querySelector(`.register-${input.name} small`)
-      .classList.remove("front-blank-error-active")
-    document
-      .querySelector(`.register-${input.name} small`)
-      .classList.add("front-blank-error-inactive")
-
+    document.querySelector(`.register-${input.name} p`).classList.remove("front-error-active")
+    document.querySelector(`.register-${input.name} p`).classList.add("front-error-inactive")
+    document.querySelector(`.register-${input.name} input`).classList.remove("wrong-input")
+    document.querySelector(`.register-${input.name} label`).classList.remove("wrong-label")
+    document.querySelector(`.register-${input.name} small`).classList.remove("front-blank-error-active")
+    document.querySelector(`.register-${input.name} small`).classList.add("front-blank-error-inactive")
     estado[input.name] = true
   } else {
-    document
-      .querySelector(`.register-${input.name} p`)
-      .classList.add("front-error-active")
-    document
-      .querySelector(`.register-${input.name} p`)
-      .classList.remove("front-error-inactive")
-    document
-      .querySelector(`.register-${input.name} input`)
-      .classList.add("wrong-input")
-    document
-      .querySelector(`.register-${input.name} label`)
-      .classList.add("wrong-label")
-    document
-      .querySelector(`.register-${input.name} small`)
-      .classList.remove("front-blank-error-active")
-    document
-      .querySelector(`.register-${input.name} small`)
-      .classList.add("front-blank-error-inactive")
-
+    document.querySelector(`.register-${input.name} p`).classList.add("front-error-active")
+    document.querySelector(`.register-${input.name} p`).classList.remove("front-error-inactive")
+    document.querySelector(`.register-${input.name} input`).classList.add("wrong-input")
+    document.querySelector(`.register-${input.name} label`).classList.add("wrong-label")
+    document.querySelector(`.register-${input.name} small`).classList.remove("front-blank-error-active")
+    document.querySelector(`.register-${input.name} small`).classList.add("front-blank-error-inactive")
     estado[input.name] = false
   }
+  return
 }
 
 /* Funcion que valida los campos de retype */
-let reTypeInput = (input, retypeInput) => {
+const reTypeInput = (input, retypeInput) => {
   if (input.value !== retypeInput.value) {
-    document
-      .querySelector(`.register-${retypeInput.name} p`)
-      .classList.add("front-error-active")
-    document
-      .querySelector(`.register-${retypeInput.name} p`)
-      .classList.remove("front-error-inactive")
-    document
-      .querySelector(`.register-${retypeInput.name} input`)
-      .classList.add("wrong-input")
-    document
-      .querySelector(`.register-${retypeInput.name} label`)
-      .classList.add("wrong-label")
-    document
-      .querySelector(`.register-${retypeInput.name} small`)
-      .classList.remove("front-blank-error-active")
-    document
-      .querySelector(`.register-${retypeInput.name} small`)
-      .classList.add("front-blank-error-inactive")
+    document.querySelector(`.register-${retypeInput.name} p`).classList.add("front-error-active")
+    document.querySelector(`.register-${retypeInput.name} p`).classList.remove("front-error-inactive")
+    document.querySelector(`.register-${retypeInput.name} input`).classList.add("wrong-input")
+    document.querySelector(`.register-${retypeInput.name} label`).classList.add("wrong-label")
+    document.querySelector(`.register-${retypeInput.name} small`).classList.remove("front-blank-error-active")
+    document.querySelector(`.register-${retypeInput.name} small`).classList.add("front-blank-error-inactive")
     estado[retypeInput.name] = false
   } else {
-    document
-      .querySelector(`.register-${retypeInput.name} p`)
-      .classList.remove("front-error-active")
-    document
-      .querySelector(`.register-${retypeInput.name} p`)
-      .classList.add("front-error-inactive")
-    document
-      .querySelector(`.register-${retypeInput.name} input`)
-      .classList.remove("wrong-input")
-    document
-      .querySelector(`.register-${retypeInput.name} label`)
-      .classList.remove("wrong-label")
-    document
-      .querySelector(`.register-${retypeInput.name} small`)
-      .classList.remove("front-blank-error-active")
-    document
-      .querySelector(`.register-${retypeInput.name} small`)
-      .classList.add("front-blank-error-inactive")
+    document.querySelector(`.register-${retypeInput.name} p`).classList.remove("front-error-active")
+    document.querySelector(`.register-${retypeInput.name} p`).classList.add("front-error-inactive")
+    document.querySelector(`.register-${retypeInput.name} input`).classList.remove("wrong-input")
+    document.querySelector(`.register-${retypeInput.name} label`).classList.remove("wrong-label")
+    document.querySelector(`.register-${retypeInput.name} small`).classList.remove("front-blank-error-active")
+    document.querySelector(`.register-${retypeInput.name} small`).classList.add("front-blank-error-inactive")
     estado[retypeInput.name] = true
   }
+  return
 }
 
 /* Funcion que chequea si los campos estan en blanco */
-let blankInput = (input) => {
+const blankInput = (input) => {
   if (input.value == "") {
-    document
-      .querySelector(`.register-${input.name} p`)
-      .classList.remove("front-error-active")
-    document
-      .querySelector(`.register-${input.name} p`)
-      .classList.add("front-error-inactive")
-    document
-      .querySelector(`.register-${input.name} input`)
-      .classList.add("wrong-input")
-    document
-      .querySelector(`.register-${input.name} label`)
-      .classList.add("wrong-label")
-    document
-      .querySelector(`.register-${input.name} small`)
-      .classList.add("front-blank-error-active")
-    document
-      .querySelector(`.register-${input.name} small`)
-      .classList.remove("front-blank-error-inactive")
+    document.querySelector(`.register-${input.name} p`).classList.remove("front-error-active")
+    document.querySelector(`.register-${input.name} p`).classList.add("front-error-inactive")
+    document.querySelector(`.register-${input.name} input`).classList.add("wrong-input")
+    document.querySelector(`.register-${input.name} label`).classList.add("wrong-label")
+    document.querySelector(`.register-${input.name} small`).classList.add("front-blank-error-active")
+    document.querySelector(`.register-${input.name} small`).classList.remove("front-blank-error-inactive")
     estado[input.name] = false
   }
+  return
 }
 
 /* Usuarios de la base de datos */
@@ -174,36 +114,25 @@ if (window.location.href.includes("localhost")) {
 }
 
 /* Ver si existe el email */
-let checkAvailable = (dbUsers, emailInput) => {
+const checkAvailable = (dbUsers, emailInput) => {
   if (dbUsers.includes(emailInput.value)) {
-    document
-      .querySelector(".email-available")
-      .classList.remove("front-error-inactive")
-    document
-      .querySelector(".email-available")
-      .classList.add("front-error-active")
+    document.querySelector(".email-available").classList.remove("front-error-inactive")
+    document.querySelector(".email-available").classList.add("front-error-active")
     document.querySelector(".register-email input").classList.add("wrong-input")
     document.querySelector(".register-email label").classList.add("wrong-label")
     estado.email = false
   } else {
-    document
-      .querySelector(".email-available")
-      .classList.add("front-error-inactive")
-    document
-      .querySelector(".email-available")
-      .classList.remove("front-error-active")
-    document
-      .querySelector(".register-email input")
-      .classList.remove("wrong-input")
-    document
-      .querySelector(".register-email label")
-      .classList.remove("wrong-label")
+    document.querySelector(".email-available").classList.add("front-error-inactive")
+    document.querySelector(".email-available").classList.remove("front-error-active")
+    document.querySelector(".register-email input").classList.remove("wrong-input")
+    document.querySelector(".register-email label").classList.remove("wrong-label")
     estado.email = true
   }
+  return
 }
 
 /* Identificando y validando los inputs */
-let validarCampos = (e) => {
+const validarCampos = (e) => {
   switch (e.target.name) {
     case "name":
       classController(expresiones.name, e.target)
@@ -241,33 +170,23 @@ inputs.forEach((input) => {
   input.addEventListener("blur", validarCampos)
 })
 
+/* Enviando el formulario */
 form.addEventListener("submit", (e) => {
+  
   /* Validacion del avatar */
   if (avatar.value) {
     if (expresiones.avatar.exec(avatar.value)) {
-      document
-        .querySelector(`.register-img p`)
-        .classList.remove("front-error-active")
-      document
-        .querySelector(`.register-img p`)
-        .classList.add("front-error-inactive")
+      document.querySelector(`.register-img p`).classList.remove("front-error-active")
+      document.querySelector(`.register-img p`).classList.add("front-error-inactive")
       estado.avatar = true
     } else {
-      document
-        .querySelector(`.register-img p`)
-        .classList.add("front-error-active")
-      document
-        .querySelector(`.register-img p`)
-        .classList.remove("front-error-inactive")
+      document.querySelector(`.register-img p`).classList.add("front-error-active")
+      document.querySelector(`.register-img p`).classList.remove("front-error-inactive")
       estado.avatar = false
     }
   } else {
-    document
-      .querySelector(`.register-img p`)
-      .classList.remove("front-error-active")
-    document
-      .querySelector(`.register-img p`)
-      .classList.add("front-error-inactive")
+    document.querySelector(`.register-img p`).classList.remove("front-error-active")
+    document.querySelector(`.register-img p`).classList.add("front-error-inactive")
     estado.avatar = true
   }
 

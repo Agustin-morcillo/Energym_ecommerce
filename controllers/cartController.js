@@ -18,7 +18,7 @@ const cartController = {
       console.error(error)
     }
 
-    let total = items.reduce((acum, item) => {
+    const total = items.reduce((acum, item) => {
       return (acum += parseInt(item.total))
     }, 0)
 
@@ -31,7 +31,7 @@ const cartController = {
       if (typeOfProduct == "products") {
         const product = await Product.findByPk(req.params.id)
 
-        let itemExistente = await Item.findAll({
+        const itemExistente = await Item.findAll({
           where: {
             name: product.name,
             userId: req.session.userLogged.id,
@@ -66,7 +66,7 @@ const cartController = {
       } else {
         const rutine = await Rutine.findByPk(req.params.id)
 
-        let itemExistente = await Item.findAll({
+        const itemExistente = await Item.findAll({
           where: {
             name: rutine.name,
             userId: req.session.userLogged.id,
@@ -115,9 +115,8 @@ const cartController = {
     return res.redirect("/cart")
   },
   shop: async (req, res) => {
-    let cartFinalQuantity = req.body.cartFinalQuantity
-
-    let cartProductUnitPrice = req.body.cartProductUnitPrice
+    const cartFinalQuantity = req.body.cartFinalQuantity
+    const cartProductUnitPrice = req.body.cartProductUnitPrice
 
     try {
       const items = await Item.findAll({
@@ -127,7 +126,7 @@ const cartController = {
         },
       })
 
-      let total = items.reduce((acum, item) => {
+      const total = items.reduce((acum, item) => {
         return (acum += parseInt(item.total))
       }, 0)
 
@@ -188,7 +187,7 @@ const cartController = {
 
     try {
       if (category == "products") {
-        let nombreProducto = await Product.findOne({
+        const nombreProducto = await Product.findOne({
           where: {
             name: productName,
           },
@@ -209,7 +208,7 @@ const cartController = {
           }
         )
       } else {
-        let nombreRutina = await Rutine.findOne({
+        const nombreRutina = await Rutine.findOne({
           where: {
             name: productName,
           },

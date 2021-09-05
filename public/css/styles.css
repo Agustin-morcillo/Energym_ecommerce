@@ -927,7 +927,7 @@ body {
 .registration-main-container {
   margin-top: 80px;
   width: 100%;
-  background-image: url(/images/main/register-background.jpg);
+  background-image: url(/images/main/section-images/register-background.jpg);
   background-attachment: fixed;
   background-size: cover;
   display: flex;
@@ -1109,7 +1109,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/main/login-background.jpg);
+  background-image: url(/images/main/section-images/login-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 90vh;
@@ -1269,7 +1269,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/main/profile.jpg);
+  background-image: url(/images/main/section-images/profile-background.jpg);
 }
 
 .profile-container {
@@ -1503,7 +1503,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/main/contact-background.jpg);
+  background-image: url(/images/main/section-images/regular-background.jpg);
   background-attachment: fixed;
 }
 
@@ -1667,7 +1667,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/main/contact-background.jpg);
+  background-image: url(/images/main/section-images/regular-background.jpg);
   background-attachment: fixed;
   width: 100%;
 }
@@ -2165,7 +2165,7 @@ body {
 
 .contact-section-main-container {
   margin-top: 80px;
-  background-image: url(/images/main/contact-background.jpg);
+  background-image: url(/images/main/section-images/regular-background.jpg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2296,7 +2296,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/main/section-background.jpeg);
+  background-image: url(/images/main/section-images/section-background.jpeg);
   background-position: right;
   background-attachment: fixed;
 }
@@ -2485,7 +2485,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/main/section-background.jpeg);
+  background-image: url(/images/main/section-images/section-background.jpeg);
   background-size: cover;
   background-attachment: fixed;
 }

@@ -1,30 +1,19 @@
-/* CONSTANTES */
-const createError = require("http-errors")
 const express = require("express")
+const app = express()
+
 const path = require("path")
+const createError = require("http-errors")
 const cookieParser = require("cookie-parser")
 const logger = require("morgan")
 const session = require("express-session")
-const logCookie = require("./middlewares/logCookie")
-const localSession = require("./middlewares/localSession")
 const methodOverride = require("method-override")
-const app = express()
-
-/* RUTAS REQUERIDAS */
-const mainRouter = require("./routes/main")
-const usersRouter = require("./routes/users")
-const productRouter = require("./routes/products")
-const rutineRouter = require("./routes/rutines")
-const cartRouter = require("./routes/cart")
-const apiUsersRouter = require("./routes/api/users/users")
-const apiRutinesRouter = require("./routes/api/rutines/rutines")
-const apiProductsRouter = require("./routes/api/products/products")
 const cors = require("cors")
 
-/* CONFIGURACIONES */
-app.use(
-  session({ secret: "energym session", resave: false, saveUninitialized: true })
-)
+const logCookie = require("./middlewares/logCookie")
+const localSession = require("./middlewares/localSession")
+
+/* Config */
+app.use(session({ secret: "energym session", resave: false, saveUninitialized: true }))
 app.use(methodOverride("_method"))
 app.use(logger("dev"))
 app.use(express.json())
@@ -33,12 +22,19 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "public")))
 app.use(cors())
 require("dotenv").config()
-
-//middleware auth session cookie
 app.use(logCookie)
 app.use(localSession)
 
-/* RUTAS */
+/* Routes */
+const mainRouter = require("./routes/main")
+const usersRouter = require("./routes/users")
+const productRouter = require("./routes/products")
+const rutineRouter = require("./routes/rutines")
+const cartRouter = require("./routes/cart")
+const apiUsersRouter = require("./routes/api/users/users")
+const apiRutinesRouter = require("./routes/api/rutines/rutines")
+const apiProductsRouter = require("./routes/api/products/products")
+
 app.use("/", mainRouter)
 app.use("/users", usersRouter)
 app.use("/products", productRouter)

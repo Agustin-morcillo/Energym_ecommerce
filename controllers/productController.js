@@ -1,9 +1,10 @@
-const fs = require("fs")
-const path = require("path")
-const deleteFailureFile = path.join(__dirname, "../public/images/products/")
 const { Product } = require("../database/models")
 let { validationResult } = require("express-validator")
 let pageTitle = ""
+
+const fs = require("fs")
+const path = require("path")
+const deleteFailureFile = path.join(__dirname, "../public/images/products/")
 
 const productController = {
   productPage: async (req, res) => {
@@ -102,7 +103,7 @@ const productController = {
     }
 
     try {
-      let productToEdit = await Product.findByPk(req.params.id)
+      const productToEdit = await Product.findByPk(req.params.id)
 
       await Product.update(
         {
