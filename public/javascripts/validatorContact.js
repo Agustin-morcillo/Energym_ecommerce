@@ -1,6 +1,6 @@
 /* Requiriendo los elementos del DOM */
-let form = document.querySelector("form")
-let inputs = document.querySelectorAll(".contact-inputs")
+const form = document.querySelector("form")
+const inputs = document.querySelectorAll(".contact-inputs")
 
 /* Expresiones */
 const expresiones = {
@@ -16,137 +16,80 @@ let estado = {
 }
 
 /* Funcion que chequea si los campos estan en blanco */
-let blankInput = (input) => {
+const blankInput = (input) => {
   if (input.value == "") {
     estado[input.name] = false
-    /* blank en textarea */
+
+    /* blank textarea */
     if (document.querySelector(`.contact-${input.name}-container textarea`)) {
-      document
-        .querySelector(`.contact-${input.name}-container textarea`)
-        .classList.add("wrong-input")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.add("front-blank-error-active")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.remove("front-blank-error-inactive")
+      document.querySelector(`.contact-${input.name}-container textarea`).classList.add("wrong-input")
+      document.querySelector(`.contact-${input.name}-container small`).classList.add("front-blank-error-active")
+      document.querySelector(`.contact-${input.name}-container small`).classList.remove("front-blank-error-inactive")
     } else {
       /* blank en inputs */
-      document
-        .querySelector(`.contact-${input.name}-container input`)
-        .classList.add("wrong-input")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.add("front-blank-error-active")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.remove("front-blank-error-inactive")
+      document.querySelector(`.contact-${input.name}-container input`).classList.add("wrong-input")
+      document.querySelector(`.contact-${input.name}-container small`).classList.add("front-blank-error-active")
+      document.querySelector(`.contact-${input.name}-container small`).classList.remove("front-blank-error-inactive")
 
       /* limpia el error de email invalido cuando el campo esta en blanco */
-      if (
-        document.querySelector(
-          `.contact-${input.name}-container .contact-format-error`
-        )
-      ) {
-        document
-          .querySelector(`.contact-${input.name}-container p`)
-          .classList.remove("front-error-active")
-        document
-          .querySelector(`.contact-${input.name}-container p`)
-          .classList.add("front-error-inactive")
+      if (document.querySelector(`.contact-${input.name}-container .contact-format-error`)) {
+        document.querySelector(`.contact-${input.name}-container p`).classList.remove("front-error-active")
+        document.querySelector(`.contact-${input.name}-container p`).classList.add("front-error-inactive")
       }
     }
   }
+  return
 }
 
 /* Funcion que cambia las clases */
-let classController = (expresion, input) => {
+const classController = (expresion, input) => {
   if (expresion.test(input.value)) {
     estado[input.name] = true
+
     /* sin errores en el text-area */
     if (document.querySelector(`.contact-${input.name}-container textarea`)) {
-      document
-        .querySelector(`.contact-${input.name}-container textarea`)
-        .classList.remove("wrong-input")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.remove("front-blank-error-active")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.add("front-blank-error-inactive")
+      document.querySelector(`.contact-${input.name}-container textarea`).classList.remove("wrong-input")
+      document.querySelector(`.contact-${input.name}-container small`).classList.remove("front-blank-error-active")
+      document.querySelector(`.contact-${input.name}-container small`).classList.add("front-blank-error-inactive")
     } else {
       /* sin errores en los inputs*/
-      document
-        .querySelector(`.contact-${input.name}-container input`)
-        .classList.remove("wrong-input")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.remove("front-blank-error-active")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.add("front-blank-error-inactive")
+      document.querySelector(`.contact-${input.name}-container input`).classList.remove("wrong-input")
+      document.querySelector(`.contact-${input.name}-container small`).classList.remove("front-blank-error-active")
+      document.querySelector(`.contact-${input.name}-container small`).classList.add("front-blank-error-inactive")
+      
       /* sin error en el campo de email */
-      if (
-        document.querySelector(
-          `.contact-${input.name}-container .contact-format-error`
-        )
-      ) {
-        document
-          .querySelector(`.contact-${input.name}-container p`)
-          .classList.remove("front-error-active")
-        document
-          .querySelector(`.contact-${input.name}-container p`)
-          .classList.add("front-error-inactive")
+      if (document.querySelector(`.contact-${input.name}-container .contact-format-error`)) {
+        document.querySelector(`.contact-${input.name}-container p`).classList.remove("front-error-active")
+        document.querySelector(`.contact-${input.name}-container p`).classList.add("front-error-inactive")
       }
     }
   } else {
     estado[input.name] = false
+    
     /* con errores en el text-area */
     if (document.querySelector(`.contact-${input.name}-container textarea`)) {
-      document
-        .querySelector(`.contact-${input.name}-container textarea`)
-        .classList.add("wrong-input")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.add("front-blank-error-active")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.remove("front-blank-error-inactive")
+      document.querySelector(`.contact-${input.name}-container textarea`).classList.add("wrong-input")
+      document.querySelector(`.contact-${input.name}-container small`).classList.add("front-blank-error-active")
+      document.querySelector(`.contact-${input.name}-container small`).classList.remove("front-blank-error-inactive")
     }
+
     /* con errores en los inputs*/
-    document
-      .querySelector(`.contact-${input.name}-container input`)
-      .classList.add("wrong-input")
-    document
-      .querySelector(`.contact-${input.name}-container small`)
-      .classList.add("front-blank-error-active")
-    document
-      .querySelector(`.contact-${input.name}-container small`)
-      .classList.remove("front-blank-error-inactive")
+    document.querySelector(`.contact-${input.name}-container input`).classList.add("wrong-input")
+    document.querySelector(`.contact-${input.name}-container small`).classList.add("front-blank-error-active")
+    document.querySelector(`.contact-${input.name}-container small`).classList.remove("front-blank-error-inactive")
+    
     /* con error en el campo de email */
-    if (
-      document.querySelector(
-        `.contact-${input.name}-container .contact-format-error`
-      )
-    ) {
-      document
-        .querySelector(`.contact-${input.name}-container p`)
-        .classList.add("front-error-active")
-      document
-        .querySelector(`.contact-${input.name}-container p`)
-        .classList.remove("front-error-inactive")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.remove("front-blank-error-active")
-      document
-        .querySelector(`.contact-${input.name}-container small`)
-        .classList.add("front-blank-error-inactive")
+    if (document.querySelector(`.contact-${input.name}-container .contact-format-error`)) {
+      document.querySelector(`.contact-${input.name}-container p`).classList.add("front-error-active")
+      document.querySelector(`.contact-${input.name}-container p`).classList.remove("front-error-inactive")
+      document.querySelector(`.contact-${input.name}-container small`).classList.remove("front-blank-error-active")
+      document.querySelector(`.contact-${input.name}-container small`).classList.add("front-blank-error-inactive")
     }
   }
 }
 
 /* Identificando y validando los inputs */
-let validarCampos = (e) => {
+const validarCampos = (e) => {
   switch (e.target.name) {
     case "email":
       classController(expresiones.email, e.target)
@@ -169,6 +112,7 @@ inputs.forEach((input) => {
   input.addEventListener("blur", validarCampos)
 })
 
+/* Submit del form */
 form.addEventListener("submit", (e) => {
   e.preventDefault()
 

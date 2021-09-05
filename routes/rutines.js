@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+
 const rutinesController = require("../controllers/rutinesController")
 const validator = require("../middlewares/validator")
 const rutinesMulter = require("../middlewares/multer/rutines")

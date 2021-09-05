@@ -6,24 +6,24 @@
 - "front-blank-error-inactive" -- small --  oculta el mensaje de campo en blanco.
 - "front-blank-error-active" -- small -- activa el mensaje de campo en blanco. */
 
-//Selectores---------------------------------------------------------------------
-let form = document.querySelector("form")
-let inputs = document.querySelectorAll(".input-validator")
-let image = document.querySelector("#add-edit-product-image")
-let imageEdit = document.querySelector("#add-edit-product-image-edit")
-let description = document.querySelector("#add-edit-product-description")
-let error = (campo, label) => {
+/* Requiriendo los elementos del DOM */
+const form = document.querySelector("form")
+const inputs = document.querySelectorAll(".input-validator")
+const image = document.querySelector("#add-edit-product-image")
+const imageEdit = document.querySelector("#add-edit-product-image-edit")
+const description = document.querySelector("#add-edit-product-description")
+const error = (campo, label) => {
   return document.querySelector(`.create-rutine-error-${campo} ${label}`)
 }
 
-//Expresiones--------------------------------------------------------------------
+/* Expresiones */
 const expresiones = {
-  nombre: /^[a-zA-ZÀ-ÿ\s]{5,}$/, // Letras y espacios, pueden llevar acentos.
+  name: /^[a-zA-ZÀ-ÿ\s]{5,}$/, // Letras y espacios, pueden llevar acentos.
   image: /(.jpg|.jpeg|.png|.gif)$/i,
-  precio: /(^(?:-\d))/g,
+  price: /(^(?:-\d))/g,
 }
 
-//Estados para preventDefault----------------------------------------------------
+/* Estado de los inputs */
 let estado = {
   name: true,
   price: true,
@@ -33,24 +33,21 @@ let estado = {
   image: false,
 }
 
-//FUNCIONES DE VALIDADORES//
-
-//Distribuidor-------------------------------------------------------------------
-
-let validator = (inputElement) => {
+/* Distribuidor */
+const validator = (inputElement) => {
   if (inputElement.name == "name") {
     /*1- Empty*/ emptyValidator(inputElement)
     if (inputElement.value.trim() != "") {
       /*2- Expresiones name*/ return validExpName(
         inputElement,
-        expresiones.nombre
+        expresiones.name
       )
     }
   }
   if (inputElement.name == "price") {
     /*1- Empty*/ emptyValidator(inputElement)
     if (inputElement.value != "") {
-      /*6- Extension precio*/ return extPrice(inputElement, expresiones.precio)
+      /*6- Extension precio*/ return extPrice(inputElement, expresiones.price)
     }
   }
   if (inputElement.name == "introduction") {
@@ -73,13 +70,11 @@ let validator = (inputElement) => {
   }
 }
 
-//Validador 1 empty o campo obligatorio-----------------------------------------
-let emptyValidator = (inputElement) => {
+/* Validador 1 empty o campo obligatorio */
+const emptyValidator = (inputElement) => {
   if (inputElement.value.trim() == "") {
     //add error
-    error(inputElement.name, "small").classList.remove(
-      "front-blank-error-inactive"
-    )
+    error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
     error(inputElement.name, "small").classList.add("front-blank-error-active")
     error(inputElement.name, "label").classList.add("wrong-label")
     error(inputElement.name, "input").classList.add("wrong-input")
@@ -97,12 +92,9 @@ let emptyValidator = (inputElement) => {
   return
 }
 
-//Validador 2 expresiones name-------------------------------------------------
-let validExpName = (inputElement, expresion) => {
-  if (
-    !expresion.test(inputElement.value.trim()) &&
-    inputElement.value.trim() != ""
-  ) {
+/* Validador 2 expresiones name */
+const validExpName = (inputElement, expresion) => {
+  if (!expresion.test(inputElement.value.trim()) &&inputElement.value.trim() != "") {
     //add error
     error(inputElement.name, "p").classList.remove("front-error-inactive")
     error(inputElement.name, "p").classList.add("front-error-active")
@@ -120,8 +112,8 @@ let validExpName = (inputElement, expresion) => {
   return
 }
 
-//Validador 3 extension description-------------------------------------------
-let extDescription = (inputElement) => {
+/* Validador 3 extension description */
+const extDescription = (inputElement) => {
   if (inputElement.value.trim().length < 20) {
     //add error
     error(inputElement.name, "p").classList.remove("front-error-inactive")
@@ -140,20 +132,16 @@ let extDescription = (inputElement) => {
   return
 }
 
-//Validador 4 de expresion de imagen------------------------------------------
-let imgExtValidator = (inputElement) => {
+/* Validador 4 de expresion de imagen */
+const imgExtValidator = (inputElement) => {
   if (!expresiones.image.exec(inputElement.value) && inputElement.value != "") {
     //add error
     error(inputElement.name, "p").classList.remove("front-error-inactive")
     error(inputElement.name, "p").classList.add("front-error-active")
     error(inputElement.name, "label").classList.add("wrong-label")
     error(inputElement.name, "input").classList.add("wrong-input")
-    error(inputElement.name, "small").classList.add(
-      "front-blank-error-inactive"
-    )
-    error(inputElement.name, "small").classList.remove(
-      "front-blank-error-active"
-    )
+    error(inputElement.name, "small").classList.add("front-blank-error-inactive")
+    error(inputElement.name, "small").classList.remove("front-blank-error-active")
     estado[inputElement.name] = false
     return
   }
@@ -168,13 +156,11 @@ let imgExtValidator = (inputElement) => {
   return
 }
 
-//Validador 5 submit---------------------------------------------------------
-let blankSubmitValidator = (inputElement) => {
+/* Validador 5 submit */
+const blankSubmitValidator = (inputElement) => {
   if (inputElement.value == "") {
     //add error
-    error(inputElement.name, "small").classList.remove(
-      "front-blank-error-inactive"
-    )
+    error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
     error(inputElement.name, "small").classList.add("front-blank-error-active")
     error(inputElement.name, "input").classList.add("wrong-input")
     error(inputElement.name, "label").classList.add("wrong-label")
@@ -191,7 +177,7 @@ let blankSubmitValidator = (inputElement) => {
   return
 }
 
-//Validador 6 extension precio------------------------------------------------
+/* Validador 6 extension precio */
 let extPrice = (inputElement, expresion) => {
   if (inputElement.value.match(expresion)) {
     //add error
@@ -199,9 +185,7 @@ let extPrice = (inputElement, expresion) => {
     error(inputElement.name, "p").classList.add("front-error-active")
     error(inputElement.name, "input").classList.add("wrong-input")
     error(inputElement.name, "label").classList.add("wrong-label")
-    error(inputElement.name, "small").classList.add(
-      "front-blank-error-inactive"
-    )
+    error(inputElement.name, "small").classList.add("front-blank-error-inactive")
     estado[inputElement.name] = false
     return
   }
@@ -214,7 +198,7 @@ let extPrice = (inputElement, expresion) => {
   return
 }
 
-//Validador 7 extension introduccion-----------------------------------------
+/* Validador 7 extension introduccion */
 let extIntroduction = (inputElement) => {
   if (inputElement.value.length < 5 || inputElement.value.length > 78) {
     //add error
@@ -234,8 +218,8 @@ let extIntroduction = (inputElement) => {
   return
 }
 
-//Validador 8 numero mayor a 0----------------------------------------------
-let positiveNumber = (inputElement) => {
+/* Validador 8 numero mayor a 0 */
+const positiveNumber = (inputElement) => {
   if (inputElement.value.trim() < 1) {
     //add error
     error(inputElement.name, "p").classList.remove("front-error-inactive")
@@ -254,13 +238,11 @@ let positiveNumber = (inputElement) => {
   return
 }
 
-//Validador 9 blank description-------------------------------------------
+/* Validador 9 blank description */
 let blankDescription = (inputElement) => {
   if (inputElement.value.trim() == "") {
     //add error
-    error(inputElement.name, "small").classList.remove(
-      "front-blank-error-inactive"
-    )
+    error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
     error(inputElement.name, "small").classList.add("front-blank-error-active")
     error(inputElement.name, "textarea").classList.add("wrong-input")
     error(inputElement.name, "label").classList.add("wrong-label")
@@ -278,9 +260,7 @@ let blankDescription = (inputElement) => {
   return
 }
 
-//EJECUCION DE EVENTOS DE VALIDACION//
-
-//Validacion campo por campo
+/* Validacion campo por campo */
 inputs.forEach((input) => {
   input.addEventListener("keyup", (e) => {
     validator(input, e)
@@ -295,7 +275,7 @@ inputs.forEach((input) => {
   })
 })
 
-//Validacion imagen create
+/* Validacion imagen create */
 image.addEventListener("change", (e) => {
   /*9- Empty description*/ emptyValidator(image)
 
@@ -312,7 +292,7 @@ image.addEventListener("blur", (e) => {
   }
 })
 
-//Validacion submit empty
+/* Validacion submit empty */
 form.addEventListener("submit", (e) => {
   //Validacion en submit de campo por campo si estan vacios
   inputs.forEach((input) => {
@@ -327,21 +307,21 @@ form.addEventListener("submit", (e) => {
         extIntroduction(input)
       }
       if (input.name == "price" && input.value != "") {
-        extPrice(input, expresiones.precio)
+        extPrice(input, expresiones.price)
       }
       if (input.name == "name" && input.value != "") {
-        validExpName(input, expresiones.nombre)
+        validExpName(input, expresiones.name)
       }
     }
   })
 
-  //Validacion en submit del campo description si esta vacio
+/*   Validacion en submit del campo description si esta vacio */
   blankDescription(description)
   if (description.value != "") {
     extDescription(description)
   }
 
-  //Validacion en submit si el campo imagen esta vacio
+/*   Validacion en submit si el campo imagen esta vacio */
   if (form.classList.contains("edit-form")) {
     estado.image = true
     if (image.value != "") {
@@ -354,7 +334,7 @@ form.addEventListener("submit", (e) => {
     }
   }
 
-  //Prevent Default segun estado
+/*   Prevent Default segun estado */
   if (
     !estado.name ||
     !estado.price ||
@@ -367,9 +347,7 @@ form.addEventListener("submit", (e) => {
   }
 })
 
-//--------------------------------//
-//Validacion imagen edit
-
+/* Validacion imagen edit */
 if (form.classList.contains("edit-form")) {
   imageEdit.addEventListener("change", (e) => {
     if (imageEdit.value != "") {

@@ -1,21 +1,14 @@
-let productQuantity = document.querySelectorAll(".cart-total-quantity")
+const productQuantity = document.querySelectorAll(".cart-total-quantity")
+const productUnitPrice = document.querySelectorAll(".cart-product-unit-price")
+const productsFullPrice = document.querySelectorAll(".cart-total")
+const purchaseFinalPrice = document.querySelector(".cart-final-price")
+const productQuantityHidden = document.querySelector(".product-quantity-hidden")
+const productName = document.querySelectorAll(".product-cart-title")
+const productImgSrc = document.querySelectorAll(".product-cart-img")
 
-let productUnitPrice = document.querySelectorAll(".cart-product-unit-price")
-
-let productsFullPrice = document.querySelectorAll(".cart-total")
-
-let purchaseFinalPrice = document.querySelector(".cart-final-price")
-
-let productQuantityHidden = document.querySelector(".product-quantity-hidden")
-
-let productName = document.querySelectorAll(".product-cart-title")
-
-let productImgSrc = document.querySelectorAll(".product-cart-img")
-
-let category
-
-let calculos = (e, itera) => {
+const cartPrice = (e, itera) => {
   let data
+  let category
 
   if (e.target.value < 1) {
     e.target.value = 1
@@ -70,7 +63,7 @@ let calculos = (e, itera) => {
       }
     }
 
-    let seeting = {
+    const seeting = {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -80,12 +73,12 @@ let calculos = (e, itera) => {
 
     fetch("cart/editQuantity", seeting)
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => data)
   }
 }
 
 productQuantity.forEach((input, itera) => {
   input.addEventListener("change", function (e) {
-    calculos(e, itera)
+    cartPrice(e, itera)
   })
 })

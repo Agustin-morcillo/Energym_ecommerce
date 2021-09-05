@@ -1,9 +1,10 @@
-const fs = require("fs")
-const path = require("path")
-const deleteFailureFile = path.join(__dirname, "../public/images/rutines/")
 const { Rutine } = require("../database/models")
 let { validationResult } = require("express-validator")
 let pageTitle = ""
+
+const fs = require("fs")
+const path = require("path")
+const deleteFailureFile = path.join(__dirname, "../public/images/rutines/")
 
 const rutinesController = {
   rutinePage: async (req, res) => {
@@ -34,7 +35,6 @@ const rutinesController = {
   },
   createRutineView: (req, res) => {
     pageTitle = "Energym - Crear Rutina"
-
     return res.render("rutines/create-rutine", { pageTitle })
   },
   storeNewRutine: async (req, res) => {
@@ -97,7 +97,7 @@ const rutinesController = {
     }
 
     try {
-      let rutineToEdit = await Rutine.findByPk(req.params.id)
+      const rutineToEdit = await Rutine.findByPk(req.params.id)
 
       await Rutine.update(
         {
