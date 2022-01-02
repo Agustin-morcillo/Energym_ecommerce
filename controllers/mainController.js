@@ -6,7 +6,8 @@ let seoDescription = ""
 
 const mainController = {
   homepage: async (req, res) => {
-    seoTitle = "Energym - Home"
+    seoTitle = "Energym | Ecommerce de artículos de entrenamiento | Compra Online"
+    seoDescription = "Tienda online de productos y rutinas de entrenamiento, trabajamos con todas las marcas y medios de pago. Compra tus productos hoy y recibilos en el día, envíos a todo el país."
 
     let productsHome
     let rutinasHome
@@ -30,7 +31,8 @@ const mainController = {
     return res.render("main/index", { productsHome, rutinasHome, seoTitle, seoDescription })
   },
   contactPage: (req, res) => {
-    seoTitle = "Energym - Contacto"
+    seoTitle = "Contacto | Energym"
+    seoDescription = "Déjanos tu mensaje o consulta completando los campos del formulario. Av.Cabildo 1842, CABA, Tel: (011) 1574393901."
 
     return res.render("main/contact", { seoTitle, seoDescription })
   },
@@ -38,7 +40,8 @@ const mainController = {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      seoTitle = "Energym - Contacto"
+      seoTitle = "Contacto | Energym"
+      seoDescription = "Déjanos tu mensaje o consulta completando los campos del formulario. Av.Cabildo 1842, CABA, Tel: (011) 1574393901."
       return res.render("main/contact", { errors: errors.mapped(), seoTitle, seoDescription })
     }
 
@@ -67,7 +70,8 @@ const mainController = {
     return res.redirect("/")
   },
   adminPage: async (req, res) => {
-    seoTitle = "Energym - Admin"
+    seoTitle = "Administrar catálogo | Energym"
+    seoDescription = "Administra todos los productos y rutina del sitio creando, editando o eliminado los registros de la base de datos."
 
     let products
     let rutines

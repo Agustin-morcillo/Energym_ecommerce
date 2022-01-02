@@ -5,7 +5,8 @@ let seoDescription = ""
 
 const cartController = {
   showCart: async (req, res) => {
-    seoTitle = "Energym - Carrito"
+    seoTitle = "Carrito de compras | Energym"
+    seoDescription = "Consulta, compra o edita todos los articulos que has agregado al carrito."
 
     let items
 
@@ -24,7 +25,7 @@ const cartController = {
       return (acum += parseInt(item.total))
     }, 0)
 
-    return res.render("purchase/shopping-cart", { seoTitle, seoDescription, items, total })
+    return res.render("purchase/shopping-cart", { seoTitle, seoDescription, noIndex, items, total })
   },
   addToCart: async (req, res) => {
     const typeOfProduct = req.params.category

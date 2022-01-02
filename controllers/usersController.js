@@ -11,7 +11,8 @@ const bcrypt = require("bcryptjs")
 
 const usersController = {
   loginView: (req, res) => {
-    seoTitle = "Energym - Login"
+    seoTitle = "Iniciar sesión | Energym"
+    seoDescription = "Inicia sesión en nuestro sitio y accede a contenido y descuentos exclusivos."
 
     return res.render("./users/login", { seoTitle, seoDescription })
   },
@@ -19,7 +20,8 @@ const usersController = {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      seoTitle = "Energym - Login"
+      seoTitle = "Iniciar sesión | Energym"
+      seoDescription = "Inicia sesión en nuestro sitio y accede a contenido y descuentos exclusivos."
       return res.render("users/login", { errors: errors.mapped(), seoTitle, seoDescription })
     }
 
@@ -46,7 +48,8 @@ const usersController = {
     return res.redirect("/")
   },
   registerView: (req, res) => {
-    seoTitle = "Energym - Registro"
+    seoTitle = "Registrate | Energym"
+    seoDescription = "Registrate gratis en nuestro sitio y accede a productos y descuentos exclusivos."
 
     return res.render("users/register", { seoTitle, seoDescription })
   },
@@ -54,7 +57,8 @@ const usersController = {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      seoTitle = "Energym - Registro"
+      seoTitle = "Registrate | Energym"
+      seoDescription = "Registrate gratis en nuestro sitio y accede a productos y descuentos exclusivos."
       res.render("users/register", { errors: errors.mapped(), seoTitle, seoDescription })
       return req.files[0] && req.files[0].filename
         ? fs.unlinkSync(deleteFailureFile + req.files[0].filename)
@@ -84,18 +88,21 @@ const usersController = {
     return res.redirect("/")
   },
   userProfileView: (req, res) => {
-    seoTitle = "Energym - Perfil"
+    seoTitle = "Tu Perfil | Energym"
+    seoDescription = "Consulta los datos que están configurados en tu perfil."
     return res.render("./users/profile", { seoTitle, seoDescription, noIndex })
   },
   editUserProfileView: (req, res) => {
-    seoTitle = "Energym - Editar Perfil"
+    seoTitle = "Editar Perfil | Energym"
+    seoDescription = "Edita los datos configurados en tu perfil."
     return res.render("./users/profile-edit", { seoTitle, seoDescription, noIndex })
   },
   editUserProfile: async (req, res) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      seoTitle = "Energym - Editar Perfil"
+      seoTitle = "Editar Perfil | Energym"
+      seoDescription = "Edita los datos configurados en tu perfil."
       res.render("users/profile-edit", { errors: errors.mapped(), seoTitle, seoDescription, noIndex })
       return req.files[0] && req.files[0].filename
         ? fs.unlinkSync(deleteFailureFile + req.files[0].filename)
@@ -128,7 +135,8 @@ const usersController = {
     return res.redirect("/users/profile")
   },
   adminUsersView: async (req, res) => {
-    seoTitle = "Energym - Editar Usuarios"
+    seoTitle = "Administrar Usuarios | Energym"
+    seoDescription = "Administra el nivel de acceso de todos los usuarios registrados en el sitio."
 
     let allUsers
 

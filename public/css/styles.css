@@ -942,7 +942,7 @@ body {
   border-radius: 15px;
   border: 1px solid gray;
   margin: 80px 0px;
-  height: 670px;
+  height: 580px;
 }
 
 .register-info-container {
@@ -1002,48 +1002,8 @@ body {
   font-size: 15px;
 }
 
-.facebook-button {
-  background-color: #3b5998;
-  width: 47%;
-}
-
-.facebook-button:hover {
-  background-color: rgb(6, 31, 70);
-}
-
-.google-button {
-  background-color: gray;
-  width: 47%;
-}
-
-.google-button:hover {
-  background-color: rgb(42, 45, 49);
-}
-
-.google-icon {
-  position: relative;
-  left: -10px;
-  padding: 3px;
-  font-size: 20px;
-}
-
-.facebook-icon {
-  position: relative;
-  left: -5px;
-  padding: 3px;
-  font-size: 20px;
-}
-
 .final-register-button:hover {
   background-color: orangered;
-}
-
-.facebook-google-form {
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-  bottom: 50px;
 }
 
 .button-info-container {
@@ -1074,13 +1034,8 @@ body {
     width: 100%;
   }
 
-  .register-button,
-  .facebook-button {
+  .register-button {
     width: 80%;
-  }
-
-  .facebook-google-form {
-    margin: 0px 20px;
   }
 
   .register-avatar-input {
