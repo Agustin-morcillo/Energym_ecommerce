@@ -1,6 +1,8 @@
 const { User, Contact } = require("../database/models")
-let { validationResult } = require("express-validator")
-let pageTitle = ""
+const { validationResult } = require("express-validator")
+const noIndex = true
+let seoTitle = ""
+let seoDescription = ""
 
 const fs = require("fs")
 const path = require("path")
@@ -9,16 +11,16 @@ const bcrypt = require("bcryptjs")
 
 const usersController = {
   loginView: (req, res) => {
-    pageTitle = "Energym - Login"
+    seoTitle = "Energym - Login"
 
-    return res.render("./users/login", { pageTitle })
+    return res.render("./users/login", { seoTitle, seoDescription })
   },
   processLogin: async (req, res) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      pageTitle = "Energym - Login"
-      return res.render("users/login", { errors: errors.mapped(), pageTitle })
+      seoTitle = "Energym - Login"
+      return res.render("users/login", { errors: errors.mapped(), seoTitle, seoDescription })
     }
 
     let userToLogin
@@ -44,16 +46,16 @@ const usersController = {
     return res.redirect("/")
   },
   registerView: (req, res) => {
-    pageTitle = "Energym - Registro"
+    seoTitle = "Energym - Registro"
 
-    return res.render("users/register", { pageTitle })
+    return res.render("users/register", { seoTitle, seoDescription })
   },
   createUser: async (req, res) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      pageTitle = "Energym - Registro"
-      res.render("users/register", { errors: errors.mapped(), pageTitle })
+      seoTitle = "Energym - Registro"
+      res.render("users/register", { errors: errors.mapped(), seoTitle, seoDescription })
       return req.files[0] && req.files[0].filename
         ? fs.unlinkSync(deleteFailureFile + req.files[0].filename)
         : " "
@@ -82,19 +84,19 @@ const usersController = {
     return res.redirect("/")
   },
   userProfileView: (req, res) => {
-    pageTitle = "Energym - Perfil"
-    return res.render("./users/profile", { pageTitle })
+    seoTitle = "Energym - Perfil"
+    return res.render("./users/profile", { seoTitle, seoDescription, noIndex })
   },
   editUserProfileView: (req, res) => {
-    pageTitle = "Energym - Editar Perfil"
-    return res.render("./users/profile-edit", { pageTitle })
+    seoTitle = "Energym - Editar Perfil"
+    return res.render("./users/profile-edit", { seoTitle, seoDescription, noIndex })
   },
   editUserProfile: async (req, res) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      pageTitle = "Energym - Editar Perfil"
-      res.render("users/profile-edit", { errors: errors.mapped(), pageTitle })
+      seoTitle = "Energym - Editar Perfil"
+      res.render("users/profile-edit", { errors: errors.mapped(), seoTitle, seoDescription, noIndex })
       return req.files[0] && req.files[0].filename
         ? fs.unlinkSync(deleteFailureFile + req.files[0].filename)
         : " "
@@ -126,7 +128,7 @@ const usersController = {
     return res.redirect("/users/profile")
   },
   adminUsersView: async (req, res) => {
-    pageTitle = "Energym - Editar Usuarios"
+    seoTitle = "Energym - Editar Usuarios"
 
     let allUsers
 
@@ -136,7 +138,7 @@ const usersController = {
       console.error(error)
     }
 
-    return res.render("users/users-admin", { pageTitle, allUsers })
+    return res.render("users/users-admin", { seoTitle, seoDescription, noIndex, allUsers })
   },
   becomeSuperAdmin: async (req, res) => {
     try {

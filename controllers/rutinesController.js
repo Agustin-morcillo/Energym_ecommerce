@@ -1,6 +1,8 @@
 const { Rutine } = require("../database/models")
-let { validationResult } = require("express-validator")
-let pageTitle = ""
+const { validationResult } = require("express-validator")
+const noIndex = true
+let seoTitle = ""
+let seoDescription = ""
 
 const fs = require("fs")
 const path = require("path")
@@ -8,7 +10,7 @@ const deleteFailureFile = path.join(__dirname, "../public/images/rutines/")
 
 const rutinesController = {
   rutinePage: async (req, res) => {
-    pageTitle = "Energym - Rutinas"
+    seoTitle = "Energym - Rutinas"
 
     let rutines
 
@@ -18,11 +20,9 @@ const rutinesController = {
       console.error(error)
     }
 
-    return res.render("rutines/rutines", { rutines, pageTitle })
+    return res.render("rutines/rutines", { rutines, seoTitle, seoDescription })
   },
   rutineDetail: async (req, res) => {
-    pageTitle = "Energym - Detalle de rutina"
-
     let rutine
 
     try {
@@ -31,20 +31,25 @@ const rutinesController = {
       console.error(error)
     }
 
-    return res.render("rutines/rutine-detail", { rutine, pageTitle })
+    seoTitle = rutine.dataValues.seoTitle || "Energym - Detalle de rutina"
+    seoDescription = rutine.dataValues.seoDescription
+
+    return res.render("rutines/rutine-detail", { rutine, seoTitle, seoDescription})
   },
   createRutineView: (req, res) => {
-    pageTitle = "Energym - Crear Rutina"
-    return res.render("rutines/create-rutine", { pageTitle })
+    seoTitle = "Energym - Crear Rutina"
+    return res.render("rutines/create-rutine", { seoTitle, seoDescription, noIndex })
   },
   storeNewRutine: async (req, res) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      pageTitle = "Energym - Crear Rutina"
+      seoTitle = "Energym - Crear Rutina"
       res.render("rutines/create-rutine", {
         errors: errors.mapped(),
-        pageTitle,
+        seoTitle,
+        seoDescription,
+        noIndex
       })
       return req.files[0] && req.files[0].filename
         ? fs.unlinkSync(deleteFailureFile + req.files[0].filename)
@@ -61,6 +66,9 @@ const rutinesController = {
         category: req.body.category,
         homepage: req.body.homepage,
         image: req.files[0].filename,
+        altImage: req.body.altImage,
+        seoTitle: req.body.seoTitle,
+        seoDescription: req.body.seoDescription
       })
     } catch (error) {
       console.error(error)
@@ -69,7 +77,7 @@ const rutinesController = {
     return res.redirect("/admin")
   },
   editRutineView: async (req, res) => {
-    pageTitle = "Energym - Editar Rutina"
+    seoTitle = "Energym - Editar Rutina"
 
     let rutineToEdit
 
@@ -79,17 +87,19 @@ const rutinesController = {
       console.error(error)
     }
 
-    return res.render("rutines/edit-rutine", { rutineToEdit, pageTitle })
+    return res.render("rutines/edit-rutine", { rutineToEdit, seoTitle, seoDescription, noIndex })
   },
   editRutine: async (req, res) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      pageTitle = "Energym - Editar Rutina"
+      seoTitle = "Energym - Editar Rutina"
       res.render("rutines/edit-rutine", {
         errors: errors.mapped(),
         rutineToEdit,
-        pageTitle,
+        seoTitle,
+        seoDescription,
+        noIndex
       })
       return req.files[0] && req.files[0].filename
         ? fs.unlinkSync(deleteFailureFile + req.files[0].filename)
@@ -109,6 +119,9 @@ const rutinesController = {
           category: req.body.category,
           homepage: req.body.homepage,
           image: req.files[0] ? req.files[0].filename : rutineToEdit.image,
+          altImage: req.body.altImage,
+          seoTitle: req.body.seoTitle,
+          seoDescription: req.body.seoDescription
         },
         {
           where: {

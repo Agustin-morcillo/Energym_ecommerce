@@ -18,7 +18,7 @@ router.delete("/delete/:id", auth, cartController.deleteFromCart)
 router.post("/shop", auth, cartController.shop)
 
 /* Página order de compra */
-router.get("/orderPage", auth, orderPageAuth, cartController.showOrderPage)
+router.get("/order-page", auth, orderPageAuth, cartController.showOrderPage)
 
 /* Cambiar cantidad de items dentro del carrito */
 router.post("/editQuantity", auth, cartController.editQuantity)

@@ -47,6 +47,15 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
       type: dataTypes.STRING,
     },
+    altImage: {
+      type: dataTypes.STRING,
+    },
+    seoTitle: {
+      type: dataTypes.STRING,
+    },
+    seoDescription: {
+      type: dataTypes.STRING,
+    },
     createdAt: {
       type: dataTypes.DATE,
     },

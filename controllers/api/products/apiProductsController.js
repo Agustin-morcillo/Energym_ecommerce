@@ -58,7 +58,7 @@ const apiProductsController = {
 
       let product = await Product.findByPk(id)
 
-      if (product == null) {
+      if (product === null) {
         return res.json({
           TypeOfError: "Database",
           ErrorMessage: "No se ha encontrado el producto requerido",
