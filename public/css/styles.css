@@ -591,9 +591,10 @@ body {
 
 .homepage-btn {
   height: 70px;
-  width: 150px;
+  width: 200px;
   color: white;
   background: transparent;
+  text-shadow: 2px 2px 2px black;
   border: 2px solid white;
   font-size: 30px;
 }

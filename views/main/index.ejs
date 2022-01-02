@@ -10,15 +10,15 @@
                 
                 <div class="homepage-welcome-container"> 
                     <div class="homepage-title-container">
-                        <p class="homepage-title">
-                            Live the experience
-                        </p>
+                        <h1 class="homepage-title">
+                             Viví la experiencia
+                        </h1>
                     </div>
                     
                     <div class="homepage-btn-container">
                         <form action="/products">
                             <button class="homepage-btn">
-                                Shop
+                                Comprar
                             </button>
                         </form>
                     </div>
@@ -78,7 +78,7 @@
             <div class="home-products-container">
                 <% for(let product of productsHome) { %>
                     <div class="home-product-cart zoom">
-                        <img src="images/products/<%=product.image%>"  alt="" class="home-product-img ">
+                        <img src="images/products/<%=product.image%>" alt="<%=product.altImage%>" class="home-product-img ">
                         <h2 class="home-product-name">
                             <%=product.name%>
                         </h2>
@@ -108,7 +108,7 @@
             <div class="rutinas-articles-container">
                 <% for(let rutine of rutinasHome) { %>
                     <article class="rutina-articles">
-                        <img src="images/rutines/<%= rutine.image %>" alt="" class="rutinas-img">
+                        <img src="images/rutines/<%= rutine.image %>" alt="<%=rutine.altImage%>" class="rutinas-img">
                         <h2 class="rutine-name">
                             <%=rutine.name %>
                         </h2>

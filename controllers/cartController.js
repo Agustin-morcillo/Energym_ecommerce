@@ -1,9 +1,11 @@
 const { Product, Item, Order, Rutine } = require("../database/models")
-let pageTitle = ""
+const noIndex = true
+let seoTitle = ""
+let seoDescription = ""
 
 const cartController = {
   showCart: async (req, res) => {
-    pageTitle = "Energym - Carrito"
+    seoTitle = "Energym - Carrito"
 
     let items
 
@@ -22,13 +24,13 @@ const cartController = {
       return (acum += parseInt(item.total))
     }, 0)
 
-    return res.render("purchase/shopping-cart", { pageTitle, items, total })
+    return res.render("purchase/shopping-cart", { seoTitle, seoDescription, items, total })
   },
   addToCart: async (req, res) => {
     const typeOfProduct = req.params.category
 
     try {
-      if (typeOfProduct == "products") {
+      if (typeOfProduct === "products") {
         const product = await Product.findByPk(req.params.id)
 
         const itemExistente = await Item.findAll({
@@ -158,10 +160,10 @@ const cartController = {
       console.error(error)
     }
 
-    return res.redirect("/cart/OrderPage")
+    return res.redirect("/cart/order-page")
   },
   showOrderPage: async (req, res) => {
-    pageTitle = "Energym - Order de compra"
+    seoTitle = "Energym - Order de compra"
 
     let orderNumber
 
@@ -180,13 +182,13 @@ const cartController = {
       console.error(error)
     }
 
-    return res.render("purchase/order-page", { pageTitle, orderNumber })
+    return res.render("purchase/order-page", { seoTitle, seoDescription, noIndex, orderNumber })
   },
   editQuantity: async (req, res) => {
     const { newQuantity, productUnitPrice, productName, category } = req.body
 
     try {
-      if (category == "products") {
+      if (category === "products") {
         const nombreProducto = await Product.findOne({
           where: {
             name: productName,

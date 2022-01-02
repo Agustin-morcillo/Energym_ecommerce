@@ -1,10 +1,12 @@
 const { Product, Rutine, Contact } = require("../database/models")
-let { validationResult } = require("express-validator")
-let pageTitle = ""
+const { validationResult } = require("express-validator")
+const noIndex = true
+let seoTitle = ""
+let seoDescription = ""
 
 const mainController = {
   homepage: async (req, res) => {
-    pageTitle = "Energym - Home"
+    seoTitle = "Energym - Home"
 
     let productsHome
     let rutinasHome
@@ -25,19 +27,19 @@ const mainController = {
       console.error(error)
     }
 
-    return res.render("main/index", { productsHome, rutinasHome, pageTitle })
+    return res.render("main/index", { productsHome, rutinasHome, seoTitle, seoDescription })
   },
   contactPage: (req, res) => {
-    pageTitle = "Energym - Contacto"
+    seoTitle = "Energym - Contacto"
 
-    return res.render("main/contact", { pageTitle })
+    return res.render("main/contact", { seoTitle, seoDescription })
   },
   storageContactInfo: async (req, res) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      pageTitle = "Energym - Contacto"
-      return res.render("main/contact", { errors: errors.mapped(), pageTitle })
+      seoTitle = "Energym - Contacto"
+      return res.render("main/contact", { errors: errors.mapped(), seoTitle, seoDescription })
     }
 
     try {
@@ -65,7 +67,7 @@ const mainController = {
     return res.redirect("/")
   },
   adminPage: async (req, res) => {
-    pageTitle = "Energym - Admin"
+    seoTitle = "Energym - Admin"
 
     let products
     let rutines
@@ -77,7 +79,7 @@ const mainController = {
       console.error(error)
     }
 
-    return res.render("main/admin", { products, rutines, pageTitle })
+    return res.render("main/admin", { products, rutines, seoTitle, seoDescription, noIndex })
   },
 }
 

@@ -1,6 +1,8 @@
 const { Product } = require("../database/models")
-let { validationResult } = require("express-validator")
-let pageTitle = ""
+const { validationResult } = require("express-validator")
+const noIndex = true
+let seoTitle = ""
+let seoDescription = ""
 
 const fs = require("fs")
 const path = require("path")
@@ -8,7 +10,7 @@ const deleteFailureFile = path.join(__dirname, "../public/images/products/")
 
 const productController = {
   productPage: async (req, res) => {
-    pageTitle = "Energym - Productos"
+    seoTitle = "Energym - Productos"
 
     let products
 
@@ -18,11 +20,9 @@ const productController = {
       console.error(error)
     }
 
-    return res.render("products/products", { products, pageTitle })
+    return res.render("products/products", { products, seoTitle, seoDescription })
   },
   productDetail: async (req, res) => {
-    pageTitle = "Energym - Detalle de producto"
-
     let detalleProducto
 
     try {
@@ -31,24 +31,29 @@ const productController = {
       console.error(error)
     }
 
+    seoTitle = detalleProducto.dataValues.seoTitle || "Energym - Detalle de producto"
+    seoDescription = detalleProducto.dataValues.seoDescription
+
     return res.render("products/product-detail", {
       product: detalleProducto,
-      pageTitle,
+      seoTitle,
+      seoDescription
     })
   },
   createProductView: (req, res) => {
-    pageTitle = "Energym - Crear Producto"
+    seoTitle = "Energym - Crear Producto"
 
-    return res.render("products/create-product", { pageTitle })
+    return res.render("products/create-product", { seoTitle, seoDescription, noIndex })
   },
   storeNewProduct: async (req, res, next) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      pageTitle = "Energym - Crear Producto"
+      seoTitle = "Energym - Crear Producto"
       res.render("products/create-product", {
         errors: errors.mapped(),
-        pageTitle,
+        seoTitle,
+        seoDescription
       })
       return req.files[0] && req.files[0].filename
         ? fs.unlinkSync(deleteFailureFile + req.files[0].filename)
@@ -67,6 +72,9 @@ const productController = {
         category: req.body.category,
         homepage: req.body.homepage,
         image: req.files[0].filename,
+        altImage: req.body.altImage,
+        seoTitle: req.body.seoTitle,
+        seoDescription: req.body.seoDescription
       })
     } catch (error) {
       console.error(error)
@@ -75,7 +83,7 @@ const productController = {
     return res.redirect("/admin")
   },
   editProductView: async (req, res) => {
-    pageTitle = "Energym - Editar Producto"
+    seoTitle = "Energym - Editar Producto"
 
     let productToEdit
 
@@ -85,17 +93,19 @@ const productController = {
       console.error(error)
     }
 
-    return res.render("products/edit-product", { productToEdit, pageTitle })
+    return res.render("products/edit-product", { productToEdit, seoTitle, seoDescription, noIndex })
   },
   editProduct: async (req, res) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      pageTitle = "Energym - Editar Producto"
+      seoTitle = "Energym - Editar Producto"
       res.render("products/edit-product", {
         errors: errors.mapped(),
         productToEdit,
-        pageTitle,
+        seoTitle,
+        seoDescription,
+        noIndex
       })
       return req.files[0] && req.files[0].filename
         ? fs.unlinkSync(deleteFailureFile + req.files[0].filename)
@@ -117,6 +127,9 @@ const productController = {
           category: req.body.category,
           homepage: req.body.homepage,
           image: req.files[0] ? req.files[0].filename : productToEdit.image,
+          altImage: req.body.altImage,
+          seoTitle: req.body.seoTitle,
+          seoDescription: req.body.seoDescription
         },
         {
           where: {

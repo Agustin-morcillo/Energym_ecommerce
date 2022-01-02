@@ -56,7 +56,7 @@ const apiRutinesController = {
     try {
       let rutine = await Rutine.findByPk(req.params.id)
 
-      if (rutine == null) {
+      if (rutine === null) {
         return res.json({
           TypeOfError: "Database",
           ErrorMessage: "No se ha encontrado la rutina requerida",

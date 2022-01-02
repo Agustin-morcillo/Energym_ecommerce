@@ -174,6 +174,33 @@
                                         </p>
                                         <p id="add-edit-product-image" class="front-error-inactive"></p>
                                     </div>
+
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="image-alt" class="admin-labels">
+                                                Texto alternativo de la imagen (Alt)
+                                            </label>
+                                        </div> 
+                                        <input type="text" name="altImage" id="image-alt" class="add-edit-product-input inputs-fields" placeholder="Ej: Hombre ejercitando abdominales" value="<%=rutineToEdit.altImage%>" >
+                                    </div>
+
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="seo-title" class="admin-labels">
+                                                Título de la página (SEO)
+                                            </label>
+                                        </div> 
+                                        <input type="text" name="seoTitle" id="seo-title" class="add-edit-product-input inputs-fields" placeholder="Ej: Energym | Rutina de abdominales" value="<%=rutineToEdit.seoTitle%>">
+                                    </div>
+
+                                    <div class="admin-inputs-containers">
+                                        <div class="admin-label-container">
+                                            <label for="seo-description" class="admin-labels">
+                                                Descripción de la página (SEO)
+                                            </label>
+                                        </div> 
+                                        <input type="text" name="seoDescription" id="seo-description" class="add-edit-product-input inputs-fields" placeholder="Ej: Lorem ipsum dolor sit amet, consectetur adipiscing elit." value="<%=rutineToEdit.seoDescription%>" >
+                                    </div>
             
                                     <div class="form-add-edit-product-button-container">
                                         <button type="submit" class="add-edit-product-create-product-button buttons-style">
