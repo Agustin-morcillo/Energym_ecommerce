@@ -10,7 +10,8 @@ const deleteFailureFile = path.join(__dirname, "../public/images/products/")
 
 const productController = {
   productPage: async (req, res) => {
-    seoTitle = "Energym - Productos"
+    seoTitle = "Nuestros productos | Energym"
+    seoDescription = "Consulta nuestro amplio catálogo de productos, todas las marcas y modelos disponibles. Envíos gratis a todo el país por compras superiores a $4.000."
 
     let products
 
@@ -31,8 +32,8 @@ const productController = {
       console.error(error)
     }
 
-    seoTitle = detalleProducto.dataValues.seoTitle || "Energym - Detalle de producto"
-    seoDescription = detalleProducto.dataValues.seoDescription
+    seoTitle = detalleProducto.dataValues.seoTitle || "Detalle del producto | Energym"
+    seoDescription = detalleProducto.dataValues.seoDescription || "Consulta todos los detalles del producto de tu interés."
 
     return res.render("products/product-detail", {
       product: detalleProducto,
@@ -41,7 +42,8 @@ const productController = {
     })
   },
   createProductView: (req, res) => {
-    seoTitle = "Energym - Crear Producto"
+    seoTitle = "Crear Producto | Energym"
+    seoDescription = "Crea nuevos productos y ponelos a la venta dentro del sitio."
 
     return res.render("products/create-product", { seoTitle, seoDescription, noIndex })
   },
@@ -49,7 +51,8 @@ const productController = {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      seoTitle = "Energym - Crear Producto"
+      seoTitle = "Crear Producto | Energym"
+      seoDescription = "Crea nuevos productos y ponelos a la venta dentro del sitio."
       res.render("products/create-product", {
         errors: errors.mapped(),
         seoTitle,
@@ -83,7 +86,8 @@ const productController = {
     return res.redirect("/admin")
   },
   editProductView: async (req, res) => {
-    seoTitle = "Energym - Editar Producto"
+    seoTitle = "Editar Producto | Energym"
+    seoDescription = "Edita los datos del producto seleccionado."
 
     let productToEdit
 
@@ -99,7 +103,8 @@ const productController = {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      seoTitle = "Energym - Editar Producto"
+      seoTitle = "Editar Producto | Energym"
+      seoDescription = "Edita los datos del producto seleccionado."
       res.render("products/edit-product", {
         errors: errors.mapped(),
         productToEdit,

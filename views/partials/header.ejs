@@ -60,7 +60,7 @@
                     <ul class="user-nav-list">
                         <li>
                             <a href="/users/profile" class="main-nav-item">
-                                <img src="/images/users/<%=userLog.avatar%>" class="header-avatar" alt="">
+                                <img src="/images/users/<%=userLog.avatar%>" alt="Foto de perfil de <%=userLog.name + " " + userLog.lastname%>" class="header-avatar">
                             </a>
                         </li>
 
@@ -107,7 +107,7 @@
             <% if (userLog) { %>
                 <li>
                     <a href="/users/profile" class="avatar-responsive">
-                        <img src="/images/users/<%=userLog.avatar%>" class="header-avatar" alt="">
+                        <img src="/images/users/<%=userLog.avatar%>" alt="Foto de perfil de <%=userLog.name + " " + userLog.lastname%>" class="header-avatar">
                     </a>
                 </li>
             <% } %>

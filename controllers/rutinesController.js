@@ -10,7 +10,8 @@ const deleteFailureFile = path.join(__dirname, "../public/images/rutines/")
 
 const rutinesController = {
   rutinePage: async (req, res) => {
-    seoTitle = "Energym - Rutinas"
+    seoTitle = "Nuestras rutinas | Energym"
+    seoDescription = "Consulta nuestras rutinas de entrenamiento disponibles y empieza hoy mismo a ponerte en movimiento para lograr tus objetivos."
 
     let rutines
 
@@ -31,20 +32,22 @@ const rutinesController = {
       console.error(error)
     }
 
-    seoTitle = rutine.dataValues.seoTitle || "Energym - Detalle de rutina"
-    seoDescription = rutine.dataValues.seoDescription
+    seoTitle = rutine.dataValues.seoTitle || "Detalle de la rutina | Energym"
+    seoDescription = rutine.dataValues.seoDescription || "Consulta todos los detalles de la rutina de tu interés."
 
     return res.render("rutines/rutine-detail", { rutine, seoTitle, seoDescription})
   },
   createRutineView: (req, res) => {
-    seoTitle = "Energym - Crear Rutina"
+    seoTitle = "Crear Rutina | Energym"
+    seoDescription = "Crea nuevas rutinas y ponelas a la venta dentro del sitio."
     return res.render("rutines/create-rutine", { seoTitle, seoDescription, noIndex })
   },
   storeNewRutine: async (req, res) => {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      seoTitle = "Energym - Crear Rutina"
+      seoTitle = "Crear Rutina | Energym"
+      seoDescription = "Crea nuevas rutinas y ponelas a la venta dentro del sitio."
       res.render("rutines/create-rutine", {
         errors: errors.mapped(),
         seoTitle,
@@ -77,7 +80,8 @@ const rutinesController = {
     return res.redirect("/admin")
   },
   editRutineView: async (req, res) => {
-    seoTitle = "Energym - Editar Rutina"
+    seoTitle = "Editar Rutina | Energym"
+    seoDescription = "Edita los datos de la rutina seleccionada."
 
     let rutineToEdit
 
@@ -93,7 +97,8 @@ const rutinesController = {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      seoTitle = "Energym - Editar Rutina"
+      seoTitle = "Editar Rutina | Energym"
+      seoDescription = "Edita los datos de la rutina seleccionada."
       res.render("rutines/edit-rutine", {
         errors: errors.mapped(),
         rutineToEdit,
