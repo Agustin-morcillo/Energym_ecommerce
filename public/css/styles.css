@@ -382,7 +382,10 @@ body {
 
 .footer-container {
   width: 25%;
-  height: 140px;
+  height: 190px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .icon-container {
@@ -392,35 +395,18 @@ body {
 .footer-service-title {
   color: #adadad;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: bolder;
 }
 
 .footer-detail {
   margin-top: 10px;
-  font-size: 10px;
+  font-size: 13px;
   text-align: center;
+  padding: 10px;
 }
 
 /* -----------------3.2 Footer primera parte responsive---------------- */
-
-@media (min-width: 2560px) {
-  .footer-first-part {
-    height: 300px;
-  }
-
-  .footer-icon {
-    font-size: 100px;
-  }
-
-  .footer-service-title {
-    font-size: 40px;
-  }
-
-  .footer-detail {
-    font-size: 20px;
-  }
-}
 
 @media (max-width: 830px) {
   .footer-first-part {
@@ -736,7 +722,7 @@ body {
 
 .home-product-cart {
   width: 28%;
-  margin: 20px 30px;
+  margin: 30px 30px;
   text-align: center;
 }
 
@@ -754,8 +740,8 @@ body {
 }
 
 .home-product-description {
-  font-size: 12px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 40px;
   width: 100%;
   height: 60px;
 }
@@ -791,11 +777,6 @@ body {
   background: rgb(12, 12, 243);
 }
 
-.home-product-cart-icon {
-  font-size: 15px;
-  padding-right: 10px;
-}
-
 /* -----------------4.6 Productos más vendidos responsive----------------- */
 
 @media (max-width: 1400px) {
@@ -804,9 +785,16 @@ body {
   }
 }
 
+@media (max-width: 950px) {
+  .home-product-description {
+    margin-bottom: 80px;
+  }
+}
+
 @media (max-width: 800px) {
   .home-product-cart {
     width: 100%;
+    margin-bottom: 50px;
   }
 
   .home-product-button {
@@ -816,6 +804,7 @@ body {
   .home-product-description {
     padding-left: 120px;
     padding-right: 120px;
+    margin-bottom: 50px;
   }
 }
 
@@ -823,6 +812,9 @@ body {
   .home-product-img {
     width: 100%;
     height: auto;
+  }
+  .home-product-description {
+    margin-bottom: 30px;
   }
 
   .home-product-description {
@@ -856,15 +848,17 @@ body {
 }
 
 .rutine-name {
-  margin: 2px 0 4px 0;
+  margin: 10px 0 4px 0;
   text-align: center;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .rutine-introduction {
-  font-size: 10px;
+  font-size: 16px;
   text-align: center;
+  margin-top: 5px;
+  padding: 10px;
 }
 
 .button-padre {
