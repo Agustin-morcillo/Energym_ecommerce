@@ -48,7 +48,7 @@ const classController = (expresion, input) => {
 
 /* Funcion que chequea si los campos estan en blanco */
 const blankInput = (input) => {
-  if (input.value == "") {
+  if (input.value === "") {
     document.querySelector(`.profile-${input.name} p`).classList.remove("front-error-active")
     document.querySelector(`.profile-${input.name} p`).classList.add("front-error-inactive")
     document.querySelector(`.profile-${input.name} input`).classList.add("wrong-input")

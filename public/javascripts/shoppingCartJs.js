@@ -17,7 +17,7 @@ const cartPrice = (e, itera) => {
   productQuantityHidden.value = e.target.value
 
   for (let i = 0; i < productQuantity.length; i++) {
-    if (productQuantity.length == 1) {
+    if (productQuantity.length === 1) {
       purchaseFinalPrice.textContent = 0
       productsFullPrice[i].textContent = parseInt(
         productUnitPrice[i].textContent * e.target.value
@@ -41,7 +41,7 @@ const cartPrice = (e, itera) => {
         productUnitPrice[itera].textContent * e.target.value
       )
 
-      if ([i] == 0) {
+      if ([i] === 0) {
         purchaseFinalPrice.textContent = parseInt(
           productsFullPrice[0].textContent
         )

@@ -152,7 +152,7 @@ body {
 }
 
 .required-field {
-  color: red;
+  color: #ff0000;
   font-size: 12px;
   font-weight: 600;
   position: relative;
@@ -710,7 +710,7 @@ body {
   padding: 10px 0px 10px 0px;
   text-transform: uppercase;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .home-products-container {
@@ -720,7 +720,7 @@ body {
   justify-content: center;
 }
 
-.home-product-cart {
+.home-product-card {
   width: 28%;
   margin: 30px 30px;
   text-align: center;
@@ -735,76 +735,64 @@ body {
   font-weight: lighter;
   font-weight: 1000;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   display: block;
 }
 
-.home-product-description {
+.home-product-introduction {
   font-size: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   width: 100%;
   height: 60px;
 }
 
 .home-product-price-container {
-  color: green;
+  color: #008000;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 28px;
   display: block;
   margin-bottom: 20px;
 }
 
 .home-product-price {
-  color: green;
+  color: #008000;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 28px;
   display: inline;
   padding-left: 2px;
 }
 
 .home-product-button {
-  background: rgb(85, 85, 240);
+  background-color: #5564eb;
   border-radius: 3px;
   width: 60%;
   color: white;
-  text-transform: uppercase;
   font-weight: bold;
   border: none;
   height: 30px;
+  font-size: 16px;
 }
 
 .home-product-button:hover {
-  background: rgb(12, 12, 243);
+  opacity: 0.9;
 }
 
 /* -----------------4.6 Productos más vendidos responsive----------------- */
 
 @media (max-width: 1400px) {
-  .home-product-cart {
+  .home-product-card {
     width: 40%;
   }
 }
 
-@media (max-width: 950px) {
-  .home-product-description {
-    margin-bottom: 80px;
-  }
-}
-
 @media (max-width: 800px) {
-  .home-product-cart {
+  .home-product-card {
     width: 100%;
     margin-bottom: 50px;
   }
 
   .home-product-button {
     width: 80%;
-  }
-
-  .home-product-description {
-    padding-left: 120px;
-    padding-right: 120px;
-    margin-bottom: 50px;
   }
 }
 
@@ -813,11 +801,8 @@ body {
     width: 100%;
     height: auto;
   }
-  .home-product-description {
-    margin-bottom: 30px;
-  }
 
-  .home-product-description {
+  .home-product-introduction {
     padding: 0px;
     height: auto;
   }
@@ -866,18 +851,18 @@ body {
 }
 
 .ver-mas-button {
-  background-color: orange;
+  background-color: #ff8000;
   color: white;
   width: 50%;
   margin: 10px 0px 10px 0px;
-  text-transform: uppercase;
   font-weight: bold;
   border: none;
   height: 30px;
+  font-size: 16px;
 }
 
 .ver-mas-button:hover {
-  background-color: orangered;
+  background-color: #ffa040;
   cursor: pointer;
 }
 
@@ -991,13 +976,13 @@ body {
   margin: 10px 0px;
   height: 35px;
   width: 50%;
-  background-color: orange;
+  background-color: #008000;
   color: white;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .final-register-button:hover {
-  background-color: orangered;
+  background-color: #00a000;
 }
 
 .button-info-container {
@@ -1157,14 +1142,14 @@ body {
   margin: 10px;
   width: 70%;
   height: 35px;
-  background-color: orange;
+  background-color: #ff8000;
   color: white;
   font-size: 17px;
   font-weight: bold;
 }
 
 .login-button:hover {
-  background-color: orangered;
+  background-color: #ffa040;
   cursor: pointer;
 }
 
@@ -1286,21 +1271,17 @@ body {
   color: white;
 }
 
+.admin-edit-button:hover {
+  background-color: gray;
+}
+
 .admin-access-button:hover {
   background-color: rgb(51, 48, 48);
 }
 
 .user-admin-profile {
-  background-color: blue;
+  background-color: #5564eb;
   margin-bottom: 20px;
-}
-
-.user-admin-profile:hover {
-  background-color: rgb(100, 100, 255);
-}
-
-.admin-edit-button:hover {
-  background-color: gray;
 }
 
 .profile-information {
@@ -1339,32 +1320,32 @@ body {
   width: 100%;
   height: 30px;
   margin-bottom: 20px;
-  background-color: orange;
+  background-color: #ff8000;
   color: white;
 }
 
 .profile-edit-button:hover {
-  background-color: gray;
+  background-color: #ffa040;
 }
 
 .profile-logout-button {
   width: 100%;
   height: 30px;
   margin-bottom: 20px;
-  background-color: red;
+  background-color: #ff0000;
   color: white;
 }
 
 .profile-logout-button:hover {
-  background-color: black;
+  background-color: #ff4040;
 }
 
 .profile-save-edit-button {
-  background-color: green;
+  background-color: #008000;
 }
 
 .profile-save-edit-button:hover {
-  background-color: #00b347;
+  background-color: #00a000;
 }
 
 .profile-message-container {
@@ -1376,7 +1357,7 @@ body {
 
 .profile-message {
   font-size: 14px;
-  color: red;
+  color: #ff0000;
   font-weight: bold;
 }
 
@@ -1532,25 +1513,25 @@ body {
 .product-page-button {
   width: 80%;
   margin-bottom: 8px;
-  background: rgb(85, 85, 240);
+  background-color: #5564eb;
   height: 30px;
   color: white;
   font-size: 17px;
 }
 
 .product-page-button:hover {
-  background: rgb(12, 12, 243);
+  opacity: 0.9;
 }
 
 .product-page-price-container {
   font-size: 25px;
-  color: green;
+  color: #008000;
   font-weight: bolder;
 }
 
 .product-page-price {
   font-size: 25px;
-  color: green;
+  color: #008000;
   font-weight: bolder;
   padding-left: 2px;
 }
@@ -1699,7 +1680,7 @@ body {
 .product-detail-price {
   font-weight: 400;
   font-size: 35px;
-  color: green;
+  color: #008000;
 }
 
 .product-detail-form-container {
@@ -1727,14 +1708,14 @@ body {
 .product-detail-button {
   height: 40px;
   width: 50%;
-  background: rgb(85, 85, 240);
+  background-color: #5564eb;
   color: white;
   font-size: 16px;
   margin-top: 20px;
 }
 
 .product-detail-button:hover {
-  background: rgb(12, 12, 243);
+  opacity: 0.9;
 }
 
 .product-extra-info-container {
@@ -1748,7 +1729,7 @@ body {
 .product-extra-info-icon {
   margin-bottom: 15px;
   padding-right: 10px;
-  color: green;
+  color: #008000;
 }
 
 /* -----------------9.1 detalle de producto responsive----------------- */
@@ -1872,7 +1853,7 @@ body {
 }
 
 .no-product-in-cart p {
-  color: red;
+  color: #ff0000;
   font-size: 22px;
 }
 
@@ -1940,7 +1921,7 @@ body {
 }
 
 .product-cart-total-price {
-  color: green;
+  color: #008000;
   font-weight: bold;
   font-size: 19px;
 }
@@ -1957,7 +1938,7 @@ body {
 }
 
 .cart-delete-btn {
-  background-color: red;
+  background-color: #ff0000;
   height: 35px;
 }
 
@@ -1984,15 +1965,14 @@ body {
 }
 
 .final-purchase-btn {
-  background: rgb(85, 85, 240);
+  background: #5564eb;
   height: 40px;
   width: 80%;
   font-size: 18px;
-  text-transform: uppercase;
 }
 
 .final-purchase-btn:hover {
-  background: rgb(12, 12, 243);
+  opacity: 0.9;
 }
 
 /* -----------------10.1 carrito responsive----------------- */
@@ -2108,7 +2088,7 @@ body {
 }
 
 .order-page-thanks {
-  color: green;
+  color: #008000;
   font-size: 22px;
   font-weight: bold;
 }
@@ -2196,10 +2176,14 @@ body {
 .contact-button-send {
   width: 50%;
   height: 35px;
-  background-color: green;
+  background-color: #008000;
   color: white;
   font-size: 16px;
   font-weight: bold;
+}
+
+.contact-button-send:hover {
+ background-color: #00a000;
 }
 
 /* -----------------12.1 pagina de contacto responsive----------------- */
@@ -2298,7 +2282,7 @@ body {
 }
 
 .admin-add-button {
-  background-color: green;
+  background-color: #008000;
   color: white;
   width: 25%;
   height: 30px;
@@ -2356,7 +2340,7 @@ body {
 }
 
 .admin-edit-button {
-  background-color: orange;
+  background-color: #ff8000;
   color: white;
   width: 100px;
   margin-right: 15px;
@@ -2368,14 +2352,14 @@ body {
 }
 
 .admin-delete-button {
-  background-color: red;
+  background-color: #ff0000;
   color: white;
   width: 100px;
   height: 25px;
 }
 
 .admin-delete-button:hover {
-  background-color: black;
+  opacity: 0.6;
 }
 
 /* -----------------13.1 Admin responsive----------------- */
@@ -2545,7 +2529,7 @@ body {
 }
 
 .add-edit-product-create-product-button {
-  background-color: green;
+  background-color: #008000;
   color: white;
   width: 400px;
   height: 40px;
@@ -2658,13 +2642,13 @@ body {
 }
 
 .super-admin-description {
-  color: green;
+  color: #008000;
   font-size: 20px;
   font-weight: bold;
 }
 
 .admin-description {
-  color: blue;
+  color: #5564eb;
   font-size: 20px;
   font-weight: bold;
 }
@@ -2692,11 +2676,11 @@ body {
 }
 
 .super-admin {
-  color: green;
+  color: #008000;
 }
 
 .super-admin-button {
-  background-color: green;
+  background-color: #008000;
 }
 
 .super-admin-button:hover {
@@ -2704,15 +2688,15 @@ body {
 }
 
 .admin {
-  color: blue;
+  color: #5564eb;
 }
 
 .admin-button {
-  background-color: blue;
+  background-color: #5564eb;
 }
 
 .admin-button:hover {
-  background-color: rgb(100, 100, 255);
+  opacity: 0.9;
 }
 
 .user {
@@ -2728,11 +2712,11 @@ body {
 }
 
 .user-delete-button {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 .user-delete-button:hover {
-  background-color: rgb(161, 53, 53);
+  opacity: 0.6;
 }
 
 .admin-users-button {
@@ -2808,12 +2792,12 @@ small {
 }
 
 .wrong-label {
-  color: red;
+  color: #ff0000;
 }
 
 .wrong-input,
 .wrong-input:focus {
-  border: 2px solid red;
+  border: 2px solid #ff0000;
 }
 
 .front-error-active,
@@ -2833,7 +2817,7 @@ small {
 
 /* -----------------16.2 login/register----------------- */
 .front-login-register-error-style {
-  color: red;
+  color: #ff0000;
   font-size: 10px;
   font-weight: 700;
   padding-top: 5px;
@@ -2841,7 +2825,7 @@ small {
 
 /* -----------------16.3 perfil de usuario----------------- */
 .front-profile-error-style {
-  color: red;
+  color: #ff0000;
   font-style: bold;
   font-size: 10px;
   font-weight: 700;
@@ -2851,7 +2835,7 @@ small {
 
 /* -----------------16.4 productos/rutinas----------------- */
 .front-create-rutine-error-style {
-  color: red;
+  color: #ff0000;
   font-size: 10px;
   font-weight: 700;
   padding-top: 2px;
@@ -2860,14 +2844,14 @@ small {
 
 /* -----------------16.5 pagina de contacto----------------- */
 .front-contact-error-style {
-  color: red;
+  color: #ff0000;
   font-size: 10px;
   font-weight: 700;
   padding-top: 5px;
 }
 
 .front-contact-textarea-error-style {
-  color: red;
+  color: #ff0000;
   font-size: 10px;
   font-weight: 700;
   padding-top: 5px;
@@ -2884,7 +2868,7 @@ small {
 }
 
 .validation-error {
-  color: red;
+  color: #ff0000;
   font-size: 13px;
   font-weight: 600;
   margin: 5px 0px;
@@ -2892,7 +2876,7 @@ small {
 
 /* -----------------17.2 productos/rutinas----------------- */
 .validation-error-product-title {
-  color: red;
+  color: #ff0000;
   font-size: 15px;
   font-weight: 700;
   position: relative;
@@ -2901,14 +2885,14 @@ small {
 }
 
 .validation-error-product {
-  color: red;
+  color: #ff0000;
   font-size: 10px;
   font-weight: 700;
 }
 
 /* -----------------17.3 login/register----------------- */
 .validation-error-register {
-  color: red;
+  color: #ff0000;
   font-size: 10px;
   font-weight: 700;
   padding-top: 5px;
@@ -2918,7 +2902,7 @@ small {
 /* -----------------17.4 perfil de usuario----------------- */
 
 .validation-error-profile {
-  color: red;
+  color: #ff0000;
   font-size: 9px;
   font-weight: 700;
   padding-top: 5px;
@@ -2926,7 +2910,7 @@ small {
 
 /* -----------------17.5 pagina de contacto----------------- */
 .validation-error-contact {
-  color: red;
+  color: #ff0000;
   font-size: 10px;
   font-weight: 700;
   margin-top: 5px;

@@ -37,48 +37,48 @@ let estado = {
 
 /* Distribuidor */
 const validator = (inputElement, event) => {
-  if (inputElement.name == "name") {
+  if (inputElement.name === "name") {
     /*1- Empty*/ emptyValidator(inputElement)
     if (inputElement.value != "") {
       /*2- Expresiones name*/ validExpName(inputElement, expresiones.name)
     }
   }
-  if (inputElement.name == "price") {
+  if (inputElement.name === "price") {
     /*1- Empty*/ emptyValidator(inputElement)
     if (inputElement.value != "") {
       /*6- Extension precio*/ extPrice(inputElement, expresiones.price)
       /*8- Validar mayor a 0*/ positiveNumber(inputElement)
     }
   }
-  if (inputElement.name == "introduction") {
+  if (inputElement.name === "introduction") {
     /*1- Empty*/ emptyValidator(inputElement)
     if (inputElement.value != "") {
       /*7- Extension introduccion*/ extIntroduction(inputElement)
     }
   }
-  if (inputElement.name == "description") {
+  if (inputElement.name === "description") {
     /*9- Empty description*/ blankDescription(inputElement)
     if (inputElement.value != "") {
       /*5- Extension description*/ extDescription(inputElement)
     }
   }
-  if (inputElement.name == "weight") {
+  if (inputElement.name === "weight") {
     /*1- Empty*/ emptyValidator(inputElement)
     if (inputElement.value != "") {
       /*8- Validar mayor a 0*/ positiveNumber(inputElement)
     }
   }
-  if (inputElement.name == "size") {
+  if (inputElement.name === "size") {
     /*1- Empty*/ emptyValidator(inputElement)
   }
-  if (inputElement.name == "material") {
+  if (inputElement.name === "material") {
     /*1- Empty*/ emptyValidator(inputElement)
   }
 }
 
 /* Validador 1 empty o campo obligatorio */
 const emptyValidator = (inputElement) => {
-  if (inputElement.value == "") {
+  if (inputElement.value === "") {
     //add error
     error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
     error(inputElement.name, "small").classList.add("front-blank-error-active")
@@ -141,7 +141,7 @@ const extDescription = (inputElement) => {
 
 /* Validador 4 submit */
 const blankSubmitValidator = (inputElement) => {
-  if (inputElement.value == "") {
+  if (inputElement.value === "") {
     //add error
     error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
     error(inputElement.name, "small").classList.add("front-blank-error-active")
@@ -223,7 +223,7 @@ const positiveNumber = (inputElement) => {
 
 /* Validador 8 blank description */
 const blankDescription = (inputElement) => {
-  if (inputElement.value == "") {
+  if (inputElement.value === "") {
     //add error
     error(inputElement.name, "small").classList.remove("front-blank-error-inactive")
     error(inputElement.name, "small").classList.add("front-blank-error-active")

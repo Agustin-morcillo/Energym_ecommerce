@@ -17,7 +17,7 @@ let estado = {
 
 /* Funcion que chequea si los campos estan en blanco */
 const blankInput = (input) => {
-  if (input.value == "") {
+  if (input.value === "") {
     estado[input.name] = false
 
     /* blank textarea */

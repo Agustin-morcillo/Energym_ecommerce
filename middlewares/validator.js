@@ -66,7 +66,7 @@ const validator = {
       .withMessage("El email ingresado no tiene un formato válido.")
       .bail()
       .custom((value, { req }) => {
-        return value == req.body.retypeEmail
+        return value === req.body.retypeEmail
       })
       .withMessage("Los emails no coinciden.")
       .bail()
@@ -96,7 +96,7 @@ const validator = {
       .withMessage("La contraseña debe tener al menos una: mayúscula, minúscula, número y carácter especial.")
       .bail()
       .custom((value, { req }) => {
-        return value == req.body.retype
+        return value === req.body.retype
       })
       .withMessage("Las contraseñas no coinciden."),
     body("retype")

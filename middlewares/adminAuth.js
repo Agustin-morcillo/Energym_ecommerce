@@ -4,4 +4,5 @@ const adminAuth = (req, res, next) => {
   }
   return res.redirect("/")
 }
+
 module.exports = adminAuth

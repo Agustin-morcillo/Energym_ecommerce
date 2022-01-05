@@ -77,13 +77,13 @@
 
             <div class="home-products-container">
                 <% for(let product of productsHome) { %>
-                    <div class="home-product-cart">
+                    <div class="home-product-card">
                         <img src="images/products/<%=product.image%>" alt="<%=product.altImage%>" class="home-product-img ">
                         <h2 class="home-product-name">
                             <%=product.name%>
                         </h2>
-                        <p class="home-product-description">
-                            <%=product.description%>
+                        <p class="home-product-introduction">
+                            <%=product.introduction%>
                         </p>
                         <p class="home-product-price-container">
                             $<span class="home-product-price price-global">

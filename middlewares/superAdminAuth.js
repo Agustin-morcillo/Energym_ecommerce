@@ -5,4 +5,5 @@ const superAdminAuth = (req, res, next) => {
 
   return res.redirect("/")
 }
+
 module.exports = superAdminAuth
